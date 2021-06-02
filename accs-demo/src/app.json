@@ -1,0 +1,14 @@
+{
+  "routes": [{
+    "path": "/",
+    "source": "pages/Home/index",
+    "spm": "23330527"
+  }],
+  "window": {
+    "title": "ACCS demo"
+  },
+  "spm": "a21dwt",
+  "metas": [
+    "<meta name=\"aplus-waiting\" content=\"MAN\">"
+  ]
+}
