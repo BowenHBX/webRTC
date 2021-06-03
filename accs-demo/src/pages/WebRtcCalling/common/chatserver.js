@@ -1,73 +1,38 @@
-//#!/usr/bin/env node
-//
-// WebSocket chat server
-// Implemented using Node.js
-//
-// Requires the websocket module.
-//
-// WebSocket and WebRTC based multi-user chat sample with two-way video
-// calling, including use of TURN if applicable or necessary.
-//
-// This file contains the JavaScript code that implements the server-side
-// functionality of the chat system, including user ID management, message
-// reflection, and routing of private messages, including support for
-// sending through unknown JSON objects to support custom apps and signaling
-// for WebRTC.
-//
-// Requires Node.js and the websocket module (WebSocket-Node):
-//
-//  - http://nodejs.org/
-//  - https://github.com/theturtle32/WebSocket-Node
-//
-// To read about how this sample works:  http://bit.ly/webrtc-from-chat
-//
-// Any copyright is dedicated to the Public Domain.
-// http://creativecommons.org/publicdomain/zero/1.0/
-
 "use strict";
 
-var http = require('http');
-var https = require('https');
-var fs = require('fs');
-var WebSocketServer = require('websocket').server;
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+const WebSocketServer = require('websocket').server;
 
-// Pathnames of the SSL key and certificate files to use for
+// SSL key 和 certificate 文件的文件路径
 // HTTPS connections.
 
 const keyFilePath = "/Users/ali/own/tls/server.key";
 const certFilePath = "/Users/ali/own/tls/server.crt";
-// const keyFilePath = "";
-// const certFilePath = "";
 
-// Used for managing the text chat user list.
+// 聊天用户连接
+let connectionArray = [];
+let nextID = Date.now();
+let appendToMakeUnique = 1;
 
-var connectionArray = [];
-var nextID = Date.now();
-var appendToMakeUnique = 1;
-
-// Output logging information to console
-
+// 日志
 function log(text) {
   var time = new Date();
-
   console.log("[" + time.toLocaleTimeString() + "] " + text);
 }
 
-// If you want to implement support for blocking specific origins, this is
-// where you do it. Just return false to refuse WebSocket connections given
-// the specified origin.
+// 可以指定origin去允许连接
 function originIsAllowed(origin) {
-  return true;    // We will accept all connections
+  return true;    // 接收所有连接
 }
 
-// Scans the list of users and see if the specified name is unique. If it is,
-// return true. Otherwise, returns false. We want all users to have unique
-// names.
+// 扫描用户列表，确保每个用户名是唯一的
 function isUsernameUnique(name) {
   var isUnique = true;
   var i;
 
-  for (i=0; i<connectionArray.length; i++) {
+  for (i = 0; i < connectionArray.length; i++) {
     if (connectionArray[i].username === name) {
       isUnique = false;
       break;
@@ -76,14 +41,12 @@ function isUsernameUnique(name) {
   return isUnique;
 }
 
-// Sends a message (which is already stringified JSON) to a single
-// user, given their username. We use this for the WebRTC signaling,
-// and we could use it for private text messaging.
+// 发送消息给指定用户，WebRTC signaling需要用到
 function sendToOneUser(target, msgString) {
   var isUnique = true;
   var i;
 
-  for (i=0; i<connectionArray.length; i++) {
+  for (i = 0; i < connectionArray.length; i++) {
     if (connectionArray[i].username === target) {
       connectionArray[i].sendUTF(msgString);
       break;
@@ -91,14 +54,12 @@ function sendToOneUser(target, msgString) {
   }
 }
 
-// Scan the list of connections and return the one for the specified
-// clientID. Each login gets an ID that doesn't change during the session,
-// so it can be tracked across username changes.
+// 根据clientID返回连接
 function getConnectionForID(id) {
   var connect = null;
   var i;
 
-  for (i=0; i<connectionArray.length; i++) {
+  for (i = 0; i < connectionArray.length; i++) {
     if (connectionArray[i].clientID === id) {
       connect = connectionArray[i];
       break;
@@ -119,8 +80,7 @@ function makeUserListMessage() {
   var i;
 
   // Add the users to the list
-
-  for (i=0; i<connectionArray.length; i++) {
+  for (i = 0; i < connectionArray.length; i++) {
     userListMsg.users.push(connectionArray[i].username);
   }
 
@@ -136,7 +96,7 @@ function sendUserListToAll() {
   var userListMsgStr = JSON.stringify(userListMsg);
   var i;
 
-  for (i=0; i<connectionArray.length; i++) {
+  for (i = 0; i < connectionArray.length; i++) {
     connectionArray[i].sendUTF(userListMsgStr);
   }
 }
@@ -144,7 +104,6 @@ function sendUserListToAll() {
 
 // Try to load the key and certificate files for SSL so we can
 // do HTTPS (required for non-local WebRTC).
-
 var httpsOptions = {
   key: null,
   cert: null
@@ -154,11 +113,11 @@ try {
   httpsOptions.key = fs.readFileSync(keyFilePath);
   try {
     httpsOptions.cert = fs.readFileSync(certFilePath);
-  } catch(err) {
+  } catch (err) {
     httpsOptions.key = null;
     httpsOptions.cert = null;
   }
-} catch(err) {
+} catch (err) {
   httpsOptions.key = null;
   httpsOptions.cert = null;
 }
@@ -172,14 +131,14 @@ try {
   if (httpsOptions.key && httpsOptions.cert) {
     webServer = https.createServer(httpsOptions, handleWebRequest);
   }
-} catch(err) {
+} catch (err) {
   webServer = null;
 }
 
 if (!webServer) {
   try {
     webServer = http.createServer({}, handleWebRequest);
-  } catch(err) {
+  } catch (err) {
     webServer = null;
     log(`Error attempting to create HTTP(s) server: ${err.toString()}`);
   }
@@ -192,7 +151,7 @@ if (!webServer) {
 // want to, you can return real HTML here and serve Web content.
 
 function handleWebRequest(request, response) {
-  log ("Received request for " + request.url);
+  log("Received request for " + request.url);
   response.writeHead(404);
   response.end();
 }
@@ -200,7 +159,7 @@ function handleWebRequest(request, response) {
 // Spin up the HTTPS server on the port assigned to this sample.
 // This will be turned into a WebSocket port very shortly.
 
-webServer.listen(6503, function() {
+webServer.listen(6503, function () {
   log("Server is listening on port 6503");
 });
 
@@ -219,7 +178,7 @@ if (!wsServer) {
 // called whenever a user connects to the server's port using the
 // WebSocket protocol.
 
-wsServer.on('request', function(request) {
+wsServer.on('request', function (request) {
   if (!originIsAllowed(request.origin)) {
     request.reject();
     log("Connection from " + request.origin + " rejected.");
@@ -227,11 +186,9 @@ wsServer.on('request', function(request) {
   }
 
   // Accept the request and get a connection.
-
   var connection = request.accept("json", request.origin);
 
   // Add the new connection to our list of connections.
-
   log("Connection accepted from " + connection.remoteAddress + ".");
   connectionArray.push(connection);
 
@@ -252,7 +209,7 @@ wsServer.on('request', function(request) {
   // users, a private message (text or signaling) for one user, or a command
   // to the server.
 
-  connection.on('message', function(message) {
+  connection.on('message', function (message) {
     if (message.type === 'utf8') {
       log("Received Message: " + message.utf8Data);
 
@@ -268,7 +225,7 @@ wsServer.on('request', function(request) {
       // Messages with a "target" property are sent only to a user
       // by that name.
 
-      switch(msg.type) {
+      switch (msg.type) {
         // Public, textual message
         case "message":
           msg.name = connect.username;
@@ -325,7 +282,7 @@ wsServer.on('request', function(request) {
         if (msg.target && msg.target !== undefined && msg.target.length !== 0) {
           sendToOneUser(msg.target, msgString);
         } else {
-          for (i=0; i<connectionArray.length; i++) {
+          for (i = 0; i < connectionArray.length; i++) {
             connectionArray[i].sendUTF(msgString);
           }
         }
@@ -335,9 +292,9 @@ wsServer.on('request', function(request) {
 
   // Handle the WebSocket "close" event; this means a user has logged off
   // or has been disconnected.
-  connection.on('close', function(reason, description) {
+  connection.on('close', function (reason, description) {
     // First, remove the connection from the list of connections.
-    connectionArray = connectionArray.filter(function(el, idx, ar) {
+    connectionArray = connectionArray.filter(function (el, idx, ar) {
       return el.connected;
     });
 
@@ -348,7 +305,7 @@ wsServer.on('request', function(request) {
     // Build and output log output for close information.
 
     var logMessage = "Connection closed: " + connection.remoteAddress + " (" +
-                     reason;
+      reason;
     if (description !== null && description.length !== 0) {
       logMessage += ": " + description;
     }
