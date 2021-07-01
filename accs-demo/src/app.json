@@ -6,8 +6,13 @@
       "spm": "23330527"
     },
     {
-      "path": "/webrtc-calling",
+      "path": "/webrtccalling",
       "source": "pages/WebRtcCalling/index",
+      "spm": "webrtc-calling"
+    },
+    {
+      "path": "/marvelcloud",
+      "source": "pages/MarvelCloud/index",
       "spm": "webrtc-calling"
     }
   ],

@@ -4,7 +4,8 @@
   "description": "Rax 无线跨端应用工程，使用 TypeScript。",
   "version": "0.1.0",
   "scripts": {
-    "start": "rax-app start --https",
+    "start": "rax-app start",
+    "start-https": "rax-app start --https --enable-assets",
     "build": "rax-app build",
     "eslint": "eslint --ext .js,.jsx,.tsx,.ts ./",
     "eslint-fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ./",
@@ -14,8 +15,12 @@
   },
   "dependencies": {
     "@ali/lib-accs": "^0.4.11",
+    "@ali/marvel-cloud": "^0.0.1-beta.1624587165745",
     "@ali/universal-event-tracking": "^1.0.0",
+    "@ali/universal-mtop": "^6.3.1",
     "@alifd/meet": "^2.3.2",
+    "eventemitter3": "^4.0.7",
+    "protobufjs": "^6.11.2",
     "rax": "^1.1.0",
     "rax-document": "^0.1.0",
     "rax-image": "^2.0.0",
@@ -27,14 +32,14 @@
     "websocket": "^1.0.34"
   },
   "devDependencies": {
-    "rax-app": "^3.0.0",
+    "@ali/build-plugin-event-tracking-register": "^1.0.0",
+    "@ali/build-plugin-rax-app-def": "^3.0.0",
     "@iceworks/spec": "^1.0.0",
     "@types/rax": "^1.0.0",
     "eslint": "^6.8.0",
     "prettier": "^2.1.2",
-    "stylelint": "^13.7.2",
-    "@ali/build-plugin-rax-app-def": "^3.0.0",
-    "@ali/build-plugin-event-tracking-register": "^1.0.0"
+    "rax-app": "^3.6.2",
+    "stylelint": "^13.7.2"
   },
   "private": true,
   "originTemplate": "@rax-materials/scaffolds-app-ts"

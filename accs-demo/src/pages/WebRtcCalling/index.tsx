@@ -1,12 +1,10 @@
 import { createElement, useCallback, useEffect, useRef, useState } from 'rax';
-import View from 'rax-view';
-import Text from 'rax-text';
-import libAccs from '@ali/lib-accs';
-import TextInput from 'rax-textinput';
 import { Button } from '@alifd/meet';
 
 import { connect, hangUpCall, handleKey, handleSendButton } from './common/chatclient';
 import 'webrtc-adapter/out/adapter.js';
+import adapater from 'webrtc-adapter';
+import MarvelCloud from '@ali/marvel-cloud';
 
 import './index.module.css';
 import './shared.css'
@@ -14,6 +12,13 @@ import './shared.css'
 const Home = () => {
   const [msg, setMsg] = useState('');
   const msgRef = useRef('');
+
+  useEffect(() => {
+    console.log('MarvelCloud', MarvelCloud);
+    const ma = new MarvelCloud();
+    console.log('MarvelCloud', ma.demo());
+    // console.log('adapater', adapater, adapater.sdp.isValidSDP(), ma);
+  }, []);
 
   useEffect(() => {
     console.log('msg', msg);
@@ -65,7 +70,7 @@ const Home = () => {
       <div class="chat-controls">
         <span>聊天：</span><br />
         <input id="text" type="text" name="text" placeholder="说些什么..." autocomplete="off" disabled />
-      
+
         {/* <TextInput
           onChangeText={(text) => { setMsg(text); }}
           value={msg} name={'text'}

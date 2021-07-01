@@ -1,0 +1,862 @@
+syntax = "proto3";
+
+option cc_enable_arenas = true;
+package com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
+
+//消息报文
+message ProtoMessage
+{
+  MessageHeader   msg_header  = 1;
+  MessageContent  msg_content = 2;
+}
+
+message UserSessionInfo
+{
+  string session_id       = 1;
+  string user_id          = 2;
+  string device_id        = 3;
+  string stream_url       = 11;
+  string msg_url          = 12;
+}
+
+message EnvelopedResult
+{
+  string user_id = 1;
+  string device_id = 2;
+  Result result = 3;
+}
+
+
+
+//消息头部
+message MessageHeader
+{
+  uint32 proto_ver  = 1; //本协议版本号(固定为1,如协议有变化则随之改变)
+  string session_id = 2; //会话uuid,会话协商时请置空
+}
+
+//消息内容
+message MessageContent
+{
+  repeated Command  req_list = 1; //本端向对端发起的命令请求
+  repeated Result   rsp_list = 2; //本端执行对端命令的结果返回
+}
+
+message CommandHeader
+{
+  enum CHANNEL_ID
+  {
+    CHANNEL_UNDEFINED         = 0;
+    CHANNEL_EXECUTE_IN_ORDER  = 1;//有序执行
+    CHANNEL_EXECUTE_RANDOMLY  = 2;//乱序执行
+  }
+  CHANNEL_ID channel_id       = 1;
+  uint64     seq_id           = 2;
+}
+
+message Command
+{
+  CommandHeader command_header        = 1;
+  bool force_resp                     = 2; //如果命令无结果返回，则默认不会返回相应的Result，如果需要强确认时可设置此标志为true，默认不返回
+  reserved 3 to 99;
+  reserved 222 to 999;
+
+  oneof data
+  {
+    /** system management,network etc. 100~199 */
+    SystemRequireResendCommand    SystemRequireResendCommand    = 100;
+
+    /** session management,200~299 */
+    SessionCreateNewCommand       sessionCreateNewCommand       = 200;
+    SessionPrepareRTCCommand      sessionPrepareRTCCommand      = 201;
+    SessionBeginCommand           sessionBeginCommand           = 202;
+    SessionKeepaliveCommand       sessionKeepaliveCommand       = 210;
+    SessionEndCurrentCommand      sessionEndCurrentCommand      = 220;
+    SessionInvalidCurrentCommand  sessionInvalidCurrentCommand  = 221;
+
+    /** resource related, 1000~1999 **/
+
+    /** project related, 2000~ 2999 **/
+    ProjectLoadCommand projectLoadCommand                                                                 = 2001;
+    ProjectSaveCommand projectSaveCommand                                                                 = 2002;
+    ProjectNewCommand projectNewCommand                                                                   = 2003;
+    ProjectCloseCommand projectCloseCommand                                                               = 2004;
+
+    /** editor related, 3000~ 3999 **/
+    EditorUndoCommand editorUndoCommand                                                                   = 3004;
+    EditorRedoCommand editorRedoCommand                                                                   = 3005;
+    EditorGetStackSizeCommand editorGetStackSizeCommand                                                   = 3006;
+    EditorSetCanvasPropertiesCommand editorSetCanvasPropertiesCommand                                     = 3007;
+    EditorGetCanvasPropertiesCommand editorGetCanvasPropertiesCommand                                     = 3008;
+    EditorAddMainClipCommand editorAddMainClipCommand                                                     = 3009;
+    EditorAddLookupClipCommand editorAddLookupClipCommand                                                 = 3010;
+    EditorAddPipClipCommand editorAddPipClipCommand                                                       = 3011;
+    EditorAddMusicClipCommand editorAddMusicClipCommand                                                   = 3012;
+    EditorAddTextClipCommand editorAddTextClipCommand                                                     = 3013;
+    EditorAddStickerClipCommand editorAddStickerClipCommand                                               = 3014;
+    EditorAddExtensionClipCommand editorAddExtensionClipCommand                                           = 3015;
+    EditorChangeClipResourceCommand editorChangeClipResourceCommand                                       = 3016;
+    EditorSplitClipCommand editorSplitClipCommand                                                         = 3017;
+    EditorDeleteClipCommand editorDeleteClipCommand                                                       = 3018;
+    EditorMoveClipCommand editorMoveClipCommand                                                           = 3019;
+    EditorRemoveTrackCommand editorRemoveTrackCommand                                                     = 3020;
+    EditorSetClipLookupCommand editorSetClipLookupCommand                                                 = 3021;
+    EditorSetTransitionDurationUsCommand editorSetTransitionDurationUsCommand                             = 3024;
+    EditorRemoveTransitionCommand editorRemoveTransitionCommand                                           = 3025;
+    EditorSetClipCropCommand editorSetClipCropCommand                                                     = 3029;
+    EditorSetClipCanvasBackgroundCommand editorSetClipCanvasBackgroundCommand                             = 3030;
+    EditorSetClipCanvasBackgroundResCommand editorSetClipCanvasBackgroundResCommand                       = 3031;
+    EditorSetClipCanvasBackgroundBlurTypeCommand editorSetClipCanvasBackgroundBlurTypeCommand             = 3032;
+    EditorDeleteMaterialCommand editorDeleteMaterialCommand                                               = 3033;
+    EditorCheckToAddMaterialCommand editorCheckToAddMaterialCommand                                       = 3034;
+    EditorSetTransitionEffectCommand editorSetTransitionEffectCommand                                     = 3035;
+    EditorSetResourcePropertiesCommand editorSetResourcePropertiesCommand                                 = 3036;
+    EditorGetResourceDurationUsCommand editorGetResourceDurationUsCommand                                 = 3037;
+    EditorGetResourceSizeCommand editorGetResourceSizeCommand                                             = 3038;
+    EditorGetClipResourceInfoCommand editorGetClipResourceInfoCommand                                     = 3039;
+    EditorSetResourceFullKeyFrameWithResIdCommand editorSetResourceFullKeyFrameWithResIdCommand           = 3041;
+    EditorSetTextCommand editorSetTextCommand                                                             = 3042;
+
+    EditorSetTextColorCommand editorSetTextColorCommand                                                   = 3044;
+    EditorSetTextFontCommand editorSetTextFontCommand                                                     = 3045;
+    EditorSetDefaultFontFileCommand editorSetDefaultFontFileCommand                                       = 3046;
+    EditorSetTextShadowCommand editorSetTextShadowCommand                                                 = 3047;
+    EditorSetTextAlignmentCommand editorSetTextAlignmentCommand                                           = 3048;
+    EditorSetTextOutlineCommand editorSetTextOutlineCommand                                               = 3049;
+    EditorSetTextUnderlineCommand editorSetTextUnderlineCommand                                           = 3050;
+    EditorSetTextBoldCommand editorSetTextBoldCommand                                                     = 3051;
+    EditorSetTextItalicsCommand editorSetTextItalicsCommand                                               = 3052;
+    EditorSetTextWordSpaceCommand editorSetTextWordSpaceCommand                                           = 3053;
+
+    EditorSetScaleCommand editorSetScaleCommand                                                           = 3056;
+    EditorSetPositionCommand editorSetPositionCommand                                                     = 3057;
+    EditorSetAnchorCommand editorSetAnchorCommand                                                         = 3058;
+    EditorSetRotationCommand editorSetRotationCommand                                                     = 3059;
+    EditorSetClipStartTimeUsCommand editorSetClipStartTimeUsCommand                                       = 3060;
+    EditorSetSourceTimeRangeCommand editorSetSourceTimeRnageCommand                                       = 3061;
+    EditorSetClipSpeedCommand editorSetClipSpeedCommand                                                   = 3062;
+    EditorSetClipVolumeCommand editorSetClipVolumeCommand                                                 = 3063;
+    EditorGetClipPropListCommand editorGetClipPropListCommand                                             = 3064;
+    EditorSetClipPropListCommand editorSetClipPropListCommand                                             = 3065;
+
+    EditorGetTrackIdListCommand editorGetTrackIdListCommand                                               = 3070;
+    EditorGetClipIdListCommand editorGetClipIdListCommand                                                 = 3071;
+
+
+    /** viewer related, 4000~ 4999 **/
+    ViewerSetPropertiesCommand viewerSetPropertiesCommand                                                 = 4001;
+    ViewerPrepareCommand viewerPrepareCommand                                                             = 4004;
+    ViewerStartCommand viewerStartCommand                                                                 = 4005;
+    ViewerPauseCommand viewerPauseCommand                                                                 = 4006;
+    ViewerStopCommand viewerStopCommand                                                                   = 4007;
+    ViewerSeekToCommand viewerSeekToCommand                                                               = 4008;
+    ViewerGetStateCommand viewerGetStateCommand                                                           = 4009;
+    ViewerGetDurationUsCommand viewerGetDurationUsCommand                                                 = 4010;
+
+
+    /** exporter related, 5000~ 5999 **/
+    ExporterRunCommand exporterRunCommand                                                                 = 5001;
+    ExporterCancelCommand exporterCancelCommand                                                           = 5002;
+  }
+}
+
+message Result
+{
+  CommandHeader command_header  = 1;
+  enum ERROR_CODE
+  {
+     ERR_UNDEFINE                   = 0;
+     ERROR_SUCCESS                  = 1;
+     ERROR_SYS_INTERNAL_UNKNOWN     = 2;
+     ERROR_SYS_INTERNAL_CORE_FAILED = 3;
+
+     /** 100~200 **/
+     ERROR_PARA_MISSED          = 101;
+     ERROR_PARA_INVALID         = 102;
+
+     ERROR_SESSION_ID_MISSED    = 110;
+     ERROR_SESSION_ID_INVALID   = 111;
+
+     ERROR_RESOURCE_URI_INVALID = 121;
+     ERROR_RESOURCE_NOT_FOUND   = 122;
+
+     ERROR_RTC_UNKNOWN          = 131;
+  }
+  ERROR_CODE  err_code       = 2;
+  string err_msg        = 3;
+  reserved 4,100;
+
+  oneof data{
+    VoidResult voidResult= 101;
+
+    SessionCreateNewCommandResult sessionCreateNewCommandResult                         = 200;
+    SessionPrepareRTCommandResult sessionPrepareRTCommandResult                         = 201;
+
+    EditorGetStackSizeCommandResult editorGetStackSizeCommandResult                     = 3007;
+    EditorGetCanvasPropertiesCommandResult editorGetCanvasPropertiesCommandResult       = 3009;
+    EditorAddMainClipCommandResult editorAddMainClipCommandResult                       = 3010;
+    EditorAddLookupClipCommandResult editorAddLookupClipCommandResult                   = 3011;
+    EditorAddPipClipCommandResult editorAddPipClipCommandResult                         = 3012;
+    EditorAddMusicClipCommandResult editorAddMusicClipCommandResult                     = 3013;
+    EditorAddTextClipCommandResult editorAddTextClipCommandResult                       = 3014;
+    EditorAddStickerClipCommandResult editorAddStickerClipCommandResult                 = 3015;
+    EditorAddExtensionClipCommandResult editorAddExtensionClipCommandResult             = 3016;
+
+    EditorSplitClipCommandResult editorSplitClipCommandResult                           = 3018;
+
+    EditorGetResourceDurationUsCommandResult editorGetResourceDurationUsCommandResult   = 3038;
+    EditorGetResourceSizeCommandResult editorGetResourceSizeCommandResult               = 3039;
+    EditorGetClipResourceInfoCommandResult editorGetClipResourceInfoCommandResult       = 3040;
+
+    EditorGetClipPropListResult editorGetClipPropListResult                             = 3064;
+
+    EditorGetTrackIdListCommandResult editorGetTrackIdListCommandResult                 = 3071;
+    EditorGetClipIdListCommandResult editorGetClipIdListCommandResult                   = 3072;
+
+    ViewerGetStateCommandResult viewerGetStateCommandResult                             = 4010;
+    ViewerGetDurationUsCommandResult viewerGetDurationUsCommandResult                   = 4011;
+  }
+}
+
+
+//空结果，只为占位使用
+message VoidResult{}
+
+
+/** System **/
+message SystemRequireResendCommand
+{
+  CommandHeader command_header = 1;
+}
+
+
+/** Session related **/
+message SessionCreateNewCommand
+{
+  string app_key    = 1;
+  string app_token  = 2;
+}
+
+message SessionCreateNewCommandResult
+{
+  string session_id = 1;
+}
+
+
+//请求rtc获取拉流地址，如果用户只是浏览项目，不需要在线编辑，则不需要执行本指令
+message SessionPrepareRTCCommand{}
+
+message SessionPrepareRTCommandResult
+{
+    string stream_url       = 1;
+    string msg_url          = 2;
+}
+
+//开始会话，同时设置预热对应的资源
+message SessionBeginCommand{}
+
+//如果空闲太久，需要发这个指令保持会话，否则会释放rtc等资源
+message SessionKeepaliveCommand{}
+
+/*
+* 关闭所有资源，包括本次会话用到的rtc连接
+* 关闭前需要执行相应的指令保存会话资源
+ */
+message SessionEndCurrentCommand{}
+
+//仅服务端下发
+// 场景：
+// 用户在一个端A失效，用另外一个端B时，如果A重试，服务端会下发此信令告知会话无效
+message SessionInvalidCurrentCommand {}
+
+
+/** Project **/
+message ProjectInfo
+{
+  string project_id     = 1;
+  string project_name   = 2;
+}
+
+message ProjectGetProjectListCommand {}
+
+message ProjectGetProjectListResult{
+  repeated ProjectInfo project_list = 1;
+}
+
+message ProjectLoadCommand {
+  string project_id = 1;
+}
+
+message ProjectSaveCommand {
+  string project_id   = 1;
+  string project_name = 2;
+}
+
+message ProjectNewCommand {}
+
+message ProjectCloseCommand {}
+
+
+/** Editor **/
+
+message EditorUndoCommand {}
+
+message EditorRedoCommand {}
+
+message EditorGetStackSizeCommand {}
+
+message EditorGetStackSizeCommandResult {
+  uint32 redo_stack_size = 1;
+  uint32 undo_stack_size = 2;
+}
+
+enum ScaleType {
+    Invalid       = 0;
+    FixXY         = 1;
+    CenterInside  = 2;
+    CenterCrop    = 3;
+    StartCrop     = 4;
+    EndCrop       = 5;
+    FitStart      = 6;
+    FitEnd        = 7;
+}
+
+message EditorSetCanvasPropertiesCommand {
+  uint32 width            = 1;
+  uint32 height           = 2;
+  ScaleType scale_type    = 3;
+  uint32 background_color = 4;
+}
+
+message EditorGetCanvasPropertiesCommand {}
+
+message EditorGetCanvasPropertiesCommandResult {
+  uint32 width = 1;
+  uint32 height = 2;
+  ScaleType scale_type = 3;
+  uint32 background_color = 4;
+}
+
+message EditorAddMainClipCommand {
+  string resource_uri = 1;
+  int64 start_time = 2;
+  int64 end_time   = 3;
+}
+
+message EditorAddMainClipCommandResult {
+  string clip_id = 1;
+}
+
+message EditorAddLookupClipCommand {
+  string track_id     = 1;
+  string resource_uri = 2;
+  float intensity     = 3;
+  int64 start_time = 4;
+  uint64 duration     = 5;
+}
+
+message EditorAddLookupClipCommandResult {
+  string clip_id  = 1;
+}
+
+message EditorAddPipClipCommand {
+  string track_id     = 1;
+  string resource_uri = 2;
+  int64 time_position = 3;
+  int64 start_time = 4;
+  int64 end_time   = 5;
+}
+
+message EditorAddPipClipCommandResult {
+  string clip_id = 1;
+}
+
+message EditorAddMusicClipCommand {
+  string track_id     = 1;
+  string resource_uri = 2;
+  int64 time_position = 3;
+  int64 start_time = 4;
+  int64 end_time   = 5;
+}
+
+message EditorAddMusicClipCommandResult {
+  string clip_id = 1;
+}
+
+message EditorAddTextClipCommand {
+  string track_id       = 1;
+  string content        = 2;
+  int64 start_time      = 3;
+  int64 duration        = 4;
+}
+
+message EditorAddTextClipCommandResult {
+  string clip_id = 1;
+}
+
+message EditorAddStickerClipCommand {
+  string track_id     = 1;
+  string resource_uri = 2;
+  int64 start_time = 3;
+  uint64 duration  = 4;
+}
+
+message EditorAddStickerClipCommandResult {
+  string clip_id = 1;
+}
+
+enum SourceType {
+  SourceInvalid   = 0;
+  SourceUnknown   = 1;
+  SourceTexture   = 2;
+  SourcePcm       = 3;
+  SourceAll       = 4;
+}
+
+message EditorAddExtensionClipCommand {
+  string track_id           = 1;
+  string resource_uri       = 2;
+  int64 start_time          = 3;
+  uint64 duration           = 4;
+  string name               = 5;
+  SourceType  source_type   = 6;
+  int64 flag                = 7;
+}
+
+message EditorAddExtensionClipCommandResult {
+  string clip_id = 1;
+}
+
+message EditorChangeClipResourceCommand {
+  string clip_id      = 1;
+  string resource_uri = 2;
+  int64 start_time    = 3;
+  int64 end_time      = 4;
+}
+
+message EditorSplitClipCommand {
+  string clip_id = 1;
+  int64 position = 2;
+}
+
+message EditorSplitClipCommandResult {
+  string clip_id = 1;
+}
+
+message EditorDeleteClipCommand {
+  string clip_id = 1;
+}
+
+message EditorMoveClipCommand {
+  string clip_id          = 1;
+  int64 time_position     = 2;
+  string track_id         = 3;
+}
+
+message EditorRemoveTrackCommand {
+  string track_id = 1;
+}
+
+message EditorSetClipLookupCommand {
+  string clip_id      = 1;
+  string resource_uri = 2;
+  float intensity     = 3;
+}
+
+message EditorSetTransitionDurationUsCommand {
+  string clip_id = 1;
+  uint64 duration_us = 2;
+}
+
+message EditorRemoveTransitionCommand {
+  string clip_id = 1;
+}
+
+message EditorProp
+{
+  string prop_key       = 1;
+  string prop_type      = 2;
+  oneof value
+  {
+    VoidResult void_val = 3;
+    double float_val    = 4;
+    string str_val      = 5;
+    int64 int_val       = 6;
+  }
+}
+
+message EditorPropDef
+{
+  enum PropValueType
+  {
+    PROP_VALUE_TYPE_INVALID = 0;
+    PROP_VALUE_TYPE_STRING  = 1;
+    PROP_VALUE_TYPE_DOUBLE  = 2;
+    PROP_VALUE_TYPE_INT64   = 3;
+  }
+  string prop_key             = 1;
+  string prop_type            = 2;
+  PropValueType prop_val_type = 3;
+}
+
+message EditorGetClipPropListCommand
+{
+  string clip_id                       = 1;
+  repeated EditorPropDef prop_def_list = 2;
+}
+
+//短期支持，长期走业务接口
+message EditorGetClipPropListResult
+{
+  repeated EditorProp prop_list = 1;
+}
+
+//短期支持，长期走业务接口
+//结果只有成功或失败，需要端上重试
+message EditorSetClipPropListCommand
+{
+  string clip_id                        = 1;
+  repeated EditorProp prop_list         = 2;
+}
+
+message EditorSetClipCropCommand {
+  string clip_id = 1;
+  float x = 2;
+  float y = 3;
+  float w = 4;
+  float h = 5;
+  float rotation = 6;
+  bool rotate_by_center = 7;
+  bool normalize = 8;
+}
+
+message EditorSetClipCanvasBackgroundCommand {
+  string clip_id = 1;
+  uint32 color = 2;
+}
+
+message EditorSetClipCanvasBackgroundResCommand {
+  string clip_id        = 1;
+  string resource_uri   = 2;
+}
+
+message EditorSetClipCanvasBackgroundBlurTypeCommand {
+  string clip_id = 1;
+  int32 blur_type = 2;
+}
+
+enum ResourceType {
+    ResTypeUnknown  = 0;
+    ResTypeImage    = 1;
+    ResTypeMedia    = 2;
+    ResTypeLookup   = 3;
+    ResTypeSticker  = 4;
+    ResTypeMagic    = 5;
+    ResTypeFont     = 6;
+    ResTypeExtra    = 7;
+}
+
+message EditorDeleteMaterialCommand {
+  string clip_id          = 1;
+  ResourceType res_type   = 2;
+}
+
+message EditorCheckToAddMaterialCommand {
+  string clip_id          = 1;
+  ResourceType res_type   = 2;
+}
+
+enum TransitionMode {
+    TransitionModeInvalid = 0;
+    TransitionOverlay     = 1;
+    TransitionDefault     = 2;
+}
+
+message EditorSetTransitionEffectCommand {
+  string clip_id      = 1;
+  string resource_uri = 2;
+  TransitionMode mode = 3;
+}
+
+message EditorSetResourcePropertiesCommand {
+  string clip_id          = 1;
+  string remote_uri       = 2;
+  string name             = 3;
+  int32 version           = 4;
+  ResourceType  res_type  = 5;
+}
+
+message EditorGetResourceDurationUsCommand {
+  string resource_id = 1;
+}
+
+message EditorGetResourceDurationUsCommandResult {
+  int64 duration = 1;
+}
+
+message EditorGetResourceSizeCommand {
+  string resource_id = 1;
+}
+
+message EditorGetResourceSizeCommandResult {
+  uint32 width = 1;
+  uint32 height = 2;
+}
+
+message EditorGetClipResourceInfoCommand {
+  string clip_id = 1;
+}
+
+message EditorGetClipResourceInfoCommandResult {
+  string resource_id = 1;
+  string resource_url= 2;
+}
+
+message EditorSetResourceFullKeyFrameWithResIdCommand {
+  string resource_id = 1;
+  bool is_full_keyframe = 2;
+}
+
+message EditorSetTextCommand {
+  string clip_id = 1;
+  string content = 2;
+}
+
+message EditorSetTextColorCommand {
+  string clip_id = 1;
+  uint32 color = 2;
+}
+
+message EditorSetTextFontCommand {
+  string clip_id      = 1;
+  string resource_uri = 2;
+}
+
+message EditorSetDefaultFontFileCommand {
+  string resource_uri = 1;
+}
+
+message EditorSetTextShadowCommand {
+  string clip_id  = 1;
+  bool enable     = 2;
+  uint32 color    = 3;
+  float x_offset  = 4;
+  float y_offset  = 5;
+}
+
+enum AlignmentVerticalType
+{
+    ALIGN_VERTICAL_INVALID  = 0;
+    ALIGN_VERTICAL_CENTER   = 1;
+    ALIGN_VERTICAL_TOP      = 2;
+    ALIGN_VERTICAL_BOTTOM   = 3;
+}
+
+enum AlignmentHorizontalType
+{
+    ALIGN_HORIZONTAL_INVALID  = 0;
+    ALIGN_HORIZONTAL_CENTER   = 1;
+    ALIGN_HORIZONTAL_LEFT     = 2;
+    ALIGN_HORIZONTAL_RIGHT    = 3;
+}
+
+message EditorSetTextAlignmentCommand {
+  string clip_id = 1;
+  AlignmentVerticalType alignment_vertical_type     = 2;
+  AlignmentHorizontalType alignment_horizontal_type = 3;
+}
+
+message EditorSetTextOutlineCommand {
+  string clip_id  = 1;
+  bool enable     = 2;
+  uint32 color    = 3;
+  float size      = 4;
+}
+
+message EditorSetTextUnderlineCommand {
+  string clip_id  = 1;
+  bool enable     = 2;
+}
+
+message EditorSetTextBoldCommand {
+  string clip_id = 1;
+  bool enable    = 2;
+}
+
+message EditorSetTextItalicsCommand {
+  string clip_id  = 1;
+  bool enable     = 2;
+}
+
+message EditorSetTextWordSpaceCommand {
+  string clip_id  = 1;
+  float space     = 2;
+}
+
+message EditorSetScaleCommand {
+  string clip_id  = 1;
+  float scale     = 2;
+}
+
+message EditorSetPositionCommand {
+  string clip_id  = 1;
+  float x         = 2;
+  float y         = 3;
+}
+
+message EditorSetAnchorCommand {
+  string clip_id = 1;
+  float x        = 2;
+  float y        = 3;
+}
+
+message EditorSetRotationCommand {
+  string clip_id = 1;
+  float rotation = 2;
+}
+
+message EditorSetClipStartTimeUsCommand {
+  string clip_id = 1;
+  int64 time     = 2;
+}
+
+message EditorSetSourceTimeRangeCommand {
+  string clip_id    = 1;
+  int64 start_time  = 2;
+  int64 end_time    = 3;
+}
+
+message EditorSetClipSpeedCommand {
+  string clip_id = 1;
+  float speed = 2;
+}
+
+message EditorSetClipVolumeCommand {
+  string clip_id = 1;
+  float volume = 2;
+}
+
+enum MarvelTrackType {
+    TrackTypeInvalid = 0;
+    TrackTypeMain =1;
+    TrackTypePip = 2;
+    TrackTypeMusic = 3;
+    TrackTypeBgMusic = 4;
+    TrackTypeSticker = 5;
+    TrackTypeEffect = 6;
+    TrackTypeLookup = 7;
+    TrackTypeCustomize = 8;
+    TrackTypeText = 9;
+    TrackTypeGroup = 10;
+    TrackTypeAll = 11;
+}
+
+message EditorGetTrackIdListCommand {
+  MarvelTrackType track_type = 1;
+}
+
+message EditorGetTrackIdListCommandResult {
+  repeated string values = 1;
+}
+
+message EditorGetClipIdListCommand {
+  string track_id = 1;
+}
+
+message EditorGetClipIdListCommandResult {
+  repeated string values = 1;
+}
+
+/** Viewer **/
+message ViewerSetPropertiesCommand {
+  int32 width           = 1;
+  int32 height          = 2;
+  ScaleType scale_type  = 3;
+}
+
+message ViewerPrepareCommand {}
+
+message ViewerStartCommand {}
+
+message ViewerPauseCommand {}
+
+message ViewerStopCommand {}
+
+enum SeekFlag
+{
+  SeekFLagInvalid = 0;
+  SeekGoing = 1;
+  SeekStart = 2;
+  SeekEnd = 3;
+}
+
+message ViewerSeekToCommand {
+  int64 time      = 1;
+  SeekFlag flag   = 2;
+}
+
+message ViewerGetStateCommand {}
+
+enum ViewerState {
+    ViewInvalid     = 0;
+    ViewerUnInit    = 1;// 未初始化
+    ViewerPrepared  = 2;// 准备完成
+    ViewerRunning   = 3;// 运行中
+    ViewerPaused    = 4;// 暂停态
+    ViewerStopped   = 5;// 停止态
+    ViewerReleased  = 6;// 销毁态
+}
+
+message ViewerGetStateCommandResult {
+  ViewerState viewer_state = 1;
+  int64     current_offset = 2; //当前播放时间(us)
+}
+
+message ViewerGetDurationUsCommand {}
+
+message ViewerGetDurationUsCommandResult {
+  int64 value = 1;
+}
+
+/** MediaExporter **/
+
+enum VideoEncodeFormat {
+  VideoEncodeFormatInvalid  = 0;
+  VideoEncodeFormatH264     = 1;
+  VideoEncodeFormatH265     = 2;
+}
+
+enum AudioEncoding {
+  ENCODING_INVALID    = 0;
+  ENCODING_PCM_16BIT  = 1;
+  ENCODING_AAC        = 2;
+  ENCODING_MP3        = 3;
+}
+
+enum AudioChannel {
+  CHANNEL_INVALID   = 0;
+  CHANNEL_IN_MONO   = 1;
+  CHANNEL_IN_STEREO = 2;
+}
+
+//同一时间仅允许调用一次（同时只能支持一个导出）
+message ExporterRunCommand {
+  string path = 1;
+  int32 width = 2;
+  int32 height = 3;
+  ScaleType scale = 4;
+  VideoEncodeFormat format = 5;
+  int64 video_bps = 6;
+  int32 video_fps = 7;
+  int64 audio_frequency = 8;
+  int64 audio_bps = 9;
+  AudioEncoding audio_encoding = 10;
+  AudioChannel channel = 11;
+}
+
+//导出过程中定期回传直至完成
+message ExporterRunCommandResult {
+  float progress      = 1;
+  string resource_url = 2;
+}
+message ExporterCancelCommand {}

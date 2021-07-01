@@ -20,10 +20,10 @@ var appendToMakeUnique = 1;
 // Load the key and certificate data to be used for our HTTPS/WSS
 // server.
 
-const keyFilePath = "/Users/ali/own/tls/server.key";
-const certFilePath = "/Users/ali/own/tls/server.crt";
-// const keyFilePath = "";
-// const certFilePath = "";
+// const keyFilePath = "/Users/ali/own/tls/server.key";
+// const certFilePath = "/Users/ali/own/tls/server.crt";
+const keyFilePath = "";
+const certFilePath = "";
 
 
 var httpsOptions = {
