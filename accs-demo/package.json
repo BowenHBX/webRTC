@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@ali/lib-accs": "^0.4.11",
-    "@ali/marvel-cloud": "^0.0.1-beta.1624587165745",
+    "@ali/marvel-cloud": "beta",
     "@ali/universal-event-tracking": "^1.0.0",
     "@ali/universal-mtop": "^6.3.1",
     "@alifd/meet": "^2.3.2",

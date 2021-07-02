@@ -1,12 +1,13 @@
 import { createElement, useEffect, useRef, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import Mtop from '@ali/universal-mtop';
 import libAccs, { accsResponse } from '@ali/lib-accs';
 import TextInput from 'rax-textinput';
 import { Button } from '@alifd/meet';
 import * as proto from '@/protobuf/model';
 import * as EventEmitter from 'eventemitter3';
+// import MarvelCloud from '@ali/marvel-cloud';
+import MarvelCloud from '../../marvel-cloud';
 
 const pkg = proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
 
@@ -20,13 +21,6 @@ const Home = () => {
 
   useEffect(() => {
     console.log('lib', window?.lib?.accs);
-
-    Mtop.config({
-      // dangerouslySetProtocol: 'http',
-      prefix: 'msgacs', // mtop的前缀
-      subDomain: 'waptest', // mtop的子域
-      mainDomain: 'taobao.com' // mtop的主域
-    });
 
     (async () => {
       const con = await libAccs.init({
@@ -178,9 +172,9 @@ const Home = () => {
     const buffer = pkg.ProtoMessage.encode(protoMessage).finish();
 
     sendMessage(buffer, 5);
-    setInterval(() => {
-      editorAddMainClipCommand(sid);
-    }, 2000);
+    // setInterval(() => {
+    editorAddMainClipCommand(sid);
+    // }, 2000);
   };
 
   const editorAddMainClipCommand = async (sid: string) => {
@@ -313,14 +307,15 @@ const Home = () => {
   };
 
   const sendMessage = (buffer: Uint8Array, flag) => {
+    const now = +new Date();
     return new Promise((resolve, reject) => {
       __EventEmitter.once(`event-${flag}`, (msg) => {
-        console.log(`__EventEmitter-${flag}`, msg);
+        console.log(`__EventEmitter-${flag}`, +new Date() - now, msg);
         resolve(msg);
       });
 
       conn.send('multimedia_biz_platform', buffer).then((sendResult: accsResponse) => {
-        console.log(`sendResult-${flag}`, sendResult, sendResult.getText());
+        console.log(`sendResult-${flag}`, +new Date() - now, sendResult, sendResult.getText());
         if (sendResult.err !== '0') {
           resolve({ errCode: pkg.Result.ERROR_CODE.ERR_UNDEFINE });
         }
@@ -328,6 +323,12 @@ const Home = () => {
         resolve({ errCode: pkg.Result.ERROR_CODE.ERR_UNDEFINE });
       });
     });
+  }
+
+  const createMarvelCloud = async () => {
+    const mc = await MarvelCloud.create('263662065', 'test', 'bowen');
+    await mc.load('test', true, () => { });
+    console.log('mc', mc);
   }
 
   return (
@@ -339,6 +340,7 @@ const Home = () => {
       />
       <Button onClick={() => { sendMsg(); }}>创建会话</Button>
       <Text>sessionId: {receive}</Text>
+      <Button onClick={() => { createMarvelCloud(); }}>创建会话npm</Button>
     </View>
   );
 };
