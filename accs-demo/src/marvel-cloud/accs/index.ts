@@ -10,13 +10,6 @@ class Accs {
   public __EventEmitter: EventEmitter;
   public seqId: number = 0;
 
-  public MarvelNodeAddonViewer;
-  public MarvelNodeAddonEditProject;
-  public MarvelNodeAddonMeEditor;
-  public MarvelNodeAddonExporter;
-  public MarvelNodeAddonEngine;
-  public MarvelNodeAddonToolbox;
-
   constructor() {
     this.__EventEmitter = new EventEmitter();
   }
@@ -29,6 +22,10 @@ class Accs {
     let conn: H5AccsCore;
     try {
       conn = await libAccs.init({
+        reconnect: true,
+        reconnectInterval: 2000,
+        heartbeat: true,
+        aserverProxy: location.host.indexOf('wapa') ? 'msgacs.waptest.taobao.com' : 'msgacs.m.taobao.com',
         appkey: 'H5_3Cl6Mt52kce4N1', // appkey, 必填，appkey寻找@子琛 申请   32780517  H5_3Cl6Mt52kce4N1
         m_params: {
           api: 'mtop.accs.auth.getH5Token',
@@ -47,7 +44,7 @@ class Accs {
         const buffer = await resp.getBinaryArray();
         // 解析buffer为pb对象
         const object: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = pkg.Result.decode(buffer);
-        console.log('object: ', object);
+        // console.log('object: ', object);
         if (object.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS) {
           this.__EventEmitter.emit(`event-${object.commandHeader?.seqId}`, object);
         }

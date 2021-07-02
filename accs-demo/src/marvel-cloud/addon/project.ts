@@ -28,7 +28,7 @@ class Project implements EditProject {
    * 获取sessionId
    * @param userId 
    */
-  public async getSessionId(userId: string) {
+  public async getSessionId(userId: string): Promise<string> {
     const currentSeqId = this._accs.getSeqId();
     const pbMsg = new ProtoMessage(userId, currentSeqId);
     let sessionCreateNewCommand = new pkg.SessionCreateNewCommand();
@@ -46,9 +46,12 @@ class Project implements EditProject {
         // 获取sessionId
         const { sessionId } = result.sessionCreateNewCommandResult;
         this.sessionId = sessionId;
+        return sessionId;
       }
+      return '';
     } catch (error) {
       console.log('[Error]: getSessionId', error);
+      return '';
     }
   }
 
@@ -118,6 +121,7 @@ class Project implements EditProject {
 
   /**
   * project load
+  * @param path projectId
   */
   private async projectLoadCommand(path: string): Promise<boolean> {
     const currentSeqId = this._accs.getSeqId();
@@ -129,9 +133,9 @@ class Project implements EditProject {
     const buffer = pbMsg.generateMessage(command);
 
     try {
-      console.log('ProjectLoadCommand-buffer', buffer);
+      // console.log('ProjectLoadCommand-buffer', buffer);
       const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId, true);
-      console.log('ProjectLoadCommand-result', result);
+      // console.log('ProjectLoadCommand-result', result);
 
       return result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS;
     } catch (error) {
@@ -140,20 +144,49 @@ class Project implements EditProject {
     }
   }
 
-  async load(path: string, keepalive, resoureceCallback: () => void): Promise<proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionPrepareRTCommandResult> {
+  /**
+  * new a project
+  */
+  private async projectNewCommand(path: string): Promise<boolean> {
+    const currentSeqId = this._accs.getSeqId();
+    const pbMsg = new ProtoMessage(this._userId, currentSeqId, this.sessionId);
+    let projectNewCommand = new pkg.ProjectNewCommand();
+    let command = new pkg.Command();
+    command.projectNewCommand = projectNewCommand;
+    const buffer = pbMsg.generateMessage(command);
+
+    try {
+      // console.log('ProjectLoadCommand-buffer', buffer);
+      const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId, true);
+      // console.log('projectNewCommand-result', result);
+
+      return result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS;
+    } catch (error) {
+      console.log('[Error]: projectNewCommand', error);
+      return false;
+    }
+  }
+
+  /**
+   * 加载项目
+   * @param path 
+   * '' 空串表示新建
+   * 有值表示load
+   * @param keepalive 
+   * @returns 
+   */
+  async load(path: string, keepalive: boolean): Promise<proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionPrepareRTCommandResult> {
     if (!this.sessionId) {
       await this.getSessionId(this._userId);
     }
     const webRTC = await this.getWebRTCInfo();
     if (webRTC.msgUrl) {
       const beginCommand = await this.sendBeginCommand();
-      console.log('beginCommand', beginCommand, keepalive);
       if (beginCommand) {
         if (keepalive) {
           setInterval(this.keepAlive, 10 * 60 * 1000);
         }
-        const load = await this.projectLoadCommand(path);
-        console.log('beginCommand-load', beginCommand);
+        const load = path ? await this.projectLoadCommand(path) : await this.projectNewCommand(path);
         if (load) {
           return webRTC;
         }

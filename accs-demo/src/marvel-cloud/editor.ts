@@ -1,30 +1,508 @@
-import { EventEmitter } from 'events';
+// import { EventEmitter } from 'events';
 // import { BaseClipInfo, ClipId, ClipInfo, ClipType, ColorHEX, MarvelClipInfo, PanelInfo, Path, Ret, XYPosition, SourceClipInfo, TextClipInfo, TextStyle, TimeUS, TrackId, TrackInfo, TrackType, TransformProperty, TransitionClipInfo, CanvasClipInfo, ColorARGB, CanvasScaleType, GlobalBaseMarvelAddonMeEditor, LookupClipInfo, MagicClipInfo, StickerClipInfo, DoubleFloat, ResId, MarvelNodeAddonMeEditor, MaskInfo, ClipMeasure, Measure, Voice, CanvasKeyframeMaterialKey, KeyframeType, KeyframePointList, KeyframeInfo, DynamicUIClipInfo, SourceType, DynamicUIType } from './@types';
 // import C from './@types/C'
 // import { ARGBToHex, degreeToFloat, floatToDegree, floatToPixel, HexToARGB, pixelToFloat } from './util';
 // import { MarvelToolbox } from '.';
-// import Editor from './@types/editor';
-// import { MeEditor } from './@types/meeditor';
-
-export class MarvelEditor extends EventEmitter
-// implements Editor, MeEditor 
-{
-
-  // private coreMeEditor: GlobalBaseMarvelAddonMeEditor;
+import { TransformProperty, PanelInfo, TrackInfo, ClipInfo, BaseClipInfo, MarvelClipInfo, TrackType, TrackId, Voice, KeyframePointList, CanvasKeyframeMaterialKey, KeyframeType, KeyframeMap } from './@types';
+import Editor from './@types/editor';
+import { MeEditor } from './@types/meeditor';
+import Accs from './accs';
+import ProtoMessage from './addon/protoMessage';
+import * as proto from './protobuf/model';
+const pkg = proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
+export class MarvelEditor implements Editor, MeEditor {
   // private toolboxInstance: MarvelToolbox;
   // public selectedClipId: ClipId;
   // private canChangePlayTime: boolean;
   // private canvasWidth: number;
   // private canvasHeight: number;
 
-  constructor() {
-    super();
+  private _accs: Accs;
+  private _userId: string;
+  private _sessionId: string | null | undefined;
+
+  constructor(accs: Accs, userId: string, sessionId: string | null | undefined) {
+    this._accs = accs;
+    this._userId = userId;
+    this._sessionId = sessionId;
+    // super();
     //   this.coreMeEditor = new MarvelNodeAddonMeEditor();
     //   this.toolboxInstance = new MarvelToolbox();
     //   this.canChangePlayTime = true;
     // }
     // addExtensionClip(trackId: string, path: string, startTimeUs: number, durationUs: number, name: string, type: SourceType, flag: number): string {
     //   return this.coreMeEditor.addExtensionClip(trackId, path, startTimeUs, durationUs, name, type, flag)
+  }
+  addMediaToMainTrack(path: string): string {
+    throw new Error('Method not implemented.');
+  }
+  addMediaToTrack(path: string, trackId?: string): string {
+    throw new Error('Method not implemented.');
+  }
+  addImageToMainTrack(path: string, stopTimeUS: number): string {
+    throw new Error('Method not implemented.');
+  }
+  addImageToTrack(path: string, stopTimeUS: number, trackId?: string): string {
+    throw new Error('Method not implemented.');
+  }
+  addMusic(path: string): string {
+    throw new Error('Method not implemented.');
+  }
+  addLookup(path: string, intensity: number): string {
+    throw new Error('Method not implemented.');
+  }
+  addSticker(path: string, stopTimeUS: number): string {
+    throw new Error('Method not implemented.');
+  }
+  addMagic(path: string, stopTimeUS: number): string {
+    throw new Error('Method not implemented.');
+  }
+  addCustomizeClip(path: string, info: {}): string {
+    throw new Error('Method not implemented.');
+  }
+  selectClip(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  unselectClip(): number {
+    throw new Error('Method not implemented.');
+  }
+  removeClip(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  splitClip(timeUS: number): string[] {
+    throw new Error('Method not implemented.');
+  }
+  moveClip(startTimeUs: number, trackId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  changeVolume(volume: number): number {
+    throw new Error('Method not implemented.');
+  }
+  changeSpeed(speed: number): number {
+    throw new Error('Method not implemented.');
+  }
+  changeSourceTime(startUs: number, stopUs: number): number {
+    throw new Error('Method not implemented.');
+  }
+  changePlayTime(startUs: number, stopUs: number): number {
+    throw new Error('Method not implemented.');
+  }
+  transformClip(property: TransformProperty): number {
+    throw new Error('Method not implemented.');
+  }
+  undo(): number {
+    throw new Error('Method not implemented.');
+  }
+  redo(): number {
+    throw new Error('Method not implemented.');
+  }
+  canUndo(): boolean {
+    throw new Error('Method not implemented.');
+  }
+  canRedo(): boolean {
+    throw new Error('Method not implemented.');
+  }
+  getPanelInfo(): PanelInfo {
+    throw new Error('Method not implemented.');
+  }
+  getTrackInfo(trackId: string): TrackInfo {
+    throw new Error('Method not implemented.');
+  }
+  getTinyClipInfo(clipId: string): ClipInfo<BaseClipInfo> {
+    throw new Error('Method not implemented.');
+  }
+  getClipInfo<T extends MarvelClipInfo>(clipId: string, type?: string): ClipInfo<T> {
+    throw new Error('Method not implemented.');
+  }
+  setClipInfo(clipId: string, type: string, clipInfo: MarvelClipInfo): number {
+    throw new Error('Method not implemented.');
+  }
+  getErrorMessage(code: number): string {
+    throw new Error('Method not implemented.');
+  }
+  toggleMute(): number {
+    throw new Error('Method not implemented.');
+  }
+  isMute(): boolean {
+    throw new Error('Method not implemented.');
+  }
+  // getCanvasWidth(): number {
+  //   throw new Error('Method not implemented.');
+  // }
+  // getCanvasHeight(): number {
+  //   throw new Error('Method not implemented.');
+  // }
+  transact() {
+    throw new Error('Method not implemented.');
+  }
+  commit() {
+    throw new Error('Method not implemented.');
+  }
+  cancel() {
+    throw new Error('Method not implemented.');
+  }
+  // undo() {
+  //   throw new Error('Method not implemented.');
+  // }
+  // redo() {
+  //   throw new Error('Method not implemented.');
+  // }
+  getErrorCode(): number {
+    throw new Error('Method not implemented.');
+  }
+
+  setCanvasSize(width: number, height: number): number {
+    throw new Error('Method not implemented.');
+  }
+  getCanvasWidth(): number {
+    throw new Error('Method not implemented.');
+  }
+  getCanvasHeight(): number {
+    throw new Error('Method not implemented.');
+  }
+  setCanvasScaleType(scaleType: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setCanvasBackground(color: string): number {
+    throw new Error('Method not implemented.');
+  }
+  setDefaultFont(fontPath: string): number {
+    throw new Error('Method not implemented.');
+  }
+  addText(path: string, content: string, startTimeUS: number, duration: number, trackId?: string): string {
+    throw new Error('Method not implemented.');
+  }
+  setTextColorfulConfig(clipId: string, path: string): number {
+    throw new Error('Method not implemented.');
+  }
+  changeText(content: string): number {
+    throw new Error('Method not implemented.');
+  }
+  changeTextColor(color: string): number {
+    throw new Error('Method not implemented.');
+  }
+  changeTextFont(path: string): number {
+    throw new Error('Method not implemented.');
+  }
+  changeTextShadowColor(color: string): number {
+    throw new Error('Method not implemented.');
+  }
+  cleanTextShadowColor(): number {
+    throw new Error('Method not implemented.');
+  }
+  transformTextShadow(position: { x?: number; y?: number; }): number {
+    throw new Error('Method not implemented.');
+  }
+  changeTextOutlineStyle(color: string, size: number): number {
+    throw new Error('Method not implemented.');
+  }
+  cleanTextOutline(): number {
+    throw new Error('Method not implemented.');
+  }
+  changeTextStyle(style: { //     const centerHeight = canvasHeight / 2
+    //     value = (centerHeight + floatToPixel(value, canvasHeight) - (measure.height / 2))
+    //   }
+    //   if (CanvasKeyframeMaterialKey.ROTATE === key && value !== undefined) {
+    //     value = floatToDegree(value);
+    //   }
+    //   return value;
+    // }
+    // removeClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey | string; time: number; type?: KeyframeType; }) {
+    //   const { clipId, key, time } = args;
+    //   const type = args?.type || this.getKeyframeType(clipId);
+    //   return this.coreMeEditor.removeClipCurvePropertyAnchor(clipId, type, key, time)
+    // }
+    // setExtraClipId(clipId: string, audioClipId: string): number {
+    //   return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId, audioClipId)
+    // }
+    // getExtraClipId(clipId: string): string {
+    //   return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId)
+    // }
+    // setAudioTimbre(clipId: string, desc: Voice): number {
+    //   return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre, desc)
+    // }
+    // getAudioTimbre(clipId: string): string {
+    //   return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre)
+    // }
+    // getMaskContentWidth(clipId: string): number {
+    //   const mw = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kContentWidth);
+    //   // return mw
+    //   const cw = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kContentWidth);
+    //   return mw*cw
+    // }
+    // getMaskContentHeight(clipId: string): number {
+    //   const mh = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kContentHeight);
+    //   // return mh
+    //   const ch = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kContentHeight);
+    //   return mh*ch
+    // }
+    // getMaskScaleX(clipId: string): number {
+    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXScale);
+    // }
+    // getMaskScaleY(clipId: string): number {
+    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYScale);
+    // }
+    // getMaskPositionX(clipId: string): number {
+    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXOffset);
+    // }
+    // getMaskPositionY(clipId: string): number {
+    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYOffset);
+    // }
+    // getMaskRotate(clipId: string): number {
+    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyRotate);
+    // }
+    // /* istanbul ignore next */
+    // getErrorMessage(code: number): string {
+    //   return `Editor Error → RetCode: ${code}, Message: ${''}`;
+    // }
+    // /* istanbul ignore next */
+    // getLastErrorCode(): number {
+    //   return this.coreMeEditor.getLastErrorCode()
+    // }
+    // /* istanbul ignore next */
+    // getMeErrorMessage(code: number): string {
+    //   return `MeEditor Error → RetCode: ${code}, Message: ${this.coreMeEditor.getErrorMessage(code)}`;
+    // }
+    // /* istanbul ignore next */
+    // getMeLastErrorCode(): string {
+    //   return `MeEditor Error → Message: ${this.coreMeEditor.getLastErrorCode()}`;
+    // }
+    // /* istanbul ignore next */
+    // getErrorCode(): number {
+    //   return this.getLastErrorCode()
+    //   // throw new Error('Method not implemented.');
+    // }
+    bold?: boolean; italics?: boolean; underline?: boolean;
+  }): number {
+    throw new Error('Method not implemented.');
+  }
+  changeTextAlignment(v: number, h: number): number {
+    throw new Error('Method not implemented.');
+  }
+  changeClipPosition(position: { x?: number; y?: number; }): number {
+    throw new Error('Method not implemented.');
+  }
+  setClipPosition(position: { x?: number; y?: number; }): number {
+    throw new Error('Method not implemented.');
+  }
+  changeClipRotate(rotate: number): number {
+    throw new Error('Method not implemented.');
+  }
+  changeClipScale(scale: { x?: number; y?: number; }): number {
+    throw new Error('Method not implemented.');
+  }
+  setTransitionEffect(path: string, mode?: string): number {
+    throw new Error('Method not implemented.');
+  }
+  setTransitionDurationUs(durationUs: number): number {
+    throw new Error('Method not implemented.');
+  }
+  removeTransition(): number {
+    throw new Error('Method not implemented.');
+  }
+  changeSourceStartTimeUs(startTime: any): number {
+    throw new Error('Method not implemented.');
+  }
+  changeSourceEndTimeUs(endTtimeUs: any): number {
+    throw new Error('Method not implemented.');
+  }
+  getMeasure(clipId?: string): { width: number; height: number; } {
+    throw new Error('Method not implemented.');
+  }
+  getPosition(clipId?: string): { x?: number; y?: number; } {
+    throw new Error('Method not implemented.');
+  }
+  getRotate(clipId?: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getScale(clipId?: string): { x?: number; y?: number; } {
+    throw new Error('Method not implemented.');
+  }
+  getClipResID(clipId?: string): string {
+    throw new Error('Method not implemented.');
+  }
+  getResPath(resId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  addExtensionClip(trackId: string, path: string, startTimeUs: number, durationUs: number, name: string, type: number, flag: number): string {
+    throw new Error('Method not implemented.');
+  }
+  setTextExtraClipId(clipId: string, audioClipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getTextExtraClipId(clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  setScaleX(clipId: string, x: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setScaleY(clipId: string, y: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setClipStartTimeUs(clipId: string, time: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setSourceStartTimeUs(clipId: string, time: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setSourceEndTimeUs(clipId: string, time: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setClipSpeed(clipId: string, speed: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setClipVolume(clipId: string, volume: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setLookupPath(clipId: string, path: string) {
+    throw new Error('Method not implemented.');
+  }
+  setLookupIntensity(clipId: string, instensity: number) {
+    throw new Error('Method not implemented.');
+  }
+  removeLookup(clipId: string) {
+    throw new Error('Method not implemented.');
+  }
+  createResourceIfNeeded(path: string, type: string, clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  setClipMask(clipId: string, path: string, flag: boolean): number {
+    throw new Error('Method not implemented.');
+  }
+  removeMask(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  setMaskScaleX(clipId: string, scale: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setMaskScaleY(clipId: string, scale: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setMaskRotate(clipId: string, rotate: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setMaskPosition(clipId: string, x: number, y: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setMaskRevertFlag(clipId: string, flag: boolean): number {
+    throw new Error('Method not implemented.');
+  }
+  setClipCrop(clipId: string, x: number, y: number, w: number, h: number, rotate: number, normalize: boolean, rotateWithCropCenter: boolean) {
+    throw new Error('Method not implemented.');
+  }
+  getClipParentId(clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  getClipStartTimeUs(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getClipEndTimeUs(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getClipSourceStartTimeUs(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getClipSourceEndTimeUs(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getResWidth(resId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getResHeight(resId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getResDurationUs(resId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  hasMaskInfo(clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  getMaskContentWidth(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getMaskContentHeight(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getMaskScaleX(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getMaskScaleY(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getMaskPositionX(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getMaskPositionY(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getMaskRotate(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  setAudioTimbre(clipId: string, desc: Voice): number {
+    throw new Error('Method not implemented.');
+  }
+  getAudioTimbre(clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  setExtraClipId(clipId: string, audioClipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getExtraClipId(clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  getClipAllKeyframeAnchorList(args: { clipId: string; type?: string; keys?: string[]; }): KeyframePointList {
+    throw new Error('Method not implemented.');
+  }
+  addClipCanvasKeyframe(args: { clipId: string; key: string | CanvasKeyframeMaterialKey; time: number; value: number; type?: KeyframeType; }) {
+    throw new Error('Method not implemented.');
+  }
+  getClipCanvasKeyframe(args: { clipId: string; key: string | CanvasKeyframeMaterialKey; time: number; type?: KeyframeType; }) {
+    throw new Error('Method not implemented.');
+  }
+  getClipKeyframePropertiesInIndex(args: { clipId: string; time: number; }): KeyframeMap<any> {
+    throw new Error('Method not implemented.');
+  }
+  removeClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey; time: number; type?: KeyframeType; }) {
+    throw new Error('Method not implemented.');
+  }
+  removeClipCanvasKeyframePropertiesInIndex(args: { clipId: string; time: number; }) {
+    throw new Error('Method not implemented.');
+  }
+  getUndoStackSize(): number {
+    throw new Error('Method not implemented.');
+  }
+  getRedoStackSize(): number {
+    throw new Error('Method not implemented.');
+  }
+  changeClipRes(clipId: string, path: string, startTimeUS: number, endTtimeUs: number): number {
+    throw new Error('Method not implemented.');
+  }
+  setClipTransparency(clipId: string, alpha: number): number {
+    throw new Error('Method not implemented.');
+  }
+  getClipTransparency(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  setCanvasBackgroundColor(clipId: string, color: number): number {
+    throw new Error('Method not implemented.');
+  }
+  getCanvasBackgroundColor(clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  getCanvasBackgroundImage(clipId: string): string {
+    throw new Error('Method not implemented.');
+  }
+  getCanvasBackgroundBlurType(clipId: string): number {
+    throw new Error('Method not implemented.');
+  }
+  setClipInnerKey(clipId: string, type: string, prefix: string, key: string, value: string): number {
+    throw new Error('Method not implemented.');
+  }
+  getClipInnerKey(clipId: string, type: string, prefix: string, key: string): string {
+    throw new Error('Method not implemented.');
+  }
+  addDynamic(path: string, startTimeUS: number, duration: number, name?: string, trackId?: string): string {
+    throw new Error('Method not implemented.');
   }
 
   // addDynamic(path: string, startTimeUS: number, duration: number, name?: string, trackId?: string): string {
@@ -259,37 +737,55 @@ export class MarvelEditor extends EventEmitter
   //   return this.getLastErrorCode()
   //   // throw new Error('Method not implemented.');
   // }
-  // getTrackIdList(type?: TrackType): any {
-  //   let trackIdList = {
-  //     ret: -1,
-  //     data: [],
-  //     type
-  //   }
-  //   if (type) {
-  //     trackIdList = this.coreMeEditor.getTrackIdList(type)
-  //   } else {
-  //     trackIdList = this.coreMeEditor.getTrackIdList()
-  //   }
 
-  //   if (trackIdList.ret < 0) {
-  //     this.triggerError(Error(''), this.getMeLastErrorCode());
-  //   }
+  /**
+   * 获取轨道ID列表
+   * @param type TrackType
+   * @returns 
+   */
+  async getTrackIdList(type?: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MarvelTrackType): Promise<string[]> {
+    const currentSeqId = this._accs.getSeqId();
+    const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
+    let editorGetTrackIdListCommand = new pkg.EditorGetTrackIdListCommand();
+    editorGetTrackIdListCommand.trackType = type;
+    let command = new pkg.Command();
+    command.editorGetTrackIdListCommand = editorGetTrackIdListCommand;
+    const buffer = pbMsg.generateMessage(command);
 
-  //   return trackIdList;
-  // }
+    try {
+      console.log('[test]: getTrackIdList', type);
+      const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
+      console.log('[result]: getTrackIdList', result);
+      if (result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS && result.editorGetTrackIdListCommandResult) {
+        return result.editorGetTrackIdListCommandResult.values || [];
+      }
+    } catch (error) {
+      console.log('[Error]: getTrackIdList', error);
+    }
+    return [];
+  }
 
-  // getClipIdList(trackId: string): any {
-  //   let clipIdList = {
-  //     ret: -1,
-  //     data: [],
-  //   }
-  //   clipIdList = this.coreMeEditor.getClipIdList(trackId)
-  //   if (clipIdList.ret < 0) {
-  //     this.triggerError(Error(''), this.getMeLastErrorCode());
-  //   }
+  async getClipIdList(trackId: string): Promise<string[]> {
+    const currentSeqId = this._accs.getSeqId();
+    const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
+    let editorGetClipIdListCommand = new pkg.EditorGetClipIdListCommand();
+    editorGetClipIdListCommand.trackId = trackId;
+    let command = new pkg.Command();
+    command.editorGetClipIdListCommand = editorGetClipIdListCommand;
+    const buffer = pbMsg.generateMessage(command);
 
-  //   return clipIdList;
-  // }
+    try {
+      console.log('[test]: getTrackIdList', trackId);
+      const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
+      console.log('[result]: getTrackIdList', result);
+      if (result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS && result.editorGetClipIdListCommandResult) {
+        return result.editorGetClipIdListCommandResult.values || [];
+      }
+    } catch (error) {
+      console.log('[Error]: getTrackIdList', error);
+    }
+    return [];
+  }
 
   // setClipStartTimeUs(clipId: string, time: number): number {
   //   const ret = this.coreMeEditor.setClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipStartTime, time)

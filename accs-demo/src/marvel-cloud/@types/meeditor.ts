@@ -1,5 +1,8 @@
-import { TrackType, TrackId, ClipId, Ret, ColorHEX, Path, TimeUS, XYPosition, TextStyle, ClipMeasure, ResId, DoubleFloat, Voice, KeyframeMap,  CanvasKeyframeMaterialKey, KeyframePointList, ColorARGB, KeyframeType } from ".";
-
+import {
+  // TrackType, 
+  TrackId, ClipId, Ret, ColorHEX, Path, TimeUS, XYPosition, TextStyle, ClipMeasure, ResId, DoubleFloat, Voice, KeyframeMap, CanvasKeyframeMaterialKey, KeyframePointList, ColorARGB, KeyframeType
+} from ".";
+import * as proto from '../protobuf/model';
 export interface MeEditor {
 
   /**
@@ -49,7 +52,7 @@ export interface MeEditor {
    * @param ids 返回的轨道id列表
    * @return 执行结果
    */
-  getTrackIdList(type?: TrackType): TrackId[]
+  getTrackIdList(type?: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MarvelTrackType): Promise<string[]>
 
   /**
    * 获取指定轨道中的片段ID列表
@@ -58,7 +61,7 @@ export interface MeEditor {
    * @param ids 返回的片段ID列表
    * @return 执行接口
    */
-  getClipIdList(trackId: TrackId): ClipId[]
+  getClipIdList(trackId: TrackId): Promise<string[]>
 
   /**
    * 设置编辑工程的画布大小
@@ -67,7 +70,7 @@ export interface MeEditor {
    * @param height 画布高度
    * @return 执行结果
    */
-  setCanvasSize(width:number, height:number): Ret;
+  setCanvasSize(width: number, height: number): Ret;
 
   /**
    * 获取编辑工程画布宽度
@@ -86,7 +89,7 @@ export interface MeEditor {
    *  (0:FixXY, 1:CenterInside, 2:CenterCrop, 3:StartCrop, 4:EndCrop, 5:FitStart, 6:FitEnd)
    * @return 执行结果
    */
-  setCanvasScaleType(scaleType:number): Ret;
+  setCanvasScaleType(scaleType: number): Ret;
 
   /**
    * 设置编辑工程的画布颜色
@@ -94,7 +97,7 @@ export interface MeEditor {
    * @param color 颜色，ARGB
    * @return 执行结果
    */
-  setCanvasBackground(color:ColorHEX): Ret;
+  setCanvasBackground(color: ColorHEX): Ret;
 
   /**
    * 设置一个文字片段使用的文字字体
@@ -139,7 +142,7 @@ export interface MeEditor {
    * 修改字库路径
    * @param path
    */
-  changeTextFont( path: Path ): Ret
+  changeTextFont(path: Path): Ret
 
   /**
    * 修改Text阴影颜色
@@ -232,28 +235,28 @@ export interface MeEditor {
    */
   removeTransition(): Ret
 
-// /**
-//      * 设置一个片段在轨道中的开始时间
-//      *
-//      * @param startTimeUs 开始时间
-//      * @return 执行结果
-//      */
-//   changePlayStartTimeUs(startTimeUs);
+  // /**
+  //      * 设置一个片段在轨道中的开始时间
+  //      *
+  //      * @param startTimeUs 开始时间
+  //      * @return 执行结果
+  //      */
+  //   changePlayStartTimeUs(startTimeUs);
 
-    /**
-     * 针对一个片段中使用的资源，设置截取资源的开始时间点
-     *
-     * @param startTime 开始时间
-     * @return 执行结果
-     */
+  /**
+   * 针对一个片段中使用的资源，设置截取资源的开始时间点
+   *
+   * @param startTime 开始时间
+   * @return 执行结果
+   */
   changeSourceStartTimeUs(startTime): Ret
 
-    /**
-     * 针对一个片段中使用的资源，设置截取资源的结束时间点
-     *
-     * @param endTtimeUs 结束时间
-     * @return 执行结果
-     */
+  /**
+   * 针对一个片段中使用的资源，设置截取资源的结束时间点
+   *
+   * @param endTtimeUs 结束时间
+   * @return 执行结果
+   */
   changeSourceEndTimeUs(endTtimeUs): Ret
 
   /**
@@ -343,7 +346,7 @@ export interface MeEditor {
    * @param time 开始时间
    * @return 执行结果
    */
-  setSourceStartTimeUs(clipId: ClipId, time: TimeUS):Ret
+  setSourceStartTimeUs(clipId: ClipId, time: TimeUS): Ret
 
   /**
    * 针对一个片段中使用的资源，设置截取资源的结束时间点
@@ -398,14 +401,14 @@ export interface MeEditor {
    */
   removeLookup(clipId: ClipId)
 
-    /**
-   * 创建资源，如果资源存在则直接放回资源ID
-   *
-   * @param path 资源路径
-   * @param type 资源类型
-   * @param clipId 切片ID
-   * @return 执行结果
-   */
+  /**
+ * 创建资源，如果资源存在则直接放回资源ID
+ *
+ * @param path 资源路径
+ * @param type 资源类型
+ * @param clipId 切片ID
+ * @return 执行结果
+ */
   createResourceIfNeeded(path: Path, type: string, clipId: ClipId): ResId
 
   /**
@@ -416,7 +419,7 @@ export interface MeEditor {
    * @param flag 是否对蒙版使用抗锯齿
    * @return 执行结果
    */
-  setClipMask(clipId:ClipId, path: Path, flag: boolean): Ret
+  setClipMask(clipId: ClipId, path: Path, flag: boolean): Ret
 
   /**
    * 移除一个片段上的蒙版
@@ -473,20 +476,20 @@ export interface MeEditor {
    */
   setMaskRevertFlag(clipId: ClipId, flag: boolean): Ret
 
-   /**
-     * 设置一个片段上图像的裁剪信息，裁剪出来的区域为保留区域
-     *
-     * @param id 目标片段ID
-     * @param x x方向起始坐标
-     * @param y y方向起始坐标
-     * @param w 裁剪宽度
-     * @param h 裁剪高度
-     * @param rotate 裁剪旋转信息
-     * @param normalize 裁剪参数是否为归一化参数
-     * @param rotateWithCropCenter 旋转是否使用裁剪区域的中心作为旋转中，false时使用图片中心作为旋转中心
-     * @return 执行结果
-     */
-    setClipCrop(clipId: ClipId, x: DoubleFloat, y: DoubleFloat, w: DoubleFloat, h: DoubleFloat, rotate: DoubleFloat, normalize: boolean, rotateWithCropCenter: boolean)
+  /**
+    * 设置一个片段上图像的裁剪信息，裁剪出来的区域为保留区域
+    *
+    * @param id 目标片段ID
+    * @param x x方向起始坐标
+    * @param y y方向起始坐标
+    * @param w 裁剪宽度
+    * @param h 裁剪高度
+    * @param rotate 裁剪旋转信息
+    * @param normalize 裁剪参数是否为归一化参数
+    * @param rotateWithCropCenter 旋转是否使用裁剪区域的中心作为旋转中，false时使用图片中心作为旋转中心
+    * @return 执行结果
+    */
+  setClipCrop(clipId: ClipId, x: DoubleFloat, y: DoubleFloat, w: DoubleFloat, h: DoubleFloat, rotate: DoubleFloat, normalize: boolean, rotateWithCropCenter: boolean)
 
   /**
    * 通过一个片段的ID获取其所在的轨道ID
@@ -535,7 +538,7 @@ export interface MeEditor {
    * @param resId 目标资源ID
    * @return 宽度
    */
-  getResWidth(resId:ResId): number
+  getResWidth(resId: ResId): number
 
   /**
    * 获取资源高度
@@ -616,13 +619,13 @@ export interface MeEditor {
    */
   getMaskRotate(clipId: ClipId): number
 
-   /**
-     * 设置一个音频片段的音色信息
-     *
-     * @param clipId 目标片段ID
-     * @param desc 音色信息
-     * @return 执行结果
-     */
+  /**
+    * 设置一个音频片段的音色信息
+    *
+    * @param clipId 目标片段ID
+    * @param desc 音色信息
+    * @return 执行结果
+    */
   setAudioTimbre(clipId: ClipId, desc: Voice): Ret
 
 
@@ -691,7 +694,7 @@ export interface MeEditor {
    * @param clipId
    * @param time
    */
-   removeClipCanvasKeyframePropertiesInIndex(args: { clipId: string; time: number; })
+  removeClipCanvasKeyframePropertiesInIndex(args: { clipId: string; time: number; })
 
   /**
    * 获取Undo栈数量
@@ -707,7 +710,7 @@ export interface MeEditor {
   /**
    * 修改资源路径
    */
-  changeClipRes(clipId:ClipId, path: Path, startTimeUS: TimeUS, endTtimeUs:TimeUS): Ret
+  changeClipRes(clipId: ClipId, path: Path, startTimeUS: TimeUS, endTtimeUs: TimeUS): Ret
 
 
   /**
@@ -728,35 +731,35 @@ export interface MeEditor {
    * @param clipId
    * @param color
    */
-   setCanvasBackgroundColor(clipId: ClipId, color: ColorARGB): Ret
+  setCanvasBackgroundColor(clipId: ClipId, color: ColorARGB): Ret
 
   /**
    * 获取canvas背景颜色
    * @param clipId
    */
-   getCanvasBackgroundColor(clipId: ClipId): ColorHEX
+  getCanvasBackgroundColor(clipId: ClipId): ColorHEX
 
-   /**
-    * 获取canvas背景图片
-    * @param clipId
-    */
-   getCanvasBackgroundImage(clipId: ClipId): Path
+  /**
+   * 获取canvas背景图片
+   * @param clipId
+   */
+  getCanvasBackgroundImage(clipId: ClipId): Path
 
-   /**
-    * 获取canvas背景的类型
-    * @param clipId
-    */
-   getCanvasBackgroundBlurType(clipId: ClipId): number
+  /**
+   * 获取canvas背景的类型
+   * @param clipId
+   */
+  getCanvasBackgroundBlurType(clipId: ClipId): number
 
-   /**
-    * 给指定的clip增加一个额外用的key值（即非marvel使用的协议中的参数值）
-    * @param clipId
-    * @param type
-    * @param prefix
-    * @param key
-    * @param value
-    */
-   setClipInnerKey(clipId: ClipId, type: string, prefix: string, key: string, value: string): Ret
+  /**
+   * 给指定的clip增加一个额外用的key值（即非marvel使用的协议中的参数值）
+   * @param clipId
+   * @param type
+   * @param prefix
+   * @param key
+   * @param value
+   */
+  setClipInnerKey(clipId: ClipId, type: string, prefix: string, key: string, value: string): Ret
 
   /**
    * 给指定的clip增加一个额外用的key值（即非marvel使用的协议中的参数值）
@@ -765,7 +768,7 @@ export interface MeEditor {
    * @param prefix
    * @param key
    */
-   getClipInnerKey(clipId: ClipId, type: string, prefix: string, key: string): string
+  getClipInnerKey(clipId: ClipId, type: string, prefix: string, key: string): string
 
   /**
    * 增加一个动态UI构建的切片
@@ -775,6 +778,6 @@ export interface MeEditor {
    * @param name
    * @param trackId
    */
-   addDynamic(path: Path, startTimeUS: TimeUS, duration: TimeUS, name?: string, trackId?: TrackId): ClipId
+  addDynamic(path: Path, startTimeUS: TimeUS, duration: TimeUS, name?: string, trackId?: TrackId): ClipId
 
 }

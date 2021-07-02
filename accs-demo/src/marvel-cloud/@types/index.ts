@@ -69,28 +69,40 @@ export enum SeekFlag {
 }
 
 
-export enum SourecType  {
+export enum SourecType {
   PIP = "pip",
   MUSIC = "music"
 }
 
 /**
- * 轨道类型
+ * 轨道类型 MarvelTrackType
  */
 export enum TrackType {
-  MAIN = 'main',
-  PIP = "pip",
-  MUSIC = "music",
-  STICKER = 'sticker',
-  EFFECT = 'effect',
-  LOOKUP = 'lookup',
-  CUSTOMIZE = 'customize',
-  TEXT = 'text',
-  GROUP = 'group',
-  ALL = 'all',
-  MASK = 'mask', // 蒙版切片
-  MAGIC = "magic", // 特效
-  DYNAMIC = 'extension' // 设计定义用轨道
+  // MAIN = 'main',
+  // PIP = "pip",
+  // MUSIC = "music",
+  // STICKER = 'sticker',
+  // EFFECT = 'effect',
+  // LOOKUP = 'lookup',
+  // CUSTOMIZE = 'customize',
+  // TEXT = 'text',
+  // GROUP = 'group',
+  // ALL = 'all',
+  // MASK = 'mask', // 蒙版切片
+  // MAGIC = "magic", // 特效
+  // DYNAMIC = 'extension' // 设计定义用轨道
+  TrackTypeInvalid = 0,
+  TrackTypeMain = 1,
+  TrackTypePip = 2,
+  TrackTypeMusic = 3,
+  TrackTypeBgMusic = 4,
+  TrackTypeSticker = 5,
+  TrackTypeEffect = 6,
+  TrackTypeLookup = 7,
+  TrackTypeCustomize = 8,
+  TrackTypeText = 9,
+  TrackTypeGroup = 10,
+  TrackTypeAll = 11,
 }
 
 /**
@@ -112,11 +124,11 @@ export enum ClipType {
 
 
 export type ClipTypeInfoMap = {
-  [ClipType.BASE] : BaseClipInfo,
-  [ClipType.CANVAS] : CanvasClipInfo,
-  [ClipType.LOOKUP] : LookupClipInfo,
-  [ClipType.MAGIC] : MagicClipInfo,
-  [ClipType.STICKER] : StickerClipInfo,
+  [ClipType.BASE]: BaseClipInfo,
+  [ClipType.CANVAS]: CanvasClipInfo,
+  [ClipType.LOOKUP]: LookupClipInfo,
+  [ClipType.MAGIC]: MagicClipInfo,
+  [ClipType.STICKER]: StickerClipInfo,
   [ClipType.TEXT]: TextClipInfo,
   [ClipType.SOURCE]: SourceClipInfo,
   [ClipType.TRANSITION]: TransitionClipInfo
@@ -143,30 +155,30 @@ export interface BaseClipInfo {
   keyframe?: KeyframeMap<KeyframeData> | null
   id?: ClipId
   // has_tras
-  [key: string]:  any
+  [key: string]: any
 }
 
 export interface TextClipInfo {
-  type:       string;
-  content:    string;
-  font_file:  string;
-  scale:      number;
+  type: string;
+  content: string;
+  font_file: string;
+  scale: number;
   text_color: ColorHEX | ColorARGB;
-  x_offset:   number;
-  y_offset:   number;
-  text_alignment_h:     string|number;
-  text_alignment_v:     string|number;
-  text_outline_color:   ColorHEX | ColorARGB;
-  text_outline_enabled: string|number;
-  text_outline_size:    string|number;
-  text_shadow_color:    ColorHEX | ColorARGB;
-  text_shadow_enabled:  string|number;
-  text_shadow_offset_x: string|number;
-  text_shadow_offset_y: string|number;
-  text_style_bold:      string|number;
-  text_style_italics:   string|number;
-  text_style_underline: string|number;
-  text_word_space:      string|number;
+  x_offset: number;
+  y_offset: number;
+  text_alignment_h: string | number;
+  text_alignment_v: string | number;
+  text_outline_color: ColorHEX | ColorARGB;
+  text_outline_enabled: string | number;
+  text_outline_size: string | number;
+  text_shadow_color: ColorHEX | ColorARGB;
+  text_shadow_enabled: string | number;
+  text_shadow_offset_x: string | number;
+  text_shadow_offset_y: string | number;
+  text_style_bold: string | number;
+  text_style_italics: string | number;
+  text_style_underline: string | number;
+  text_word_space: string | number;
   [key: string]: any;
 }
 
@@ -202,25 +214,25 @@ export type ResourceInfo = | {
 }
 
 export type SourceClipInfo = | {
-  audioChannelCount: string|number;
-  audioDurationUs: string|number;
+  audioChannelCount: string | number;
+  audioDurationUs: string | number;
   audioMime: string;
   audioSampleRate: string | number;
-  hasAudio: string|number;
-  hasVideo: string|number;
+  hasAudio: string | number;
+  hasVideo: string | number;
   id: string;
-  max_duration_us: string|number;
-  min_duration_us: string|number;
+  max_duration_us: string | number;
+  min_duration_us: string | number;
   path: string;
   type: string;
-  videoDurationUs: string|number;
-  videoHeight: string|number;
-  videoMime: string|number;
-  videoRotation: string|number;
-  videoWidth: string|number;
+  videoDurationUs: string | number;
+  videoHeight: string | number;
+  videoMime: string | number;
+  videoRotation: string | number;
+  videoWidth: string | number;
   [key: string]: any
-} |  { // 图片
-  id:   string
+} | { // 图片
+  id: string
   path: string
   type: string
   [key: string]: any
@@ -228,8 +240,8 @@ export type SourceClipInfo = | {
 
 export interface TransitionClipInfo {
   duration_us: string | number,
-  mode:        string,
-  path:        string,
+  mode: string,
+  path: string,
   [key: string]: any
 }
 
@@ -247,23 +259,23 @@ export interface CanvasClipInfo {
   blend_type?: string,
   bg_image?: Path,
   blur_type?: number,
-  [key: string]:  any // x_offset
+  [key: string]: any // x_offset
 }
 
 export interface LookupClipInfo {
   intensity: Intensity,
   path: Path
-  [key: string]:  any
+  [key: string]: any
 }
 
 export interface MagicClipInfo {
   path: Path
-  [key: string]:  any
+  [key: string]: any
 }
 
 export interface StickerClipInfo {
   path: Path
-  [key: string]:  any
+  [key: string]: any
 }
 
 export interface EffectPropertyOfClip {
@@ -337,7 +349,7 @@ export interface DynamicUICombo {
   [key: string]: any;
 }
 
-export type DynamicUI  = | DynamicUIInteger | DynamicUIDecimal | DynamicUIResource | DynamicUIString | DynamicUICombo
+export type DynamicUI = | DynamicUIInteger | DynamicUIDecimal | DynamicUIResource | DynamicUIString | DynamicUICombo
 
 export interface DynamicUIClipInfo {
   name: string,
@@ -357,7 +369,7 @@ export interface MaskInfo {
   width: number,
   sdf: number,
   revert: number,
-  [key:string]: any
+  [key: string]: any
 }
 
 export type KeyframeInfo = {
@@ -445,7 +457,7 @@ export enum ExportType {
 }
 
 
-export enum VideoConfig  {
+export enum VideoConfig {
   VideoHeight = 'VideoHeight', //视频高度，default = 864
   VideoWidth = 'VideoWidth', //视频宽度, default = 480
   VideoBps = 'VideoBps', //视频bitrate, default = 3000
@@ -453,7 +465,7 @@ export enum VideoConfig  {
   VideoIfi = 'VideoIfi', //视频i帧的频率（秒）, default = 1
 }
 
-export enum AudioConfig  {
+export enum AudioConfig {
   AudioFrequency = 'AudioFrequency', //音频的采样率，default = 44100
   AudioEncoding = 'AudioEncoding', //默认编码器，AAC
   AudioChannel = 'AudioChannel', //声道，CHANNEL_IN_STEREO
@@ -477,12 +489,12 @@ export enum CanvasScaleType {
 }
 
 export class FrameParam {
-  path:        string;
-  imageWidth:  number;
+  path: string;
+  imageWidth: number;
   imageHeight: number;
   startTimeUs: number;
-  stopTimeUs:  number;
-  fps:         number;
+  stopTimeUs: number;
+  fps: number;
 }
 
 export interface ProgressTimeUs {
@@ -522,25 +534,25 @@ export interface MarvelAddonMeEditor {
     */
   undo()
 
-    /**
-    *  重做上一个非撤销的动作
-    *
-    * @return 小于0表示失败，默认返回0
-    */
+  /**
+  *  重做上一个非撤销的动作
+  *
+  * @return 小于0表示失败，默认返回0
+  */
   redo()
 
-    /**
-     * 获取当前undo栈的大小
-     *
-     * @return undo栈的大小
-     */
+  /**
+   * 获取当前undo栈的大小
+   *
+   * @return undo栈的大小
+   */
   getUndoStackSize()
 
-    /**
-     * 获取当前redo栈的大小
-     *
-     * @return redo栈的大小
-     */
+  /**
+   * 获取当前redo栈的大小
+   *
+   * @return redo栈的大小
+   */
   getRedoStackSize()
 
   /**
@@ -587,172 +599,172 @@ export interface MarvelAddonMeEditor {
    * @param content 文字内容
    * @return 执行结果
    */
-    setText(id, content);
+  setText(id, content);
 
 
-    /**
-     * 设置编辑工程的画布大小
-     *
-     * @param width 画布宽度
-     * @param height 画布高度
-     * @return 执行结果
-     */
-    setCanvasSize(width, height);
+  /**
+   * 设置编辑工程的画布大小
+   *
+   * @param width 画布宽度
+   * @param height 画布高度
+   * @return 执行结果
+   */
+  setCanvasSize(width, height);
 
-    /**
-     * 设置编辑工程的画布上内容的缩放类型
-     *
-     * @param type 缩放类型
-     *  (0:FixXY, 1:CenterInside, 2:CenterCrop, 3:StartCrop, 4:EndCrop, 5:FitStart, 6:FitEnd)
-     * @return 执行结果
-     */
-    setCanvasScaleType(scaleType);
+  /**
+   * 设置编辑工程的画布上内容的缩放类型
+   *
+   * @param type 缩放类型
+   *  (0:FixXY, 1:CenterInside, 2:CenterCrop, 3:StartCrop, 4:EndCrop, 5:FitStart, 6:FitEnd)
+   * @return 执行结果
+   */
+  setCanvasScaleType(scaleType);
 
-    /**
-     * 设置编辑工程的画布颜色
-     *
-     * @param color 颜色，ARGB
-     * @return 执行结果
-     */
-    setCanvasBackground(color);
+  /**
+   * 设置编辑工程的画布颜色
+   *
+   * @param color 颜色，ARGB
+   * @return 执行结果
+   */
+  setCanvasBackground(color);
 
-    /**
-     * 获取编辑工程画布宽度
-     */
-    getCanvasWidth();
+  /**
+   * 获取编辑工程画布宽度
+   */
+  getCanvasWidth();
 
-    /**
-     * 获取编辑工程画布高度
-     */
-    getCanvasHeight();
+  /**
+   * 获取编辑工程画布高度
+   */
+  getCanvasHeight();
 
-    /**
-     * 设置一个文字片段的文字颜色
-     *
-     * @param id 目标片段ID
-     * @param color 文字颜色，ARGB
-     * @return 执行结果
-     */
-    setTextColor(id, color);
+  /**
+   * 设置一个文字片段的文字颜色
+   *
+   * @param id 目标片段ID
+   * @param color 文字颜色，ARGB
+   * @return 执行结果
+   */
+  setTextColor(id, color);
 
-    /**
-     * 设置一个文字片段使用的文字字体
-     *
-     * @param id 目标片段ID
-     * @param path 字体资源路径，ttf文件
-     * @return 执行结果
-     */
-    setTextFont(id, path);
+  /**
+   * 设置一个文字片段使用的文字字体
+   *
+   * @param id 目标片段ID
+   * @param path 字体资源路径，ttf文件
+   * @return 执行结果
+   */
+  setTextFont(id, path);
 
-    /**
-     * 设置一个文字片段的文字阴影颜色
-     *
-     * @param id 目标片段ID
-     * @param color 阴影颜色，ARGB
-     * @return 执行结果
-     */
-    setTextShadowColor(id, color);
+  /**
+   * 设置一个文字片段的文字阴影颜色
+   *
+   * @param id 目标片段ID
+   * @param color 阴影颜色，ARGB
+   * @return 执行结果
+   */
+  setTextShadowColor(id, color);
 
-    /**
-     * 设置一个文字片段是否启用文字阴影
-     *
-     * @param id 目标片段ID
-     * @param enable 是否启用文字阴影效果
-     * @return 执行结果
-     */
-    setTextShadowEnable(id, enable);
+  /**
+   * 设置一个文字片段是否启用文字阴影
+   *
+   * @param id 目标片段ID
+   * @param enable 是否启用文字阴影效果
+   * @return 执行结果
+   */
+  setTextShadowEnable(id, enable);
 
-    /**
-     * 设置一个文字片段文字阴影的X轴偏移
-     *
-     * @param id 目标片段ID
-     * @param x 偏移量
-     * @return 执行结果
-     */
-    setTextShadowOffsetX(id, x);
+  /**
+   * 设置一个文字片段文字阴影的X轴偏移
+   *
+   * @param id 目标片段ID
+   * @param x 偏移量
+   * @return 执行结果
+   */
+  setTextShadowOffsetX(id, x);
 
-    /**
-     * 设置一个文字片段文字阴影的Y轴偏移
-     *
-     * @param id 目标片段ID
-     * @param y 偏移量
-     * @return 执行结果
-     */
-    setTextShadowOffsetY(id, y)
+  /**
+   * 设置一个文字片段文字阴影的Y轴偏移
+   *
+   * @param id 目标片段ID
+   * @param y 偏移量
+   * @return 执行结果
+   */
+  setTextShadowOffsetY(id, y)
 
-    /**
-     * 设置一个文字片段中文字的对齐方式
-     *
-     * @param clipId 目标片段ID
-     * @param v 垂直方向对齐方式 (START:0, CENTER:1, END:2)
-     * @param h 水平方向对齐方式 (START:0, CENTER:1, END:2)
-     * @return 执行结果
-     */
-    setTextAlignment(id, v, h)
+  /**
+   * 设置一个文字片段中文字的对齐方式
+   *
+   * @param clipId 目标片段ID
+   * @param v 垂直方向对齐方式 (START:0, CENTER:1, END:2)
+   * @param h 水平方向对齐方式 (START:0, CENTER:1, END:2)
+   * @return 执行结果
+   */
+  setTextAlignment(id, v, h)
 
 
-    /**
-     * 设置一个文字片段中的字间距
-     *
-     * @param clipId 目标片段ID
-     * @param space 字间距
-     * @return 执行结果
-     */
-    setTextWordSpace(clipId: ClipId, space: number)
+  /**
+   * 设置一个文字片段中的字间距
+   *
+   * @param clipId 目标片段ID
+   * @param space 字间距
+   * @return 执行结果
+   */
+  setTextWordSpace(clipId: ClipId, space: number)
 
-    /**
-     * 设置一个文字片段的描边颜色
-     *
-     * @param id 目标片段ID
-     * @param color 描边颜色ARGB颜色
-     * @return 执行结果
-     */
-    setTextOutlineColor(id, color);
+  /**
+   * 设置一个文字片段的描边颜色
+   *
+   * @param id 目标片段ID
+   * @param color 描边颜色ARGB颜色
+   * @return 执行结果
+   */
+  setTextOutlineColor(id, color);
 
-    /**
-     * 设置一个文字片段的描边粗细
-     *
-     * @param id 目标片段ID
-     * @param size 描边粗细
-     * @return 执行结果
-     */
-    setTextOutlineSize(id, size);
+  /**
+   * 设置一个文字片段的描边粗细
+   *
+   * @param id 目标片段ID
+   * @param size 描边粗细
+   * @return 执行结果
+   */
+  setTextOutlineSize(id, size);
 
-    /**
-     * 设置一个文字片段中文字显示描边
-     *
-     * @param id 目标片段ID
-     * @param enable 是否显示描边
-     * @return 执行结果
-     */
-    setTextOutlineEnable(id, enable);
+  /**
+   * 设置一个文字片段中文字显示描边
+   *
+   * @param id 目标片段ID
+   * @param enable 是否显示描边
+   * @return 执行结果
+   */
+  setTextOutlineEnable(id, enable);
 
-    /**
-     * 设置一个文字片段中文字显示下划线
-     *
-     * @param id 目标片段ID
-     * @param enable 是否显示下划线
-     * @return 执行结果
-     */
-    setTextUnderline(id, enable);
+  /**
+   * 设置一个文字片段中文字显示下划线
+   *
+   * @param id 目标片段ID
+   * @param enable 是否显示下划线
+   * @return 执行结果
+   */
+  setTextUnderline(id, enable);
 
-    /**
-     * 设置一个文字片段中文字为粗体
-     *
-     * @param id 目标片段ID
-     * @param enable 是否使用粗体
-     * @return 执行结果
-     */
-    setTextBold(id, enable);
+  /**
+   * 设置一个文字片段中文字为粗体
+   *
+   * @param id 目标片段ID
+   * @param enable 是否使用粗体
+   * @return 执行结果
+   */
+  setTextBold(id, enable);
 
-    /**
-     * 设置一个文字片段中文字为斜体
-     *
-     * @param id 目标片段ID
-     * @param enable 是否使用斜体
-     * @return 执行结果
-     */
-    setTextItalics(id, enable);
+  /**
+   * 设置一个文字片段中文字为斜体
+   *
+   * @param id 目标片段ID
+   * @param enable 是否使用斜体
+   * @return 执行结果
+   */
+  setTextItalics(id, enable);
 
   /**
    * 设置一个片段的转场效果，其上的效果作用于当前片段以及和他相邻的通轨道片段
@@ -790,13 +802,13 @@ export interface MarvelAddonMeEditor {
      */
   setPosition(id: ClipId, x, y): Ret
 
-    /**
-     * 设置一个图像类片段的旋转角度
-     *
-     * @param id 目标片段ID
-     * @param rotate 旋转角度，弧度
-     * @return 执行结果
-     */
+  /**
+   * 设置一个图像类片段的旋转角度
+   *
+   * @param id 目标片段ID
+   * @param rotate 旋转角度，弧度
+   * @return 执行结果
+   */
   setRotate(id: ClipId, rotate): Ret
 
   /**
@@ -830,13 +842,13 @@ export interface MarvelAddonMeEditor {
   addLookupClip(trackId, path, startTimeUS, durationUs): ClipId
 
 
-   /**
-     * 设置一个片段的滤镜路径
-     *
-     * @param clipId 目标片段ID
-     * @param path 滤镜路径
-     * @return 执行结果
-     */
+  /**
+    * 设置一个片段的滤镜路径
+    *
+    * @param clipId 目标片段ID
+    * @param path 滤镜路径
+    * @return 执行结果
+    */
   setLookupPath(clipId, path);
 
 
@@ -856,23 +868,23 @@ export interface MarvelAddonMeEditor {
      * @param clipId    目标片段ID
      * @return 返回使用的blend type
      */
-  getClipBlendType(clipId:ClipId): string;
+  getClipBlendType(clipId: ClipId): string;
 
-    /**
-     * 设置一个片段的滤镜强度
-     *
-     * @param clipId 目标片段ID
-     * @param intensity 滤镜强度
-     * @return 执行结果
-     */
+  /**
+   * 设置一个片段的滤镜强度
+   *
+   * @param clipId 目标片段ID
+   * @param intensity 滤镜强度
+   * @return 执行结果
+   */
   setLookupIntensity(clipId, intensity);
 
-    /**
-     * 移除一个片段上的滤镜信息
-     *
-     * @param clipId 目标片段ID
-     * @return 执行结果
-     */
+  /**
+   * 移除一个片段上的滤镜信息
+   *
+   * @param clipId 目标片段ID
+   * @return 执行结果
+   */
   removeLookup(clipId);
 
   /**
@@ -948,11 +960,11 @@ export interface MarvelAddonMeEditor {
    */
   changeClipRes(clipId: ClipId, path: Path, s: TimeUS, e: TimeUS)
 
-    /**
-     * 删除一个片段的资源
-     *
-     * @param clipId 目标片段ID
-     */
+  /**
+   * 删除一个片段的资源
+   *
+   * @param clipId 目标片段ID
+   */
   deleteClip(clipId): Ret
 
   /**
@@ -1016,49 +1028,49 @@ export interface MarvelAddonMeEditor {
    */
   getLastErrorCode(): number
 
-   /**
-     * 设置一个片段在轨道中的开始时间
-     *
-     * @param clipId 目标片段ID
-     * @param time 开始时间
-     * @return 执行结果
-     */
+  /**
+    * 设置一个片段在轨道中的开始时间
+    *
+    * @param clipId 目标片段ID
+    * @param time 开始时间
+    * @return 执行结果
+    */
   setClipStartTimeUs(clipId, time);
 
-    /**
-     * 针对一个片段中使用的资源，设置截取资源的开始时间点
-     *
-     * @param clipId 目标片段ID
-     * @param time 开始时间
-     * @return 执行结果
-     */
+  /**
+   * 针对一个片段中使用的资源，设置截取资源的开始时间点
+   *
+   * @param clipId 目标片段ID
+   * @param time 开始时间
+   * @return 执行结果
+   */
   setSourceStartTimeUs(clipId, time);
 
-    /**
-     * 针对一个片段中使用的资源，设置截取资源的结束时间点
-     *
-     * @param clipId 目标片段ID
-     * @param time 结束时间
-     * @return 执行结果
-     */
+  /**
+   * 针对一个片段中使用的资源，设置截取资源的结束时间点
+   *
+   * @param clipId 目标片段ID
+   * @param time 结束时间
+   * @return 执行结果
+   */
   setSourceEndTimeUs(clipId, time);
 
-    /**
-     * 设置一个片段的播放速度
-     *
-     * @param clipId 目标片段ID
-     * @param speed 播放速度
-     * @return 执行结果
-     */
+  /**
+   * 设置一个片段的播放速度
+   *
+   * @param clipId 目标片段ID
+   * @param speed 播放速度
+   * @return 执行结果
+   */
   setClipSpeed(clipId, speed)
 
-    /**
-     * 设置一个片段中音频播放时候的音量
-     *
-     * @param clipId 目标片段ID
-     * @param volume 音量大小
-     * @return 执行结果
-     */
+  /**
+   * 设置一个片段中音频播放时候的音量
+   *
+   * @param clipId 目标片段ID
+   * @param volume 音量大小
+   * @return 执行结果
+   */
   setClipVolume(clipId, volume)
 
   /**
@@ -1068,12 +1080,12 @@ export interface MarvelAddonMeEditor {
    */
   deleteClip(clipId)
 
-    /**
-   * 获取片段内容的宽度
-   *
-   * @param clipId 片段Id
-   * @return 片段内容的宽度
-   */
+  /**
+ * 获取片段内容的宽度
+ *
+ * @param clipId 片段Id
+ * @return 片段内容的宽度
+ */
   getContentWidth(clipId)
 
   /**
@@ -1084,12 +1096,12 @@ export interface MarvelAddonMeEditor {
    */
   getContentHeight(clipId)
 
-   /**
-     * 获取片段内容的X向位置
-     *
-     * @param clipId 片段Id
-     * @return 片段内容的X向位置
-     */
+  /**
+    * 获取片段内容的X向位置
+    *
+    * @param clipId 片段Id
+    * @return 片段内容的X向位置
+    */
   getPositionX(clipId);
 
   /**
@@ -1192,7 +1204,7 @@ export interface MarvelAddonMeEditor {
    * @param flag 渲染标记
    * @return 片段ID，如果出错，可通过{@link #getErrorCode()}获取
    */
-   addExtensionClip(trackId: TrackId, path: Path, startTimeUs: TimeUS, durationUs: TimeUS, name: string, type: SourceType, flag: number): ClipId
+  addExtensionClip(trackId: TrackId, path: Path, startTimeUs: TimeUS, durationUs: TimeUS, name: string, type: SourceType, flag: number): ClipId
 
 
   /**
@@ -1221,7 +1233,7 @@ export interface MarvelAddonMeEditor {
 
   checkToAddMtl(clipId, type: string): number
 
-  deleteMtl(clipId:ClipId, type: string ): number
+  deleteMtl(clipId: ClipId, type: string): number
 
   /**
    * 片段移动，支持跨轨道移动
@@ -1231,12 +1243,12 @@ export interface MarvelAddonMeEditor {
    * @param trackId
    * @return 结果
    */
-  moveClip(clipId:ClipId, startTimeUs: TimeUS, trackId: TrackId);
+  moveClip(clipId: ClipId, startTimeUs: TimeUS, trackId: TrackId);
 
   /**
    * 修改资源路径
    */
-  changeClipRes(clipId:ClipId, path: Path, startTimeUS: TimeUS, endTtimeUs:TimeUS): Ret
+  changeClipRes(clipId: ClipId, path: Path, startTimeUS: TimeUS, endTtimeUs: TimeUS): Ret
 
   /**
    * 更换canvas背景颜色
@@ -1261,7 +1273,7 @@ export interface MarvelAddonMeEditor {
 }
 
 export interface GlobalBaseMarvelAddonMeEditor extends MarvelAddonMeEditor {
-// 基础接口
+  // 基础接口
 
   setGlobalStrProperty(type: string, key: string, value: string): Ret
   setGlobalI64Property(type: string, key: string, value: number): Ret
@@ -1331,7 +1343,7 @@ export enum CanvasKeyframeMaterialKey {
   Y_OFFSET = CKey.kMaterialKeyYOffset,
   X_SCALE = CKey.kMaterialKeyXScale,
   Y_SCALE = CKey.kMaterialKeyYScale,
-  ROTATE =  CKey.kMaterialKeyRotate ,
+  ROTATE = CKey.kMaterialKeyRotate,
   INTENSITY = CKey.kMaterialKeyIntensity
 }
 

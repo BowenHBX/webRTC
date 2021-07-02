@@ -12,11 +12,13 @@ import MarvelCloud from '../../marvel-cloud';
 const pkg = proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
 
 let conn;
-
+let mc;
 const Home = () => {
   const [text, setText] = useState('');
   const [receive, setReceive] = useState<string | null | undefined>('');
   const textRef = useRef('');
+  const [marvelProject, setMarvelProject] = useState({});
+
   const __EventEmitter = new EventEmitter();
 
   useEffect(() => {
@@ -24,6 +26,9 @@ const Home = () => {
 
     (async () => {
       const con = await libAccs.init({
+        heartbeat: true,
+        reconnect: true,
+        reconnectInterval: 1000,
         aserverProxy: 'msgacs.waptest.taobao.com',
         appkey: 'H5_3Cl6Mt52kce4N1', // appkey, 必填，appkey寻找@子琛 申请   32780517  H5_3Cl6Mt52kce4N1
         m_params: {
@@ -32,7 +37,7 @@ const Home = () => {
           H5Request: true,
           LoginRequest: true,
           ecode: 1
-        }
+        },
       });
       console.log('con', con);
       conn = con;
@@ -326,9 +331,33 @@ const Home = () => {
   }
 
   const createMarvelCloud = async () => {
-    const mc = await MarvelCloud.create('263662065', 'test', 'bowen');
-    await mc.load('test', true, () => { });
-    console.log('mc', mc);
+    mc = await MarvelCloud.create('263662065', 'test', 'bowen');
+    console.log('mc----1', mc);
+    await mc.load('demo', true);
+    setMarvelProject({
+      sessionId: mc.sessionId,
+      streamUrl: mc.streamUrl,
+      msgUrl: mc.msgUrl
+    });
+    console.log('mc----2', mc);
+  }
+
+  const [trackIdList, setTrackIdList] = useState([]);
+  const trackIdListRef = useRef([]);
+  useEffect(() => {
+    trackIdListRef.current = trackIdList
+  }, [trackIdList]);
+  const getTrackIdList = async () => {
+    const editor = mc.getEditor();
+    const trackIds = await editor.getTrackIdList(pkg.MarvelTrackType.TrackTypeAll);
+    setTrackIdList(trackIds);
+  }
+
+  const [clipIdList, setClipIdList] = useState([]);
+  const getClipIdList = async () => {
+    const editor = mc.getEditor();
+    const clipIds = await editor.getClipIdList(trackIdListRef.current[0]);
+    setClipIdList(clipIds);
   }
 
   return (
@@ -341,6 +370,13 @@ const Home = () => {
       <Button onClick={() => { sendMsg(); }}>创建会话</Button>
       <Text>sessionId: {receive}</Text>
       <Button onClick={() => { createMarvelCloud(); }}>创建会话npm</Button>
+      <Text>sessionId: {marvelProject.sessionId}</Text>
+      <Text>streamUrl: {marvelProject.streamUrl}</Text>
+      <Text>msgUrl: {marvelProject.msgUrl}</Text>
+      <Button onClick={() => { getTrackIdList(); }}>GetTrackIdList</Button>
+      <Text>trackIds: {trackIdList.join(', ')}</Text>
+      <Button onClick={() => { getClipIdList(); }}>getClipIdList</Button>
+      <Text>trackIds: {clipIdList.join(', ')}</Text>
     </View>
   );
 };
