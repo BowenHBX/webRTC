@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option cc_enable_arenas = true;
+//option cc_enable_arenas = true;
 package com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
 
 //消息报文
@@ -75,7 +75,12 @@ message Command
     SessionEndCurrentCommand      sessionEndCurrentCommand      = 220;
     SessionInvalidCurrentCommand  sessionInvalidCurrentCommand  = 221;
 
-    /** resource related, 1000~1999 **/
+    /** resource related, 1000~1199, just for internal call between server **/
+    ResourcePrepareCommand resourcePrepareCommand               = 1001;
+
+    /** resource related, 1200~1999 **/
+    ResourceListUserMaterialCommand resourceListUserMaterialCommand                                       = 1201;
+
 
     /** project related, 2000~ 2999 **/
     ProjectLoadCommand projectLoadCommand                                                                 = 2001;
@@ -104,19 +109,22 @@ message Command
     EditorSetClipLookupCommand editorSetClipLookupCommand                                                 = 3021;
     EditorSetTransitionDurationUsCommand editorSetTransitionDurationUsCommand                             = 3024;
     EditorRemoveTransitionCommand editorRemoveTransitionCommand                                           = 3025;
+    EditorCreateResourceIfNeedCommand editorCreateResourceIfNeedCommand                                   = 3026;
+    EditorDeleteMaterialCommand editorDeleteMaterialCommand                                               = 3027;
+    EditorCheckToAddMaterialCommand editorCheckToAddMaterialCommand                                       = 3028;
     EditorSetClipCropCommand editorSetClipCropCommand                                                     = 3029;
     EditorSetClipCanvasBackgroundCommand editorSetClipCanvasBackgroundCommand                             = 3030;
     EditorSetClipCanvasBackgroundResCommand editorSetClipCanvasBackgroundResCommand                       = 3031;
     EditorSetClipCanvasBackgroundBlurTypeCommand editorSetClipCanvasBackgroundBlurTypeCommand             = 3032;
-    EditorDeleteMaterialCommand editorDeleteMaterialCommand                                               = 3033;
-    EditorCheckToAddMaterialCommand editorCheckToAddMaterialCommand                                       = 3034;
     EditorSetTransitionEffectCommand editorSetTransitionEffectCommand                                     = 3035;
     EditorSetResourcePropertiesCommand editorSetResourcePropertiesCommand                                 = 3036;
-    EditorGetResourceDurationUsCommand editorGetResourceDurationUsCommand                                 = 3037;
-    EditorGetResourceSizeCommand editorGetResourceSizeCommand                                             = 3038;
-    EditorGetClipResourceInfoCommand editorGetClipResourceInfoCommand                                     = 3039;
-    EditorSetResourceFullKeyFrameWithResIdCommand editorSetResourceFullKeyFrameWithResIdCommand           = 3041;
-    EditorSetTextCommand editorSetTextCommand                                                             = 3042;
+    EditorGetResourcePropertiesCommand editorGetResourcePropertiesCommand                                 = 3037;
+    EditorGetResourceDurationUsCommand editorGetResourceDurationUsCommand                                 = 3038;
+    EditorGetResourceSizeCommand editorGetResourceSizeCommand                                             = 3039;
+    EditorGetResourceUriCommand editorGetResourceUriCommand                                               = 3040;
+    EditorGetClipResourceInfoCommand editorGetClipResourceInfoCommand                                     = 3041;
+    EditorSetResourceFullKeyFrameWithResIdCommand editorSetResourceFullKeyFrameWithResIdCommand           = 3042;
+    EditorSetTextCommand editorSetTextCommand                                                             = 3043;
 
     EditorSetTextColorCommand editorSetTextColorCommand                                                   = 3044;
     EditorSetTextFontCommand editorSetTextFontCommand                                                     = 3045;
@@ -128,6 +136,8 @@ message Command
     EditorSetTextBoldCommand editorSetTextBoldCommand                                                     = 3051;
     EditorSetTextItalicsCommand editorSetTextItalicsCommand                                               = 3052;
     EditorSetTextWordSpaceCommand editorSetTextWordSpaceCommand                                           = 3053;
+    EditorSetTextExtraClipCommand editorSetTextExtraClipCommand                                           = 3054;
+    EditorGetTextExtraClipCommand editorGetTextExtraClipCommand                                           = 3055;
 
     EditorSetScaleCommand editorSetScaleCommand                                                           = 3056;
     EditorSetPositionCommand editorSetPositionCommand                                                     = 3057;
@@ -142,6 +152,17 @@ message Command
 
     EditorGetTrackIdListCommand editorGetTrackIdListCommand                                               = 3070;
     EditorGetClipIdListCommand editorGetClipIdListCommand                                                 = 3071;
+    EditorGetTrackInfoCommand editorGetTrackInfoCommand                                                   = 3072;
+
+    EditorSetClipCurvePropertyAnchorValueCommand editorSetClipCurvePropertyAnchorValueCommand             = 3075;
+    EditorRemoveClipCurvePropertyAnchorCommand editorRemoveClipCurvePropertyAnchorCommand                 = 3076;
+    EditorGetClipCurvePropertyAnchorListCommand editorGetClipCurvePropertyAnchorListCommand               = 3077;
+    EditorGetClipCurvePropertyValueCommand editorGetClipCurvePropertyValueCommand                         = 3078;
+
+    EditorAddExtensionEffectForClipCommand editorAddExtensionEffectForClipCommand                         = 3080;
+    EditorRemoveExtensionEffectFromClipCommand editorRemoveExtensionEffectFromClipCommand                 = 3081;
+    EditorGetExtensionEffectNamesFromClipCommand editorGetExtensionEffectNamesFromClipCommand             = 3082;
+    EditorSetExtensionEffectPriorityCommand editorSetExtensionEffectPriorityCommand                       = 3083;
 
 
     /** viewer related, 4000~ 4999 **/
@@ -190,32 +211,42 @@ message Result
   oneof data{
     VoidResult voidResult= 101;
 
-    SessionCreateNewCommandResult sessionCreateNewCommandResult                         = 200;
-    SessionPrepareRTCommandResult sessionPrepareRTCommandResult                         = 201;
+    SessionCreateNewCommandResult sessionCreateNewCommandResult                                         = 200;
+    SessionPrepareRTCommandResult sessionPrepareRTCommandResult                                         = 201;
 
-    EditorGetStackSizeCommandResult editorGetStackSizeCommandResult                     = 3007;
-    EditorGetCanvasPropertiesCommandResult editorGetCanvasPropertiesCommandResult       = 3009;
-    EditorAddMainClipCommandResult editorAddMainClipCommandResult                       = 3010;
-    EditorAddLookupClipCommandResult editorAddLookupClipCommandResult                   = 3011;
-    EditorAddPipClipCommandResult editorAddPipClipCommandResult                         = 3012;
-    EditorAddMusicClipCommandResult editorAddMusicClipCommandResult                     = 3013;
-    EditorAddTextClipCommandResult editorAddTextClipCommandResult                       = 3014;
-    EditorAddStickerClipCommandResult editorAddStickerClipCommandResult                 = 3015;
-    EditorAddExtensionClipCommandResult editorAddExtensionClipCommandResult             = 3016;
+    ResourceListUserMaterialCommandResult resourceListUserMaterialCommandResult                         = 1201;
 
-    EditorSplitClipCommandResult editorSplitClipCommandResult                           = 3018;
+    EditorGetStackSizeCommandResult editorGetStackSizeCommandResult                                     = 3006;
+    EditorGetCanvasPropertiesCommandResult editorGetCanvasPropertiesCommandResult                       = 3008;
+    EditorAddMainClipCommandResult editorAddMainClipCommandResult                                       = 3009;
+    EditorAddLookupClipCommandResult editorAddLookupClipCommandResult                                   = 3010;
+    EditorAddPipClipCommandResult editorAddPipClipCommandResult                                         = 3011;
+    EditorAddMusicClipCommandResult editorAddMusicClipCommandResult                                     = 3012;
+    EditorAddTextClipCommandResult editorAddTextClipCommandResult                                       = 3013;
+    EditorAddStickerClipCommandResult editorAddStickerClipCommandResult                                 = 3014;
+    EditorAddExtensionClipCommandResult editorAddExtensionClipCommandResult                             = 3015;
+    EditorSplitClipCommandResult editorSplitClipCommandResult                                           = 3017;
 
-    EditorGetResourceDurationUsCommandResult editorGetResourceDurationUsCommandResult   = 3038;
-    EditorGetResourceSizeCommandResult editorGetResourceSizeCommandResult               = 3039;
-    EditorGetClipResourceInfoCommandResult editorGetClipResourceInfoCommandResult       = 3040;
+    EditorGetResourcePropertiesCommandResult  editorGetResourcePropertiesCommandResult                  = 3036;
+    EditorGetResourceDurationUsCommandResult editorGetResourceDurationUsCommandResult                   = 3037;
+    EditorGetResourceSizeCommandResult editorGetResourceSizeCommandResult                               = 3038;
+    EditorGetResourceUriCommandResult editorGetResourceUriCommandResult                                 = 3039;
+    EditorGetClipResourceInfoCommandResult editorGetClipResourceInfoCommandResult                       = 3040;
+    EditorCreateResourceIfNeedCommandResult editorCreateResourceIfNeedCommandResult                     = 3041;
+    EditorGetTextExtraClipCommandResult editorGetTextExtraClipCommandResult                             = 3050;
+    EditorGetClipPropListResult editorGetClipPropListResult                                             = 3064;
+    EditorGetTrackIdListCommandResult editorGetTrackIdListCommandResult                                 = 3070;
+    EditorGetClipIdListCommandResult editorGetClipIdListCommandResult                                   = 3071;
+    EditorGetTrackInfoCommandResult editorGetTrackInfoCommandResult                                     = 3072;
 
-    EditorGetClipPropListResult editorGetClipPropListResult                             = 3064;
+    EditorGetClipCurvePropertyAnchorListCommandResult editorGetClipCurvePropertyAnchorListCommandResult = 3080;
+    EditorGetClipCurvePropertyValueCommandResult editorGetClipCurvePropertyValueCommandResult           = 3081;
+    EditorGetExtensionEffectNamesFromClipCommandResult editorGetExtensionEffectNamesFromClipCommandResult = 3082;
 
-    EditorGetTrackIdListCommandResult editorGetTrackIdListCommandResult                 = 3071;
-    EditorGetClipIdListCommandResult editorGetClipIdListCommandResult                   = 3072;
+    ViewerGetStateCommandResult viewerGetStateCommandResult                                             = 4009;
+    ViewerGetDurationUsCommandResult viewerGetDurationUsCommandResult                                   = 4010;
 
-    ViewerGetStateCommandResult viewerGetStateCommandResult                             = 4010;
-    ViewerGetDurationUsCommandResult viewerGetDurationUsCommandResult                   = 4011;
+    ExporterRunCommandResult exporterRunCommandResult                                                   = 5001;
   }
 }
 
@@ -270,6 +301,30 @@ message SessionEndCurrentCommand{}
 // 用户在一个端A失效，用另外一个端B时，如果A重试，服务端会下发此信令告知会话无效
 message SessionInvalidCurrentCommand {}
 
+message ResourcePrepareCommand
+{
+  string resource_uri   = 1;
+  string resource_url   = 2;
+}
+
+
+message ResourceListUserMaterialCommand
+{
+  int32 current_page  = 1; // >=1
+  int32 page_size     = 2; // <= 1000
+}
+
+message ResourceListUserMaterialCommandResult
+{
+  message UserMaterialInfo
+  {
+    string resource_uri   = 1;
+    uint64 file_size      = 2;
+    uint64 last_modified  = 3;
+  }
+
+  repeated UserMaterialInfo material_list = 1;
+}
 
 /** Project **/
 message ProjectInfo
@@ -557,14 +612,35 @@ enum ResourceType {
     ResTypeExtra    = 7;
 }
 
+enum MaterialType {
+    MaterialTypeUnknown    = 0;
+    MaterialTypeCanvas     = 1;
+    MaterialTypeSticker    = 2;
+    MaterialTypeLookup     = 3;
+    MaterialTypeTransition = 4;
+    MaterialTypeText       = 5;
+    MaterialTypeCrop       = 6;
+    MaterialTypeMask       = 7;
+    MaterialTypeExtension  = 8;
+}
+
+message EditorCreateResourceIfNeedCommand {
+  string resource_uri = 1;
+  ResourceType res_type   = 2;
+}
+
+message EditorCreateResourceIfNeedCommandResult {
+  string resource_id = 1;
+}
+
 message EditorDeleteMaterialCommand {
   string clip_id          = 1;
-  ResourceType res_type   = 2;
+  MaterialType material_type   = 2;
 }
 
 message EditorCheckToAddMaterialCommand {
   string clip_id          = 1;
-  ResourceType res_type   = 2;
+  MaterialType material_type   = 2;
 }
 
 enum TransitionMode {
@@ -587,6 +663,18 @@ message EditorSetResourcePropertiesCommand {
   ResourceType  res_type  = 5;
 }
 
+message EditorGetResourcePropertiesCommand {
+  oneof resource {
+    string clip_id           = 1;
+    string resource_id       = 2;
+  };
+  repeated EditorPropDef prop_def_list = 3;
+}
+
+message EditorGetResourcePropertiesCommandResult {
+  repeated EditorProp prop_list = 1;
+}
+
 message EditorGetResourceDurationUsCommand {
   string resource_id = 1;
 }
@@ -602,6 +690,14 @@ message EditorGetResourceSizeCommand {
 message EditorGetResourceSizeCommandResult {
   uint32 width = 1;
   uint32 height = 2;
+}
+
+message EditorGetResourceUriCommand {
+  string resource_id = 1;
+}
+
+message EditorGetResourceUriCommandResult {
+  string resource_uri = 1;
 }
 
 message EditorGetClipResourceInfoCommand {
@@ -694,6 +790,19 @@ message EditorSetTextWordSpaceCommand {
   float space     = 2;
 }
 
+message EditorSetTextExtraClipCommand {
+  string clip_id        = 1;
+  string extra_clip_id  = 2;
+}
+
+message EditorGetTextExtraClipCommand {
+  string clip_id        = 1;
+}
+
+message EditorGetTextExtraClipCommandResult {
+  string extra_clip_id  = 1;
+}
+
 message EditorSetScaleCommand {
   string clip_id  = 1;
   float scale     = 2;
@@ -749,7 +858,10 @@ enum MarvelTrackType {
     TrackTypeCustomize = 8;
     TrackTypeText = 9;
     TrackTypeGroup = 10;
-    TrackTypeAll = 11;
+    TrackTypeMask = 11;
+    TrackTypeMagic = 12;
+    TrackTypeDynamic = 13;
+    TrackTypeAll = 14;
 }
 
 message EditorGetTrackIdListCommand {
@@ -766,6 +878,77 @@ message EditorGetClipIdListCommand {
 
 message EditorGetClipIdListCommandResult {
   repeated string values = 1;
+}
+
+message EditorGetTrackInfoCommand {
+  string track_id = 1;
+}
+
+message EditorGetTrackInfoCommandResult {
+  string track_type        = 1;
+  repeated string clip_ids = 2;
+}
+
+message EditorSetClipCurvePropertyAnchorValueCommand {
+  string clip_id       = 1;
+  string type          = 2;
+  string key           = 3;
+  int64 index          = 4;
+  float value          = 5;
+}
+
+message EditorRemoveClipCurvePropertyAnchorCommand {
+  string clip_id       = 1;
+  string type          = 2;
+  string key           = 3;
+  int64  index         = 4;
+}
+
+message EditorGetClipCurvePropertyAnchorListCommand {
+  string clip_id       = 1;
+  string type          = 2;
+  string key           = 3;
+}
+
+message EditorGetClipCurvePropertyAnchorListCommandResult {
+  repeated int64 anchors = 1;
+}
+
+message EditorGetClipCurvePropertyValueCommand {
+  string clip_id       = 1;
+  string type          = 2;
+  string key           = 3;
+  int64  index         = 4;
+}
+
+message EditorGetClipCurvePropertyValueCommandResult {
+  double value          = 1;
+}
+
+message EditorAddExtensionEffectForClipCommand {
+  string clip_id           = 1;
+  string resource_uri      = 2;
+  string name              = 3;
+  int64 flag               = 4;
+}
+
+message EditorRemoveExtensionEffectFromClipCommand {
+  string clip_id           = 1;
+  string name              = 2;
+}
+
+message EditorGetExtensionEffectNamesFromClipCommand {
+  string clip_id           = 1;
+}
+
+message EditorGetExtensionEffectNamesFromClipCommandResult {
+  repeated string names    = 1;
+}
+
+message EditorSetExtensionEffectPriorityCommand {
+  string clip_id           = 1;
+  string name              = 2;
+  int64  priority          = 3;
 }
 
 /** Viewer **/

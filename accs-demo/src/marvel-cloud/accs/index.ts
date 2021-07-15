@@ -1,89 +1,88 @@
 
 import libAccs, { H5AccsCore, accsResponse } from '@ali/lib-accs';
 import * as proto from '../protobuf/model';
-import * as EventEmitter from 'eventemitter3';
+import { EventEmitter } from 'events';
+import { IAccsConfig } from '../@types';
 
 const pkg = proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
 
-class Accs {
-  public conn: H5AccsCore;
-  public __EventEmitter: EventEmitter;
-  public seqId: number = 0;
+class Accs extends EventEmitter {
+  conn: H5AccsCore;
+  seqId = 0;
 
   constructor() {
-    this.__EventEmitter = new EventEmitter();
+    super();
   }
 
   getSeqId() {
     return this.seqId++;
   }
 
-  public initAccs = async () => {
-    let conn: H5AccsCore;
-    try {
-      conn = await libAccs.init({
-        reconnect: true,
-        reconnectInterval: 2000,
-        heartbeat: true,
-        aserverProxy: location.host.indexOf('wapa') ? 'msgacs.waptest.taobao.com' : 'msgacs.m.taobao.com',
-        appkey: 'H5_3Cl6Mt52kce4N1', // appkey, 必填，appkey寻找@子琛 申请   32780517  H5_3Cl6Mt52kce4N1
-        m_params: {
-          api: 'mtop.accs.auth.getH5Token',
-          v: '1.0',
-          H5Request: true,
-          LoginRequest: true,
-          ecode: 1
-        }
-      });
-    } catch (e) {
-      console.log('[libAccs-error]', e);
+  initAccs = async (accsConfig: IAccsConfig) => {
+    const config = {
+      reconnect: !!accsConfig.reconnectInterval,
+      reconnectInterval: accsConfig.reconnectInterval ?? 0,
+      heartbeat: true,
+      aserverProxy: accsConfig.aserverProxy ?? 'msgacs.m.taobao.com',
+      appkey: accsConfig.appkey, // appkey, 必填，appkey寻找@子琛 申请   32780517  H5_3Cl6Mt52kce4N1
+      m_params: null,
+    };
+    if (accsConfig.mParams) {
+      config.m_params = { ...accsConfig.mParams };
     }
 
-    conn.onMessage('multimedia_biz_platform', async (resp: accsResponse) => {
+    return new Promise((resolve, reject) => {
       try {
-        const buffer = await resp.getBinaryArray();
-        // 解析buffer为pb对象
-        const object: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = pkg.Result.decode(buffer);
-        // console.log('object: ', object);
-        if (object.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS) {
-          this.__EventEmitter.emit(`event-${object.commandHeader?.seqId}`, object);
-        }
-      } catch (error) {
-        console.error('[Error]: getBinaryArray', error);
+        libAccs.init(config).then((con: H5AccsCore) => {
+          console.log('conn-----', con);
+          this.conn = con;
+          con.onMessage('multimedia_biz_platform', async (resp: accsResponse) => {
+            try {
+              // console.log('multimedia_biz_platform', resp);
+              const buffer = await resp.getBinaryArray();
+              // 解析buffer为pb对象
+              const object: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = pkg.Result.decode(buffer);
+              if (object.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS) {
+                this.emit(`event-${object.commandHeader?.seqId}`, object);
+              }
+            } catch (error) {
+              console.error('[Error]: getBinaryArray', error);
+            }
+          });
+          resolve(con);
+        });
+      } catch (e) {
+        console.log('[libAccs-error]', e);
+        resolve({ _token: '', errMsg: e.toString() });
       }
     });
+  };
 
-    console.log('conn-----', conn);
-    this.conn = conn;
-    return conn;
-  }
-
-  public sendMessage = async (buffer: Uint8Array, seqId: number, noResult?: boolean): Promise<proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult> => {
+  sendMessage = async (buffer: Uint8Array, seqId: number, noResult?: boolean): Promise<proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult> => {
     return new Promise((resolve, reject) => {
       if (buffer === null) {
         reject();
       }
 
-      this.__EventEmitter.once(`event-${seqId}`, (msg) => {
+      this.once(`event-${seqId}`, (msg) => {
         console.log(`__EventEmitter-${seqId}`, msg);
         resolve(msg);
       });
 
-      this.conn.send('multimedia_biz_platform', buffer)
-        .then((sendResult: accsResponse) => {
-          console.log(`sendResult-${seqId}`, sendResult, sendResult.getText());
-          if (sendResult.err !== '0') {
-            reject();
-          } else if (noResult) {
-            const result = new pkg.Result();
-            result.errCode = pkg.Result.ERROR_CODE.ERROR_SUCCESS;
-            resolve(result);
-          }
-        }).catch(e => {
+      this.conn.send('multimedia_biz_platform', buffer).then((sendResult: accsResponse) => {
+        console.log(`sendResult-${seqId}`, sendResult, sendResult.getText());
+        if (sendResult.err !== '0') {
           reject();
-        });
+        } else if (noResult) {
+          const result = new pkg.Result();
+          result.errCode = pkg.Result.ERROR_CODE.ERROR_SUCCESS;
+          resolve(result);
+        }
+      }).catch((e) => {
+        reject();
+      });
     });
-  }
+  };
 }
 
 export default Accs;

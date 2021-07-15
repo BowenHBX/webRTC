@@ -1571,6 +1571,8 @@ $root.com = (function () {
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionKeepaliveCommand|null} [sessionKeepaliveCommand] Command sessionKeepaliveCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionEndCurrentCommand|null} [sessionEndCurrentCommand] Command sessionEndCurrentCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionInvalidCurrentCommand|null} [sessionInvalidCurrentCommand] Command sessionInvalidCurrentCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand|null} [resourcePrepareCommand] resource related, 1000~1199, just for internal call between server *
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand|null} [resourceListUserMaterialCommand] resource related, 1200~1999 *
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IProjectLoadCommand|null} [projectLoadCommand] project related, 2000~ 2999 *
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IProjectSaveCommand|null} [projectSaveCommand] Command projectSaveCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IProjectNewCommand|null} [projectNewCommand] Command projectNewCommand
@@ -1595,16 +1597,19 @@ $root.com = (function () {
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipLookupCommand|null} [editorSetClipLookupCommand] Command editorSetClipLookupCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTransitionDurationUsCommand|null} [editorSetTransitionDurationUsCommand] Command editorSetTransitionDurationUsCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveTransitionCommand|null} [editorRemoveTransitionCommand] Command editorRemoveTransitionCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand|null} [editorCreateResourceIfNeedCommand] Command editorCreateResourceIfNeedCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand|null} [editorDeleteMaterialCommand] Command editorDeleteMaterialCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand|null} [editorCheckToAddMaterialCommand] Command editorCheckToAddMaterialCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCropCommand|null} [editorSetClipCropCommand] Command editorSetClipCropCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCanvasBackgroundCommand|null} [editorSetClipCanvasBackgroundCommand] Command editorSetClipCanvasBackgroundCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCanvasBackgroundResCommand|null} [editorSetClipCanvasBackgroundResCommand] Command editorSetClipCanvasBackgroundResCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCanvasBackgroundBlurTypeCommand|null} [editorSetClipCanvasBackgroundBlurTypeCommand] Command editorSetClipCanvasBackgroundBlurTypeCommand
-                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand|null} [editorDeleteMaterialCommand] Command editorDeleteMaterialCommand
-                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand|null} [editorCheckToAddMaterialCommand] Command editorCheckToAddMaterialCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTransitionEffectCommand|null} [editorSetTransitionEffectCommand] Command editorSetTransitionEffectCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetResourcePropertiesCommand|null} [editorSetResourcePropertiesCommand] Command editorSetResourcePropertiesCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand|null} [editorGetResourcePropertiesCommand] Command editorGetResourcePropertiesCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommand|null} [editorGetResourceDurationUsCommand] Command editorGetResourceDurationUsCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommand|null} [editorGetResourceSizeCommand] Command editorGetResourceSizeCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand|null} [editorGetResourceUriCommand] Command editorGetResourceUriCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipResourceInfoCommand|null} [editorGetClipResourceInfoCommand] Command editorGetClipResourceInfoCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetResourceFullKeyFrameWithResIdCommand|null} [editorSetResourceFullKeyFrameWithResIdCommand] Command editorSetResourceFullKeyFrameWithResIdCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextCommand|null} [editorSetTextCommand] Command editorSetTextCommand
@@ -1618,6 +1623,8 @@ $root.com = (function () {
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextBoldCommand|null} [editorSetTextBoldCommand] Command editorSetTextBoldCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextItalicsCommand|null} [editorSetTextItalicsCommand] Command editorSetTextItalicsCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextWordSpaceCommand|null} [editorSetTextWordSpaceCommand] Command editorSetTextWordSpaceCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand|null} [editorSetTextExtraClipCommand] Command editorSetTextExtraClipCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand|null} [editorGetTextExtraClipCommand] Command editorGetTextExtraClipCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetScaleCommand|null} [editorSetScaleCommand] Command editorSetScaleCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetPositionCommand|null} [editorSetPositionCommand] Command editorSetPositionCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetAnchorCommand|null} [editorSetAnchorCommand] Command editorSetAnchorCommand
@@ -1630,6 +1637,15 @@ $root.com = (function () {
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipPropListCommand|null} [editorSetClipPropListCommand] Command editorSetClipPropListCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackIdListCommand|null} [editorGetTrackIdListCommand] Command editorGetTrackIdListCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipIdListCommand|null} [editorGetClipIdListCommand] Command editorGetClipIdListCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand|null} [editorGetTrackInfoCommand] Command editorGetTrackInfoCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand|null} [editorSetClipCurvePropertyAnchorValueCommand] Command editorSetClipCurvePropertyAnchorValueCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand|null} [editorRemoveClipCurvePropertyAnchorCommand] Command editorRemoveClipCurvePropertyAnchorCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand|null} [editorGetClipCurvePropertyAnchorListCommand] Command editorGetClipCurvePropertyAnchorListCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand|null} [editorGetClipCurvePropertyValueCommand] Command editorGetClipCurvePropertyValueCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand|null} [editorAddExtensionEffectForClipCommand] Command editorAddExtensionEffectForClipCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand|null} [editorRemoveExtensionEffectFromClipCommand] Command editorRemoveExtensionEffectFromClipCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand|null} [editorGetExtensionEffectNamesFromClipCommand] Command editorGetExtensionEffectNamesFromClipCommand
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand|null} [editorSetExtensionEffectPriorityCommand] Command editorSetExtensionEffectPriorityCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerSetPropertiesCommand|null} [viewerSetPropertiesCommand] viewer related, 4000~ 4999 *
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerPrepareCommand|null} [viewerPrepareCommand] Command viewerPrepareCommand
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerStartCommand|null} [viewerStartCommand] Command viewerStartCommand
@@ -1728,6 +1744,22 @@ $root.com = (function () {
                                      * @instance
                                      */
                                     Command.prototype.sessionInvalidCurrentCommand = null;
+
+                                    /**
+                                     * resource related, 1000~1199, just for internal call between server *
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand|null|undefined} resourcePrepareCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.resourcePrepareCommand = null;
+
+                                    /**
+                                     * resource related, 1200~1999 *
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand|null|undefined} resourceListUserMaterialCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.resourceListUserMaterialCommand = null;
 
                                     /**
                                      * project related, 2000~ 2999 *
@@ -1922,6 +1954,30 @@ $root.com = (function () {
                                     Command.prototype.editorRemoveTransitionCommand = null;
 
                                     /**
+                                     * Command editorCreateResourceIfNeedCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand|null|undefined} editorCreateResourceIfNeedCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorCreateResourceIfNeedCommand = null;
+
+                                    /**
+                                     * Command editorDeleteMaterialCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand|null|undefined} editorDeleteMaterialCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorDeleteMaterialCommand = null;
+
+                                    /**
+                                     * Command editorCheckToAddMaterialCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand|null|undefined} editorCheckToAddMaterialCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorCheckToAddMaterialCommand = null;
+
+                                    /**
                                      * Command editorSetClipCropCommand.
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCropCommand|null|undefined} editorSetClipCropCommand
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
@@ -1954,22 +2010,6 @@ $root.com = (function () {
                                     Command.prototype.editorSetClipCanvasBackgroundBlurTypeCommand = null;
 
                                     /**
-                                     * Command editorDeleteMaterialCommand.
-                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand|null|undefined} editorDeleteMaterialCommand
-                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
-                                     * @instance
-                                     */
-                                    Command.prototype.editorDeleteMaterialCommand = null;
-
-                                    /**
-                                     * Command editorCheckToAddMaterialCommand.
-                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand|null|undefined} editorCheckToAddMaterialCommand
-                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
-                                     * @instance
-                                     */
-                                    Command.prototype.editorCheckToAddMaterialCommand = null;
-
-                                    /**
                                      * Command editorSetTransitionEffectCommand.
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTransitionEffectCommand|null|undefined} editorSetTransitionEffectCommand
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
@@ -1986,6 +2026,14 @@ $root.com = (function () {
                                     Command.prototype.editorSetResourcePropertiesCommand = null;
 
                                     /**
+                                     * Command editorGetResourcePropertiesCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand|null|undefined} editorGetResourcePropertiesCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorGetResourcePropertiesCommand = null;
+
+                                    /**
                                      * Command editorGetResourceDurationUsCommand.
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommand|null|undefined} editorGetResourceDurationUsCommand
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
@@ -2000,6 +2048,14 @@ $root.com = (function () {
                                      * @instance
                                      */
                                     Command.prototype.editorGetResourceSizeCommand = null;
+
+                                    /**
+                                     * Command editorGetResourceUriCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand|null|undefined} editorGetResourceUriCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorGetResourceUriCommand = null;
 
                                     /**
                                      * Command editorGetClipResourceInfoCommand.
@@ -2106,6 +2162,22 @@ $root.com = (function () {
                                     Command.prototype.editorSetTextWordSpaceCommand = null;
 
                                     /**
+                                     * Command editorSetTextExtraClipCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand|null|undefined} editorSetTextExtraClipCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorSetTextExtraClipCommand = null;
+
+                                    /**
+                                     * Command editorGetTextExtraClipCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand|null|undefined} editorGetTextExtraClipCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorGetTextExtraClipCommand = null;
+
+                                    /**
                                      * Command editorSetScaleCommand.
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetScaleCommand|null|undefined} editorSetScaleCommand
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
@@ -2202,6 +2274,78 @@ $root.com = (function () {
                                     Command.prototype.editorGetClipIdListCommand = null;
 
                                     /**
+                                     * Command editorGetTrackInfoCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand|null|undefined} editorGetTrackInfoCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorGetTrackInfoCommand = null;
+
+                                    /**
+                                     * Command editorSetClipCurvePropertyAnchorValueCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand|null|undefined} editorSetClipCurvePropertyAnchorValueCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorSetClipCurvePropertyAnchorValueCommand = null;
+
+                                    /**
+                                     * Command editorRemoveClipCurvePropertyAnchorCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand|null|undefined} editorRemoveClipCurvePropertyAnchorCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorRemoveClipCurvePropertyAnchorCommand = null;
+
+                                    /**
+                                     * Command editorGetClipCurvePropertyAnchorListCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand|null|undefined} editorGetClipCurvePropertyAnchorListCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorGetClipCurvePropertyAnchorListCommand = null;
+
+                                    /**
+                                     * Command editorGetClipCurvePropertyValueCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand|null|undefined} editorGetClipCurvePropertyValueCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorGetClipCurvePropertyValueCommand = null;
+
+                                    /**
+                                     * Command editorAddExtensionEffectForClipCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand|null|undefined} editorAddExtensionEffectForClipCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorAddExtensionEffectForClipCommand = null;
+
+                                    /**
+                                     * Command editorRemoveExtensionEffectFromClipCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand|null|undefined} editorRemoveExtensionEffectFromClipCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorRemoveExtensionEffectFromClipCommand = null;
+
+                                    /**
+                                     * Command editorGetExtensionEffectNamesFromClipCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand|null|undefined} editorGetExtensionEffectNamesFromClipCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorGetExtensionEffectNamesFromClipCommand = null;
+
+                                    /**
+                                     * Command editorSetExtensionEffectPriorityCommand.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand|null|undefined} editorSetExtensionEffectPriorityCommand
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
+                                     * @instance
+                                     */
+                                    Command.prototype.editorSetExtensionEffectPriorityCommand = null;
+
+                                    /**
                                      * viewer related, 4000~ 4999 *
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerSetPropertiesCommand|null|undefined} viewerSetPropertiesCommand
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
@@ -2286,12 +2430,12 @@ $root.com = (function () {
 
                                     /**
                                      * Command data.
-                                     * @member {"SystemRequireResendCommand"|"sessionCreateNewCommand"|"sessionPrepareRTCCommand"|"sessionBeginCommand"|"sessionKeepaliveCommand"|"sessionEndCurrentCommand"|"sessionInvalidCurrentCommand"|"projectLoadCommand"|"projectSaveCommand"|"projectNewCommand"|"projectCloseCommand"|"editorUndoCommand"|"editorRedoCommand"|"editorGetStackSizeCommand"|"editorSetCanvasPropertiesCommand"|"editorGetCanvasPropertiesCommand"|"editorAddMainClipCommand"|"editorAddLookupClipCommand"|"editorAddPipClipCommand"|"editorAddMusicClipCommand"|"editorAddTextClipCommand"|"editorAddStickerClipCommand"|"editorAddExtensionClipCommand"|"editorChangeClipResourceCommand"|"editorSplitClipCommand"|"editorDeleteClipCommand"|"editorMoveClipCommand"|"editorRemoveTrackCommand"|"editorSetClipLookupCommand"|"editorSetTransitionDurationUsCommand"|"editorRemoveTransitionCommand"|"editorSetClipCropCommand"|"editorSetClipCanvasBackgroundCommand"|"editorSetClipCanvasBackgroundResCommand"|"editorSetClipCanvasBackgroundBlurTypeCommand"|"editorDeleteMaterialCommand"|"editorCheckToAddMaterialCommand"|"editorSetTransitionEffectCommand"|"editorSetResourcePropertiesCommand"|"editorGetResourceDurationUsCommand"|"editorGetResourceSizeCommand"|"editorGetClipResourceInfoCommand"|"editorSetResourceFullKeyFrameWithResIdCommand"|"editorSetTextCommand"|"editorSetTextColorCommand"|"editorSetTextFontCommand"|"editorSetDefaultFontFileCommand"|"editorSetTextShadowCommand"|"editorSetTextAlignmentCommand"|"editorSetTextOutlineCommand"|"editorSetTextUnderlineCommand"|"editorSetTextBoldCommand"|"editorSetTextItalicsCommand"|"editorSetTextWordSpaceCommand"|"editorSetScaleCommand"|"editorSetPositionCommand"|"editorSetAnchorCommand"|"editorSetRotationCommand"|"editorSetClipStartTimeUsCommand"|"editorSetSourceTimeRangeCommand"|"editorSetClipSpeedCommand"|"editorSetClipVolumeCommand"|"editorGetClipPropListCommand"|"editorSetClipPropListCommand"|"editorGetTrackIdListCommand"|"editorGetClipIdListCommand"|"viewerSetPropertiesCommand"|"viewerPrepareCommand"|"viewerStartCommand"|"viewerPauseCommand"|"viewerStopCommand"|"viewerSeekToCommand"|"viewerGetStateCommand"|"viewerGetDurationUsCommand"|"exporterRunCommand"|"exporterCancelCommand"|undefined} data
+                                     * @member {"SystemRequireResendCommand"|"sessionCreateNewCommand"|"sessionPrepareRTCCommand"|"sessionBeginCommand"|"sessionKeepaliveCommand"|"sessionEndCurrentCommand"|"sessionInvalidCurrentCommand"|"resourcePrepareCommand"|"resourceListUserMaterialCommand"|"projectLoadCommand"|"projectSaveCommand"|"projectNewCommand"|"projectCloseCommand"|"editorUndoCommand"|"editorRedoCommand"|"editorGetStackSizeCommand"|"editorSetCanvasPropertiesCommand"|"editorGetCanvasPropertiesCommand"|"editorAddMainClipCommand"|"editorAddLookupClipCommand"|"editorAddPipClipCommand"|"editorAddMusicClipCommand"|"editorAddTextClipCommand"|"editorAddStickerClipCommand"|"editorAddExtensionClipCommand"|"editorChangeClipResourceCommand"|"editorSplitClipCommand"|"editorDeleteClipCommand"|"editorMoveClipCommand"|"editorRemoveTrackCommand"|"editorSetClipLookupCommand"|"editorSetTransitionDurationUsCommand"|"editorRemoveTransitionCommand"|"editorCreateResourceIfNeedCommand"|"editorDeleteMaterialCommand"|"editorCheckToAddMaterialCommand"|"editorSetClipCropCommand"|"editorSetClipCanvasBackgroundCommand"|"editorSetClipCanvasBackgroundResCommand"|"editorSetClipCanvasBackgroundBlurTypeCommand"|"editorSetTransitionEffectCommand"|"editorSetResourcePropertiesCommand"|"editorGetResourcePropertiesCommand"|"editorGetResourceDurationUsCommand"|"editorGetResourceSizeCommand"|"editorGetResourceUriCommand"|"editorGetClipResourceInfoCommand"|"editorSetResourceFullKeyFrameWithResIdCommand"|"editorSetTextCommand"|"editorSetTextColorCommand"|"editorSetTextFontCommand"|"editorSetDefaultFontFileCommand"|"editorSetTextShadowCommand"|"editorSetTextAlignmentCommand"|"editorSetTextOutlineCommand"|"editorSetTextUnderlineCommand"|"editorSetTextBoldCommand"|"editorSetTextItalicsCommand"|"editorSetTextWordSpaceCommand"|"editorSetTextExtraClipCommand"|"editorGetTextExtraClipCommand"|"editorSetScaleCommand"|"editorSetPositionCommand"|"editorSetAnchorCommand"|"editorSetRotationCommand"|"editorSetClipStartTimeUsCommand"|"editorSetSourceTimeRangeCommand"|"editorSetClipSpeedCommand"|"editorSetClipVolumeCommand"|"editorGetClipPropListCommand"|"editorSetClipPropListCommand"|"editorGetTrackIdListCommand"|"editorGetClipIdListCommand"|"editorGetTrackInfoCommand"|"editorSetClipCurvePropertyAnchorValueCommand"|"editorRemoveClipCurvePropertyAnchorCommand"|"editorGetClipCurvePropertyAnchorListCommand"|"editorGetClipCurvePropertyValueCommand"|"editorAddExtensionEffectForClipCommand"|"editorRemoveExtensionEffectFromClipCommand"|"editorGetExtensionEffectNamesFromClipCommand"|"editorSetExtensionEffectPriorityCommand"|"viewerSetPropertiesCommand"|"viewerPrepareCommand"|"viewerStartCommand"|"viewerPauseCommand"|"viewerStopCommand"|"viewerSeekToCommand"|"viewerGetStateCommand"|"viewerGetDurationUsCommand"|"exporterRunCommand"|"exporterCancelCommand"|undefined} data
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command
                                      * @instance
                                      */
                                     Object.defineProperty(Command.prototype, "data", {
-                                        get: $util.oneOfGetter($oneOfFields = ["SystemRequireResendCommand", "sessionCreateNewCommand", "sessionPrepareRTCCommand", "sessionBeginCommand", "sessionKeepaliveCommand", "sessionEndCurrentCommand", "sessionInvalidCurrentCommand", "projectLoadCommand", "projectSaveCommand", "projectNewCommand", "projectCloseCommand", "editorUndoCommand", "editorRedoCommand", "editorGetStackSizeCommand", "editorSetCanvasPropertiesCommand", "editorGetCanvasPropertiesCommand", "editorAddMainClipCommand", "editorAddLookupClipCommand", "editorAddPipClipCommand", "editorAddMusicClipCommand", "editorAddTextClipCommand", "editorAddStickerClipCommand", "editorAddExtensionClipCommand", "editorChangeClipResourceCommand", "editorSplitClipCommand", "editorDeleteClipCommand", "editorMoveClipCommand", "editorRemoveTrackCommand", "editorSetClipLookupCommand", "editorSetTransitionDurationUsCommand", "editorRemoveTransitionCommand", "editorSetClipCropCommand", "editorSetClipCanvasBackgroundCommand", "editorSetClipCanvasBackgroundResCommand", "editorSetClipCanvasBackgroundBlurTypeCommand", "editorDeleteMaterialCommand", "editorCheckToAddMaterialCommand", "editorSetTransitionEffectCommand", "editorSetResourcePropertiesCommand", "editorGetResourceDurationUsCommand", "editorGetResourceSizeCommand", "editorGetClipResourceInfoCommand", "editorSetResourceFullKeyFrameWithResIdCommand", "editorSetTextCommand", "editorSetTextColorCommand", "editorSetTextFontCommand", "editorSetDefaultFontFileCommand", "editorSetTextShadowCommand", "editorSetTextAlignmentCommand", "editorSetTextOutlineCommand", "editorSetTextUnderlineCommand", "editorSetTextBoldCommand", "editorSetTextItalicsCommand", "editorSetTextWordSpaceCommand", "editorSetScaleCommand", "editorSetPositionCommand", "editorSetAnchorCommand", "editorSetRotationCommand", "editorSetClipStartTimeUsCommand", "editorSetSourceTimeRangeCommand", "editorSetClipSpeedCommand", "editorSetClipVolumeCommand", "editorGetClipPropListCommand", "editorSetClipPropListCommand", "editorGetTrackIdListCommand", "editorGetClipIdListCommand", "viewerSetPropertiesCommand", "viewerPrepareCommand", "viewerStartCommand", "viewerPauseCommand", "viewerStopCommand", "viewerSeekToCommand", "viewerGetStateCommand", "viewerGetDurationUsCommand", "exporterRunCommand", "exporterCancelCommand"]),
+                                        get: $util.oneOfGetter($oneOfFields = ["SystemRequireResendCommand", "sessionCreateNewCommand", "sessionPrepareRTCCommand", "sessionBeginCommand", "sessionKeepaliveCommand", "sessionEndCurrentCommand", "sessionInvalidCurrentCommand", "resourcePrepareCommand", "resourceListUserMaterialCommand", "projectLoadCommand", "projectSaveCommand", "projectNewCommand", "projectCloseCommand", "editorUndoCommand", "editorRedoCommand", "editorGetStackSizeCommand", "editorSetCanvasPropertiesCommand", "editorGetCanvasPropertiesCommand", "editorAddMainClipCommand", "editorAddLookupClipCommand", "editorAddPipClipCommand", "editorAddMusicClipCommand", "editorAddTextClipCommand", "editorAddStickerClipCommand", "editorAddExtensionClipCommand", "editorChangeClipResourceCommand", "editorSplitClipCommand", "editorDeleteClipCommand", "editorMoveClipCommand", "editorRemoveTrackCommand", "editorSetClipLookupCommand", "editorSetTransitionDurationUsCommand", "editorRemoveTransitionCommand", "editorCreateResourceIfNeedCommand", "editorDeleteMaterialCommand", "editorCheckToAddMaterialCommand", "editorSetClipCropCommand", "editorSetClipCanvasBackgroundCommand", "editorSetClipCanvasBackgroundResCommand", "editorSetClipCanvasBackgroundBlurTypeCommand", "editorSetTransitionEffectCommand", "editorSetResourcePropertiesCommand", "editorGetResourcePropertiesCommand", "editorGetResourceDurationUsCommand", "editorGetResourceSizeCommand", "editorGetResourceUriCommand", "editorGetClipResourceInfoCommand", "editorSetResourceFullKeyFrameWithResIdCommand", "editorSetTextCommand", "editorSetTextColorCommand", "editorSetTextFontCommand", "editorSetDefaultFontFileCommand", "editorSetTextShadowCommand", "editorSetTextAlignmentCommand", "editorSetTextOutlineCommand", "editorSetTextUnderlineCommand", "editorSetTextBoldCommand", "editorSetTextItalicsCommand", "editorSetTextWordSpaceCommand", "editorSetTextExtraClipCommand", "editorGetTextExtraClipCommand", "editorSetScaleCommand", "editorSetPositionCommand", "editorSetAnchorCommand", "editorSetRotationCommand", "editorSetClipStartTimeUsCommand", "editorSetSourceTimeRangeCommand", "editorSetClipSpeedCommand", "editorSetClipVolumeCommand", "editorGetClipPropListCommand", "editorSetClipPropListCommand", "editorGetTrackIdListCommand", "editorGetClipIdListCommand", "editorGetTrackInfoCommand", "editorSetClipCurvePropertyAnchorValueCommand", "editorRemoveClipCurvePropertyAnchorCommand", "editorGetClipCurvePropertyAnchorListCommand", "editorGetClipCurvePropertyValueCommand", "editorAddExtensionEffectForClipCommand", "editorRemoveExtensionEffectFromClipCommand", "editorGetExtensionEffectNamesFromClipCommand", "editorSetExtensionEffectPriorityCommand", "viewerSetPropertiesCommand", "viewerPrepareCommand", "viewerStartCommand", "viewerPauseCommand", "viewerStopCommand", "viewerSeekToCommand", "viewerGetStateCommand", "viewerGetDurationUsCommand", "exporterRunCommand", "exporterCancelCommand"]),
                                         set: $util.oneOfSetter($oneOfFields)
                                     });
 
@@ -2337,6 +2481,10 @@ $root.com = (function () {
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionEndCurrentCommand.encode(message.sessionEndCurrentCommand, writer.uint32(/* id 220, wireType 2 =*/1762).fork()).ldelim();
                                         if (message.sessionInvalidCurrentCommand != null && Object.hasOwnProperty.call(message, "sessionInvalidCurrentCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionInvalidCurrentCommand.encode(message.sessionInvalidCurrentCommand, writer.uint32(/* id 221, wireType 2 =*/1770).fork()).ldelim();
+                                        if (message.resourcePrepareCommand != null && Object.hasOwnProperty.call(message, "resourcePrepareCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.encode(message.resourcePrepareCommand, writer.uint32(/* id 1001, wireType 2 =*/8010).fork()).ldelim();
+                                        if (message.resourceListUserMaterialCommand != null && Object.hasOwnProperty.call(message, "resourceListUserMaterialCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.encode(message.resourceListUserMaterialCommand, writer.uint32(/* id 1201, wireType 2 =*/9610).fork()).ldelim();
                                         if (message.projectLoadCommand != null && Object.hasOwnProperty.call(message, "projectLoadCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ProjectLoadCommand.encode(message.projectLoadCommand, writer.uint32(/* id 2001, wireType 2 =*/16010).fork()).ldelim();
                                         if (message.projectSaveCommand != null && Object.hasOwnProperty.call(message, "projectSaveCommand"))
@@ -2385,6 +2533,12 @@ $root.com = (function () {
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTransitionDurationUsCommand.encode(message.editorSetTransitionDurationUsCommand, writer.uint32(/* id 3024, wireType 2 =*/24194).fork()).ldelim();
                                         if (message.editorRemoveTransitionCommand != null && Object.hasOwnProperty.call(message, "editorRemoveTransitionCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveTransitionCommand.encode(message.editorRemoveTransitionCommand, writer.uint32(/* id 3025, wireType 2 =*/24202).fork()).ldelim();
+                                        if (message.editorCreateResourceIfNeedCommand != null && Object.hasOwnProperty.call(message, "editorCreateResourceIfNeedCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.encode(message.editorCreateResourceIfNeedCommand, writer.uint32(/* id 3026, wireType 2 =*/24210).fork()).ldelim();
+                                        if (message.editorDeleteMaterialCommand != null && Object.hasOwnProperty.call(message, "editorDeleteMaterialCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.encode(message.editorDeleteMaterialCommand, writer.uint32(/* id 3027, wireType 2 =*/24218).fork()).ldelim();
+                                        if (message.editorCheckToAddMaterialCommand != null && Object.hasOwnProperty.call(message, "editorCheckToAddMaterialCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.encode(message.editorCheckToAddMaterialCommand, writer.uint32(/* id 3028, wireType 2 =*/24226).fork()).ldelim();
                                         if (message.editorSetClipCropCommand != null && Object.hasOwnProperty.call(message, "editorSetClipCropCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCropCommand.encode(message.editorSetClipCropCommand, writer.uint32(/* id 3029, wireType 2 =*/24234).fork()).ldelim();
                                         if (message.editorSetClipCanvasBackgroundCommand != null && Object.hasOwnProperty.call(message, "editorSetClipCanvasBackgroundCommand"))
@@ -2393,24 +2547,24 @@ $root.com = (function () {
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCanvasBackgroundResCommand.encode(message.editorSetClipCanvasBackgroundResCommand, writer.uint32(/* id 3031, wireType 2 =*/24250).fork()).ldelim();
                                         if (message.editorSetClipCanvasBackgroundBlurTypeCommand != null && Object.hasOwnProperty.call(message, "editorSetClipCanvasBackgroundBlurTypeCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCanvasBackgroundBlurTypeCommand.encode(message.editorSetClipCanvasBackgroundBlurTypeCommand, writer.uint32(/* id 3032, wireType 2 =*/24258).fork()).ldelim();
-                                        if (message.editorDeleteMaterialCommand != null && Object.hasOwnProperty.call(message, "editorDeleteMaterialCommand"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.encode(message.editorDeleteMaterialCommand, writer.uint32(/* id 3033, wireType 2 =*/24266).fork()).ldelim();
-                                        if (message.editorCheckToAddMaterialCommand != null && Object.hasOwnProperty.call(message, "editorCheckToAddMaterialCommand"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.encode(message.editorCheckToAddMaterialCommand, writer.uint32(/* id 3034, wireType 2 =*/24274).fork()).ldelim();
                                         if (message.editorSetTransitionEffectCommand != null && Object.hasOwnProperty.call(message, "editorSetTransitionEffectCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTransitionEffectCommand.encode(message.editorSetTransitionEffectCommand, writer.uint32(/* id 3035, wireType 2 =*/24282).fork()).ldelim();
                                         if (message.editorSetResourcePropertiesCommand != null && Object.hasOwnProperty.call(message, "editorSetResourcePropertiesCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetResourcePropertiesCommand.encode(message.editorSetResourcePropertiesCommand, writer.uint32(/* id 3036, wireType 2 =*/24290).fork()).ldelim();
+                                        if (message.editorGetResourcePropertiesCommand != null && Object.hasOwnProperty.call(message, "editorGetResourcePropertiesCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.encode(message.editorGetResourcePropertiesCommand, writer.uint32(/* id 3037, wireType 2 =*/24298).fork()).ldelim();
                                         if (message.editorGetResourceDurationUsCommand != null && Object.hasOwnProperty.call(message, "editorGetResourceDurationUsCommand"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommand.encode(message.editorGetResourceDurationUsCommand, writer.uint32(/* id 3037, wireType 2 =*/24298).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommand.encode(message.editorGetResourceDurationUsCommand, writer.uint32(/* id 3038, wireType 2 =*/24306).fork()).ldelim();
                                         if (message.editorGetResourceSizeCommand != null && Object.hasOwnProperty.call(message, "editorGetResourceSizeCommand"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommand.encode(message.editorGetResourceSizeCommand, writer.uint32(/* id 3038, wireType 2 =*/24306).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommand.encode(message.editorGetResourceSizeCommand, writer.uint32(/* id 3039, wireType 2 =*/24314).fork()).ldelim();
+                                        if (message.editorGetResourceUriCommand != null && Object.hasOwnProperty.call(message, "editorGetResourceUriCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.encode(message.editorGetResourceUriCommand, writer.uint32(/* id 3040, wireType 2 =*/24322).fork()).ldelim();
                                         if (message.editorGetClipResourceInfoCommand != null && Object.hasOwnProperty.call(message, "editorGetClipResourceInfoCommand"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommand.encode(message.editorGetClipResourceInfoCommand, writer.uint32(/* id 3039, wireType 2 =*/24314).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommand.encode(message.editorGetClipResourceInfoCommand, writer.uint32(/* id 3041, wireType 2 =*/24330).fork()).ldelim();
                                         if (message.editorSetResourceFullKeyFrameWithResIdCommand != null && Object.hasOwnProperty.call(message, "editorSetResourceFullKeyFrameWithResIdCommand"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetResourceFullKeyFrameWithResIdCommand.encode(message.editorSetResourceFullKeyFrameWithResIdCommand, writer.uint32(/* id 3041, wireType 2 =*/24330).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetResourceFullKeyFrameWithResIdCommand.encode(message.editorSetResourceFullKeyFrameWithResIdCommand, writer.uint32(/* id 3042, wireType 2 =*/24338).fork()).ldelim();
                                         if (message.editorSetTextCommand != null && Object.hasOwnProperty.call(message, "editorSetTextCommand"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextCommand.encode(message.editorSetTextCommand, writer.uint32(/* id 3042, wireType 2 =*/24338).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextCommand.encode(message.editorSetTextCommand, writer.uint32(/* id 3043, wireType 2 =*/24346).fork()).ldelim();
                                         if (message.editorSetTextColorCommand != null && Object.hasOwnProperty.call(message, "editorSetTextColorCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextColorCommand.encode(message.editorSetTextColorCommand, writer.uint32(/* id 3044, wireType 2 =*/24354).fork()).ldelim();
                                         if (message.editorSetTextFontCommand != null && Object.hasOwnProperty.call(message, "editorSetTextFontCommand"))
@@ -2431,6 +2585,10 @@ $root.com = (function () {
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextItalicsCommand.encode(message.editorSetTextItalicsCommand, writer.uint32(/* id 3052, wireType 2 =*/24418).fork()).ldelim();
                                         if (message.editorSetTextWordSpaceCommand != null && Object.hasOwnProperty.call(message, "editorSetTextWordSpaceCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextWordSpaceCommand.encode(message.editorSetTextWordSpaceCommand, writer.uint32(/* id 3053, wireType 2 =*/24426).fork()).ldelim();
+                                        if (message.editorSetTextExtraClipCommand != null && Object.hasOwnProperty.call(message, "editorSetTextExtraClipCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.encode(message.editorSetTextExtraClipCommand, writer.uint32(/* id 3054, wireType 2 =*/24434).fork()).ldelim();
+                                        if (message.editorGetTextExtraClipCommand != null && Object.hasOwnProperty.call(message, "editorGetTextExtraClipCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.encode(message.editorGetTextExtraClipCommand, writer.uint32(/* id 3055, wireType 2 =*/24442).fork()).ldelim();
                                         if (message.editorSetScaleCommand != null && Object.hasOwnProperty.call(message, "editorSetScaleCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetScaleCommand.encode(message.editorSetScaleCommand, writer.uint32(/* id 3056, wireType 2 =*/24450).fork()).ldelim();
                                         if (message.editorSetPositionCommand != null && Object.hasOwnProperty.call(message, "editorSetPositionCommand"))
@@ -2455,6 +2613,24 @@ $root.com = (function () {
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackIdListCommand.encode(message.editorGetTrackIdListCommand, writer.uint32(/* id 3070, wireType 2 =*/24562).fork()).ldelim();
                                         if (message.editorGetClipIdListCommand != null && Object.hasOwnProperty.call(message, "editorGetClipIdListCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommand.encode(message.editorGetClipIdListCommand, writer.uint32(/* id 3071, wireType 2 =*/24570).fork()).ldelim();
+                                        if (message.editorGetTrackInfoCommand != null && Object.hasOwnProperty.call(message, "editorGetTrackInfoCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.encode(message.editorGetTrackInfoCommand, writer.uint32(/* id 3072, wireType 2 =*/24578).fork()).ldelim();
+                                        if (message.editorSetClipCurvePropertyAnchorValueCommand != null && Object.hasOwnProperty.call(message, "editorSetClipCurvePropertyAnchorValueCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.encode(message.editorSetClipCurvePropertyAnchorValueCommand, writer.uint32(/* id 3075, wireType 2 =*/24602).fork()).ldelim();
+                                        if (message.editorRemoveClipCurvePropertyAnchorCommand != null && Object.hasOwnProperty.call(message, "editorRemoveClipCurvePropertyAnchorCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.encode(message.editorRemoveClipCurvePropertyAnchorCommand, writer.uint32(/* id 3076, wireType 2 =*/24610).fork()).ldelim();
+                                        if (message.editorGetClipCurvePropertyAnchorListCommand != null && Object.hasOwnProperty.call(message, "editorGetClipCurvePropertyAnchorListCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.encode(message.editorGetClipCurvePropertyAnchorListCommand, writer.uint32(/* id 3077, wireType 2 =*/24618).fork()).ldelim();
+                                        if (message.editorGetClipCurvePropertyValueCommand != null && Object.hasOwnProperty.call(message, "editorGetClipCurvePropertyValueCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.encode(message.editorGetClipCurvePropertyValueCommand, writer.uint32(/* id 3078, wireType 2 =*/24626).fork()).ldelim();
+                                        if (message.editorAddExtensionEffectForClipCommand != null && Object.hasOwnProperty.call(message, "editorAddExtensionEffectForClipCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.encode(message.editorAddExtensionEffectForClipCommand, writer.uint32(/* id 3080, wireType 2 =*/24642).fork()).ldelim();
+                                        if (message.editorRemoveExtensionEffectFromClipCommand != null && Object.hasOwnProperty.call(message, "editorRemoveExtensionEffectFromClipCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.encode(message.editorRemoveExtensionEffectFromClipCommand, writer.uint32(/* id 3081, wireType 2 =*/24650).fork()).ldelim();
+                                        if (message.editorGetExtensionEffectNamesFromClipCommand != null && Object.hasOwnProperty.call(message, "editorGetExtensionEffectNamesFromClipCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.encode(message.editorGetExtensionEffectNamesFromClipCommand, writer.uint32(/* id 3082, wireType 2 =*/24658).fork()).ldelim();
+                                        if (message.editorSetExtensionEffectPriorityCommand != null && Object.hasOwnProperty.call(message, "editorSetExtensionEffectPriorityCommand"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.encode(message.editorSetExtensionEffectPriorityCommand, writer.uint32(/* id 3083, wireType 2 =*/24666).fork()).ldelim();
                                         if (message.viewerSetPropertiesCommand != null && Object.hasOwnProperty.call(message, "viewerSetPropertiesCommand"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerSetPropertiesCommand.encode(message.viewerSetPropertiesCommand, writer.uint32(/* id 4001, wireType 2 =*/32010).fork()).ldelim();
                                         if (message.viewerPrepareCommand != null && Object.hasOwnProperty.call(message, "viewerPrepareCommand"))
@@ -2536,6 +2712,12 @@ $root.com = (function () {
                                                 case 221:
                                                     message.sessionInvalidCurrentCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionInvalidCurrentCommand.decode(reader, reader.uint32());
                                                     break;
+                                                case 1001:
+                                                    message.resourcePrepareCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 1201:
+                                                    message.resourceListUserMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.decode(reader, reader.uint32());
+                                                    break;
                                                 case 2001:
                                                     message.projectLoadCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ProjectLoadCommand.decode(reader, reader.uint32());
                                                     break;
@@ -2608,6 +2790,15 @@ $root.com = (function () {
                                                 case 3025:
                                                     message.editorRemoveTransitionCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveTransitionCommand.decode(reader, reader.uint32());
                                                     break;
+                                                case 3026:
+                                                    message.editorCreateResourceIfNeedCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3027:
+                                                    message.editorDeleteMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3028:
+                                                    message.editorCheckToAddMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.decode(reader, reader.uint32());
+                                                    break;
                                                 case 3029:
                                                     message.editorSetClipCropCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCropCommand.decode(reader, reader.uint32());
                                                     break;
@@ -2620,12 +2811,6 @@ $root.com = (function () {
                                                 case 3032:
                                                     message.editorSetClipCanvasBackgroundBlurTypeCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCanvasBackgroundBlurTypeCommand.decode(reader, reader.uint32());
                                                     break;
-                                                case 3033:
-                                                    message.editorDeleteMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.decode(reader, reader.uint32());
-                                                    break;
-                                                case 3034:
-                                                    message.editorCheckToAddMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.decode(reader, reader.uint32());
-                                                    break;
                                                 case 3035:
                                                     message.editorSetTransitionEffectCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTransitionEffectCommand.decode(reader, reader.uint32());
                                                     break;
@@ -2633,18 +2818,24 @@ $root.com = (function () {
                                                     message.editorSetResourcePropertiesCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetResourcePropertiesCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 3037:
-                                                    message.editorGetResourceDurationUsCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommand.decode(reader, reader.uint32());
+                                                    message.editorGetResourcePropertiesCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 3038:
-                                                    message.editorGetResourceSizeCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommand.decode(reader, reader.uint32());
+                                                    message.editorGetResourceDurationUsCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 3039:
-                                                    message.editorGetClipResourceInfoCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommand.decode(reader, reader.uint32());
+                                                    message.editorGetResourceSizeCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3040:
+                                                    message.editorGetResourceUriCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 3041:
-                                                    message.editorSetResourceFullKeyFrameWithResIdCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetResourceFullKeyFrameWithResIdCommand.decode(reader, reader.uint32());
+                                                    message.editorGetClipResourceInfoCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 3042:
+                                                    message.editorSetResourceFullKeyFrameWithResIdCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetResourceFullKeyFrameWithResIdCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3043:
                                                     message.editorSetTextCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 3044:
@@ -2676,6 +2867,12 @@ $root.com = (function () {
                                                     break;
                                                 case 3053:
                                                     message.editorSetTextWordSpaceCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextWordSpaceCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3054:
+                                                    message.editorSetTextExtraClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3055:
+                                                    message.editorGetTextExtraClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 3056:
                                                     message.editorSetScaleCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetScaleCommand.decode(reader, reader.uint32());
@@ -2712,6 +2909,33 @@ $root.com = (function () {
                                                     break;
                                                 case 3071:
                                                     message.editorGetClipIdListCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3072:
+                                                    message.editorGetTrackInfoCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3075:
+                                                    message.editorSetClipCurvePropertyAnchorValueCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3076:
+                                                    message.editorRemoveClipCurvePropertyAnchorCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3077:
+                                                    message.editorGetClipCurvePropertyAnchorListCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3078:
+                                                    message.editorGetClipCurvePropertyValueCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3080:
+                                                    message.editorAddExtensionEffectForClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3081:
+                                                    message.editorRemoveExtensionEffectFromClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3082:
+                                                    message.editorGetExtensionEffectNamesFromClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3083:
+                                                    message.editorSetExtensionEffectPriorityCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.decode(reader, reader.uint32());
                                                     break;
                                                 case 4001:
                                                     message.viewerSetPropertiesCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerSetPropertiesCommand.decode(reader, reader.uint32());
@@ -2853,6 +3077,26 @@ $root.com = (function () {
                                                 var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionInvalidCurrentCommand.verify(message.sessionInvalidCurrentCommand);
                                                 if (error)
                                                     return "sessionInvalidCurrentCommand." + error;
+                                            }
+                                        }
+                                        if (message.resourcePrepareCommand != null && message.hasOwnProperty("resourcePrepareCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.verify(message.resourcePrepareCommand);
+                                                if (error)
+                                                    return "resourcePrepareCommand." + error;
+                                            }
+                                        }
+                                        if (message.resourceListUserMaterialCommand != null && message.hasOwnProperty("resourceListUserMaterialCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.verify(message.resourceListUserMaterialCommand);
+                                                if (error)
+                                                    return "resourceListUserMaterialCommand." + error;
                                             }
                                         }
                                         if (message.projectLoadCommand != null && message.hasOwnProperty("projectLoadCommand")) {
@@ -3095,6 +3339,36 @@ $root.com = (function () {
                                                     return "editorRemoveTransitionCommand." + error;
                                             }
                                         }
+                                        if (message.editorCreateResourceIfNeedCommand != null && message.hasOwnProperty("editorCreateResourceIfNeedCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.verify(message.editorCreateResourceIfNeedCommand);
+                                                if (error)
+                                                    return "editorCreateResourceIfNeedCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorDeleteMaterialCommand != null && message.hasOwnProperty("editorDeleteMaterialCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.verify(message.editorDeleteMaterialCommand);
+                                                if (error)
+                                                    return "editorDeleteMaterialCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorCheckToAddMaterialCommand != null && message.hasOwnProperty("editorCheckToAddMaterialCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.verify(message.editorCheckToAddMaterialCommand);
+                                                if (error)
+                                                    return "editorCheckToAddMaterialCommand." + error;
+                                            }
+                                        }
                                         if (message.editorSetClipCropCommand != null && message.hasOwnProperty("editorSetClipCropCommand")) {
                                             if (properties.data === 1)
                                                 return "data: multiple values";
@@ -3135,26 +3409,6 @@ $root.com = (function () {
                                                     return "editorSetClipCanvasBackgroundBlurTypeCommand." + error;
                                             }
                                         }
-                                        if (message.editorDeleteMaterialCommand != null && message.hasOwnProperty("editorDeleteMaterialCommand")) {
-                                            if (properties.data === 1)
-                                                return "data: multiple values";
-                                            properties.data = 1;
-                                            {
-                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.verify(message.editorDeleteMaterialCommand);
-                                                if (error)
-                                                    return "editorDeleteMaterialCommand." + error;
-                                            }
-                                        }
-                                        if (message.editorCheckToAddMaterialCommand != null && message.hasOwnProperty("editorCheckToAddMaterialCommand")) {
-                                            if (properties.data === 1)
-                                                return "data: multiple values";
-                                            properties.data = 1;
-                                            {
-                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.verify(message.editorCheckToAddMaterialCommand);
-                                                if (error)
-                                                    return "editorCheckToAddMaterialCommand." + error;
-                                            }
-                                        }
                                         if (message.editorSetTransitionEffectCommand != null && message.hasOwnProperty("editorSetTransitionEffectCommand")) {
                                             if (properties.data === 1)
                                                 return "data: multiple values";
@@ -3175,6 +3429,16 @@ $root.com = (function () {
                                                     return "editorSetResourcePropertiesCommand." + error;
                                             }
                                         }
+                                        if (message.editorGetResourcePropertiesCommand != null && message.hasOwnProperty("editorGetResourcePropertiesCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.verify(message.editorGetResourcePropertiesCommand);
+                                                if (error)
+                                                    return "editorGetResourcePropertiesCommand." + error;
+                                            }
+                                        }
                                         if (message.editorGetResourceDurationUsCommand != null && message.hasOwnProperty("editorGetResourceDurationUsCommand")) {
                                             if (properties.data === 1)
                                                 return "data: multiple values";
@@ -3193,6 +3457,16 @@ $root.com = (function () {
                                                 var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommand.verify(message.editorGetResourceSizeCommand);
                                                 if (error)
                                                     return "editorGetResourceSizeCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorGetResourceUriCommand != null && message.hasOwnProperty("editorGetResourceUriCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.verify(message.editorGetResourceUriCommand);
+                                                if (error)
+                                                    return "editorGetResourceUriCommand." + error;
                                             }
                                         }
                                         if (message.editorGetClipResourceInfoCommand != null && message.hasOwnProperty("editorGetClipResourceInfoCommand")) {
@@ -3325,6 +3599,26 @@ $root.com = (function () {
                                                     return "editorSetTextWordSpaceCommand." + error;
                                             }
                                         }
+                                        if (message.editorSetTextExtraClipCommand != null && message.hasOwnProperty("editorSetTextExtraClipCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.verify(message.editorSetTextExtraClipCommand);
+                                                if (error)
+                                                    return "editorSetTextExtraClipCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorGetTextExtraClipCommand != null && message.hasOwnProperty("editorGetTextExtraClipCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.verify(message.editorGetTextExtraClipCommand);
+                                                if (error)
+                                                    return "editorGetTextExtraClipCommand." + error;
+                                            }
+                                        }
                                         if (message.editorSetScaleCommand != null && message.hasOwnProperty("editorSetScaleCommand")) {
                                             if (properties.data === 1)
                                                 return "data: multiple values";
@@ -3443,6 +3737,96 @@ $root.com = (function () {
                                                 var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommand.verify(message.editorGetClipIdListCommand);
                                                 if (error)
                                                     return "editorGetClipIdListCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorGetTrackInfoCommand != null && message.hasOwnProperty("editorGetTrackInfoCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.verify(message.editorGetTrackInfoCommand);
+                                                if (error)
+                                                    return "editorGetTrackInfoCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorSetClipCurvePropertyAnchorValueCommand != null && message.hasOwnProperty("editorSetClipCurvePropertyAnchorValueCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.verify(message.editorSetClipCurvePropertyAnchorValueCommand);
+                                                if (error)
+                                                    return "editorSetClipCurvePropertyAnchorValueCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorRemoveClipCurvePropertyAnchorCommand != null && message.hasOwnProperty("editorRemoveClipCurvePropertyAnchorCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.verify(message.editorRemoveClipCurvePropertyAnchorCommand);
+                                                if (error)
+                                                    return "editorRemoveClipCurvePropertyAnchorCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorGetClipCurvePropertyAnchorListCommand != null && message.hasOwnProperty("editorGetClipCurvePropertyAnchorListCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.verify(message.editorGetClipCurvePropertyAnchorListCommand);
+                                                if (error)
+                                                    return "editorGetClipCurvePropertyAnchorListCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorGetClipCurvePropertyValueCommand != null && message.hasOwnProperty("editorGetClipCurvePropertyValueCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.verify(message.editorGetClipCurvePropertyValueCommand);
+                                                if (error)
+                                                    return "editorGetClipCurvePropertyValueCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorAddExtensionEffectForClipCommand != null && message.hasOwnProperty("editorAddExtensionEffectForClipCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.verify(message.editorAddExtensionEffectForClipCommand);
+                                                if (error)
+                                                    return "editorAddExtensionEffectForClipCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorRemoveExtensionEffectFromClipCommand != null && message.hasOwnProperty("editorRemoveExtensionEffectFromClipCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.verify(message.editorRemoveExtensionEffectFromClipCommand);
+                                                if (error)
+                                                    return "editorRemoveExtensionEffectFromClipCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorGetExtensionEffectNamesFromClipCommand != null && message.hasOwnProperty("editorGetExtensionEffectNamesFromClipCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.verify(message.editorGetExtensionEffectNamesFromClipCommand);
+                                                if (error)
+                                                    return "editorGetExtensionEffectNamesFromClipCommand." + error;
+                                            }
+                                        }
+                                        if (message.editorSetExtensionEffectPriorityCommand != null && message.hasOwnProperty("editorSetExtensionEffectPriorityCommand")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.verify(message.editorSetExtensionEffectPriorityCommand);
+                                                if (error)
+                                                    return "editorSetExtensionEffectPriorityCommand." + error;
                                             }
                                         }
                                         if (message.viewerSetPropertiesCommand != null && message.hasOwnProperty("viewerSetPropertiesCommand")) {
@@ -3602,6 +3986,16 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.sessionInvalidCurrentCommand: object expected");
                                             message.sessionInvalidCurrentCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionInvalidCurrentCommand.fromObject(object.sessionInvalidCurrentCommand);
                                         }
+                                        if (object.resourcePrepareCommand != null) {
+                                            if (typeof object.resourcePrepareCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.resourcePrepareCommand: object expected");
+                                            message.resourcePrepareCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.fromObject(object.resourcePrepareCommand);
+                                        }
+                                        if (object.resourceListUserMaterialCommand != null) {
+                                            if (typeof object.resourceListUserMaterialCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.resourceListUserMaterialCommand: object expected");
+                                            message.resourceListUserMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.fromObject(object.resourceListUserMaterialCommand);
+                                        }
                                         if (object.projectLoadCommand != null) {
                                             if (typeof object.projectLoadCommand !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.projectLoadCommand: object expected");
@@ -3722,6 +4116,21 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorRemoveTransitionCommand: object expected");
                                             message.editorRemoveTransitionCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveTransitionCommand.fromObject(object.editorRemoveTransitionCommand);
                                         }
+                                        if (object.editorCreateResourceIfNeedCommand != null) {
+                                            if (typeof object.editorCreateResourceIfNeedCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorCreateResourceIfNeedCommand: object expected");
+                                            message.editorCreateResourceIfNeedCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.fromObject(object.editorCreateResourceIfNeedCommand);
+                                        }
+                                        if (object.editorDeleteMaterialCommand != null) {
+                                            if (typeof object.editorDeleteMaterialCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorDeleteMaterialCommand: object expected");
+                                            message.editorDeleteMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.fromObject(object.editorDeleteMaterialCommand);
+                                        }
+                                        if (object.editorCheckToAddMaterialCommand != null) {
+                                            if (typeof object.editorCheckToAddMaterialCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorCheckToAddMaterialCommand: object expected");
+                                            message.editorCheckToAddMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.fromObject(object.editorCheckToAddMaterialCommand);
+                                        }
                                         if (object.editorSetClipCropCommand != null) {
                                             if (typeof object.editorSetClipCropCommand !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetClipCropCommand: object expected");
@@ -3742,16 +4151,6 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetClipCanvasBackgroundBlurTypeCommand: object expected");
                                             message.editorSetClipCanvasBackgroundBlurTypeCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCanvasBackgroundBlurTypeCommand.fromObject(object.editorSetClipCanvasBackgroundBlurTypeCommand);
                                         }
-                                        if (object.editorDeleteMaterialCommand != null) {
-                                            if (typeof object.editorDeleteMaterialCommand !== "object")
-                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorDeleteMaterialCommand: object expected");
-                                            message.editorDeleteMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.fromObject(object.editorDeleteMaterialCommand);
-                                        }
-                                        if (object.editorCheckToAddMaterialCommand != null) {
-                                            if (typeof object.editorCheckToAddMaterialCommand !== "object")
-                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorCheckToAddMaterialCommand: object expected");
-                                            message.editorCheckToAddMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.fromObject(object.editorCheckToAddMaterialCommand);
-                                        }
                                         if (object.editorSetTransitionEffectCommand != null) {
                                             if (typeof object.editorSetTransitionEffectCommand !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetTransitionEffectCommand: object expected");
@@ -3762,6 +4161,11 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetResourcePropertiesCommand: object expected");
                                             message.editorSetResourcePropertiesCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetResourcePropertiesCommand.fromObject(object.editorSetResourcePropertiesCommand);
                                         }
+                                        if (object.editorGetResourcePropertiesCommand != null) {
+                                            if (typeof object.editorGetResourcePropertiesCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetResourcePropertiesCommand: object expected");
+                                            message.editorGetResourcePropertiesCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.fromObject(object.editorGetResourcePropertiesCommand);
+                                        }
                                         if (object.editorGetResourceDurationUsCommand != null) {
                                             if (typeof object.editorGetResourceDurationUsCommand !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetResourceDurationUsCommand: object expected");
@@ -3771,6 +4175,11 @@ $root.com = (function () {
                                             if (typeof object.editorGetResourceSizeCommand !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetResourceSizeCommand: object expected");
                                             message.editorGetResourceSizeCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommand.fromObject(object.editorGetResourceSizeCommand);
+                                        }
+                                        if (object.editorGetResourceUriCommand != null) {
+                                            if (typeof object.editorGetResourceUriCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetResourceUriCommand: object expected");
+                                            message.editorGetResourceUriCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.fromObject(object.editorGetResourceUriCommand);
                                         }
                                         if (object.editorGetClipResourceInfoCommand != null) {
                                             if (typeof object.editorGetClipResourceInfoCommand !== "object")
@@ -3837,6 +4246,16 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetTextWordSpaceCommand: object expected");
                                             message.editorSetTextWordSpaceCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextWordSpaceCommand.fromObject(object.editorSetTextWordSpaceCommand);
                                         }
+                                        if (object.editorSetTextExtraClipCommand != null) {
+                                            if (typeof object.editorSetTextExtraClipCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetTextExtraClipCommand: object expected");
+                                            message.editorSetTextExtraClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.fromObject(object.editorSetTextExtraClipCommand);
+                                        }
+                                        if (object.editorGetTextExtraClipCommand != null) {
+                                            if (typeof object.editorGetTextExtraClipCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetTextExtraClipCommand: object expected");
+                                            message.editorGetTextExtraClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.fromObject(object.editorGetTextExtraClipCommand);
+                                        }
                                         if (object.editorSetScaleCommand != null) {
                                             if (typeof object.editorSetScaleCommand !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetScaleCommand: object expected");
@@ -3896,6 +4315,51 @@ $root.com = (function () {
                                             if (typeof object.editorGetClipIdListCommand !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetClipIdListCommand: object expected");
                                             message.editorGetClipIdListCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommand.fromObject(object.editorGetClipIdListCommand);
+                                        }
+                                        if (object.editorGetTrackInfoCommand != null) {
+                                            if (typeof object.editorGetTrackInfoCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetTrackInfoCommand: object expected");
+                                            message.editorGetTrackInfoCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.fromObject(object.editorGetTrackInfoCommand);
+                                        }
+                                        if (object.editorSetClipCurvePropertyAnchorValueCommand != null) {
+                                            if (typeof object.editorSetClipCurvePropertyAnchorValueCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetClipCurvePropertyAnchorValueCommand: object expected");
+                                            message.editorSetClipCurvePropertyAnchorValueCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.fromObject(object.editorSetClipCurvePropertyAnchorValueCommand);
+                                        }
+                                        if (object.editorRemoveClipCurvePropertyAnchorCommand != null) {
+                                            if (typeof object.editorRemoveClipCurvePropertyAnchorCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorRemoveClipCurvePropertyAnchorCommand: object expected");
+                                            message.editorRemoveClipCurvePropertyAnchorCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.fromObject(object.editorRemoveClipCurvePropertyAnchorCommand);
+                                        }
+                                        if (object.editorGetClipCurvePropertyAnchorListCommand != null) {
+                                            if (typeof object.editorGetClipCurvePropertyAnchorListCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetClipCurvePropertyAnchorListCommand: object expected");
+                                            message.editorGetClipCurvePropertyAnchorListCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.fromObject(object.editorGetClipCurvePropertyAnchorListCommand);
+                                        }
+                                        if (object.editorGetClipCurvePropertyValueCommand != null) {
+                                            if (typeof object.editorGetClipCurvePropertyValueCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetClipCurvePropertyValueCommand: object expected");
+                                            message.editorGetClipCurvePropertyValueCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.fromObject(object.editorGetClipCurvePropertyValueCommand);
+                                        }
+                                        if (object.editorAddExtensionEffectForClipCommand != null) {
+                                            if (typeof object.editorAddExtensionEffectForClipCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorAddExtensionEffectForClipCommand: object expected");
+                                            message.editorAddExtensionEffectForClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.fromObject(object.editorAddExtensionEffectForClipCommand);
+                                        }
+                                        if (object.editorRemoveExtensionEffectFromClipCommand != null) {
+                                            if (typeof object.editorRemoveExtensionEffectFromClipCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorRemoveExtensionEffectFromClipCommand: object expected");
+                                            message.editorRemoveExtensionEffectFromClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.fromObject(object.editorRemoveExtensionEffectFromClipCommand);
+                                        }
+                                        if (object.editorGetExtensionEffectNamesFromClipCommand != null) {
+                                            if (typeof object.editorGetExtensionEffectNamesFromClipCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorGetExtensionEffectNamesFromClipCommand: object expected");
+                                            message.editorGetExtensionEffectNamesFromClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.fromObject(object.editorGetExtensionEffectNamesFromClipCommand);
+                                        }
+                                        if (object.editorSetExtensionEffectPriorityCommand != null) {
+                                            if (typeof object.editorSetExtensionEffectPriorityCommand !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Command.editorSetExtensionEffectPriorityCommand: object expected");
+                                            message.editorSetExtensionEffectPriorityCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.fromObject(object.editorSetExtensionEffectPriorityCommand);
                                         }
                                         if (object.viewerSetPropertiesCommand != null) {
                                             if (typeof object.viewerSetPropertiesCommand !== "object")
@@ -4005,6 +4469,16 @@ $root.com = (function () {
                                             object.sessionInvalidCurrentCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionInvalidCurrentCommand.toObject(message.sessionInvalidCurrentCommand, options);
                                             if (options.oneofs)
                                                 object.data = "sessionInvalidCurrentCommand";
+                                        }
+                                        if (message.resourcePrepareCommand != null && message.hasOwnProperty("resourcePrepareCommand")) {
+                                            object.resourcePrepareCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.toObject(message.resourcePrepareCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "resourcePrepareCommand";
+                                        }
+                                        if (message.resourceListUserMaterialCommand != null && message.hasOwnProperty("resourceListUserMaterialCommand")) {
+                                            object.resourceListUserMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.toObject(message.resourceListUserMaterialCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "resourceListUserMaterialCommand";
                                         }
                                         if (message.projectLoadCommand != null && message.hasOwnProperty("projectLoadCommand")) {
                                             object.projectLoadCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ProjectLoadCommand.toObject(message.projectLoadCommand, options);
@@ -4126,6 +4600,21 @@ $root.com = (function () {
                                             if (options.oneofs)
                                                 object.data = "editorRemoveTransitionCommand";
                                         }
+                                        if (message.editorCreateResourceIfNeedCommand != null && message.hasOwnProperty("editorCreateResourceIfNeedCommand")) {
+                                            object.editorCreateResourceIfNeedCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.toObject(message.editorCreateResourceIfNeedCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorCreateResourceIfNeedCommand";
+                                        }
+                                        if (message.editorDeleteMaterialCommand != null && message.hasOwnProperty("editorDeleteMaterialCommand")) {
+                                            object.editorDeleteMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.toObject(message.editorDeleteMaterialCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorDeleteMaterialCommand";
+                                        }
+                                        if (message.editorCheckToAddMaterialCommand != null && message.hasOwnProperty("editorCheckToAddMaterialCommand")) {
+                                            object.editorCheckToAddMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.toObject(message.editorCheckToAddMaterialCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorCheckToAddMaterialCommand";
+                                        }
                                         if (message.editorSetClipCropCommand != null && message.hasOwnProperty("editorSetClipCropCommand")) {
                                             object.editorSetClipCropCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCropCommand.toObject(message.editorSetClipCropCommand, options);
                                             if (options.oneofs)
@@ -4146,16 +4635,6 @@ $root.com = (function () {
                                             if (options.oneofs)
                                                 object.data = "editorSetClipCanvasBackgroundBlurTypeCommand";
                                         }
-                                        if (message.editorDeleteMaterialCommand != null && message.hasOwnProperty("editorDeleteMaterialCommand")) {
-                                            object.editorDeleteMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand.toObject(message.editorDeleteMaterialCommand, options);
-                                            if (options.oneofs)
-                                                object.data = "editorDeleteMaterialCommand";
-                                        }
-                                        if (message.editorCheckToAddMaterialCommand != null && message.hasOwnProperty("editorCheckToAddMaterialCommand")) {
-                                            object.editorCheckToAddMaterialCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand.toObject(message.editorCheckToAddMaterialCommand, options);
-                                            if (options.oneofs)
-                                                object.data = "editorCheckToAddMaterialCommand";
-                                        }
                                         if (message.editorSetTransitionEffectCommand != null && message.hasOwnProperty("editorSetTransitionEffectCommand")) {
                                             object.editorSetTransitionEffectCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTransitionEffectCommand.toObject(message.editorSetTransitionEffectCommand, options);
                                             if (options.oneofs)
@@ -4166,6 +4645,11 @@ $root.com = (function () {
                                             if (options.oneofs)
                                                 object.data = "editorSetResourcePropertiesCommand";
                                         }
+                                        if (message.editorGetResourcePropertiesCommand != null && message.hasOwnProperty("editorGetResourcePropertiesCommand")) {
+                                            object.editorGetResourcePropertiesCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.toObject(message.editorGetResourcePropertiesCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetResourcePropertiesCommand";
+                                        }
                                         if (message.editorGetResourceDurationUsCommand != null && message.hasOwnProperty("editorGetResourceDurationUsCommand")) {
                                             object.editorGetResourceDurationUsCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommand.toObject(message.editorGetResourceDurationUsCommand, options);
                                             if (options.oneofs)
@@ -4175,6 +4659,11 @@ $root.com = (function () {
                                             object.editorGetResourceSizeCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommand.toObject(message.editorGetResourceSizeCommand, options);
                                             if (options.oneofs)
                                                 object.data = "editorGetResourceSizeCommand";
+                                        }
+                                        if (message.editorGetResourceUriCommand != null && message.hasOwnProperty("editorGetResourceUriCommand")) {
+                                            object.editorGetResourceUriCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.toObject(message.editorGetResourceUriCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetResourceUriCommand";
                                         }
                                         if (message.editorGetClipResourceInfoCommand != null && message.hasOwnProperty("editorGetClipResourceInfoCommand")) {
                                             object.editorGetClipResourceInfoCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommand.toObject(message.editorGetClipResourceInfoCommand, options);
@@ -4241,6 +4730,16 @@ $root.com = (function () {
                                             if (options.oneofs)
                                                 object.data = "editorSetTextWordSpaceCommand";
                                         }
+                                        if (message.editorSetTextExtraClipCommand != null && message.hasOwnProperty("editorSetTextExtraClipCommand")) {
+                                            object.editorSetTextExtraClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.toObject(message.editorSetTextExtraClipCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorSetTextExtraClipCommand";
+                                        }
+                                        if (message.editorGetTextExtraClipCommand != null && message.hasOwnProperty("editorGetTextExtraClipCommand")) {
+                                            object.editorGetTextExtraClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.toObject(message.editorGetTextExtraClipCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetTextExtraClipCommand";
+                                        }
                                         if (message.editorSetScaleCommand != null && message.hasOwnProperty("editorSetScaleCommand")) {
                                             object.editorSetScaleCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetScaleCommand.toObject(message.editorSetScaleCommand, options);
                                             if (options.oneofs)
@@ -4300,6 +4799,51 @@ $root.com = (function () {
                                             object.editorGetClipIdListCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommand.toObject(message.editorGetClipIdListCommand, options);
                                             if (options.oneofs)
                                                 object.data = "editorGetClipIdListCommand";
+                                        }
+                                        if (message.editorGetTrackInfoCommand != null && message.hasOwnProperty("editorGetTrackInfoCommand")) {
+                                            object.editorGetTrackInfoCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.toObject(message.editorGetTrackInfoCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetTrackInfoCommand";
+                                        }
+                                        if (message.editorSetClipCurvePropertyAnchorValueCommand != null && message.hasOwnProperty("editorSetClipCurvePropertyAnchorValueCommand")) {
+                                            object.editorSetClipCurvePropertyAnchorValueCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.toObject(message.editorSetClipCurvePropertyAnchorValueCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorSetClipCurvePropertyAnchorValueCommand";
+                                        }
+                                        if (message.editorRemoveClipCurvePropertyAnchorCommand != null && message.hasOwnProperty("editorRemoveClipCurvePropertyAnchorCommand")) {
+                                            object.editorRemoveClipCurvePropertyAnchorCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.toObject(message.editorRemoveClipCurvePropertyAnchorCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorRemoveClipCurvePropertyAnchorCommand";
+                                        }
+                                        if (message.editorGetClipCurvePropertyAnchorListCommand != null && message.hasOwnProperty("editorGetClipCurvePropertyAnchorListCommand")) {
+                                            object.editorGetClipCurvePropertyAnchorListCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.toObject(message.editorGetClipCurvePropertyAnchorListCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetClipCurvePropertyAnchorListCommand";
+                                        }
+                                        if (message.editorGetClipCurvePropertyValueCommand != null && message.hasOwnProperty("editorGetClipCurvePropertyValueCommand")) {
+                                            object.editorGetClipCurvePropertyValueCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.toObject(message.editorGetClipCurvePropertyValueCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetClipCurvePropertyValueCommand";
+                                        }
+                                        if (message.editorAddExtensionEffectForClipCommand != null && message.hasOwnProperty("editorAddExtensionEffectForClipCommand")) {
+                                            object.editorAddExtensionEffectForClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.toObject(message.editorAddExtensionEffectForClipCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorAddExtensionEffectForClipCommand";
+                                        }
+                                        if (message.editorRemoveExtensionEffectFromClipCommand != null && message.hasOwnProperty("editorRemoveExtensionEffectFromClipCommand")) {
+                                            object.editorRemoveExtensionEffectFromClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.toObject(message.editorRemoveExtensionEffectFromClipCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorRemoveExtensionEffectFromClipCommand";
+                                        }
+                                        if (message.editorGetExtensionEffectNamesFromClipCommand != null && message.hasOwnProperty("editorGetExtensionEffectNamesFromClipCommand")) {
+                                            object.editorGetExtensionEffectNamesFromClipCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.toObject(message.editorGetExtensionEffectNamesFromClipCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetExtensionEffectNamesFromClipCommand";
+                                        }
+                                        if (message.editorSetExtensionEffectPriorityCommand != null && message.hasOwnProperty("editorSetExtensionEffectPriorityCommand")) {
+                                            object.editorSetExtensionEffectPriorityCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.toObject(message.editorSetExtensionEffectPriorityCommand, options);
+                                            if (options.oneofs)
+                                                object.data = "editorSetExtensionEffectPriorityCommand";
                                         }
                                         if (message.viewerSetPropertiesCommand != null && message.hasOwnProperty("viewerSetPropertiesCommand")) {
                                             object.viewerSetPropertiesCommand = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerSetPropertiesCommand.toObject(message.viewerSetPropertiesCommand, options);
@@ -4380,6 +4924,7 @@ $root.com = (function () {
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IVoidResult|null} [voidResult] Result voidResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionCreateNewCommandResult|null} [sessionCreateNewCommandResult] Result sessionCreateNewCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionPrepareRTCommandResult|null} [sessionPrepareRTCommandResult] Result sessionPrepareRTCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult|null} [resourceListUserMaterialCommandResult] Result resourceListUserMaterialCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetStackSizeCommandResult|null} [editorGetStackSizeCommandResult] Result editorGetStackSizeCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetCanvasPropertiesCommandResult|null} [editorGetCanvasPropertiesCommandResult] Result editorGetCanvasPropertiesCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddMainClipCommandResult|null} [editorAddMainClipCommandResult] Result editorAddMainClipCommandResult
@@ -4390,14 +4935,23 @@ $root.com = (function () {
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddStickerClipCommandResult|null} [editorAddStickerClipCommandResult] Result editorAddStickerClipCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionClipCommandResult|null} [editorAddExtensionClipCommandResult] Result editorAddExtensionClipCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSplitClipCommandResult|null} [editorSplitClipCommandResult] Result editorSplitClipCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult|null} [editorGetResourcePropertiesCommandResult] Result editorGetResourcePropertiesCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommandResult|null} [editorGetResourceDurationUsCommandResult] Result editorGetResourceDurationUsCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommandResult|null} [editorGetResourceSizeCommandResult] Result editorGetResourceSizeCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult|null} [editorGetResourceUriCommandResult] Result editorGetResourceUriCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipResourceInfoCommandResult|null} [editorGetClipResourceInfoCommandResult] Result editorGetClipResourceInfoCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult|null} [editorCreateResourceIfNeedCommandResult] Result editorCreateResourceIfNeedCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult|null} [editorGetTextExtraClipCommandResult] Result editorGetTextExtraClipCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipPropListResult|null} [editorGetClipPropListResult] Result editorGetClipPropListResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackIdListCommandResult|null} [editorGetTrackIdListCommandResult] Result editorGetTrackIdListCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipIdListCommandResult|null} [editorGetClipIdListCommandResult] Result editorGetClipIdListCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult|null} [editorGetTrackInfoCommandResult] Result editorGetTrackInfoCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult|null} [editorGetClipCurvePropertyAnchorListCommandResult] Result editorGetClipCurvePropertyAnchorListCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult|null} [editorGetClipCurvePropertyValueCommandResult] Result editorGetClipCurvePropertyValueCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult|null} [editorGetExtensionEffectNamesFromClipCommandResult] Result editorGetExtensionEffectNamesFromClipCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerGetStateCommandResult|null} [viewerGetStateCommandResult] Result viewerGetStateCommandResult
                                      * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerGetDurationUsCommandResult|null} [viewerGetDurationUsCommandResult] Result viewerGetDurationUsCommandResult
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IExporterRunCommandResult|null} [exporterRunCommandResult] Result exporterRunCommandResult
                                      */
 
                                     /**
@@ -4462,6 +5016,14 @@ $root.com = (function () {
                                      * @instance
                                      */
                                     Result.prototype.sessionPrepareRTCommandResult = null;
+
+                                    /**
+                                     * Result resourceListUserMaterialCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult|null|undefined} resourceListUserMaterialCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.resourceListUserMaterialCommandResult = null;
 
                                     /**
                                      * Result editorGetStackSizeCommandResult.
@@ -4544,6 +5106,14 @@ $root.com = (function () {
                                     Result.prototype.editorSplitClipCommandResult = null;
 
                                     /**
+                                     * Result editorGetResourcePropertiesCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult|null|undefined} editorGetResourcePropertiesCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorGetResourcePropertiesCommandResult = null;
+
+                                    /**
                                      * Result editorGetResourceDurationUsCommandResult.
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommandResult|null|undefined} editorGetResourceDurationUsCommandResult
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
@@ -4560,12 +5130,36 @@ $root.com = (function () {
                                     Result.prototype.editorGetResourceSizeCommandResult = null;
 
                                     /**
+                                     * Result editorGetResourceUriCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult|null|undefined} editorGetResourceUriCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorGetResourceUriCommandResult = null;
+
+                                    /**
                                      * Result editorGetClipResourceInfoCommandResult.
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipResourceInfoCommandResult|null|undefined} editorGetClipResourceInfoCommandResult
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
                                      * @instance
                                      */
                                     Result.prototype.editorGetClipResourceInfoCommandResult = null;
+
+                                    /**
+                                     * Result editorCreateResourceIfNeedCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult|null|undefined} editorCreateResourceIfNeedCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorCreateResourceIfNeedCommandResult = null;
+
+                                    /**
+                                     * Result editorGetTextExtraClipCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult|null|undefined} editorGetTextExtraClipCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorGetTextExtraClipCommandResult = null;
 
                                     /**
                                      * Result editorGetClipPropListResult.
@@ -4592,6 +5186,38 @@ $root.com = (function () {
                                     Result.prototype.editorGetClipIdListCommandResult = null;
 
                                     /**
+                                     * Result editorGetTrackInfoCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult|null|undefined} editorGetTrackInfoCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorGetTrackInfoCommandResult = null;
+
+                                    /**
+                                     * Result editorGetClipCurvePropertyAnchorListCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult|null|undefined} editorGetClipCurvePropertyAnchorListCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorGetClipCurvePropertyAnchorListCommandResult = null;
+
+                                    /**
+                                     * Result editorGetClipCurvePropertyValueCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult|null|undefined} editorGetClipCurvePropertyValueCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorGetClipCurvePropertyValueCommandResult = null;
+
+                                    /**
+                                     * Result editorGetExtensionEffectNamesFromClipCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult|null|undefined} editorGetExtensionEffectNamesFromClipCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.editorGetExtensionEffectNamesFromClipCommandResult = null;
+
+                                    /**
                                      * Result viewerGetStateCommandResult.
                                      * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerGetStateCommandResult|null|undefined} viewerGetStateCommandResult
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
@@ -4607,17 +5233,25 @@ $root.com = (function () {
                                      */
                                     Result.prototype.viewerGetDurationUsCommandResult = null;
 
+                                    /**
+                                     * Result exporterRunCommandResult.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IExporterRunCommandResult|null|undefined} exporterRunCommandResult
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
+                                     * @instance
+                                     */
+                                    Result.prototype.exporterRunCommandResult = null;
+
                                     // OneOf field names bound to virtual getters and setters
                                     var $oneOfFields;
 
                                     /**
                                      * Result data.
-                                     * @member {"voidResult"|"sessionCreateNewCommandResult"|"sessionPrepareRTCommandResult"|"editorGetStackSizeCommandResult"|"editorGetCanvasPropertiesCommandResult"|"editorAddMainClipCommandResult"|"editorAddLookupClipCommandResult"|"editorAddPipClipCommandResult"|"editorAddMusicClipCommandResult"|"editorAddTextClipCommandResult"|"editorAddStickerClipCommandResult"|"editorAddExtensionClipCommandResult"|"editorSplitClipCommandResult"|"editorGetResourceDurationUsCommandResult"|"editorGetResourceSizeCommandResult"|"editorGetClipResourceInfoCommandResult"|"editorGetClipPropListResult"|"editorGetTrackIdListCommandResult"|"editorGetClipIdListCommandResult"|"viewerGetStateCommandResult"|"viewerGetDurationUsCommandResult"|undefined} data
+                                     * @member {"voidResult"|"sessionCreateNewCommandResult"|"sessionPrepareRTCommandResult"|"resourceListUserMaterialCommandResult"|"editorGetStackSizeCommandResult"|"editorGetCanvasPropertiesCommandResult"|"editorAddMainClipCommandResult"|"editorAddLookupClipCommandResult"|"editorAddPipClipCommandResult"|"editorAddMusicClipCommandResult"|"editorAddTextClipCommandResult"|"editorAddStickerClipCommandResult"|"editorAddExtensionClipCommandResult"|"editorSplitClipCommandResult"|"editorGetResourcePropertiesCommandResult"|"editorGetResourceDurationUsCommandResult"|"editorGetResourceSizeCommandResult"|"editorGetResourceUriCommandResult"|"editorGetClipResourceInfoCommandResult"|"editorCreateResourceIfNeedCommandResult"|"editorGetTextExtraClipCommandResult"|"editorGetClipPropListResult"|"editorGetTrackIdListCommandResult"|"editorGetClipIdListCommandResult"|"editorGetTrackInfoCommandResult"|"editorGetClipCurvePropertyAnchorListCommandResult"|"editorGetClipCurvePropertyValueCommandResult"|"editorGetExtensionEffectNamesFromClipCommandResult"|"viewerGetStateCommandResult"|"viewerGetDurationUsCommandResult"|"exporterRunCommandResult"|undefined} data
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result
                                      * @instance
                                      */
                                     Object.defineProperty(Result.prototype, "data", {
-                                        get: $util.oneOfGetter($oneOfFields = ["voidResult", "sessionCreateNewCommandResult", "sessionPrepareRTCommandResult", "editorGetStackSizeCommandResult", "editorGetCanvasPropertiesCommandResult", "editorAddMainClipCommandResult", "editorAddLookupClipCommandResult", "editorAddPipClipCommandResult", "editorAddMusicClipCommandResult", "editorAddTextClipCommandResult", "editorAddStickerClipCommandResult", "editorAddExtensionClipCommandResult", "editorSplitClipCommandResult", "editorGetResourceDurationUsCommandResult", "editorGetResourceSizeCommandResult", "editorGetClipResourceInfoCommandResult", "editorGetClipPropListResult", "editorGetTrackIdListCommandResult", "editorGetClipIdListCommandResult", "viewerGetStateCommandResult", "viewerGetDurationUsCommandResult"]),
+                                        get: $util.oneOfGetter($oneOfFields = ["voidResult", "sessionCreateNewCommandResult", "sessionPrepareRTCommandResult", "resourceListUserMaterialCommandResult", "editorGetStackSizeCommandResult", "editorGetCanvasPropertiesCommandResult", "editorAddMainClipCommandResult", "editorAddLookupClipCommandResult", "editorAddPipClipCommandResult", "editorAddMusicClipCommandResult", "editorAddTextClipCommandResult", "editorAddStickerClipCommandResult", "editorAddExtensionClipCommandResult", "editorSplitClipCommandResult", "editorGetResourcePropertiesCommandResult", "editorGetResourceDurationUsCommandResult", "editorGetResourceSizeCommandResult", "editorGetResourceUriCommandResult", "editorGetClipResourceInfoCommandResult", "editorCreateResourceIfNeedCommandResult", "editorGetTextExtraClipCommandResult", "editorGetClipPropListResult", "editorGetTrackIdListCommandResult", "editorGetClipIdListCommandResult", "editorGetTrackInfoCommandResult", "editorGetClipCurvePropertyAnchorListCommandResult", "editorGetClipCurvePropertyValueCommandResult", "editorGetExtensionEffectNamesFromClipCommandResult", "viewerGetStateCommandResult", "viewerGetDurationUsCommandResult", "exporterRunCommandResult"]),
                                         set: $util.oneOfSetter($oneOfFields)
                                     });
 
@@ -4657,42 +5291,62 @@ $root.com = (function () {
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionCreateNewCommandResult.encode(message.sessionCreateNewCommandResult, writer.uint32(/* id 200, wireType 2 =*/1602).fork()).ldelim();
                                         if (message.sessionPrepareRTCommandResult != null && Object.hasOwnProperty.call(message, "sessionPrepareRTCommandResult"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionPrepareRTCommandResult.encode(message.sessionPrepareRTCommandResult, writer.uint32(/* id 201, wireType 2 =*/1610).fork()).ldelim();
+                                        if (message.resourceListUserMaterialCommandResult != null && Object.hasOwnProperty.call(message, "resourceListUserMaterialCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.encode(message.resourceListUserMaterialCommandResult, writer.uint32(/* id 1201, wireType 2 =*/9610).fork()).ldelim();
                                         if (message.editorGetStackSizeCommandResult != null && Object.hasOwnProperty.call(message, "editorGetStackSizeCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetStackSizeCommandResult.encode(message.editorGetStackSizeCommandResult, writer.uint32(/* id 3007, wireType 2 =*/24058).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetStackSizeCommandResult.encode(message.editorGetStackSizeCommandResult, writer.uint32(/* id 3006, wireType 2 =*/24050).fork()).ldelim();
                                         if (message.editorGetCanvasPropertiesCommandResult != null && Object.hasOwnProperty.call(message, "editorGetCanvasPropertiesCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetCanvasPropertiesCommandResult.encode(message.editorGetCanvasPropertiesCommandResult, writer.uint32(/* id 3009, wireType 2 =*/24074).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetCanvasPropertiesCommandResult.encode(message.editorGetCanvasPropertiesCommandResult, writer.uint32(/* id 3008, wireType 2 =*/24066).fork()).ldelim();
                                         if (message.editorAddMainClipCommandResult != null && Object.hasOwnProperty.call(message, "editorAddMainClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddMainClipCommandResult.encode(message.editorAddMainClipCommandResult, writer.uint32(/* id 3010, wireType 2 =*/24082).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddMainClipCommandResult.encode(message.editorAddMainClipCommandResult, writer.uint32(/* id 3009, wireType 2 =*/24074).fork()).ldelim();
                                         if (message.editorAddLookupClipCommandResult != null && Object.hasOwnProperty.call(message, "editorAddLookupClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddLookupClipCommandResult.encode(message.editorAddLookupClipCommandResult, writer.uint32(/* id 3011, wireType 2 =*/24090).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddLookupClipCommandResult.encode(message.editorAddLookupClipCommandResult, writer.uint32(/* id 3010, wireType 2 =*/24082).fork()).ldelim();
                                         if (message.editorAddPipClipCommandResult != null && Object.hasOwnProperty.call(message, "editorAddPipClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddPipClipCommandResult.encode(message.editorAddPipClipCommandResult, writer.uint32(/* id 3012, wireType 2 =*/24098).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddPipClipCommandResult.encode(message.editorAddPipClipCommandResult, writer.uint32(/* id 3011, wireType 2 =*/24090).fork()).ldelim();
                                         if (message.editorAddMusicClipCommandResult != null && Object.hasOwnProperty.call(message, "editorAddMusicClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddMusicClipCommandResult.encode(message.editorAddMusicClipCommandResult, writer.uint32(/* id 3013, wireType 2 =*/24106).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddMusicClipCommandResult.encode(message.editorAddMusicClipCommandResult, writer.uint32(/* id 3012, wireType 2 =*/24098).fork()).ldelim();
                                         if (message.editorAddTextClipCommandResult != null && Object.hasOwnProperty.call(message, "editorAddTextClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddTextClipCommandResult.encode(message.editorAddTextClipCommandResult, writer.uint32(/* id 3014, wireType 2 =*/24114).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddTextClipCommandResult.encode(message.editorAddTextClipCommandResult, writer.uint32(/* id 3013, wireType 2 =*/24106).fork()).ldelim();
                                         if (message.editorAddStickerClipCommandResult != null && Object.hasOwnProperty.call(message, "editorAddStickerClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddStickerClipCommandResult.encode(message.editorAddStickerClipCommandResult, writer.uint32(/* id 3015, wireType 2 =*/24122).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddStickerClipCommandResult.encode(message.editorAddStickerClipCommandResult, writer.uint32(/* id 3014, wireType 2 =*/24114).fork()).ldelim();
                                         if (message.editorAddExtensionClipCommandResult != null && Object.hasOwnProperty.call(message, "editorAddExtensionClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionClipCommandResult.encode(message.editorAddExtensionClipCommandResult, writer.uint32(/* id 3016, wireType 2 =*/24130).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionClipCommandResult.encode(message.editorAddExtensionClipCommandResult, writer.uint32(/* id 3015, wireType 2 =*/24122).fork()).ldelim();
                                         if (message.editorSplitClipCommandResult != null && Object.hasOwnProperty.call(message, "editorSplitClipCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSplitClipCommandResult.encode(message.editorSplitClipCommandResult, writer.uint32(/* id 3018, wireType 2 =*/24146).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSplitClipCommandResult.encode(message.editorSplitClipCommandResult, writer.uint32(/* id 3017, wireType 2 =*/24138).fork()).ldelim();
+                                        if (message.editorGetResourcePropertiesCommandResult != null && Object.hasOwnProperty.call(message, "editorGetResourcePropertiesCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.encode(message.editorGetResourcePropertiesCommandResult, writer.uint32(/* id 3036, wireType 2 =*/24290).fork()).ldelim();
                                         if (message.editorGetResourceDurationUsCommandResult != null && Object.hasOwnProperty.call(message, "editorGetResourceDurationUsCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommandResult.encode(message.editorGetResourceDurationUsCommandResult, writer.uint32(/* id 3038, wireType 2 =*/24306).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommandResult.encode(message.editorGetResourceDurationUsCommandResult, writer.uint32(/* id 3037, wireType 2 =*/24298).fork()).ldelim();
                                         if (message.editorGetResourceSizeCommandResult != null && Object.hasOwnProperty.call(message, "editorGetResourceSizeCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommandResult.encode(message.editorGetResourceSizeCommandResult, writer.uint32(/* id 3039, wireType 2 =*/24314).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommandResult.encode(message.editorGetResourceSizeCommandResult, writer.uint32(/* id 3038, wireType 2 =*/24306).fork()).ldelim();
+                                        if (message.editorGetResourceUriCommandResult != null && Object.hasOwnProperty.call(message, "editorGetResourceUriCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.encode(message.editorGetResourceUriCommandResult, writer.uint32(/* id 3039, wireType 2 =*/24314).fork()).ldelim();
                                         if (message.editorGetClipResourceInfoCommandResult != null && Object.hasOwnProperty.call(message, "editorGetClipResourceInfoCommandResult"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommandResult.encode(message.editorGetClipResourceInfoCommandResult, writer.uint32(/* id 3040, wireType 2 =*/24322).fork()).ldelim();
+                                        if (message.editorCreateResourceIfNeedCommandResult != null && Object.hasOwnProperty.call(message, "editorCreateResourceIfNeedCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.encode(message.editorCreateResourceIfNeedCommandResult, writer.uint32(/* id 3041, wireType 2 =*/24330).fork()).ldelim();
+                                        if (message.editorGetTextExtraClipCommandResult != null && Object.hasOwnProperty.call(message, "editorGetTextExtraClipCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.encode(message.editorGetTextExtraClipCommandResult, writer.uint32(/* id 3050, wireType 2 =*/24402).fork()).ldelim();
                                         if (message.editorGetClipPropListResult != null && Object.hasOwnProperty.call(message, "editorGetClipPropListResult"))
                                             $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipPropListResult.encode(message.editorGetClipPropListResult, writer.uint32(/* id 3064, wireType 2 =*/24514).fork()).ldelim();
                                         if (message.editorGetTrackIdListCommandResult != null && Object.hasOwnProperty.call(message, "editorGetTrackIdListCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackIdListCommandResult.encode(message.editorGetTrackIdListCommandResult, writer.uint32(/* id 3071, wireType 2 =*/24570).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackIdListCommandResult.encode(message.editorGetTrackIdListCommandResult, writer.uint32(/* id 3070, wireType 2 =*/24562).fork()).ldelim();
                                         if (message.editorGetClipIdListCommandResult != null && Object.hasOwnProperty.call(message, "editorGetClipIdListCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommandResult.encode(message.editorGetClipIdListCommandResult, writer.uint32(/* id 3072, wireType 2 =*/24578).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommandResult.encode(message.editorGetClipIdListCommandResult, writer.uint32(/* id 3071, wireType 2 =*/24570).fork()).ldelim();
+                                        if (message.editorGetTrackInfoCommandResult != null && Object.hasOwnProperty.call(message, "editorGetTrackInfoCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.encode(message.editorGetTrackInfoCommandResult, writer.uint32(/* id 3072, wireType 2 =*/24578).fork()).ldelim();
+                                        if (message.editorGetClipCurvePropertyAnchorListCommandResult != null && Object.hasOwnProperty.call(message, "editorGetClipCurvePropertyAnchorListCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.encode(message.editorGetClipCurvePropertyAnchorListCommandResult, writer.uint32(/* id 3080, wireType 2 =*/24642).fork()).ldelim();
+                                        if (message.editorGetClipCurvePropertyValueCommandResult != null && Object.hasOwnProperty.call(message, "editorGetClipCurvePropertyValueCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.encode(message.editorGetClipCurvePropertyValueCommandResult, writer.uint32(/* id 3081, wireType 2 =*/24650).fork()).ldelim();
+                                        if (message.editorGetExtensionEffectNamesFromClipCommandResult != null && Object.hasOwnProperty.call(message, "editorGetExtensionEffectNamesFromClipCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.encode(message.editorGetExtensionEffectNamesFromClipCommandResult, writer.uint32(/* id 3082, wireType 2 =*/24658).fork()).ldelim();
                                         if (message.viewerGetStateCommandResult != null && Object.hasOwnProperty.call(message, "viewerGetStateCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetStateCommandResult.encode(message.viewerGetStateCommandResult, writer.uint32(/* id 4010, wireType 2 =*/32082).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetStateCommandResult.encode(message.viewerGetStateCommandResult, writer.uint32(/* id 4009, wireType 2 =*/32074).fork()).ldelim();
                                         if (message.viewerGetDurationUsCommandResult != null && Object.hasOwnProperty.call(message, "viewerGetDurationUsCommandResult"))
-                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetDurationUsCommandResult.encode(message.viewerGetDurationUsCommandResult, writer.uint32(/* id 4011, wireType 2 =*/32090).fork()).ldelim();
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetDurationUsCommandResult.encode(message.viewerGetDurationUsCommandResult, writer.uint32(/* id 4010, wireType 2 =*/32082).fork()).ldelim();
+                                        if (message.exporterRunCommandResult != null && Object.hasOwnProperty.call(message, "exporterRunCommandResult"))
+                                            $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ExporterRunCommandResult.encode(message.exporterRunCommandResult, writer.uint32(/* id 5001, wireType 2 =*/40010).fork()).ldelim();
                                         return writer;
                                     };
 
@@ -4745,59 +5399,89 @@ $root.com = (function () {
                                                 case 201:
                                                     message.sessionPrepareRTCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionPrepareRTCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3007:
+                                                case 1201:
+                                                    message.resourceListUserMaterialCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3006:
                                                     message.editorGetStackSizeCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetStackSizeCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3009:
+                                                case 3008:
                                                     message.editorGetCanvasPropertiesCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetCanvasPropertiesCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3010:
+                                                case 3009:
                                                     message.editorAddMainClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddMainClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3011:
+                                                case 3010:
                                                     message.editorAddLookupClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddLookupClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3012:
+                                                case 3011:
                                                     message.editorAddPipClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddPipClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3013:
+                                                case 3012:
                                                     message.editorAddMusicClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddMusicClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3014:
+                                                case 3013:
                                                     message.editorAddTextClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddTextClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3015:
+                                                case 3014:
                                                     message.editorAddStickerClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddStickerClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3016:
+                                                case 3015:
                                                     message.editorAddExtensionClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3018:
+                                                case 3017:
                                                     message.editorSplitClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSplitClipCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3038:
+                                                case 3036:
+                                                    message.editorGetResourcePropertiesCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3037:
                                                     message.editorGetResourceDurationUsCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3039:
+                                                case 3038:
                                                     message.editorGetResourceSizeCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3039:
+                                                    message.editorGetResourceUriCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.decode(reader, reader.uint32());
                                                     break;
                                                 case 3040:
                                                     message.editorGetClipResourceInfoCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommandResult.decode(reader, reader.uint32());
                                                     break;
+                                                case 3041:
+                                                    message.editorCreateResourceIfNeedCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3050:
+                                                    message.editorGetTextExtraClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.decode(reader, reader.uint32());
+                                                    break;
                                                 case 3064:
                                                     message.editorGetClipPropListResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipPropListResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3071:
+                                                case 3070:
                                                     message.editorGetTrackIdListCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackIdListCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 3072:
+                                                case 3071:
                                                     message.editorGetClipIdListCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 4010:
+                                                case 3072:
+                                                    message.editorGetTrackInfoCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3080:
+                                                    message.editorGetClipCurvePropertyAnchorListCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3081:
+                                                    message.editorGetClipCurvePropertyValueCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 3082:
+                                                    message.editorGetExtensionEffectNamesFromClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 4009:
                                                     message.viewerGetStateCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetStateCommandResult.decode(reader, reader.uint32());
                                                     break;
-                                                case 4011:
+                                                case 4010:
                                                     message.viewerGetDurationUsCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetDurationUsCommandResult.decode(reader, reader.uint32());
+                                                    break;
+                                                case 5001:
+                                                    message.exporterRunCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ExporterRunCommandResult.decode(reader, reader.uint32());
                                                     break;
                                                 default:
                                                     reader.skipType(tag & 7);
@@ -4886,6 +5570,16 @@ $root.com = (function () {
                                                 var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionPrepareRTCommandResult.verify(message.sessionPrepareRTCommandResult);
                                                 if (error)
                                                     return "sessionPrepareRTCommandResult." + error;
+                                            }
+                                        }
+                                        if (message.resourceListUserMaterialCommandResult != null && message.hasOwnProperty("resourceListUserMaterialCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.verify(message.resourceListUserMaterialCommandResult);
+                                                if (error)
+                                                    return "resourceListUserMaterialCommandResult." + error;
                                             }
                                         }
                                         if (message.editorGetStackSizeCommandResult != null && message.hasOwnProperty("editorGetStackSizeCommandResult")) {
@@ -4988,6 +5682,16 @@ $root.com = (function () {
                                                     return "editorSplitClipCommandResult." + error;
                                             }
                                         }
+                                        if (message.editorGetResourcePropertiesCommandResult != null && message.hasOwnProperty("editorGetResourcePropertiesCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.verify(message.editorGetResourcePropertiesCommandResult);
+                                                if (error)
+                                                    return "editorGetResourcePropertiesCommandResult." + error;
+                                            }
+                                        }
                                         if (message.editorGetResourceDurationUsCommandResult != null && message.hasOwnProperty("editorGetResourceDurationUsCommandResult")) {
                                             if (properties.data === 1)
                                                 return "data: multiple values";
@@ -5008,6 +5712,16 @@ $root.com = (function () {
                                                     return "editorGetResourceSizeCommandResult." + error;
                                             }
                                         }
+                                        if (message.editorGetResourceUriCommandResult != null && message.hasOwnProperty("editorGetResourceUriCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.verify(message.editorGetResourceUriCommandResult);
+                                                if (error)
+                                                    return "editorGetResourceUriCommandResult." + error;
+                                            }
+                                        }
                                         if (message.editorGetClipResourceInfoCommandResult != null && message.hasOwnProperty("editorGetClipResourceInfoCommandResult")) {
                                             if (properties.data === 1)
                                                 return "data: multiple values";
@@ -5016,6 +5730,26 @@ $root.com = (function () {
                                                 var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommandResult.verify(message.editorGetClipResourceInfoCommandResult);
                                                 if (error)
                                                     return "editorGetClipResourceInfoCommandResult." + error;
+                                            }
+                                        }
+                                        if (message.editorCreateResourceIfNeedCommandResult != null && message.hasOwnProperty("editorCreateResourceIfNeedCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.verify(message.editorCreateResourceIfNeedCommandResult);
+                                                if (error)
+                                                    return "editorCreateResourceIfNeedCommandResult." + error;
+                                            }
+                                        }
+                                        if (message.editorGetTextExtraClipCommandResult != null && message.hasOwnProperty("editorGetTextExtraClipCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.verify(message.editorGetTextExtraClipCommandResult);
+                                                if (error)
+                                                    return "editorGetTextExtraClipCommandResult." + error;
                                             }
                                         }
                                         if (message.editorGetClipPropListResult != null && message.hasOwnProperty("editorGetClipPropListResult")) {
@@ -5048,6 +5782,46 @@ $root.com = (function () {
                                                     return "editorGetClipIdListCommandResult." + error;
                                             }
                                         }
+                                        if (message.editorGetTrackInfoCommandResult != null && message.hasOwnProperty("editorGetTrackInfoCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.verify(message.editorGetTrackInfoCommandResult);
+                                                if (error)
+                                                    return "editorGetTrackInfoCommandResult." + error;
+                                            }
+                                        }
+                                        if (message.editorGetClipCurvePropertyAnchorListCommandResult != null && message.hasOwnProperty("editorGetClipCurvePropertyAnchorListCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.verify(message.editorGetClipCurvePropertyAnchorListCommandResult);
+                                                if (error)
+                                                    return "editorGetClipCurvePropertyAnchorListCommandResult." + error;
+                                            }
+                                        }
+                                        if (message.editorGetClipCurvePropertyValueCommandResult != null && message.hasOwnProperty("editorGetClipCurvePropertyValueCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.verify(message.editorGetClipCurvePropertyValueCommandResult);
+                                                if (error)
+                                                    return "editorGetClipCurvePropertyValueCommandResult." + error;
+                                            }
+                                        }
+                                        if (message.editorGetExtensionEffectNamesFromClipCommandResult != null && message.hasOwnProperty("editorGetExtensionEffectNamesFromClipCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.verify(message.editorGetExtensionEffectNamesFromClipCommandResult);
+                                                if (error)
+                                                    return "editorGetExtensionEffectNamesFromClipCommandResult." + error;
+                                            }
+                                        }
                                         if (message.viewerGetStateCommandResult != null && message.hasOwnProperty("viewerGetStateCommandResult")) {
                                             if (properties.data === 1)
                                                 return "data: multiple values";
@@ -5066,6 +5840,16 @@ $root.com = (function () {
                                                 var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetDurationUsCommandResult.verify(message.viewerGetDurationUsCommandResult);
                                                 if (error)
                                                     return "viewerGetDurationUsCommandResult." + error;
+                                            }
+                                        }
+                                        if (message.exporterRunCommandResult != null && message.hasOwnProperty("exporterRunCommandResult")) {
+                                            if (properties.data === 1)
+                                                return "data: multiple values";
+                                            properties.data = 1;
+                                            {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ExporterRunCommandResult.verify(message.exporterRunCommandResult);
+                                                if (error)
+                                                    return "exporterRunCommandResult." + error;
                                             }
                                         }
                                         return null;
@@ -5151,6 +5935,11 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.sessionPrepareRTCommandResult: object expected");
                                             message.sessionPrepareRTCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionPrepareRTCommandResult.fromObject(object.sessionPrepareRTCommandResult);
                                         }
+                                        if (object.resourceListUserMaterialCommandResult != null) {
+                                            if (typeof object.resourceListUserMaterialCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.resourceListUserMaterialCommandResult: object expected");
+                                            message.resourceListUserMaterialCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.fromObject(object.resourceListUserMaterialCommandResult);
+                                        }
                                         if (object.editorGetStackSizeCommandResult != null) {
                                             if (typeof object.editorGetStackSizeCommandResult !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetStackSizeCommandResult: object expected");
@@ -5201,6 +5990,11 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorSplitClipCommandResult: object expected");
                                             message.editorSplitClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSplitClipCommandResult.fromObject(object.editorSplitClipCommandResult);
                                         }
+                                        if (object.editorGetResourcePropertiesCommandResult != null) {
+                                            if (typeof object.editorGetResourcePropertiesCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetResourcePropertiesCommandResult: object expected");
+                                            message.editorGetResourcePropertiesCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.fromObject(object.editorGetResourcePropertiesCommandResult);
+                                        }
                                         if (object.editorGetResourceDurationUsCommandResult != null) {
                                             if (typeof object.editorGetResourceDurationUsCommandResult !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetResourceDurationUsCommandResult: object expected");
@@ -5211,10 +6005,25 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetResourceSizeCommandResult: object expected");
                                             message.editorGetResourceSizeCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceSizeCommandResult.fromObject(object.editorGetResourceSizeCommandResult);
                                         }
+                                        if (object.editorGetResourceUriCommandResult != null) {
+                                            if (typeof object.editorGetResourceUriCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetResourceUriCommandResult: object expected");
+                                            message.editorGetResourceUriCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.fromObject(object.editorGetResourceUriCommandResult);
+                                        }
                                         if (object.editorGetClipResourceInfoCommandResult != null) {
                                             if (typeof object.editorGetClipResourceInfoCommandResult !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetClipResourceInfoCommandResult: object expected");
                                             message.editorGetClipResourceInfoCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommandResult.fromObject(object.editorGetClipResourceInfoCommandResult);
+                                        }
+                                        if (object.editorCreateResourceIfNeedCommandResult != null) {
+                                            if (typeof object.editorCreateResourceIfNeedCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorCreateResourceIfNeedCommandResult: object expected");
+                                            message.editorCreateResourceIfNeedCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.fromObject(object.editorCreateResourceIfNeedCommandResult);
+                                        }
+                                        if (object.editorGetTextExtraClipCommandResult != null) {
+                                            if (typeof object.editorGetTextExtraClipCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetTextExtraClipCommandResult: object expected");
+                                            message.editorGetTextExtraClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.fromObject(object.editorGetTextExtraClipCommandResult);
                                         }
                                         if (object.editorGetClipPropListResult != null) {
                                             if (typeof object.editorGetClipPropListResult !== "object")
@@ -5231,6 +6040,26 @@ $root.com = (function () {
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetClipIdListCommandResult: object expected");
                                             message.editorGetClipIdListCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipIdListCommandResult.fromObject(object.editorGetClipIdListCommandResult);
                                         }
+                                        if (object.editorGetTrackInfoCommandResult != null) {
+                                            if (typeof object.editorGetTrackInfoCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetTrackInfoCommandResult: object expected");
+                                            message.editorGetTrackInfoCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.fromObject(object.editorGetTrackInfoCommandResult);
+                                        }
+                                        if (object.editorGetClipCurvePropertyAnchorListCommandResult != null) {
+                                            if (typeof object.editorGetClipCurvePropertyAnchorListCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetClipCurvePropertyAnchorListCommandResult: object expected");
+                                            message.editorGetClipCurvePropertyAnchorListCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.fromObject(object.editorGetClipCurvePropertyAnchorListCommandResult);
+                                        }
+                                        if (object.editorGetClipCurvePropertyValueCommandResult != null) {
+                                            if (typeof object.editorGetClipCurvePropertyValueCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetClipCurvePropertyValueCommandResult: object expected");
+                                            message.editorGetClipCurvePropertyValueCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.fromObject(object.editorGetClipCurvePropertyValueCommandResult);
+                                        }
+                                        if (object.editorGetExtensionEffectNamesFromClipCommandResult != null) {
+                                            if (typeof object.editorGetExtensionEffectNamesFromClipCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.editorGetExtensionEffectNamesFromClipCommandResult: object expected");
+                                            message.editorGetExtensionEffectNamesFromClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.fromObject(object.editorGetExtensionEffectNamesFromClipCommandResult);
+                                        }
                                         if (object.viewerGetStateCommandResult != null) {
                                             if (typeof object.viewerGetStateCommandResult !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.viewerGetStateCommandResult: object expected");
@@ -5240,6 +6069,11 @@ $root.com = (function () {
                                             if (typeof object.viewerGetDurationUsCommandResult !== "object")
                                                 throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.viewerGetDurationUsCommandResult: object expected");
                                             message.viewerGetDurationUsCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetDurationUsCommandResult.fromObject(object.viewerGetDurationUsCommandResult);
+                                        }
+                                        if (object.exporterRunCommandResult != null) {
+                                            if (typeof object.exporterRunCommandResult !== "object")
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.Result.exporterRunCommandResult: object expected");
+                                            message.exporterRunCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ExporterRunCommandResult.fromObject(object.exporterRunCommandResult);
                                         }
                                         return message;
                                     };
@@ -5282,6 +6116,11 @@ $root.com = (function () {
                                             object.sessionPrepareRTCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SessionPrepareRTCommandResult.toObject(message.sessionPrepareRTCommandResult, options);
                                             if (options.oneofs)
                                                 object.data = "sessionPrepareRTCommandResult";
+                                        }
+                                        if (message.resourceListUserMaterialCommandResult != null && message.hasOwnProperty("resourceListUserMaterialCommandResult")) {
+                                            object.resourceListUserMaterialCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.toObject(message.resourceListUserMaterialCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "resourceListUserMaterialCommandResult";
                                         }
                                         if (message.editorGetStackSizeCommandResult != null && message.hasOwnProperty("editorGetStackSizeCommandResult")) {
                                             object.editorGetStackSizeCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetStackSizeCommandResult.toObject(message.editorGetStackSizeCommandResult, options);
@@ -5333,6 +6172,11 @@ $root.com = (function () {
                                             if (options.oneofs)
                                                 object.data = "editorSplitClipCommandResult";
                                         }
+                                        if (message.editorGetResourcePropertiesCommandResult != null && message.hasOwnProperty("editorGetResourcePropertiesCommandResult")) {
+                                            object.editorGetResourcePropertiesCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.toObject(message.editorGetResourcePropertiesCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetResourcePropertiesCommandResult";
+                                        }
                                         if (message.editorGetResourceDurationUsCommandResult != null && message.hasOwnProperty("editorGetResourceDurationUsCommandResult")) {
                                             object.editorGetResourceDurationUsCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceDurationUsCommandResult.toObject(message.editorGetResourceDurationUsCommandResult, options);
                                             if (options.oneofs)
@@ -5343,10 +6187,25 @@ $root.com = (function () {
                                             if (options.oneofs)
                                                 object.data = "editorGetResourceSizeCommandResult";
                                         }
+                                        if (message.editorGetResourceUriCommandResult != null && message.hasOwnProperty("editorGetResourceUriCommandResult")) {
+                                            object.editorGetResourceUriCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.toObject(message.editorGetResourceUriCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetResourceUriCommandResult";
+                                        }
                                         if (message.editorGetClipResourceInfoCommandResult != null && message.hasOwnProperty("editorGetClipResourceInfoCommandResult")) {
                                             object.editorGetClipResourceInfoCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipResourceInfoCommandResult.toObject(message.editorGetClipResourceInfoCommandResult, options);
                                             if (options.oneofs)
                                                 object.data = "editorGetClipResourceInfoCommandResult";
+                                        }
+                                        if (message.editorCreateResourceIfNeedCommandResult != null && message.hasOwnProperty("editorCreateResourceIfNeedCommandResult")) {
+                                            object.editorCreateResourceIfNeedCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.toObject(message.editorCreateResourceIfNeedCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorCreateResourceIfNeedCommandResult";
+                                        }
+                                        if (message.editorGetTextExtraClipCommandResult != null && message.hasOwnProperty("editorGetTextExtraClipCommandResult")) {
+                                            object.editorGetTextExtraClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.toObject(message.editorGetTextExtraClipCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetTextExtraClipCommandResult";
                                         }
                                         if (message.editorGetClipPropListResult != null && message.hasOwnProperty("editorGetClipPropListResult")) {
                                             object.editorGetClipPropListResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipPropListResult.toObject(message.editorGetClipPropListResult, options);
@@ -5363,6 +6222,26 @@ $root.com = (function () {
                                             if (options.oneofs)
                                                 object.data = "editorGetClipIdListCommandResult";
                                         }
+                                        if (message.editorGetTrackInfoCommandResult != null && message.hasOwnProperty("editorGetTrackInfoCommandResult")) {
+                                            object.editorGetTrackInfoCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.toObject(message.editorGetTrackInfoCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetTrackInfoCommandResult";
+                                        }
+                                        if (message.editorGetClipCurvePropertyAnchorListCommandResult != null && message.hasOwnProperty("editorGetClipCurvePropertyAnchorListCommandResult")) {
+                                            object.editorGetClipCurvePropertyAnchorListCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.toObject(message.editorGetClipCurvePropertyAnchorListCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetClipCurvePropertyAnchorListCommandResult";
+                                        }
+                                        if (message.editorGetClipCurvePropertyValueCommandResult != null && message.hasOwnProperty("editorGetClipCurvePropertyValueCommandResult")) {
+                                            object.editorGetClipCurvePropertyValueCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.toObject(message.editorGetClipCurvePropertyValueCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetClipCurvePropertyValueCommandResult";
+                                        }
+                                        if (message.editorGetExtensionEffectNamesFromClipCommandResult != null && message.hasOwnProperty("editorGetExtensionEffectNamesFromClipCommandResult")) {
+                                            object.editorGetExtensionEffectNamesFromClipCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.toObject(message.editorGetExtensionEffectNamesFromClipCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "editorGetExtensionEffectNamesFromClipCommandResult";
+                                        }
                                         if (message.viewerGetStateCommandResult != null && message.hasOwnProperty("viewerGetStateCommandResult")) {
                                             object.viewerGetStateCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetStateCommandResult.toObject(message.viewerGetStateCommandResult, options);
                                             if (options.oneofs)
@@ -5372,6 +6251,11 @@ $root.com = (function () {
                                             object.viewerGetDurationUsCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ViewerGetDurationUsCommandResult.toObject(message.viewerGetDurationUsCommandResult, options);
                                             if (options.oneofs)
                                                 object.data = "viewerGetDurationUsCommandResult";
+                                        }
+                                        if (message.exporterRunCommandResult != null && message.hasOwnProperty("exporterRunCommandResult")) {
+                                            object.exporterRunCommandResult = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ExporterRunCommandResult.toObject(message.exporterRunCommandResult, options);
+                                            if (options.oneofs)
+                                                object.data = "exporterRunCommandResult";
                                         }
                                         return object;
                                     };
@@ -7179,6 +8063,894 @@ $root.com = (function () {
                                     };
 
                                     return SessionInvalidCurrentCommand;
+                                })();
+
+                                proto.ResourcePrepareCommand = (function () {
+
+                                    /**
+                                     * Properties of a ResourcePrepareCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IResourcePrepareCommand
+                                     * @property {string|null} [resourceUri] ResourcePrepareCommand resourceUri
+                                     * @property {string|null} [resourceUrl] ResourcePrepareCommand resourceUrl
+                                     */
+
+                                    /**
+                                     * Constructs a new ResourcePrepareCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents a ResourcePrepareCommand.
+                                     * @implements IResourcePrepareCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand=} [properties] Properties to set
+                                     */
+                                    function ResourcePrepareCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * ResourcePrepareCommand resourceUri.
+                                     * @member {string} resourceUri
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @instance
+                                     */
+                                    ResourcePrepareCommand.prototype.resourceUri = "";
+
+                                    /**
+                                     * ResourcePrepareCommand resourceUrl.
+                                     * @member {string} resourceUrl
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @instance
+                                     */
+                                    ResourcePrepareCommand.prototype.resourceUrl = "";
+
+                                    /**
+                                     * Creates a new ResourcePrepareCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand} ResourcePrepareCommand instance
+                                     */
+                                    ResourcePrepareCommand.create = function create(properties) {
+                                        return new ResourcePrepareCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified ResourcePrepareCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand} message ResourcePrepareCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    ResourcePrepareCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.resourceUri != null && Object.hasOwnProperty.call(message, "resourceUri"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resourceUri);
+                                        if (message.resourceUrl != null && Object.hasOwnProperty.call(message, "resourceUrl"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.resourceUrl);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified ResourcePrepareCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand} message ResourcePrepareCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    ResourcePrepareCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes a ResourcePrepareCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand} ResourcePrepareCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    ResourcePrepareCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.resourceUri = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.resourceUrl = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes a ResourcePrepareCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand} ResourcePrepareCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    ResourcePrepareCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies a ResourcePrepareCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    ResourcePrepareCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            if (!$util.isString(message.resourceUri))
+                                                return "resourceUri: string expected";
+                                        if (message.resourceUrl != null && message.hasOwnProperty("resourceUrl"))
+                                            if (!$util.isString(message.resourceUrl))
+                                                return "resourceUrl: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates a ResourcePrepareCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand} ResourcePrepareCommand
+                                     */
+                                    ResourcePrepareCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand();
+                                        if (object.resourceUri != null)
+                                            message.resourceUri = String(object.resourceUri);
+                                        if (object.resourceUrl != null)
+                                            message.resourceUrl = String(object.resourceUrl);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from a ResourcePrepareCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand} message ResourcePrepareCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    ResourcePrepareCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.resourceUri = "";
+                                            object.resourceUrl = "";
+                                        }
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            object.resourceUri = message.resourceUri;
+                                        if (message.resourceUrl != null && message.hasOwnProperty("resourceUrl"))
+                                            object.resourceUrl = message.resourceUrl;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this ResourcePrepareCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    ResourcePrepareCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return ResourcePrepareCommand;
+                                })();
+
+                                proto.ResourceListUserMaterialCommand = (function () {
+
+                                    /**
+                                     * Properties of a ResourceListUserMaterialCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IResourceListUserMaterialCommand
+                                     * @property {number|null} [currentPage] ResourceListUserMaterialCommand currentPage
+                                     * @property {number|null} [pageSize] ResourceListUserMaterialCommand pageSize
+                                     */
+
+                                    /**
+                                     * Constructs a new ResourceListUserMaterialCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents a ResourceListUserMaterialCommand.
+                                     * @implements IResourceListUserMaterialCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand=} [properties] Properties to set
+                                     */
+                                    function ResourceListUserMaterialCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * ResourceListUserMaterialCommand currentPage.
+                                     * @member {number} currentPage
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @instance
+                                     */
+                                    ResourceListUserMaterialCommand.prototype.currentPage = 0;
+
+                                    /**
+                                     * ResourceListUserMaterialCommand pageSize.
+                                     * @member {number} pageSize
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @instance
+                                     */
+                                    ResourceListUserMaterialCommand.prototype.pageSize = 0;
+
+                                    /**
+                                     * Creates a new ResourceListUserMaterialCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand} ResourceListUserMaterialCommand instance
+                                     */
+                                    ResourceListUserMaterialCommand.create = function create(properties) {
+                                        return new ResourceListUserMaterialCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand} message ResourceListUserMaterialCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    ResourceListUserMaterialCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.currentPage != null && Object.hasOwnProperty.call(message, "currentPage"))
+                                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.currentPage);
+                                        if (message.pageSize != null && Object.hasOwnProperty.call(message, "pageSize"))
+                                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.pageSize);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand} message ResourceListUserMaterialCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    ResourceListUserMaterialCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand} ResourceListUserMaterialCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    ResourceListUserMaterialCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.currentPage = reader.int32();
+                                                    break;
+                                                case 2:
+                                                    message.pageSize = reader.int32();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand} ResourceListUserMaterialCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    ResourceListUserMaterialCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies a ResourceListUserMaterialCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    ResourceListUserMaterialCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.currentPage != null && message.hasOwnProperty("currentPage"))
+                                            if (!$util.isInteger(message.currentPage))
+                                                return "currentPage: integer expected";
+                                        if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                            if (!$util.isInteger(message.pageSize))
+                                                return "pageSize: integer expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates a ResourceListUserMaterialCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand} ResourceListUserMaterialCommand
+                                     */
+                                    ResourceListUserMaterialCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand();
+                                        if (object.currentPage != null)
+                                            message.currentPage = object.currentPage | 0;
+                                        if (object.pageSize != null)
+                                            message.pageSize = object.pageSize | 0;
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from a ResourceListUserMaterialCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand} message ResourceListUserMaterialCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    ResourceListUserMaterialCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.currentPage = 0;
+                                            object.pageSize = 0;
+                                        }
+                                        if (message.currentPage != null && message.hasOwnProperty("currentPage"))
+                                            object.currentPage = message.currentPage;
+                                        if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                            object.pageSize = message.pageSize;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this ResourceListUserMaterialCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    ResourceListUserMaterialCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return ResourceListUserMaterialCommand;
+                                })();
+
+                                proto.ResourceListUserMaterialCommandResult = (function () {
+
+                                    /**
+                                     * Properties of a ResourceListUserMaterialCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IResourceListUserMaterialCommandResult
+                                     * @property {Array.<com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo>|null} [materialList] ResourceListUserMaterialCommandResult materialList
+                                     */
+
+                                    /**
+                                     * Constructs a new ResourceListUserMaterialCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents a ResourceListUserMaterialCommandResult.
+                                     * @implements IResourceListUserMaterialCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult=} [properties] Properties to set
+                                     */
+                                    function ResourceListUserMaterialCommandResult(properties) {
+                                        this.materialList = [];
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * ResourceListUserMaterialCommandResult materialList.
+                                     * @member {Array.<com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo>} materialList
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @instance
+                                     */
+                                    ResourceListUserMaterialCommandResult.prototype.materialList = $util.emptyArray;
+
+                                    /**
+                                     * Creates a new ResourceListUserMaterialCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult} ResourceListUserMaterialCommandResult instance
+                                     */
+                                    ResourceListUserMaterialCommandResult.create = function create(properties) {
+                                        return new ResourceListUserMaterialCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult} message ResourceListUserMaterialCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    ResourceListUserMaterialCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.materialList != null && message.materialList.length)
+                                            for (var i = 0; i < message.materialList.length; ++i)
+                                                $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.encode(message.materialList[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult} message ResourceListUserMaterialCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    ResourceListUserMaterialCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult} ResourceListUserMaterialCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    ResourceListUserMaterialCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    if (!(message.materialList && message.materialList.length))
+                                                        message.materialList = [];
+                                                    message.materialList.push($root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.decode(reader, reader.uint32()));
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult} ResourceListUserMaterialCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    ResourceListUserMaterialCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies a ResourceListUserMaterialCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    ResourceListUserMaterialCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.materialList != null && message.hasOwnProperty("materialList")) {
+                                            if (!Array.isArray(message.materialList))
+                                                return "materialList: array expected";
+                                            for (var i = 0; i < message.materialList.length; ++i) {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.verify(message.materialList[i]);
+                                                if (error)
+                                                    return "materialList." + error;
+                                            }
+                                        }
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates a ResourceListUserMaterialCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult} ResourceListUserMaterialCommandResult
+                                     */
+                                    ResourceListUserMaterialCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult();
+                                        if (object.materialList) {
+                                            if (!Array.isArray(object.materialList))
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.materialList: array expected");
+                                            message.materialList = [];
+                                            for (var i = 0; i < object.materialList.length; ++i) {
+                                                if (typeof object.materialList[i] !== "object")
+                                                    throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.materialList: object expected");
+                                                message.materialList[i] = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.fromObject(object.materialList[i]);
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from a ResourceListUserMaterialCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult} message ResourceListUserMaterialCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    ResourceListUserMaterialCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.arrays || options.defaults)
+                                            object.materialList = [];
+                                        if (message.materialList && message.materialList.length) {
+                                            object.materialList = [];
+                                            for (var j = 0; j < message.materialList.length; ++j)
+                                                object.materialList[j] = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.toObject(message.materialList[j], options);
+                                        }
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this ResourceListUserMaterialCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    ResourceListUserMaterialCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    ResourceListUserMaterialCommandResult.UserMaterialInfo = (function () {
+
+                                        /**
+                                         * Properties of a UserMaterialInfo.
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                         * @interface IUserMaterialInfo
+                                         * @property {string|null} [resourceUri] UserMaterialInfo resourceUri
+                                         * @property {number|Long|null} [fileSize] UserMaterialInfo fileSize
+                                         * @property {number|Long|null} [lastModified] UserMaterialInfo lastModified
+                                         */
+
+                                        /**
+                                         * Constructs a new UserMaterialInfo.
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult
+                                         * @classdesc Represents a UserMaterialInfo.
+                                         * @implements IUserMaterialInfo
+                                         * @constructor
+                                         * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo=} [properties] Properties to set
+                                         */
+                                        function UserMaterialInfo(properties) {
+                                            if (properties)
+                                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                    if (properties[keys[i]] != null)
+                                                        this[keys[i]] = properties[keys[i]];
+                                        }
+
+                                        /**
+                                         * UserMaterialInfo resourceUri.
+                                         * @member {string} resourceUri
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @instance
+                                         */
+                                        UserMaterialInfo.prototype.resourceUri = "";
+
+                                        /**
+                                         * UserMaterialInfo fileSize.
+                                         * @member {number|Long} fileSize
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @instance
+                                         */
+                                        UserMaterialInfo.prototype.fileSize = $util.Long ? $util.Long.fromBits(0, 0, true) : 0;
+
+                                        /**
+                                         * UserMaterialInfo lastModified.
+                                         * @member {number|Long} lastModified
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @instance
+                                         */
+                                        UserMaterialInfo.prototype.lastModified = $util.Long ? $util.Long.fromBits(0, 0, true) : 0;
+
+                                        /**
+                                         * Creates a new UserMaterialInfo instance using the specified properties.
+                                         * @function create
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo=} [properties] Properties to set
+                                         * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo} UserMaterialInfo instance
+                                         */
+                                        UserMaterialInfo.create = function create(properties) {
+                                            return new UserMaterialInfo(properties);
+                                        };
+
+                                        /**
+                                         * Encodes the specified UserMaterialInfo message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.verify|verify} messages.
+                                         * @function encode
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo} message UserMaterialInfo message or plain object to encode
+                                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                                         * @returns {$protobuf.Writer} Writer
+                                         */
+                                        UserMaterialInfo.encode = function encode(message, writer) {
+                                            if (!writer)
+                                                writer = $Writer.create();
+                                            if (message.resourceUri != null && Object.hasOwnProperty.call(message, "resourceUri"))
+                                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.resourceUri);
+                                            if (message.fileSize != null && Object.hasOwnProperty.call(message, "fileSize"))
+                                                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.fileSize);
+                                            if (message.lastModified != null && Object.hasOwnProperty.call(message, "lastModified"))
+                                                writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.lastModified);
+                                            return writer;
+                                        };
+
+                                        /**
+                                         * Encodes the specified UserMaterialInfo message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.verify|verify} messages.
+                                         * @function encodeDelimited
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo} message UserMaterialInfo message or plain object to encode
+                                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                                         * @returns {$protobuf.Writer} Writer
+                                         */
+                                        UserMaterialInfo.encodeDelimited = function encodeDelimited(message, writer) {
+                                            return this.encode(message, writer).ldelim();
+                                        };
+
+                                        /**
+                                         * Decodes a UserMaterialInfo message from the specified reader or buffer.
+                                         * @function decode
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                         * @param {number} [length] Message length if known beforehand
+                                         * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo} UserMaterialInfo
+                                         * @throws {Error} If the payload is not a reader or valid buffer
+                                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                         */
+                                        UserMaterialInfo.decode = function decode(reader, length) {
+                                            if (!(reader instanceof $Reader))
+                                                reader = $Reader.create(reader);
+                                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo();
+                                            while (reader.pos < end) {
+                                                var tag = reader.uint32();
+                                                switch (tag >>> 3) {
+                                                    case 1:
+                                                        message.resourceUri = reader.string();
+                                                        break;
+                                                    case 2:
+                                                        message.fileSize = reader.uint64();
+                                                        break;
+                                                    case 3:
+                                                        message.lastModified = reader.uint64();
+                                                        break;
+                                                    default:
+                                                        reader.skipType(tag & 7);
+                                                        break;
+                                                }
+                                            }
+                                            return message;
+                                        };
+
+                                        /**
+                                         * Decodes a UserMaterialInfo message from the specified reader or buffer, length delimited.
+                                         * @function decodeDelimited
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                         * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo} UserMaterialInfo
+                                         * @throws {Error} If the payload is not a reader or valid buffer
+                                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                         */
+                                        UserMaterialInfo.decodeDelimited = function decodeDelimited(reader) {
+                                            if (!(reader instanceof $Reader))
+                                                reader = new $Reader(reader);
+                                            return this.decode(reader, reader.uint32());
+                                        };
+
+                                        /**
+                                         * Verifies a UserMaterialInfo message.
+                                         * @function verify
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {Object.<string,*>} message Plain object to verify
+                                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                         */
+                                        UserMaterialInfo.verify = function verify(message) {
+                                            if (typeof message !== "object" || message === null)
+                                                return "object expected";
+                                            if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                                if (!$util.isString(message.resourceUri))
+                                                    return "resourceUri: string expected";
+                                            if (message.fileSize != null && message.hasOwnProperty("fileSize"))
+                                                if (!$util.isInteger(message.fileSize) && !(message.fileSize && $util.isInteger(message.fileSize.low) && $util.isInteger(message.fileSize.high)))
+                                                    return "fileSize: integer|Long expected";
+                                            if (message.lastModified != null && message.hasOwnProperty("lastModified"))
+                                                if (!$util.isInteger(message.lastModified) && !(message.lastModified && $util.isInteger(message.lastModified.low) && $util.isInteger(message.lastModified.high)))
+                                                    return "lastModified: integer|Long expected";
+                                            return null;
+                                        };
+
+                                        /**
+                                         * Creates a UserMaterialInfo message from a plain object. Also converts values to their respective internal types.
+                                         * @function fromObject
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {Object.<string,*>} object Plain object
+                                         * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo} UserMaterialInfo
+                                         */
+                                        UserMaterialInfo.fromObject = function fromObject(object) {
+                                            if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo)
+                                                return object;
+                                            var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo();
+                                            if (object.resourceUri != null)
+                                                message.resourceUri = String(object.resourceUri);
+                                            if (object.fileSize != null)
+                                                if ($util.Long)
+                                                    (message.fileSize = $util.Long.fromValue(object.fileSize)).unsigned = true;
+                                                else if (typeof object.fileSize === "string")
+                                                    message.fileSize = parseInt(object.fileSize, 10);
+                                                else if (typeof object.fileSize === "number")
+                                                    message.fileSize = object.fileSize;
+                                                else if (typeof object.fileSize === "object")
+                                                    message.fileSize = new $util.LongBits(object.fileSize.low >>> 0, object.fileSize.high >>> 0).toNumber(true);
+                                            if (object.lastModified != null)
+                                                if ($util.Long)
+                                                    (message.lastModified = $util.Long.fromValue(object.lastModified)).unsigned = true;
+                                                else if (typeof object.lastModified === "string")
+                                                    message.lastModified = parseInt(object.lastModified, 10);
+                                                else if (typeof object.lastModified === "number")
+                                                    message.lastModified = object.lastModified;
+                                                else if (typeof object.lastModified === "object")
+                                                    message.lastModified = new $util.LongBits(object.lastModified.low >>> 0, object.lastModified.high >>> 0).toNumber(true);
+                                            return message;
+                                        };
+
+                                        /**
+                                         * Creates a plain object from a UserMaterialInfo message. Also converts values to other types if specified.
+                                         * @function toObject
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @static
+                                         * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo} message UserMaterialInfo
+                                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                         * @returns {Object.<string,*>} Plain object
+                                         */
+                                        UserMaterialInfo.toObject = function toObject(message, options) {
+                                            if (!options)
+                                                options = {};
+                                            var object = {};
+                                            if (options.defaults) {
+                                                object.resourceUri = "";
+                                                if ($util.Long) {
+                                                    var long = new $util.Long(0, 0, true);
+                                                    object.fileSize = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                                } else
+                                                    object.fileSize = options.longs === String ? "0" : 0;
+                                                if ($util.Long) {
+                                                    var long = new $util.Long(0, 0, true);
+                                                    object.lastModified = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                                } else
+                                                    object.lastModified = options.longs === String ? "0" : 0;
+                                            }
+                                            if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                                object.resourceUri = message.resourceUri;
+                                            if (message.fileSize != null && message.hasOwnProperty("fileSize"))
+                                                if (typeof message.fileSize === "number")
+                                                    object.fileSize = options.longs === String ? String(message.fileSize) : message.fileSize;
+                                                else
+                                                    object.fileSize = options.longs === String ? $util.Long.prototype.toString.call(message.fileSize) : options.longs === Number ? new $util.LongBits(message.fileSize.low >>> 0, message.fileSize.high >>> 0).toNumber(true) : message.fileSize;
+                                            if (message.lastModified != null && message.hasOwnProperty("lastModified"))
+                                                if (typeof message.lastModified === "number")
+                                                    object.lastModified = options.longs === String ? String(message.lastModified) : message.lastModified;
+                                                else
+                                                    object.lastModified = options.longs === String ? $util.Long.prototype.toString.call(message.lastModified) : options.longs === Number ? new $util.LongBits(message.lastModified.low >>> 0, message.lastModified.high >>> 0).toNumber(true) : message.lastModified;
+                                            return object;
+                                        };
+
+                                        /**
+                                         * Converts this UserMaterialInfo to JSON.
+                                         * @function toJSON
+                                         * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo
+                                         * @instance
+                                         * @returns {Object.<string,*>} JSON object
+                                         */
+                                        UserMaterialInfo.prototype.toJSON = function toJSON() {
+                                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                        };
+
+                                        return UserMaterialInfo;
+                                    })();
+
+                                    return ResourceListUserMaterialCommandResult;
                                 })();
 
                                 proto.ProjectInfo = (function () {
@@ -17677,6 +19449,474 @@ $root.com = (function () {
                                     return values;
                                 })();
 
+                                /**
+                                 * MaterialType enum.
+                                 * @name com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType
+                                 * @enum {number}
+                                 * @property {number} MaterialTypeUnknown=0 MaterialTypeUnknown value
+                                 * @property {number} MaterialTypeCanvas=1 MaterialTypeCanvas value
+                                 * @property {number} MaterialTypeSticker=2 MaterialTypeSticker value
+                                 * @property {number} MaterialTypeLookup=3 MaterialTypeLookup value
+                                 * @property {number} MaterialTypeTransition=4 MaterialTypeTransition value
+                                 * @property {number} MaterialTypeText=5 MaterialTypeText value
+                                 * @property {number} MaterialTypeCrop=6 MaterialTypeCrop value
+                                 * @property {number} MaterialTypeMask=7 MaterialTypeMask value
+                                 * @property {number} MaterialTypeExtension=8 MaterialTypeExtension value
+                                 */
+                                proto.MaterialType = (function () {
+                                    var valuesById = {}, values = Object.create(valuesById);
+                                    values[valuesById[0] = "MaterialTypeUnknown"] = 0;
+                                    values[valuesById[1] = "MaterialTypeCanvas"] = 1;
+                                    values[valuesById[2] = "MaterialTypeSticker"] = 2;
+                                    values[valuesById[3] = "MaterialTypeLookup"] = 3;
+                                    values[valuesById[4] = "MaterialTypeTransition"] = 4;
+                                    values[valuesById[5] = "MaterialTypeText"] = 5;
+                                    values[valuesById[6] = "MaterialTypeCrop"] = 6;
+                                    values[valuesById[7] = "MaterialTypeMask"] = 7;
+                                    values[valuesById[8] = "MaterialTypeExtension"] = 8;
+                                    return values;
+                                })();
+
+                                proto.EditorCreateResourceIfNeedCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorCreateResourceIfNeedCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorCreateResourceIfNeedCommand
+                                     * @property {string|null} [resourceUri] EditorCreateResourceIfNeedCommand resourceUri
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType|null} [resType] EditorCreateResourceIfNeedCommand resType
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorCreateResourceIfNeedCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorCreateResourceIfNeedCommand.
+                                     * @implements IEditorCreateResourceIfNeedCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand=} [properties] Properties to set
+                                     */
+                                    function EditorCreateResourceIfNeedCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorCreateResourceIfNeedCommand resourceUri.
+                                     * @member {string} resourceUri
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @instance
+                                     */
+                                    EditorCreateResourceIfNeedCommand.prototype.resourceUri = "";
+
+                                    /**
+                                     * EditorCreateResourceIfNeedCommand resType.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType} resType
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @instance
+                                     */
+                                    EditorCreateResourceIfNeedCommand.prototype.resType = 0;
+
+                                    /**
+                                     * Creates a new EditorCreateResourceIfNeedCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand} EditorCreateResourceIfNeedCommand instance
+                                     */
+                                    EditorCreateResourceIfNeedCommand.create = function create(properties) {
+                                        return new EditorCreateResourceIfNeedCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand} message EditorCreateResourceIfNeedCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorCreateResourceIfNeedCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.resourceUri != null && Object.hasOwnProperty.call(message, "resourceUri"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resourceUri);
+                                        if (message.resType != null && Object.hasOwnProperty.call(message, "resType"))
+                                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.resType);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand} message EditorCreateResourceIfNeedCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorCreateResourceIfNeedCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand} EditorCreateResourceIfNeedCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorCreateResourceIfNeedCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.resourceUri = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.resType = reader.int32();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand} EditorCreateResourceIfNeedCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorCreateResourceIfNeedCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorCreateResourceIfNeedCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorCreateResourceIfNeedCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            if (!$util.isString(message.resourceUri))
+                                                return "resourceUri: string expected";
+                                        if (message.resType != null && message.hasOwnProperty("resType"))
+                                            switch (message.resType) {
+                                                default:
+                                                    return "resType: enum value expected";
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                case 6:
+                                                case 7:
+                                                    break;
+                                            }
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorCreateResourceIfNeedCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand} EditorCreateResourceIfNeedCommand
+                                     */
+                                    EditorCreateResourceIfNeedCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand();
+                                        if (object.resourceUri != null)
+                                            message.resourceUri = String(object.resourceUri);
+                                        switch (object.resType) {
+                                            case "ResTypeUnknown":
+                                            case 0:
+                                                message.resType = 0;
+                                                break;
+                                            case "ResTypeImage":
+                                            case 1:
+                                                message.resType = 1;
+                                                break;
+                                            case "ResTypeMedia":
+                                            case 2:
+                                                message.resType = 2;
+                                                break;
+                                            case "ResTypeLookup":
+                                            case 3:
+                                                message.resType = 3;
+                                                break;
+                                            case "ResTypeSticker":
+                                            case 4:
+                                                message.resType = 4;
+                                                break;
+                                            case "ResTypeMagic":
+                                            case 5:
+                                                message.resType = 5;
+                                                break;
+                                            case "ResTypeFont":
+                                            case 6:
+                                                message.resType = 6;
+                                                break;
+                                            case "ResTypeExtra":
+                                            case 7:
+                                                message.resType = 7;
+                                                break;
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorCreateResourceIfNeedCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand} message EditorCreateResourceIfNeedCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorCreateResourceIfNeedCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.resourceUri = "";
+                                            object.resType = options.enums === String ? "ResTypeUnknown" : 0;
+                                        }
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            object.resourceUri = message.resourceUri;
+                                        if (message.resType != null && message.hasOwnProperty("resType"))
+                                            object.resType = options.enums === String ? $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType[message.resType] : message.resType;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorCreateResourceIfNeedCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorCreateResourceIfNeedCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorCreateResourceIfNeedCommand;
+                                })();
+
+                                proto.EditorCreateResourceIfNeedCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorCreateResourceIfNeedCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorCreateResourceIfNeedCommandResult
+                                     * @property {string|null} [resourceId] EditorCreateResourceIfNeedCommandResult resourceId
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorCreateResourceIfNeedCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorCreateResourceIfNeedCommandResult.
+                                     * @implements IEditorCreateResourceIfNeedCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorCreateResourceIfNeedCommandResult(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorCreateResourceIfNeedCommandResult resourceId.
+                                     * @member {string} resourceId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @instance
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.prototype.resourceId = "";
+
+                                    /**
+                                     * Creates a new EditorCreateResourceIfNeedCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult} EditorCreateResourceIfNeedCommandResult instance
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.create = function create(properties) {
+                                        return new EditorCreateResourceIfNeedCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult} message EditorCreateResourceIfNeedCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.resourceId != null && Object.hasOwnProperty.call(message, "resourceId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resourceId);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult} message EditorCreateResourceIfNeedCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult} EditorCreateResourceIfNeedCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.resourceId = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult} EditorCreateResourceIfNeedCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorCreateResourceIfNeedCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.resourceId != null && message.hasOwnProperty("resourceId"))
+                                            if (!$util.isString(message.resourceId))
+                                                return "resourceId: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorCreateResourceIfNeedCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult} EditorCreateResourceIfNeedCommandResult
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult();
+                                        if (object.resourceId != null)
+                                            message.resourceId = String(object.resourceId);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorCreateResourceIfNeedCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult} message EditorCreateResourceIfNeedCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.resourceId = "";
+                                        if (message.resourceId != null && message.hasOwnProperty("resourceId"))
+                                            object.resourceId = message.resourceId;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorCreateResourceIfNeedCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorCreateResourceIfNeedCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorCreateResourceIfNeedCommandResult;
+                                })();
+
                                 proto.EditorDeleteMaterialCommand = (function () {
 
                                     /**
@@ -17684,7 +19924,7 @@ $root.com = (function () {
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
                                      * @interface IEditorDeleteMaterialCommand
                                      * @property {string|null} [clipId] EditorDeleteMaterialCommand clipId
-                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType|null} [resType] EditorDeleteMaterialCommand resType
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType|null} [materialType] EditorDeleteMaterialCommand materialType
                                      */
 
                                     /**
@@ -17711,12 +19951,12 @@ $root.com = (function () {
                                     EditorDeleteMaterialCommand.prototype.clipId = "";
 
                                     /**
-                                     * EditorDeleteMaterialCommand resType.
-                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType} resType
+                                     * EditorDeleteMaterialCommand materialType.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType} materialType
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand
                                      * @instance
                                      */
-                                    EditorDeleteMaterialCommand.prototype.resType = 0;
+                                    EditorDeleteMaterialCommand.prototype.materialType = 0;
 
                                     /**
                                      * Creates a new EditorDeleteMaterialCommand instance using the specified properties.
@@ -17744,8 +19984,8 @@ $root.com = (function () {
                                             writer = $Writer.create();
                                         if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
                                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
-                                        if (message.resType != null && Object.hasOwnProperty.call(message, "resType"))
-                                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.resType);
+                                        if (message.materialType != null && Object.hasOwnProperty.call(message, "materialType"))
+                                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.materialType);
                                         return writer;
                                     };
 
@@ -17784,7 +20024,7 @@ $root.com = (function () {
                                                     message.clipId = reader.string();
                                                     break;
                                                 case 2:
-                                                    message.resType = reader.int32();
+                                                    message.materialType = reader.int32();
                                                     break;
                                                 default:
                                                     reader.skipType(tag & 7);
@@ -17824,10 +20064,10 @@ $root.com = (function () {
                                         if (message.clipId != null && message.hasOwnProperty("clipId"))
                                             if (!$util.isString(message.clipId))
                                                 return "clipId: string expected";
-                                        if (message.resType != null && message.hasOwnProperty("resType"))
-                                            switch (message.resType) {
+                                        if (message.materialType != null && message.hasOwnProperty("materialType"))
+                                            switch (message.materialType) {
                                                 default:
-                                                    return "resType: enum value expected";
+                                                    return "materialType: enum value expected";
                                                 case 0:
                                                 case 1:
                                                 case 2:
@@ -17836,6 +20076,7 @@ $root.com = (function () {
                                                 case 5:
                                                 case 6:
                                                 case 7:
+                                                case 8:
                                                     break;
                                             }
                                         return null;
@@ -17855,38 +20096,42 @@ $root.com = (function () {
                                         var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorDeleteMaterialCommand();
                                         if (object.clipId != null)
                                             message.clipId = String(object.clipId);
-                                        switch (object.resType) {
-                                            case "ResTypeUnknown":
+                                        switch (object.materialType) {
+                                            case "MaterialTypeUnknown":
                                             case 0:
-                                                message.resType = 0;
+                                                message.materialType = 0;
                                                 break;
-                                            case "ResTypeImage":
+                                            case "MaterialTypeCanvas":
                                             case 1:
-                                                message.resType = 1;
+                                                message.materialType = 1;
                                                 break;
-                                            case "ResTypeMedia":
+                                            case "MaterialTypeSticker":
                                             case 2:
-                                                message.resType = 2;
+                                                message.materialType = 2;
                                                 break;
-                                            case "ResTypeLookup":
+                                            case "MaterialTypeLookup":
                                             case 3:
-                                                message.resType = 3;
+                                                message.materialType = 3;
                                                 break;
-                                            case "ResTypeSticker":
+                                            case "MaterialTypeTransition":
                                             case 4:
-                                                message.resType = 4;
+                                                message.materialType = 4;
                                                 break;
-                                            case "ResTypeMagic":
+                                            case "MaterialTypeText":
                                             case 5:
-                                                message.resType = 5;
+                                                message.materialType = 5;
                                                 break;
-                                            case "ResTypeFont":
+                                            case "MaterialTypeCrop":
                                             case 6:
-                                                message.resType = 6;
+                                                message.materialType = 6;
                                                 break;
-                                            case "ResTypeExtra":
+                                            case "MaterialTypeMask":
                                             case 7:
-                                                message.resType = 7;
+                                                message.materialType = 7;
+                                                break;
+                                            case "MaterialTypeExtension":
+                                            case 8:
+                                                message.materialType = 8;
                                                 break;
                                         }
                                         return message;
@@ -17907,12 +20152,12 @@ $root.com = (function () {
                                         var object = {};
                                         if (options.defaults) {
                                             object.clipId = "";
-                                            object.resType = options.enums === String ? "ResTypeUnknown" : 0;
+                                            object.materialType = options.enums === String ? "MaterialTypeUnknown" : 0;
                                         }
                                         if (message.clipId != null && message.hasOwnProperty("clipId"))
                                             object.clipId = message.clipId;
-                                        if (message.resType != null && message.hasOwnProperty("resType"))
-                                            object.resType = options.enums === String ? $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType[message.resType] : message.resType;
+                                        if (message.materialType != null && message.hasOwnProperty("materialType"))
+                                            object.materialType = options.enums === String ? $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType[message.materialType] : message.materialType;
                                         return object;
                                     };
 
@@ -17937,7 +20182,7 @@ $root.com = (function () {
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
                                      * @interface IEditorCheckToAddMaterialCommand
                                      * @property {string|null} [clipId] EditorCheckToAddMaterialCommand clipId
-                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType|null} [resType] EditorCheckToAddMaterialCommand resType
+                                     * @property {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType|null} [materialType] EditorCheckToAddMaterialCommand materialType
                                      */
 
                                     /**
@@ -17964,12 +20209,12 @@ $root.com = (function () {
                                     EditorCheckToAddMaterialCommand.prototype.clipId = "";
 
                                     /**
-                                     * EditorCheckToAddMaterialCommand resType.
-                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType} resType
+                                     * EditorCheckToAddMaterialCommand materialType.
+                                     * @member {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType} materialType
                                      * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand
                                      * @instance
                                      */
-                                    EditorCheckToAddMaterialCommand.prototype.resType = 0;
+                                    EditorCheckToAddMaterialCommand.prototype.materialType = 0;
 
                                     /**
                                      * Creates a new EditorCheckToAddMaterialCommand instance using the specified properties.
@@ -17997,8 +20242,8 @@ $root.com = (function () {
                                             writer = $Writer.create();
                                         if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
                                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
-                                        if (message.resType != null && Object.hasOwnProperty.call(message, "resType"))
-                                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.resType);
+                                        if (message.materialType != null && Object.hasOwnProperty.call(message, "materialType"))
+                                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.materialType);
                                         return writer;
                                     };
 
@@ -18037,7 +20282,7 @@ $root.com = (function () {
                                                     message.clipId = reader.string();
                                                     break;
                                                 case 2:
-                                                    message.resType = reader.int32();
+                                                    message.materialType = reader.int32();
                                                     break;
                                                 default:
                                                     reader.skipType(tag & 7);
@@ -18077,10 +20322,10 @@ $root.com = (function () {
                                         if (message.clipId != null && message.hasOwnProperty("clipId"))
                                             if (!$util.isString(message.clipId))
                                                 return "clipId: string expected";
-                                        if (message.resType != null && message.hasOwnProperty("resType"))
-                                            switch (message.resType) {
+                                        if (message.materialType != null && message.hasOwnProperty("materialType"))
+                                            switch (message.materialType) {
                                                 default:
-                                                    return "resType: enum value expected";
+                                                    return "materialType: enum value expected";
                                                 case 0:
                                                 case 1:
                                                 case 2:
@@ -18089,6 +20334,7 @@ $root.com = (function () {
                                                 case 5:
                                                 case 6:
                                                 case 7:
+                                                case 8:
                                                     break;
                                             }
                                         return null;
@@ -18108,38 +20354,42 @@ $root.com = (function () {
                                         var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCheckToAddMaterialCommand();
                                         if (object.clipId != null)
                                             message.clipId = String(object.clipId);
-                                        switch (object.resType) {
-                                            case "ResTypeUnknown":
+                                        switch (object.materialType) {
+                                            case "MaterialTypeUnknown":
                                             case 0:
-                                                message.resType = 0;
+                                                message.materialType = 0;
                                                 break;
-                                            case "ResTypeImage":
+                                            case "MaterialTypeCanvas":
                                             case 1:
-                                                message.resType = 1;
+                                                message.materialType = 1;
                                                 break;
-                                            case "ResTypeMedia":
+                                            case "MaterialTypeSticker":
                                             case 2:
-                                                message.resType = 2;
+                                                message.materialType = 2;
                                                 break;
-                                            case "ResTypeLookup":
+                                            case "MaterialTypeLookup":
                                             case 3:
-                                                message.resType = 3;
+                                                message.materialType = 3;
                                                 break;
-                                            case "ResTypeSticker":
+                                            case "MaterialTypeTransition":
                                             case 4:
-                                                message.resType = 4;
+                                                message.materialType = 4;
                                                 break;
-                                            case "ResTypeMagic":
+                                            case "MaterialTypeText":
                                             case 5:
-                                                message.resType = 5;
+                                                message.materialType = 5;
                                                 break;
-                                            case "ResTypeFont":
+                                            case "MaterialTypeCrop":
                                             case 6:
-                                                message.resType = 6;
+                                                message.materialType = 6;
                                                 break;
-                                            case "ResTypeExtra":
+                                            case "MaterialTypeMask":
                                             case 7:
-                                                message.resType = 7;
+                                                message.materialType = 7;
+                                                break;
+                                            case "MaterialTypeExtension":
+                                            case 8:
+                                                message.materialType = 8;
                                                 break;
                                         }
                                         return message;
@@ -18160,12 +20410,12 @@ $root.com = (function () {
                                         var object = {};
                                         if (options.defaults) {
                                             object.clipId = "";
-                                            object.resType = options.enums === String ? "ResTypeUnknown" : 0;
+                                            object.materialType = options.enums === String ? "MaterialTypeUnknown" : 0;
                                         }
                                         if (message.clipId != null && message.hasOwnProperty("clipId"))
                                             object.clipId = message.clipId;
-                                        if (message.resType != null && message.hasOwnProperty("resType"))
-                                            object.resType = options.enums === String ? $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType[message.resType] : message.resType;
+                                        if (message.materialType != null && message.hasOwnProperty("materialType"))
+                                            object.materialType = options.enums === String ? $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType[message.materialType] : message.materialType;
                                         return object;
                                     };
 
@@ -18766,6 +21016,491 @@ $root.com = (function () {
                                     };
 
                                     return EditorSetResourcePropertiesCommand;
+                                })();
+
+                                proto.EditorGetResourcePropertiesCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetResourcePropertiesCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetResourcePropertiesCommand
+                                     * @property {string|null} [clipId] EditorGetResourcePropertiesCommand clipId
+                                     * @property {string|null} [resourceId] EditorGetResourcePropertiesCommand resourceId
+                                     * @property {Array.<com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef>|null} [propDefList] EditorGetResourcePropertiesCommand propDefList
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetResourcePropertiesCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetResourcePropertiesCommand.
+                                     * @implements IEditorGetResourcePropertiesCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand=} [properties] Properties to set
+                                     */
+                                    function EditorGetResourcePropertiesCommand(properties) {
+                                        this.propDefList = [];
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetResourcePropertiesCommand clipId.
+                                     * @member {string|null|undefined} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @instance
+                                     */
+                                    EditorGetResourcePropertiesCommand.prototype.clipId = null;
+
+                                    /**
+                                     * EditorGetResourcePropertiesCommand resourceId.
+                                     * @member {string|null|undefined} resourceId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @instance
+                                     */
+                                    EditorGetResourcePropertiesCommand.prototype.resourceId = null;
+
+                                    /**
+                                     * EditorGetResourcePropertiesCommand propDefList.
+                                     * @member {Array.<com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef>} propDefList
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @instance
+                                     */
+                                    EditorGetResourcePropertiesCommand.prototype.propDefList = $util.emptyArray;
+
+                                    // OneOf field names bound to virtual getters and setters
+                                    var $oneOfFields;
+
+                                    /**
+                                     * EditorGetResourcePropertiesCommand resource.
+                                     * @member {"clipId"|"resourceId"|undefined} resource
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @instance
+                                     */
+                                    Object.defineProperty(EditorGetResourcePropertiesCommand.prototype, "resource", {
+                                        get: $util.oneOfGetter($oneOfFields = ["clipId", "resourceId"]),
+                                        set: $util.oneOfSetter($oneOfFields)
+                                    });
+
+                                    /**
+                                     * Creates a new EditorGetResourcePropertiesCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand} EditorGetResourcePropertiesCommand instance
+                                     */
+                                    EditorGetResourcePropertiesCommand.create = function create(properties) {
+                                        return new EditorGetResourcePropertiesCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand} message EditorGetResourcePropertiesCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourcePropertiesCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.resourceId != null && Object.hasOwnProperty.call(message, "resourceId"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.resourceId);
+                                        if (message.propDefList != null && message.propDefList.length)
+                                            for (var i = 0; i < message.propDefList.length; ++i)
+                                                $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorPropDef.encode(message.propDefList[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand} message EditorGetResourcePropertiesCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourcePropertiesCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand} EditorGetResourcePropertiesCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourcePropertiesCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.resourceId = reader.string();
+                                                    break;
+                                                case 3:
+                                                    if (!(message.propDefList && message.propDefList.length))
+                                                        message.propDefList = [];
+                                                    message.propDefList.push($root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorPropDef.decode(reader, reader.uint32()));
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand} EditorGetResourcePropertiesCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourcePropertiesCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetResourcePropertiesCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetResourcePropertiesCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        var properties = {};
+                                        if (message.clipId != null && message.hasOwnProperty("clipId")) {
+                                            properties.resource = 1;
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        }
+                                        if (message.resourceId != null && message.hasOwnProperty("resourceId")) {
+                                            if (properties.resource === 1)
+                                                return "resource: multiple values";
+                                            properties.resource = 1;
+                                            if (!$util.isString(message.resourceId))
+                                                return "resourceId: string expected";
+                                        }
+                                        if (message.propDefList != null && message.hasOwnProperty("propDefList")) {
+                                            if (!Array.isArray(message.propDefList))
+                                                return "propDefList: array expected";
+                                            for (var i = 0; i < message.propDefList.length; ++i) {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorPropDef.verify(message.propDefList[i]);
+                                                if (error)
+                                                    return "propDefList." + error;
+                                            }
+                                        }
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetResourcePropertiesCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand} EditorGetResourcePropertiesCommand
+                                     */
+                                    EditorGetResourcePropertiesCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.resourceId != null)
+                                            message.resourceId = String(object.resourceId);
+                                        if (object.propDefList) {
+                                            if (!Array.isArray(object.propDefList))
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.propDefList: array expected");
+                                            message.propDefList = [];
+                                            for (var i = 0; i < object.propDefList.length; ++i) {
+                                                if (typeof object.propDefList[i] !== "object")
+                                                    throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.propDefList: object expected");
+                                                message.propDefList[i] = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorPropDef.fromObject(object.propDefList[i]);
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourcePropertiesCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand} message EditorGetResourcePropertiesCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetResourcePropertiesCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.arrays || options.defaults)
+                                            object.propDefList = [];
+                                        if (message.clipId != null && message.hasOwnProperty("clipId")) {
+                                            object.clipId = message.clipId;
+                                            if (options.oneofs)
+                                                object.resource = "clipId";
+                                        }
+                                        if (message.resourceId != null && message.hasOwnProperty("resourceId")) {
+                                            object.resourceId = message.resourceId;
+                                            if (options.oneofs)
+                                                object.resource = "resourceId";
+                                        }
+                                        if (message.propDefList && message.propDefList.length) {
+                                            object.propDefList = [];
+                                            for (var j = 0; j < message.propDefList.length; ++j)
+                                                object.propDefList[j] = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorPropDef.toObject(message.propDefList[j], options);
+                                        }
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetResourcePropertiesCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetResourcePropertiesCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetResourcePropertiesCommand;
+                                })();
+
+                                proto.EditorGetResourcePropertiesCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetResourcePropertiesCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetResourcePropertiesCommandResult
+                                     * @property {Array.<com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp>|null} [propList] EditorGetResourcePropertiesCommandResult propList
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetResourcePropertiesCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetResourcePropertiesCommandResult.
+                                     * @implements IEditorGetResourcePropertiesCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorGetResourcePropertiesCommandResult(properties) {
+                                        this.propList = [];
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetResourcePropertiesCommandResult propList.
+                                     * @member {Array.<com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp>} propList
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.prototype.propList = $util.emptyArray;
+
+                                    /**
+                                     * Creates a new EditorGetResourcePropertiesCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult} EditorGetResourcePropertiesCommandResult instance
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.create = function create(properties) {
+                                        return new EditorGetResourcePropertiesCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult} message EditorGetResourcePropertiesCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.propList != null && message.propList.length)
+                                            for (var i = 0; i < message.propList.length; ++i)
+                                                $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorProp.encode(message.propList[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult} message EditorGetResourcePropertiesCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult} EditorGetResourcePropertiesCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    if (!(message.propList && message.propList.length))
+                                                        message.propList = [];
+                                                    message.propList.push($root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorProp.decode(reader, reader.uint32()));
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult} EditorGetResourcePropertiesCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetResourcePropertiesCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.propList != null && message.hasOwnProperty("propList")) {
+                                            if (!Array.isArray(message.propList))
+                                                return "propList: array expected";
+                                            for (var i = 0; i < message.propList.length; ++i) {
+                                                var error = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorProp.verify(message.propList[i]);
+                                                if (error)
+                                                    return "propList." + error;
+                                            }
+                                        }
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetResourcePropertiesCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult} EditorGetResourcePropertiesCommandResult
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult();
+                                        if (object.propList) {
+                                            if (!Array.isArray(object.propList))
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.propList: array expected");
+                                            message.propList = [];
+                                            for (var i = 0; i < object.propList.length; ++i) {
+                                                if (typeof object.propList[i] !== "object")
+                                                    throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.propList: object expected");
+                                                message.propList[i] = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorProp.fromObject(object.propList[i]);
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourcePropertiesCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult} message EditorGetResourcePropertiesCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.arrays || options.defaults)
+                                            object.propList = [];
+                                        if (message.propList && message.propList.length) {
+                                            object.propList = [];
+                                            for (var j = 0; j < message.propList.length; ++j)
+                                                object.propList[j] = $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorProp.toObject(message.propList[j], options);
+                                        }
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetResourcePropertiesCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetResourcePropertiesCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetResourcePropertiesCommandResult;
                                 })();
 
                                 proto.EditorGetResourceDurationUsCommand = (function () {
@@ -19551,6 +22286,380 @@ $root.com = (function () {
                                     };
 
                                     return EditorGetResourceSizeCommandResult;
+                                })();
+
+                                proto.EditorGetResourceUriCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetResourceUriCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetResourceUriCommand
+                                     * @property {string|null} [resourceId] EditorGetResourceUriCommand resourceId
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetResourceUriCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetResourceUriCommand.
+                                     * @implements IEditorGetResourceUriCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand=} [properties] Properties to set
+                                     */
+                                    function EditorGetResourceUriCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetResourceUriCommand resourceId.
+                                     * @member {string} resourceId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @instance
+                                     */
+                                    EditorGetResourceUriCommand.prototype.resourceId = "";
+
+                                    /**
+                                     * Creates a new EditorGetResourceUriCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand} EditorGetResourceUriCommand instance
+                                     */
+                                    EditorGetResourceUriCommand.create = function create(properties) {
+                                        return new EditorGetResourceUriCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand} message EditorGetResourceUriCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourceUriCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.resourceId != null && Object.hasOwnProperty.call(message, "resourceId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resourceId);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand} message EditorGetResourceUriCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourceUriCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand} EditorGetResourceUriCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourceUriCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.resourceId = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand} EditorGetResourceUriCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourceUriCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetResourceUriCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetResourceUriCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.resourceId != null && message.hasOwnProperty("resourceId"))
+                                            if (!$util.isString(message.resourceId))
+                                                return "resourceId: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetResourceUriCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand} EditorGetResourceUriCommand
+                                     */
+                                    EditorGetResourceUriCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand();
+                                        if (object.resourceId != null)
+                                            message.resourceId = String(object.resourceId);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourceUriCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand} message EditorGetResourceUriCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetResourceUriCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.resourceId = "";
+                                        if (message.resourceId != null && message.hasOwnProperty("resourceId"))
+                                            object.resourceId = message.resourceId;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetResourceUriCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetResourceUriCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetResourceUriCommand;
+                                })();
+
+                                proto.EditorGetResourceUriCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetResourceUriCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetResourceUriCommandResult
+                                     * @property {string|null} [resourceUri] EditorGetResourceUriCommandResult resourceUri
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetResourceUriCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetResourceUriCommandResult.
+                                     * @implements IEditorGetResourceUriCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorGetResourceUriCommandResult(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetResourceUriCommandResult resourceUri.
+                                     * @member {string} resourceUri
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetResourceUriCommandResult.prototype.resourceUri = "";
+
+                                    /**
+                                     * Creates a new EditorGetResourceUriCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult} EditorGetResourceUriCommandResult instance
+                                     */
+                                    EditorGetResourceUriCommandResult.create = function create(properties) {
+                                        return new EditorGetResourceUriCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult} message EditorGetResourceUriCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourceUriCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.resourceUri != null && Object.hasOwnProperty.call(message, "resourceUri"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resourceUri);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult} message EditorGetResourceUriCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetResourceUriCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult} EditorGetResourceUriCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourceUriCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.resourceUri = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult} EditorGetResourceUriCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetResourceUriCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetResourceUriCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetResourceUriCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            if (!$util.isString(message.resourceUri))
+                                                return "resourceUri: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetResourceUriCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult} EditorGetResourceUriCommandResult
+                                     */
+                                    EditorGetResourceUriCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult();
+                                        if (object.resourceUri != null)
+                                            message.resourceUri = String(object.resourceUri);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourceUriCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult} message EditorGetResourceUriCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetResourceUriCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.resourceUri = "";
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            object.resourceUri = message.resourceUri;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetResourceUriCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetResourceUriCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetResourceUriCommandResult;
                                 })();
 
                                 proto.EditorGetClipResourceInfoCommand = (function () {
@@ -22661,6 +25770,590 @@ $root.com = (function () {
                                     return EditorSetTextWordSpaceCommand;
                                 })();
 
+                                proto.EditorSetTextExtraClipCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorSetTextExtraClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorSetTextExtraClipCommand
+                                     * @property {string|null} [clipId] EditorSetTextExtraClipCommand clipId
+                                     * @property {string|null} [extraClipId] EditorSetTextExtraClipCommand extraClipId
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorSetTextExtraClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorSetTextExtraClipCommand.
+                                     * @implements IEditorSetTextExtraClipCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand=} [properties] Properties to set
+                                     */
+                                    function EditorSetTextExtraClipCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorSetTextExtraClipCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @instance
+                                     */
+                                    EditorSetTextExtraClipCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorSetTextExtraClipCommand extraClipId.
+                                     * @member {string} extraClipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @instance
+                                     */
+                                    EditorSetTextExtraClipCommand.prototype.extraClipId = "";
+
+                                    /**
+                                     * Creates a new EditorSetTextExtraClipCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand} EditorSetTextExtraClipCommand instance
+                                     */
+                                    EditorSetTextExtraClipCommand.create = function create(properties) {
+                                        return new EditorSetTextExtraClipCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorSetTextExtraClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand} message EditorSetTextExtraClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorSetTextExtraClipCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.extraClipId != null && Object.hasOwnProperty.call(message, "extraClipId"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.extraClipId);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorSetTextExtraClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand} message EditorSetTextExtraClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorSetTextExtraClipCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorSetTextExtraClipCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand} EditorSetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorSetTextExtraClipCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.extraClipId = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorSetTextExtraClipCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand} EditorSetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorSetTextExtraClipCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorSetTextExtraClipCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorSetTextExtraClipCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.extraClipId != null && message.hasOwnProperty("extraClipId"))
+                                            if (!$util.isString(message.extraClipId))
+                                                return "extraClipId: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorSetTextExtraClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand} EditorSetTextExtraClipCommand
+                                     */
+                                    EditorSetTextExtraClipCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.extraClipId != null)
+                                            message.extraClipId = String(object.extraClipId);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorSetTextExtraClipCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand} message EditorSetTextExtraClipCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorSetTextExtraClipCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.extraClipId = "";
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.extraClipId != null && message.hasOwnProperty("extraClipId"))
+                                            object.extraClipId = message.extraClipId;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorSetTextExtraClipCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorSetTextExtraClipCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorSetTextExtraClipCommand;
+                                })();
+
+                                proto.EditorGetTextExtraClipCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetTextExtraClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetTextExtraClipCommand
+                                     * @property {string|null} [clipId] EditorGetTextExtraClipCommand clipId
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetTextExtraClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetTextExtraClipCommand.
+                                     * @implements IEditorGetTextExtraClipCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand=} [properties] Properties to set
+                                     */
+                                    function EditorGetTextExtraClipCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetTextExtraClipCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @instance
+                                     */
+                                    EditorGetTextExtraClipCommand.prototype.clipId = "";
+
+                                    /**
+                                     * Creates a new EditorGetTextExtraClipCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand} EditorGetTextExtraClipCommand instance
+                                     */
+                                    EditorGetTextExtraClipCommand.create = function create(properties) {
+                                        return new EditorGetTextExtraClipCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand} message EditorGetTextExtraClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTextExtraClipCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand} message EditorGetTextExtraClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTextExtraClipCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand} EditorGetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTextExtraClipCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand} EditorGetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTextExtraClipCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetTextExtraClipCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetTextExtraClipCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetTextExtraClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand} EditorGetTextExtraClipCommand
+                                     */
+                                    EditorGetTextExtraClipCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTextExtraClipCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand} message EditorGetTextExtraClipCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetTextExtraClipCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.clipId = "";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetTextExtraClipCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetTextExtraClipCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetTextExtraClipCommand;
+                                })();
+
+                                proto.EditorGetTextExtraClipCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetTextExtraClipCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetTextExtraClipCommandResult
+                                     * @property {string|null} [extraClipId] EditorGetTextExtraClipCommandResult extraClipId
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetTextExtraClipCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetTextExtraClipCommandResult.
+                                     * @implements IEditorGetTextExtraClipCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorGetTextExtraClipCommandResult(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetTextExtraClipCommandResult extraClipId.
+                                     * @member {string} extraClipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetTextExtraClipCommandResult.prototype.extraClipId = "";
+
+                                    /**
+                                     * Creates a new EditorGetTextExtraClipCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult} EditorGetTextExtraClipCommandResult instance
+                                     */
+                                    EditorGetTextExtraClipCommandResult.create = function create(properties) {
+                                        return new EditorGetTextExtraClipCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult} message EditorGetTextExtraClipCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTextExtraClipCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.extraClipId != null && Object.hasOwnProperty.call(message, "extraClipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.extraClipId);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult} message EditorGetTextExtraClipCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTextExtraClipCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult} EditorGetTextExtraClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTextExtraClipCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.extraClipId = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult} EditorGetTextExtraClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTextExtraClipCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetTextExtraClipCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetTextExtraClipCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.extraClipId != null && message.hasOwnProperty("extraClipId"))
+                                            if (!$util.isString(message.extraClipId))
+                                                return "extraClipId: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetTextExtraClipCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult} EditorGetTextExtraClipCommandResult
+                                     */
+                                    EditorGetTextExtraClipCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult();
+                                        if (object.extraClipId != null)
+                                            message.extraClipId = String(object.extraClipId);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTextExtraClipCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult} message EditorGetTextExtraClipCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetTextExtraClipCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.extraClipId = "";
+                                        if (message.extraClipId != null && message.hasOwnProperty("extraClipId"))
+                                            object.extraClipId = message.extraClipId;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetTextExtraClipCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetTextExtraClipCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetTextExtraClipCommandResult;
+                                })();
+
                                 proto.EditorSetScaleCommand = (function () {
 
                                     /**
@@ -24464,7 +28157,10 @@ $root.com = (function () {
                                  * @property {number} TrackTypeCustomize=8 TrackTypeCustomize value
                                  * @property {number} TrackTypeText=9 TrackTypeText value
                                  * @property {number} TrackTypeGroup=10 TrackTypeGroup value
-                                 * @property {number} TrackTypeAll=11 TrackTypeAll value
+                                 * @property {number} TrackTypeMask=11 TrackTypeMask value
+                                 * @property {number} TrackTypeMagic=12 TrackTypeMagic value
+                                 * @property {number} TrackTypeDynamic=13 TrackTypeDynamic value
+                                 * @property {number} TrackTypeAll=14 TrackTypeAll value
                                  */
                                 proto.MarvelTrackType = (function () {
                                     var valuesById = {}, values = Object.create(valuesById);
@@ -24479,7 +28175,10 @@ $root.com = (function () {
                                     values[valuesById[8] = "TrackTypeCustomize"] = 8;
                                     values[valuesById[9] = "TrackTypeText"] = 9;
                                     values[valuesById[10] = "TrackTypeGroup"] = 10;
-                                    values[valuesById[11] = "TrackTypeAll"] = 11;
+                                    values[valuesById[11] = "TrackTypeMask"] = 11;
+                                    values[valuesById[12] = "TrackTypeMagic"] = 12;
+                                    values[valuesById[13] = "TrackTypeDynamic"] = 13;
+                                    values[valuesById[14] = "TrackTypeAll"] = 14;
                                     return values;
                                 })();
 
@@ -24629,6 +28328,9 @@ $root.com = (function () {
                                                 case 9:
                                                 case 10:
                                                 case 11:
+                                                case 12:
+                                                case 13:
+                                                case 14:
                                                     break;
                                             }
                                         return null;
@@ -24691,9 +28393,21 @@ $root.com = (function () {
                                             case 10:
                                                 message.trackType = 10;
                                                 break;
-                                            case "TrackTypeAll":
+                                            case "TrackTypeMask":
                                             case 11:
                                                 message.trackType = 11;
+                                                break;
+                                            case "TrackTypeMagic":
+                                            case 12:
+                                                message.trackType = 12;
+                                                break;
+                                            case "TrackTypeDynamic":
+                                            case 13:
+                                                message.trackType = 13;
+                                                break;
+                                            case "TrackTypeAll":
+                                            case 14:
+                                                message.trackType = 14;
                                                 break;
                                         }
                                         return message;
@@ -25324,6 +29038,2999 @@ $root.com = (function () {
                                     };
 
                                     return EditorGetClipIdListCommandResult;
+                                })();
+
+                                proto.EditorGetTrackInfoCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetTrackInfoCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetTrackInfoCommand
+                                     * @property {string|null} [trackId] EditorGetTrackInfoCommand trackId
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetTrackInfoCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetTrackInfoCommand.
+                                     * @implements IEditorGetTrackInfoCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand=} [properties] Properties to set
+                                     */
+                                    function EditorGetTrackInfoCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetTrackInfoCommand trackId.
+                                     * @member {string} trackId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @instance
+                                     */
+                                    EditorGetTrackInfoCommand.prototype.trackId = "";
+
+                                    /**
+                                     * Creates a new EditorGetTrackInfoCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand} EditorGetTrackInfoCommand instance
+                                     */
+                                    EditorGetTrackInfoCommand.create = function create(properties) {
+                                        return new EditorGetTrackInfoCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand} message EditorGetTrackInfoCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTrackInfoCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.trackId != null && Object.hasOwnProperty.call(message, "trackId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.trackId);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand} message EditorGetTrackInfoCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTrackInfoCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand} EditorGetTrackInfoCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTrackInfoCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.trackId = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand} EditorGetTrackInfoCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTrackInfoCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetTrackInfoCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetTrackInfoCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.trackId != null && message.hasOwnProperty("trackId"))
+                                            if (!$util.isString(message.trackId))
+                                                return "trackId: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetTrackInfoCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand} EditorGetTrackInfoCommand
+                                     */
+                                    EditorGetTrackInfoCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand();
+                                        if (object.trackId != null)
+                                            message.trackId = String(object.trackId);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTrackInfoCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand} message EditorGetTrackInfoCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetTrackInfoCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.trackId = "";
+                                        if (message.trackId != null && message.hasOwnProperty("trackId"))
+                                            object.trackId = message.trackId;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetTrackInfoCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetTrackInfoCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetTrackInfoCommand;
+                                })();
+
+                                proto.EditorGetTrackInfoCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetTrackInfoCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetTrackInfoCommandResult
+                                     * @property {string|null} [trackType] EditorGetTrackInfoCommandResult trackType
+                                     * @property {Array.<string>|null} [clipIds] EditorGetTrackInfoCommandResult clipIds
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetTrackInfoCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetTrackInfoCommandResult.
+                                     * @implements IEditorGetTrackInfoCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorGetTrackInfoCommandResult(properties) {
+                                        this.clipIds = [];
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetTrackInfoCommandResult trackType.
+                                     * @member {string} trackType
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetTrackInfoCommandResult.prototype.trackType = "";
+
+                                    /**
+                                     * EditorGetTrackInfoCommandResult clipIds.
+                                     * @member {Array.<string>} clipIds
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetTrackInfoCommandResult.prototype.clipIds = $util.emptyArray;
+
+                                    /**
+                                     * Creates a new EditorGetTrackInfoCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult} EditorGetTrackInfoCommandResult instance
+                                     */
+                                    EditorGetTrackInfoCommandResult.create = function create(properties) {
+                                        return new EditorGetTrackInfoCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult} message EditorGetTrackInfoCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTrackInfoCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.trackType != null && Object.hasOwnProperty.call(message, "trackType"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.trackType);
+                                        if (message.clipIds != null && message.clipIds.length)
+                                            for (var i = 0; i < message.clipIds.length; ++i)
+                                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.clipIds[i]);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult} message EditorGetTrackInfoCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetTrackInfoCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult} EditorGetTrackInfoCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTrackInfoCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.trackType = reader.string();
+                                                    break;
+                                                case 2:
+                                                    if (!(message.clipIds && message.clipIds.length))
+                                                        message.clipIds = [];
+                                                    message.clipIds.push(reader.string());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult} EditorGetTrackInfoCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetTrackInfoCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetTrackInfoCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetTrackInfoCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.trackType != null && message.hasOwnProperty("trackType"))
+                                            if (!$util.isString(message.trackType))
+                                                return "trackType: string expected";
+                                        if (message.clipIds != null && message.hasOwnProperty("clipIds")) {
+                                            if (!Array.isArray(message.clipIds))
+                                                return "clipIds: array expected";
+                                            for (var i = 0; i < message.clipIds.length; ++i)
+                                                if (!$util.isString(message.clipIds[i]))
+                                                    return "clipIds: string[] expected";
+                                        }
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetTrackInfoCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult} EditorGetTrackInfoCommandResult
+                                     */
+                                    EditorGetTrackInfoCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult();
+                                        if (object.trackType != null)
+                                            message.trackType = String(object.trackType);
+                                        if (object.clipIds) {
+                                            if (!Array.isArray(object.clipIds))
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.clipIds: array expected");
+                                            message.clipIds = [];
+                                            for (var i = 0; i < object.clipIds.length; ++i)
+                                                message.clipIds[i] = String(object.clipIds[i]);
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTrackInfoCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult} message EditorGetTrackInfoCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetTrackInfoCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.arrays || options.defaults)
+                                            object.clipIds = [];
+                                        if (options.defaults)
+                                            object.trackType = "";
+                                        if (message.trackType != null && message.hasOwnProperty("trackType"))
+                                            object.trackType = message.trackType;
+                                        if (message.clipIds && message.clipIds.length) {
+                                            object.clipIds = [];
+                                            for (var j = 0; j < message.clipIds.length; ++j)
+                                                object.clipIds[j] = message.clipIds[j];
+                                        }
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetTrackInfoCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetTrackInfoCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetTrackInfoCommandResult;
+                                })();
+
+                                proto.EditorSetClipCurvePropertyAnchorValueCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorSetClipCurvePropertyAnchorValueCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorSetClipCurvePropertyAnchorValueCommand
+                                     * @property {string|null} [clipId] EditorSetClipCurvePropertyAnchorValueCommand clipId
+                                     * @property {string|null} [type] EditorSetClipCurvePropertyAnchorValueCommand type
+                                     * @property {string|null} [key] EditorSetClipCurvePropertyAnchorValueCommand key
+                                     * @property {number|Long|null} [index] EditorSetClipCurvePropertyAnchorValueCommand index
+                                     * @property {number|null} [value] EditorSetClipCurvePropertyAnchorValueCommand value
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorSetClipCurvePropertyAnchorValueCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorSetClipCurvePropertyAnchorValueCommand.
+                                     * @implements IEditorSetClipCurvePropertyAnchorValueCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand=} [properties] Properties to set
+                                     */
+                                    function EditorSetClipCurvePropertyAnchorValueCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorSetClipCurvePropertyAnchorValueCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @instance
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorSetClipCurvePropertyAnchorValueCommand type.
+                                     * @member {string} type
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @instance
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.prototype.type = "";
+
+                                    /**
+                                     * EditorSetClipCurvePropertyAnchorValueCommand key.
+                                     * @member {string} key
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @instance
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.prototype.key = "";
+
+                                    /**
+                                     * EditorSetClipCurvePropertyAnchorValueCommand index.
+                                     * @member {number|Long} index
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @instance
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.prototype.index = $util.Long ? $util.Long.fromBits(0, 0, false) : 0;
+
+                                    /**
+                                     * EditorSetClipCurvePropertyAnchorValueCommand value.
+                                     * @member {number} value
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @instance
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.prototype.value = 0;
+
+                                    /**
+                                     * Creates a new EditorSetClipCurvePropertyAnchorValueCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand} EditorSetClipCurvePropertyAnchorValueCommand instance
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.create = function create(properties) {
+                                        return new EditorSetClipCurvePropertyAnchorValueCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorSetClipCurvePropertyAnchorValueCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand} message EditorSetClipCurvePropertyAnchorValueCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+                                        if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.key);
+                                        if (message.index != null && Object.hasOwnProperty.call(message, "index"))
+                                            writer.uint32(/* id 4, wireType 0 =*/32).int64(message.index);
+                                        if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                                            writer.uint32(/* id 5, wireType 5 =*/45).float(message.value);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorSetClipCurvePropertyAnchorValueCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand} message EditorSetClipCurvePropertyAnchorValueCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorSetClipCurvePropertyAnchorValueCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand} EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.type = reader.string();
+                                                    break;
+                                                case 3:
+                                                    message.key = reader.string();
+                                                    break;
+                                                case 4:
+                                                    message.index = reader.int64();
+                                                    break;
+                                                case 5:
+                                                    message.value = reader.float();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorSetClipCurvePropertyAnchorValueCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand} EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorSetClipCurvePropertyAnchorValueCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            if (!$util.isString(message.type))
+                                                return "type: string expected";
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            if (!$util.isString(message.key))
+                                                return "key: string expected";
+                                        if (message.index != null && message.hasOwnProperty("index"))
+                                            if (!$util.isInteger(message.index) && !(message.index && $util.isInteger(message.index.low) && $util.isInteger(message.index.high)))
+                                                return "index: integer|Long expected";
+                                        if (message.value != null && message.hasOwnProperty("value"))
+                                            if (typeof message.value !== "number")
+                                                return "value: number expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorSetClipCurvePropertyAnchorValueCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand} EditorSetClipCurvePropertyAnchorValueCommand
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.type != null)
+                                            message.type = String(object.type);
+                                        if (object.key != null)
+                                            message.key = String(object.key);
+                                        if (object.index != null)
+                                            if ($util.Long)
+                                                (message.index = $util.Long.fromValue(object.index)).unsigned = false;
+                                            else if (typeof object.index === "string")
+                                                message.index = parseInt(object.index, 10);
+                                            else if (typeof object.index === "number")
+                                                message.index = object.index;
+                                            else if (typeof object.index === "object")
+                                                message.index = new $util.LongBits(object.index.low >>> 0, object.index.high >>> 0).toNumber();
+                                        if (object.value != null)
+                                            message.value = Number(object.value);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorSetClipCurvePropertyAnchorValueCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand} message EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.type = "";
+                                            object.key = "";
+                                            if ($util.Long) {
+                                                var long = new $util.Long(0, 0, false);
+                                                object.index = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                            } else
+                                                object.index = options.longs === String ? "0" : 0;
+                                            object.value = 0;
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            object.type = message.type;
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            object.key = message.key;
+                                        if (message.index != null && message.hasOwnProperty("index"))
+                                            if (typeof message.index === "number")
+                                                object.index = options.longs === String ? String(message.index) : message.index;
+                                            else
+                                                object.index = options.longs === String ? $util.Long.prototype.toString.call(message.index) : options.longs === Number ? new $util.LongBits(message.index.low >>> 0, message.index.high >>> 0).toNumber() : message.index;
+                                        if (message.value != null && message.hasOwnProperty("value"))
+                                            object.value = options.json && !isFinite(message.value) ? String(message.value) : message.value;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorSetClipCurvePropertyAnchorValueCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorSetClipCurvePropertyAnchorValueCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorSetClipCurvePropertyAnchorValueCommand;
+                                })();
+
+                                proto.EditorRemoveClipCurvePropertyAnchorCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorRemoveClipCurvePropertyAnchorCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorRemoveClipCurvePropertyAnchorCommand
+                                     * @property {string|null} [clipId] EditorRemoveClipCurvePropertyAnchorCommand clipId
+                                     * @property {string|null} [type] EditorRemoveClipCurvePropertyAnchorCommand type
+                                     * @property {string|null} [key] EditorRemoveClipCurvePropertyAnchorCommand key
+                                     * @property {number|Long|null} [index] EditorRemoveClipCurvePropertyAnchorCommand index
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorRemoveClipCurvePropertyAnchorCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorRemoveClipCurvePropertyAnchorCommand.
+                                     * @implements IEditorRemoveClipCurvePropertyAnchorCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand=} [properties] Properties to set
+                                     */
+                                    function EditorRemoveClipCurvePropertyAnchorCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorRemoveClipCurvePropertyAnchorCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @instance
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorRemoveClipCurvePropertyAnchorCommand type.
+                                     * @member {string} type
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @instance
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.prototype.type = "";
+
+                                    /**
+                                     * EditorRemoveClipCurvePropertyAnchorCommand key.
+                                     * @member {string} key
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @instance
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.prototype.key = "";
+
+                                    /**
+                                     * EditorRemoveClipCurvePropertyAnchorCommand index.
+                                     * @member {number|Long} index
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @instance
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.prototype.index = $util.Long ? $util.Long.fromBits(0, 0, false) : 0;
+
+                                    /**
+                                     * Creates a new EditorRemoveClipCurvePropertyAnchorCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand} EditorRemoveClipCurvePropertyAnchorCommand instance
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.create = function create(properties) {
+                                        return new EditorRemoveClipCurvePropertyAnchorCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorRemoveClipCurvePropertyAnchorCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand} message EditorRemoveClipCurvePropertyAnchorCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+                                        if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.key);
+                                        if (message.index != null && Object.hasOwnProperty.call(message, "index"))
+                                            writer.uint32(/* id 4, wireType 0 =*/32).int64(message.index);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorRemoveClipCurvePropertyAnchorCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand} message EditorRemoveClipCurvePropertyAnchorCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorRemoveClipCurvePropertyAnchorCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand} EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.type = reader.string();
+                                                    break;
+                                                case 3:
+                                                    message.key = reader.string();
+                                                    break;
+                                                case 4:
+                                                    message.index = reader.int64();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorRemoveClipCurvePropertyAnchorCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand} EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorRemoveClipCurvePropertyAnchorCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            if (!$util.isString(message.type))
+                                                return "type: string expected";
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            if (!$util.isString(message.key))
+                                                return "key: string expected";
+                                        if (message.index != null && message.hasOwnProperty("index"))
+                                            if (!$util.isInteger(message.index) && !(message.index && $util.isInteger(message.index.low) && $util.isInteger(message.index.high)))
+                                                return "index: integer|Long expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorRemoveClipCurvePropertyAnchorCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand} EditorRemoveClipCurvePropertyAnchorCommand
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.type != null)
+                                            message.type = String(object.type);
+                                        if (object.key != null)
+                                            message.key = String(object.key);
+                                        if (object.index != null)
+                                            if ($util.Long)
+                                                (message.index = $util.Long.fromValue(object.index)).unsigned = false;
+                                            else if (typeof object.index === "string")
+                                                message.index = parseInt(object.index, 10);
+                                            else if (typeof object.index === "number")
+                                                message.index = object.index;
+                                            else if (typeof object.index === "object")
+                                                message.index = new $util.LongBits(object.index.low >>> 0, object.index.high >>> 0).toNumber();
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorRemoveClipCurvePropertyAnchorCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand} message EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.type = "";
+                                            object.key = "";
+                                            if ($util.Long) {
+                                                var long = new $util.Long(0, 0, false);
+                                                object.index = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                            } else
+                                                object.index = options.longs === String ? "0" : 0;
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            object.type = message.type;
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            object.key = message.key;
+                                        if (message.index != null && message.hasOwnProperty("index"))
+                                            if (typeof message.index === "number")
+                                                object.index = options.longs === String ? String(message.index) : message.index;
+                                            else
+                                                object.index = options.longs === String ? $util.Long.prototype.toString.call(message.index) : options.longs === Number ? new $util.LongBits(message.index.low >>> 0, message.index.high >>> 0).toNumber() : message.index;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorRemoveClipCurvePropertyAnchorCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorRemoveClipCurvePropertyAnchorCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorRemoveClipCurvePropertyAnchorCommand;
+                                })();
+
+                                proto.EditorGetClipCurvePropertyAnchorListCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetClipCurvePropertyAnchorListCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetClipCurvePropertyAnchorListCommand
+                                     * @property {string|null} [clipId] EditorGetClipCurvePropertyAnchorListCommand clipId
+                                     * @property {string|null} [type] EditorGetClipCurvePropertyAnchorListCommand type
+                                     * @property {string|null} [key] EditorGetClipCurvePropertyAnchorListCommand key
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyAnchorListCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetClipCurvePropertyAnchorListCommand.
+                                     * @implements IEditorGetClipCurvePropertyAnchorListCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand=} [properties] Properties to set
+                                     */
+                                    function EditorGetClipCurvePropertyAnchorListCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetClipCurvePropertyAnchorListCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorGetClipCurvePropertyAnchorListCommand type.
+                                     * @member {string} type
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.prototype.type = "";
+
+                                    /**
+                                     * EditorGetClipCurvePropertyAnchorListCommand key.
+                                     * @member {string} key
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.prototype.key = "";
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyAnchorListCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand} EditorGetClipCurvePropertyAnchorListCommand instance
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.create = function create(properties) {
+                                        return new EditorGetClipCurvePropertyAnchorListCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand} message EditorGetClipCurvePropertyAnchorListCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+                                        if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.key);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand} message EditorGetClipCurvePropertyAnchorListCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand} EditorGetClipCurvePropertyAnchorListCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.type = reader.string();
+                                                    break;
+                                                case 3:
+                                                    message.key = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand} EditorGetClipCurvePropertyAnchorListCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyAnchorListCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            if (!$util.isString(message.type))
+                                                return "type: string expected";
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            if (!$util.isString(message.key))
+                                                return "key: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyAnchorListCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand} EditorGetClipCurvePropertyAnchorListCommand
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.type != null)
+                                            message.type = String(object.type);
+                                        if (object.key != null)
+                                            message.key = String(object.key);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyAnchorListCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand} message EditorGetClipCurvePropertyAnchorListCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.type = "";
+                                            object.key = "";
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            object.type = message.type;
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            object.key = message.key;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyAnchorListCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetClipCurvePropertyAnchorListCommand;
+                                })();
+
+                                proto.EditorGetClipCurvePropertyAnchorListCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetClipCurvePropertyAnchorListCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @property {Array.<number|Long>|null} [anchors] EditorGetClipCurvePropertyAnchorListCommandResult anchors
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyAnchorListCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetClipCurvePropertyAnchorListCommandResult.
+                                     * @implements IEditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorGetClipCurvePropertyAnchorListCommandResult(properties) {
+                                        this.anchors = [];
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetClipCurvePropertyAnchorListCommandResult anchors.
+                                     * @member {Array.<number|Long>} anchors
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.prototype.anchors = $util.emptyArray;
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyAnchorListCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult} EditorGetClipCurvePropertyAnchorListCommandResult instance
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.create = function create(properties) {
+                                        return new EditorGetClipCurvePropertyAnchorListCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult} message EditorGetClipCurvePropertyAnchorListCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.anchors != null && message.anchors.length) {
+                                            writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                                            for (var i = 0; i < message.anchors.length; ++i)
+                                                writer.int64(message.anchors[i]);
+                                            writer.ldelim();
+                                        }
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult} message EditorGetClipCurvePropertyAnchorListCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult} EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    if (!(message.anchors && message.anchors.length))
+                                                        message.anchors = [];
+                                                    if ((tag & 7) === 2) {
+                                                        var end2 = reader.uint32() + reader.pos;
+                                                        while (reader.pos < end2)
+                                                            message.anchors.push(reader.int64());
+                                                    } else
+                                                        message.anchors.push(reader.int64());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult} EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyAnchorListCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.anchors != null && message.hasOwnProperty("anchors")) {
+                                            if (!Array.isArray(message.anchors))
+                                                return "anchors: array expected";
+                                            for (var i = 0; i < message.anchors.length; ++i)
+                                                if (!$util.isInteger(message.anchors[i]) && !(message.anchors[i] && $util.isInteger(message.anchors[i].low) && $util.isInteger(message.anchors[i].high)))
+                                                    return "anchors: integer|Long[] expected";
+                                        }
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyAnchorListCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult} EditorGetClipCurvePropertyAnchorListCommandResult
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult();
+                                        if (object.anchors) {
+                                            if (!Array.isArray(object.anchors))
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.anchors: array expected");
+                                            message.anchors = [];
+                                            for (var i = 0; i < object.anchors.length; ++i)
+                                                if ($util.Long)
+                                                    (message.anchors[i] = $util.Long.fromValue(object.anchors[i])).unsigned = false;
+                                                else if (typeof object.anchors[i] === "string")
+                                                    message.anchors[i] = parseInt(object.anchors[i], 10);
+                                                else if (typeof object.anchors[i] === "number")
+                                                    message.anchors[i] = object.anchors[i];
+                                                else if (typeof object.anchors[i] === "object")
+                                                    message.anchors[i] = new $util.LongBits(object.anchors[i].low >>> 0, object.anchors[i].high >>> 0).toNumber();
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyAnchorListCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult} message EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.arrays || options.defaults)
+                                            object.anchors = [];
+                                        if (message.anchors && message.anchors.length) {
+                                            object.anchors = [];
+                                            for (var j = 0; j < message.anchors.length; ++j)
+                                                if (typeof message.anchors[j] === "number")
+                                                    object.anchors[j] = options.longs === String ? String(message.anchors[j]) : message.anchors[j];
+                                                else
+                                                    object.anchors[j] = options.longs === String ? $util.Long.prototype.toString.call(message.anchors[j]) : options.longs === Number ? new $util.LongBits(message.anchors[j].low >>> 0, message.anchors[j].high >>> 0).toNumber() : message.anchors[j];
+                                        }
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyAnchorListCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetClipCurvePropertyAnchorListCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetClipCurvePropertyAnchorListCommandResult;
+                                })();
+
+                                proto.EditorGetClipCurvePropertyValueCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetClipCurvePropertyValueCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetClipCurvePropertyValueCommand
+                                     * @property {string|null} [clipId] EditorGetClipCurvePropertyValueCommand clipId
+                                     * @property {string|null} [type] EditorGetClipCurvePropertyValueCommand type
+                                     * @property {string|null} [key] EditorGetClipCurvePropertyValueCommand key
+                                     * @property {number|Long|null} [index] EditorGetClipCurvePropertyValueCommand index
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyValueCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetClipCurvePropertyValueCommand.
+                                     * @implements IEditorGetClipCurvePropertyValueCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand=} [properties] Properties to set
+                                     */
+                                    function EditorGetClipCurvePropertyValueCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetClipCurvePropertyValueCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorGetClipCurvePropertyValueCommand type.
+                                     * @member {string} type
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.prototype.type = "";
+
+                                    /**
+                                     * EditorGetClipCurvePropertyValueCommand key.
+                                     * @member {string} key
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.prototype.key = "";
+
+                                    /**
+                                     * EditorGetClipCurvePropertyValueCommand index.
+                                     * @member {number|Long} index
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.prototype.index = $util.Long ? $util.Long.fromBits(0, 0, false) : 0;
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyValueCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand} EditorGetClipCurvePropertyValueCommand instance
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.create = function create(properties) {
+                                        return new EditorGetClipCurvePropertyValueCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand} message EditorGetClipCurvePropertyValueCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+                                        if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.key);
+                                        if (message.index != null && Object.hasOwnProperty.call(message, "index"))
+                                            writer.uint32(/* id 4, wireType 0 =*/32).int64(message.index);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand} message EditorGetClipCurvePropertyValueCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand} EditorGetClipCurvePropertyValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.type = reader.string();
+                                                    break;
+                                                case 3:
+                                                    message.key = reader.string();
+                                                    break;
+                                                case 4:
+                                                    message.index = reader.int64();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand} EditorGetClipCurvePropertyValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyValueCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            if (!$util.isString(message.type))
+                                                return "type: string expected";
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            if (!$util.isString(message.key))
+                                                return "key: string expected";
+                                        if (message.index != null && message.hasOwnProperty("index"))
+                                            if (!$util.isInteger(message.index) && !(message.index && $util.isInteger(message.index.low) && $util.isInteger(message.index.high)))
+                                                return "index: integer|Long expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyValueCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand} EditorGetClipCurvePropertyValueCommand
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.type != null)
+                                            message.type = String(object.type);
+                                        if (object.key != null)
+                                            message.key = String(object.key);
+                                        if (object.index != null)
+                                            if ($util.Long)
+                                                (message.index = $util.Long.fromValue(object.index)).unsigned = false;
+                                            else if (typeof object.index === "string")
+                                                message.index = parseInt(object.index, 10);
+                                            else if (typeof object.index === "number")
+                                                message.index = object.index;
+                                            else if (typeof object.index === "object")
+                                                message.index = new $util.LongBits(object.index.low >>> 0, object.index.high >>> 0).toNumber();
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyValueCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand} message EditorGetClipCurvePropertyValueCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.type = "";
+                                            object.key = "";
+                                            if ($util.Long) {
+                                                var long = new $util.Long(0, 0, false);
+                                                object.index = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                            } else
+                                                object.index = options.longs === String ? "0" : 0;
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.type != null && message.hasOwnProperty("type"))
+                                            object.type = message.type;
+                                        if (message.key != null && message.hasOwnProperty("key"))
+                                            object.key = message.key;
+                                        if (message.index != null && message.hasOwnProperty("index"))
+                                            if (typeof message.index === "number")
+                                                object.index = options.longs === String ? String(message.index) : message.index;
+                                            else
+                                                object.index = options.longs === String ? $util.Long.prototype.toString.call(message.index) : options.longs === Number ? new $util.LongBits(message.index.low >>> 0, message.index.high >>> 0).toNumber() : message.index;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyValueCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetClipCurvePropertyValueCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetClipCurvePropertyValueCommand;
+                                })();
+
+                                proto.EditorGetClipCurvePropertyValueCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetClipCurvePropertyValueCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetClipCurvePropertyValueCommandResult
+                                     * @property {number|null} [value] EditorGetClipCurvePropertyValueCommandResult value
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyValueCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetClipCurvePropertyValueCommandResult.
+                                     * @implements IEditorGetClipCurvePropertyValueCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorGetClipCurvePropertyValueCommandResult(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetClipCurvePropertyValueCommandResult value.
+                                     * @member {number} value
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.prototype.value = 0;
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyValueCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult} EditorGetClipCurvePropertyValueCommandResult instance
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.create = function create(properties) {
+                                        return new EditorGetClipCurvePropertyValueCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult} message EditorGetClipCurvePropertyValueCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                                            writer.uint32(/* id 1, wireType 1 =*/9).double(message.value);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult} message EditorGetClipCurvePropertyValueCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult} EditorGetClipCurvePropertyValueCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.value = reader.double();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult} EditorGetClipCurvePropertyValueCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyValueCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.value != null && message.hasOwnProperty("value"))
+                                            if (typeof message.value !== "number")
+                                                return "value: number expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyValueCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult} EditorGetClipCurvePropertyValueCommandResult
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult();
+                                        if (object.value != null)
+                                            message.value = Number(object.value);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyValueCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult} message EditorGetClipCurvePropertyValueCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.value = 0;
+                                        if (message.value != null && message.hasOwnProperty("value"))
+                                            object.value = options.json && !isFinite(message.value) ? String(message.value) : message.value;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyValueCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetClipCurvePropertyValueCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetClipCurvePropertyValueCommandResult;
+                                })();
+
+                                proto.EditorAddExtensionEffectForClipCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorAddExtensionEffectForClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorAddExtensionEffectForClipCommand
+                                     * @property {string|null} [clipId] EditorAddExtensionEffectForClipCommand clipId
+                                     * @property {string|null} [resourceUri] EditorAddExtensionEffectForClipCommand resourceUri
+                                     * @property {string|null} [name] EditorAddExtensionEffectForClipCommand name
+                                     * @property {number|Long|null} [flag] EditorAddExtensionEffectForClipCommand flag
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorAddExtensionEffectForClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorAddExtensionEffectForClipCommand.
+                                     * @implements IEditorAddExtensionEffectForClipCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand=} [properties] Properties to set
+                                     */
+                                    function EditorAddExtensionEffectForClipCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorAddExtensionEffectForClipCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @instance
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorAddExtensionEffectForClipCommand resourceUri.
+                                     * @member {string} resourceUri
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @instance
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.prototype.resourceUri = "";
+
+                                    /**
+                                     * EditorAddExtensionEffectForClipCommand name.
+                                     * @member {string} name
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @instance
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.prototype.name = "";
+
+                                    /**
+                                     * EditorAddExtensionEffectForClipCommand flag.
+                                     * @member {number|Long} flag
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @instance
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.prototype.flag = $util.Long ? $util.Long.fromBits(0, 0, false) : 0;
+
+                                    /**
+                                     * Creates a new EditorAddExtensionEffectForClipCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand} EditorAddExtensionEffectForClipCommand instance
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.create = function create(properties) {
+                                        return new EditorAddExtensionEffectForClipCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorAddExtensionEffectForClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand} message EditorAddExtensionEffectForClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.resourceUri != null && Object.hasOwnProperty.call(message, "resourceUri"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.resourceUri);
+                                        if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.name);
+                                        if (message.flag != null && Object.hasOwnProperty.call(message, "flag"))
+                                            writer.uint32(/* id 4, wireType 0 =*/32).int64(message.flag);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorAddExtensionEffectForClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand} message EditorAddExtensionEffectForClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorAddExtensionEffectForClipCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand} EditorAddExtensionEffectForClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.resourceUri = reader.string();
+                                                    break;
+                                                case 3:
+                                                    message.name = reader.string();
+                                                    break;
+                                                case 4:
+                                                    message.flag = reader.int64();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorAddExtensionEffectForClipCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand} EditorAddExtensionEffectForClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorAddExtensionEffectForClipCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            if (!$util.isString(message.resourceUri))
+                                                return "resourceUri: string expected";
+                                        if (message.name != null && message.hasOwnProperty("name"))
+                                            if (!$util.isString(message.name))
+                                                return "name: string expected";
+                                        if (message.flag != null && message.hasOwnProperty("flag"))
+                                            if (!$util.isInteger(message.flag) && !(message.flag && $util.isInteger(message.flag.low) && $util.isInteger(message.flag.high)))
+                                                return "flag: integer|Long expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorAddExtensionEffectForClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand} EditorAddExtensionEffectForClipCommand
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.resourceUri != null)
+                                            message.resourceUri = String(object.resourceUri);
+                                        if (object.name != null)
+                                            message.name = String(object.name);
+                                        if (object.flag != null)
+                                            if ($util.Long)
+                                                (message.flag = $util.Long.fromValue(object.flag)).unsigned = false;
+                                            else if (typeof object.flag === "string")
+                                                message.flag = parseInt(object.flag, 10);
+                                            else if (typeof object.flag === "number")
+                                                message.flag = object.flag;
+                                            else if (typeof object.flag === "object")
+                                                message.flag = new $util.LongBits(object.flag.low >>> 0, object.flag.high >>> 0).toNumber();
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorAddExtensionEffectForClipCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand} message EditorAddExtensionEffectForClipCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.resourceUri = "";
+                                            object.name = "";
+                                            if ($util.Long) {
+                                                var long = new $util.Long(0, 0, false);
+                                                object.flag = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                            } else
+                                                object.flag = options.longs === String ? "0" : 0;
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
+                                            object.resourceUri = message.resourceUri;
+                                        if (message.name != null && message.hasOwnProperty("name"))
+                                            object.name = message.name;
+                                        if (message.flag != null && message.hasOwnProperty("flag"))
+                                            if (typeof message.flag === "number")
+                                                object.flag = options.longs === String ? String(message.flag) : message.flag;
+                                            else
+                                                object.flag = options.longs === String ? $util.Long.prototype.toString.call(message.flag) : options.longs === Number ? new $util.LongBits(message.flag.low >>> 0, message.flag.high >>> 0).toNumber() : message.flag;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorAddExtensionEffectForClipCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorAddExtensionEffectForClipCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorAddExtensionEffectForClipCommand;
+                                })();
+
+                                proto.EditorRemoveExtensionEffectFromClipCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorRemoveExtensionEffectFromClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorRemoveExtensionEffectFromClipCommand
+                                     * @property {string|null} [clipId] EditorRemoveExtensionEffectFromClipCommand clipId
+                                     * @property {string|null} [name] EditorRemoveExtensionEffectFromClipCommand name
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorRemoveExtensionEffectFromClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorRemoveExtensionEffectFromClipCommand.
+                                     * @implements IEditorRemoveExtensionEffectFromClipCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand=} [properties] Properties to set
+                                     */
+                                    function EditorRemoveExtensionEffectFromClipCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorRemoveExtensionEffectFromClipCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @instance
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorRemoveExtensionEffectFromClipCommand name.
+                                     * @member {string} name
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @instance
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.prototype.name = "";
+
+                                    /**
+                                     * Creates a new EditorRemoveExtensionEffectFromClipCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand} EditorRemoveExtensionEffectFromClipCommand instance
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.create = function create(properties) {
+                                        return new EditorRemoveExtensionEffectFromClipCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorRemoveExtensionEffectFromClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand} message EditorRemoveExtensionEffectFromClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorRemoveExtensionEffectFromClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand} message EditorRemoveExtensionEffectFromClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorRemoveExtensionEffectFromClipCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand} EditorRemoveExtensionEffectFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.name = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorRemoveExtensionEffectFromClipCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand} EditorRemoveExtensionEffectFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorRemoveExtensionEffectFromClipCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.name != null && message.hasOwnProperty("name"))
+                                            if (!$util.isString(message.name))
+                                                return "name: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorRemoveExtensionEffectFromClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand} EditorRemoveExtensionEffectFromClipCommand
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.name != null)
+                                            message.name = String(object.name);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorRemoveExtensionEffectFromClipCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand} message EditorRemoveExtensionEffectFromClipCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.name = "";
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.name != null && message.hasOwnProperty("name"))
+                                            object.name = message.name;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorRemoveExtensionEffectFromClipCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorRemoveExtensionEffectFromClipCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorRemoveExtensionEffectFromClipCommand;
+                                })();
+
+                                proto.EditorGetExtensionEffectNamesFromClipCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetExtensionEffectNamesFromClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetExtensionEffectNamesFromClipCommand
+                                     * @property {string|null} [clipId] EditorGetExtensionEffectNamesFromClipCommand clipId
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetExtensionEffectNamesFromClipCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetExtensionEffectNamesFromClipCommand.
+                                     * @implements IEditorGetExtensionEffectNamesFromClipCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand=} [properties] Properties to set
+                                     */
+                                    function EditorGetExtensionEffectNamesFromClipCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetExtensionEffectNamesFromClipCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @instance
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.prototype.clipId = "";
+
+                                    /**
+                                     * Creates a new EditorGetExtensionEffectNamesFromClipCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand} EditorGetExtensionEffectNamesFromClipCommand instance
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.create = function create(properties) {
+                                        return new EditorGetExtensionEffectNamesFromClipCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand} message EditorGetExtensionEffectNamesFromClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand} message EditorGetExtensionEffectNamesFromClipCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand} EditorGetExtensionEffectNamesFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand} EditorGetExtensionEffectNamesFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetExtensionEffectNamesFromClipCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetExtensionEffectNamesFromClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand} EditorGetExtensionEffectNamesFromClipCommand
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetExtensionEffectNamesFromClipCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand} message EditorGetExtensionEffectNamesFromClipCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.clipId = "";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetExtensionEffectNamesFromClipCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetExtensionEffectNamesFromClipCommand;
+                                })();
+
+                                proto.EditorGetExtensionEffectNamesFromClipCommandResult = (function () {
+
+                                    /**
+                                     * Properties of an EditorGetExtensionEffectNamesFromClipCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @property {Array.<string>|null} [names] EditorGetExtensionEffectNamesFromClipCommandResult names
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorGetExtensionEffectNamesFromClipCommandResult.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorGetExtensionEffectNamesFromClipCommandResult.
+                                     * @implements IEditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult=} [properties] Properties to set
+                                     */
+                                    function EditorGetExtensionEffectNamesFromClipCommandResult(properties) {
+                                        this.names = [];
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorGetExtensionEffectNamesFromClipCommandResult names.
+                                     * @member {Array.<string>} names
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @instance
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.prototype.names = $util.emptyArray;
+
+                                    /**
+                                     * Creates a new EditorGetExtensionEffectNamesFromClipCommandResult instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult} EditorGetExtensionEffectNamesFromClipCommandResult instance
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.create = function create(properties) {
+                                        return new EditorGetExtensionEffectNamesFromClipCommandResult(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult} message EditorGetExtensionEffectNamesFromClipCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.names != null && message.names.length)
+                                            for (var i = 0; i < message.names.length; ++i)
+                                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.names[i]);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult} message EditorGetExtensionEffectNamesFromClipCommandResult message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommandResult message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult} EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    if (!(message.names && message.names.length))
+                                                        message.names = [];
+                                                    message.names.push(reader.string());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommandResult message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult} EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorGetExtensionEffectNamesFromClipCommandResult message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.names != null && message.hasOwnProperty("names")) {
+                                            if (!Array.isArray(message.names))
+                                                return "names: array expected";
+                                            for (var i = 0; i < message.names.length; ++i)
+                                                if (!$util.isString(message.names[i]))
+                                                    return "names: string[] expected";
+                                        }
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorGetExtensionEffectNamesFromClipCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult} EditorGetExtensionEffectNamesFromClipCommandResult
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult();
+                                        if (object.names) {
+                                            if (!Array.isArray(object.names))
+                                                throw TypeError(".com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.names: array expected");
+                                            message.names = [];
+                                            for (var i = 0; i < object.names.length; ++i)
+                                                message.names[i] = String(object.names[i]);
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorGetExtensionEffectNamesFromClipCommandResult message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult} message EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.arrays || options.defaults)
+                                            object.names = [];
+                                        if (message.names && message.names.length) {
+                                            object.names = [];
+                                            for (var j = 0; j < message.names.length; ++j)
+                                                object.names[j] = message.names[j];
+                                        }
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorGetExtensionEffectNamesFromClipCommandResult to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorGetExtensionEffectNamesFromClipCommandResult.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorGetExtensionEffectNamesFromClipCommandResult;
+                                })();
+
+                                proto.EditorSetExtensionEffectPriorityCommand = (function () {
+
+                                    /**
+                                     * Properties of an EditorSetExtensionEffectPriorityCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @interface IEditorSetExtensionEffectPriorityCommand
+                                     * @property {string|null} [clipId] EditorSetExtensionEffectPriorityCommand clipId
+                                     * @property {string|null} [name] EditorSetExtensionEffectPriorityCommand name
+                                     * @property {number|Long|null} [priority] EditorSetExtensionEffectPriorityCommand priority
+                                     */
+
+                                    /**
+                                     * Constructs a new EditorSetExtensionEffectPriorityCommand.
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto
+                                     * @classdesc Represents an EditorSetExtensionEffectPriorityCommand.
+                                     * @implements IEditorSetExtensionEffectPriorityCommand
+                                     * @constructor
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand=} [properties] Properties to set
+                                     */
+                                    function EditorSetExtensionEffectPriorityCommand(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+
+                                    /**
+                                     * EditorSetExtensionEffectPriorityCommand clipId.
+                                     * @member {string} clipId
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @instance
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.prototype.clipId = "";
+
+                                    /**
+                                     * EditorSetExtensionEffectPriorityCommand name.
+                                     * @member {string} name
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @instance
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.prototype.name = "";
+
+                                    /**
+                                     * EditorSetExtensionEffectPriorityCommand priority.
+                                     * @member {number|Long} priority
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @instance
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.prototype.priority = $util.Long ? $util.Long.fromBits(0, 0, false) : 0;
+
+                                    /**
+                                     * Creates a new EditorSetExtensionEffectPriorityCommand instance using the specified properties.
+                                     * @function create
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand=} [properties] Properties to set
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand} EditorSetExtensionEffectPriorityCommand instance
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.create = function create(properties) {
+                                        return new EditorSetExtensionEffectPriorityCommand(properties);
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorSetExtensionEffectPriorityCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand} message EditorSetExtensionEffectPriorityCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.clipId != null && Object.hasOwnProperty.call(message, "clipId"))
+                                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.clipId);
+                                        if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
+                                        if (message.priority != null && Object.hasOwnProperty.call(message, "priority"))
+                                            writer.uint32(/* id 3, wireType 0 =*/24).int64(message.priority);
+                                        return writer;
+                                    };
+
+                                    /**
+                                     * Encodes the specified EditorSetExtensionEffectPriorityCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand} message EditorSetExtensionEffectPriorityCommand message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+
+                                    /**
+                                     * Decodes an EditorSetExtensionEffectPriorityCommand message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand} EditorSetExtensionEffectPriorityCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.decode = function decode(reader, length) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            switch (tag >>> 3) {
+                                                case 1:
+                                                    message.clipId = reader.string();
+                                                    break;
+                                                case 2:
+                                                    message.name = reader.string();
+                                                    break;
+                                                case 3:
+                                                    message.priority = reader.int64();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag & 7);
+                                                    break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Decodes an EditorSetExtensionEffectPriorityCommand message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand} EditorSetExtensionEffectPriorityCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+
+                                    /**
+                                     * Verifies an EditorSetExtensionEffectPriorityCommand message.
+                                     * @function verify
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            if (!$util.isString(message.clipId))
+                                                return "clipId: string expected";
+                                        if (message.name != null && message.hasOwnProperty("name"))
+                                            if (!$util.isString(message.name))
+                                                return "name: string expected";
+                                        if (message.priority != null && message.hasOwnProperty("priority"))
+                                            if (!$util.isInteger(message.priority) && !(message.priority && $util.isInteger(message.priority.low) && $util.isInteger(message.priority.high)))
+                                                return "priority: integer|Long expected";
+                                        return null;
+                                    };
+
+                                    /**
+                                     * Creates an EditorSetExtensionEffectPriorityCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand} EditorSetExtensionEffectPriorityCommand
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand)
+                                            return object;
+                                        var message = new $root.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand();
+                                        if (object.clipId != null)
+                                            message.clipId = String(object.clipId);
+                                        if (object.name != null)
+                                            message.name = String(object.name);
+                                        if (object.priority != null)
+                                            if ($util.Long)
+                                                (message.priority = $util.Long.fromValue(object.priority)).unsigned = false;
+                                            else if (typeof object.priority === "string")
+                                                message.priority = parseInt(object.priority, 10);
+                                            else if (typeof object.priority === "number")
+                                                message.priority = object.priority;
+                                            else if (typeof object.priority === "object")
+                                                message.priority = new $util.LongBits(object.priority.low >>> 0, object.priority.high >>> 0).toNumber();
+                                        return message;
+                                    };
+
+                                    /**
+                                     * Creates a plain object from an EditorSetExtensionEffectPriorityCommand message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @static
+                                     * @param {com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand} message EditorSetExtensionEffectPriorityCommand
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.clipId = "";
+                                            object.name = "";
+                                            if ($util.Long) {
+                                                var long = new $util.Long(0, 0, false);
+                                                object.priority = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                            } else
+                                                object.priority = options.longs === String ? "0" : 0;
+                                        }
+                                        if (message.clipId != null && message.hasOwnProperty("clipId"))
+                                            object.clipId = message.clipId;
+                                        if (message.name != null && message.hasOwnProperty("name"))
+                                            object.name = message.name;
+                                        if (message.priority != null && message.hasOwnProperty("priority"))
+                                            if (typeof message.priority === "number")
+                                                object.priority = options.longs === String ? String(message.priority) : message.priority;
+                                            else
+                                                object.priority = options.longs === String ? $util.Long.prototype.toString.call(message.priority) : options.longs === Number ? new $util.LongBits(message.priority.low >>> 0, message.priority.high >>> 0).toNumber() : message.priority;
+                                        return object;
+                                    };
+
+                                    /**
+                                     * Converts this EditorSetExtensionEffectPriorityCommand to JSON.
+                                     * @function toJSON
+                                     * @memberof com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    EditorSetExtensionEffectPriorityCommand.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+
+                                    return EditorSetExtensionEffectPriorityCommand;
                                 })();
 
                                 proto.ViewerSetPropertiesCommand = (function () {

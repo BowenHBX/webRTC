@@ -1,2330 +1,2006 @@
-// import { EventEmitter } from 'events';
-// import { BaseClipInfo, ClipId, ClipInfo, ClipType, ColorHEX, MarvelClipInfo, PanelInfo, Path, Ret, XYPosition, SourceClipInfo, TextClipInfo, TextStyle, TimeUS, TrackId, TrackInfo, TrackType, TransformProperty, TransitionClipInfo, CanvasClipInfo, ColorARGB, CanvasScaleType, GlobalBaseMarvelAddonMeEditor, LookupClipInfo, MagicClipInfo, StickerClipInfo, DoubleFloat, ResId, MarvelNodeAddonMeEditor, MaskInfo, ClipMeasure, Measure, Voice, CanvasKeyframeMaterialKey, KeyframeType, KeyframePointList, KeyframeInfo, DynamicUIClipInfo, SourceType, DynamicUIType } from './@types';
-// import C from './@types/C'
-// import { ARGBToHex, degreeToFloat, floatToDegree, floatToPixel, HexToARGB, pixelToFloat } from './util';
-// import { MarvelToolbox } from '.';
-import { TransformProperty, PanelInfo, TrackInfo, ClipInfo, BaseClipInfo, MarvelClipInfo, TrackType, TrackId, Voice, KeyframePointList, CanvasKeyframeMaterialKey, KeyframeType, KeyframeMap } from './@types';
+import { EventEmitter } from 'events';
+import C from './@types/C';
+import { MarvelToolbox } from './toolbox';
+import MarvelAddonMeEditor from './addon/marvelAddonMeEditor';
+import {
+  TransformProperty, PanelInfo, TrackInfo, ClipInfo, BaseClipInfo, MarvelClipInfo, GlobalBaseMarvelAddonMeEditor,
+  Voice, KeyframePointList, CanvasKeyframeMaterialKey, KeyframeType, TrackId, TimeUS, Path, Ret, ClipId, DoubleFloat, ClipType,
+  DynamicUIClipInfo, CanvasClipInfo, MaskInfo, SourceClipInfo, TextClipInfo, TransitionClipInfo, ResId, XYPosition, DynamicUIType,
+  TextStyle, LookupClipInfo, StickerClipInfo, MagicClipInfo, MarvelTrackTypeToString, ClipMeasure, ColorHEX, ColorARGB, StringToMarvelTrackType,
+} from './@types';
 import Editor from './@types/editor';
 import { MeEditor } from './@types/meeditor';
 import Accs from './accs';
 import ProtoMessage from './addon/protoMessage';
 import * as proto from './protobuf/model';
+import { ARGBToHex, degreeToFloat, floatToDegree, floatToPixel, HexToARGB, pixelToFloat } from './util';
+
 const pkg = proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
-export class MarvelEditor implements Editor, MeEditor {
-  // private toolboxInstance: MarvelToolbox;
-  // public selectedClipId: ClipId;
-  // private canChangePlayTime: boolean;
-  // private canvasWidth: number;
-  // private canvasHeight: number;
+export default class EditorMarvelEditor extends EventEmitter implements Editor, MeEditor {
+  private coreMeEditor: GlobalBaseMarvelAddonMeEditor;
+  private toolboxInstance: MarvelToolbox;
+  selectedClipId: ClipId;
+  private canChangePlayTime: boolean;
+  private canvasWidth = 0;
+  private canvasHeight = 0;
 
   private _accs: Accs;
   private _userId: string;
   private _sessionId: string | null | undefined;
 
   constructor(accs: Accs, userId: string, sessionId: string | null | undefined) {
+    super();
     this._accs = accs;
     this._userId = userId;
     this._sessionId = sessionId;
-    // super();
-    //   this.coreMeEditor = new MarvelNodeAddonMeEditor();
-    //   this.toolboxInstance = new MarvelToolbox();
-    //   this.canChangePlayTime = true;
-    // }
-    // addExtensionClip(trackId: string, path: string, startTimeUs: number, durationUs: number, name: string, type: SourceType, flag: number): string {
-    //   return this.coreMeEditor.addExtensionClip(trackId, path, startTimeUs, durationUs, name, type, flag)
-  }
-  addMediaToMainTrack(path: string): string {
-    throw new Error('Method not implemented.');
-  }
-  addMediaToTrack(path: string, trackId?: string): string {
-    throw new Error('Method not implemented.');
-  }
-  addImageToMainTrack(path: string, stopTimeUS: number): string {
-    throw new Error('Method not implemented.');
-  }
-  addImageToTrack(path: string, stopTimeUS: number, trackId?: string): string {
-    throw new Error('Method not implemented.');
-  }
-  addMusic(path: string): string {
-    throw new Error('Method not implemented.');
-  }
-  addLookup(path: string, intensity: number): string {
-    throw new Error('Method not implemented.');
-  }
-  addSticker(path: string, stopTimeUS: number): string {
-    throw new Error('Method not implemented.');
-  }
-  addMagic(path: string, stopTimeUS: number): string {
-    throw new Error('Method not implemented.');
-  }
-  addCustomizeClip(path: string, info: {}): string {
-    throw new Error('Method not implemented.');
-  }
-  selectClip(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  unselectClip(): number {
-    throw new Error('Method not implemented.');
-  }
-  removeClip(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  splitClip(timeUS: number): string[] {
-    throw new Error('Method not implemented.');
-  }
-  moveClip(startTimeUs: number, trackId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  changeVolume(volume: number): number {
-    throw new Error('Method not implemented.');
-  }
-  changeSpeed(speed: number): number {
-    throw new Error('Method not implemented.');
-  }
-  changeSourceTime(startUs: number, stopUs: number): number {
-    throw new Error('Method not implemented.');
-  }
-  changePlayTime(startUs: number, stopUs: number): number {
-    throw new Error('Method not implemented.');
-  }
-  transformClip(property: TransformProperty): number {
-    throw new Error('Method not implemented.');
-  }
-  undo(): number {
-    throw new Error('Method not implemented.');
-  }
-  redo(): number {
-    throw new Error('Method not implemented.');
-  }
-  canUndo(): boolean {
-    throw new Error('Method not implemented.');
-  }
-  canRedo(): boolean {
-    throw new Error('Method not implemented.');
-  }
-  getPanelInfo(): PanelInfo {
-    throw new Error('Method not implemented.');
-  }
-  getTrackInfo(trackId: string): TrackInfo {
-    throw new Error('Method not implemented.');
-  }
-  getTinyClipInfo(clipId: string): ClipInfo<BaseClipInfo> {
-    throw new Error('Method not implemented.');
-  }
-  getClipInfo<T extends MarvelClipInfo>(clipId: string, type?: string): ClipInfo<T> {
-    throw new Error('Method not implemented.');
-  }
-  setClipInfo(clipId: string, type: string, clipInfo: MarvelClipInfo): number {
-    throw new Error('Method not implemented.');
-  }
-  getErrorMessage(code: number): string {
-    throw new Error('Method not implemented.');
-  }
-  toggleMute(): number {
-    throw new Error('Method not implemented.');
-  }
-  isMute(): boolean {
-    throw new Error('Method not implemented.');
-  }
-  // getCanvasWidth(): number {
-  //   throw new Error('Method not implemented.');
-  // }
-  // getCanvasHeight(): number {
-  //   throw new Error('Method not implemented.');
-  // }
-  transact() {
-    throw new Error('Method not implemented.');
-  }
-  commit() {
-    throw new Error('Method not implemented.');
-  }
-  cancel() {
-    throw new Error('Method not implemented.');
-  }
-  // undo() {
-  //   throw new Error('Method not implemented.');
-  // }
-  // redo() {
-  //   throw new Error('Method not implemented.');
-  // }
-  getErrorCode(): number {
-    throw new Error('Method not implemented.');
+    this.coreMeEditor = new MarvelAddonMeEditor(accs, userId, sessionId);
+    this.toolboxInstance = new MarvelToolbox(accs, userId, sessionId);
+    this.canChangePlayTime = true;
   }
 
+  getMeProxy() {
+    return this.coreMeEditor;
+  }
+
+  async setClipScaleType(clipId: string, scaleType: number): Promise<number> {
+    return this.coreMeEditor.setClipI64Property(clipId, C.kPropertyCanvas, C.kConfigKeyScaleType, scaleType);
+  }
+
+  async addExtensionEffectForClip(clipId: string, path: string, name: string, flag: number): Promise<Ret> {
+    const ret = await this.coreMeEditor.addExtensionEffectForClip(clipId, path, name, flag);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async removeExtensionEffectFromClip(clipId: string, name: string): Promise<Ret> {
+    const ret = await this.coreMeEditor.removeExtensionEffectFromClip(clipId, name);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async getExtensionEffectNamesFromClip(clipId: string): Promise<string[]> {
+    return this.coreMeEditor.getExtensionEffectNamesFromClip(clipId);
+  }
+  async setExtensionEffectPriority(clipId: string, name: string, priority: number): Promise<number> {
+    return this.coreMeEditor.setExtensionEffectPriority(clipId, name, priority);
+  }
+
+  /**
+   * @deprecated
+   * @param width
+   * @param height
+   */
   setCanvasSize(width: number, height: number): number {
     throw new Error('Method not implemented.');
   }
-  getCanvasWidth(): number {
-    throw new Error('Method not implemented.');
-  }
-  getCanvasHeight(): number {
-    throw new Error('Method not implemented.');
-  }
+  /**
+   * @deprecated
+   * @param scaleType
+   */
   setCanvasScaleType(scaleType: number): number {
     throw new Error('Method not implemented.');
   }
-  setCanvasBackground(color: string): number {
-    throw new Error('Method not implemented.');
-  }
-  setDefaultFont(fontPath: string): number {
-    throw new Error('Method not implemented.');
-  }
-  addText(path: string, content: string, startTimeUS: number, duration: number, trackId?: string): string {
-    throw new Error('Method not implemented.');
-  }
-  setTextColorfulConfig(clipId: string, path: string): number {
-    throw new Error('Method not implemented.');
-  }
-  changeText(content: string): number {
-    throw new Error('Method not implemented.');
-  }
-  changeTextColor(color: string): number {
-    throw new Error('Method not implemented.');
-  }
-  changeTextFont(path: string): number {
-    throw new Error('Method not implemented.');
-  }
-  changeTextShadowColor(color: string): number {
-    throw new Error('Method not implemented.');
-  }
-  cleanTextShadowColor(): number {
-    throw new Error('Method not implemented.');
-  }
-  transformTextShadow(position: { x?: number; y?: number; }): number {
-    throw new Error('Method not implemented.');
-  }
-  changeTextOutlineStyle(color: string, size: number): number {
-    throw new Error('Method not implemented.');
-  }
-  cleanTextOutline(): number {
-    throw new Error('Method not implemented.');
-  }
-  changeTextStyle(style: { //     const centerHeight = canvasHeight / 2
-    //     value = (centerHeight + floatToPixel(value, canvasHeight) - (measure.height / 2))
-    //   }
-    //   if (CanvasKeyframeMaterialKey.ROTATE === key && value !== undefined) {
-    //     value = floatToDegree(value);
-    //   }
-    //   return value;
-    // }
-    // removeClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey | string; time: number; type?: KeyframeType; }) {
-    //   const { clipId, key, time } = args;
-    //   const type = args?.type || this.getKeyframeType(clipId);
-    //   return this.coreMeEditor.removeClipCurvePropertyAnchor(clipId, type, key, time)
-    // }
-    // setExtraClipId(clipId: string, audioClipId: string): number {
-    //   return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId, audioClipId)
-    // }
-    // getExtraClipId(clipId: string): string {
-    //   return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId)
-    // }
-    // setAudioTimbre(clipId: string, desc: Voice): number {
-    //   return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre, desc)
-    // }
-    // getAudioTimbre(clipId: string): string {
-    //   return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre)
-    // }
-    // getMaskContentWidth(clipId: string): number {
-    //   const mw = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kContentWidth);
-    //   // return mw
-    //   const cw = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kContentWidth);
-    //   return mw*cw
-    // }
-    // getMaskContentHeight(clipId: string): number {
-    //   const mh = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kContentHeight);
-    //   // return mh
-    //   const ch = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kContentHeight);
-    //   return mh*ch
-    // }
-    // getMaskScaleX(clipId: string): number {
-    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXScale);
-    // }
-    // getMaskScaleY(clipId: string): number {
-    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYScale);
-    // }
-    // getMaskPositionX(clipId: string): number {
-    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXOffset);
-    // }
-    // getMaskPositionY(clipId: string): number {
-    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYOffset);
-    // }
-    // getMaskRotate(clipId: string): number {
-    //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyRotate);
-    // }
-    // /* istanbul ignore next */
-    // getErrorMessage(code: number): string {
-    //   return `Editor Error → RetCode: ${code}, Message: ${''}`;
-    // }
-    // /* istanbul ignore next */
-    // getLastErrorCode(): number {
-    //   return this.coreMeEditor.getLastErrorCode()
-    // }
-    // /* istanbul ignore next */
-    // getMeErrorMessage(code: number): string {
-    //   return `MeEditor Error → RetCode: ${code}, Message: ${this.coreMeEditor.getErrorMessage(code)}`;
-    // }
-    // /* istanbul ignore next */
-    // getMeLastErrorCode(): string {
-    //   return `MeEditor Error → Message: ${this.coreMeEditor.getLastErrorCode()}`;
-    // }
-    // /* istanbul ignore next */
-    // getErrorCode(): number {
-    //   return this.getLastErrorCode()
-    //   // throw new Error('Method not implemented.');
-    // }
-    bold?: boolean; italics?: boolean; underline?: boolean;
-  }): number {
-    throw new Error('Method not implemented.');
-  }
-  changeTextAlignment(v: number, h: number): number {
-    throw new Error('Method not implemented.');
-  }
-  changeClipPosition(position: { x?: number; y?: number; }): number {
-    throw new Error('Method not implemented.');
-  }
-  setClipPosition(position: { x?: number; y?: number; }): number {
-    throw new Error('Method not implemented.');
-  }
-  changeClipRotate(rotate: number): number {
-    throw new Error('Method not implemented.');
-  }
-  changeClipScale(scale: { x?: number; y?: number; }): number {
-    throw new Error('Method not implemented.');
-  }
-  setTransitionEffect(path: string, mode?: string): number {
-    throw new Error('Method not implemented.');
-  }
-  setTransitionDurationUs(durationUs: number): number {
-    throw new Error('Method not implemented.');
-  }
-  removeTransition(): number {
-    throw new Error('Method not implemented.');
-  }
-  changeSourceStartTimeUs(startTime: any): number {
-    throw new Error('Method not implemented.');
-  }
-  changeSourceEndTimeUs(endTtimeUs: any): number {
-    throw new Error('Method not implemented.');
-  }
-  getMeasure(clipId?: string): { width: number; height: number; } {
-    throw new Error('Method not implemented.');
-  }
-  getPosition(clipId?: string): { x?: number; y?: number; } {
-    throw new Error('Method not implemented.');
-  }
-  getRotate(clipId?: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getScale(clipId?: string): { x?: number; y?: number; } {
-    throw new Error('Method not implemented.');
-  }
-  getClipResID(clipId?: string): string {
-    throw new Error('Method not implemented.');
-  }
-  getResPath(resId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  addExtensionClip(trackId: string, path: string, startTimeUs: number, durationUs: number, name: string, type: number, flag: number): string {
-    throw new Error('Method not implemented.');
-  }
-  setTextExtraClipId(clipId: string, audioClipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getTextExtraClipId(clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  setScaleX(clipId: string, x: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setScaleY(clipId: string, y: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setClipStartTimeUs(clipId: string, time: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setSourceStartTimeUs(clipId: string, time: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setSourceEndTimeUs(clipId: string, time: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setClipSpeed(clipId: string, speed: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setClipVolume(clipId: string, volume: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setLookupPath(clipId: string, path: string) {
-    throw new Error('Method not implemented.');
-  }
-  setLookupIntensity(clipId: string, instensity: number) {
-    throw new Error('Method not implemented.');
-  }
-  removeLookup(clipId: string) {
-    throw new Error('Method not implemented.');
-  }
-  createResourceIfNeeded(path: string, type: string, clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  setClipMask(clipId: string, path: string, flag: boolean): number {
-    throw new Error('Method not implemented.');
-  }
-  removeMask(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  setMaskScaleX(clipId: string, scale: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setMaskScaleY(clipId: string, scale: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setMaskRotate(clipId: string, rotate: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setMaskPosition(clipId: string, x: number, y: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setMaskRevertFlag(clipId: string, flag: boolean): number {
-    throw new Error('Method not implemented.');
-  }
-  setClipCrop(clipId: string, x: number, y: number, w: number, h: number, rotate: number, normalize: boolean, rotateWithCropCenter: boolean) {
-    throw new Error('Method not implemented.');
-  }
-  getClipParentId(clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  getClipStartTimeUs(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getClipEndTimeUs(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getClipSourceStartTimeUs(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getClipSourceEndTimeUs(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getResWidth(resId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getResHeight(resId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getResDurationUs(resId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  hasMaskInfo(clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  getMaskContentWidth(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getMaskContentHeight(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getMaskScaleX(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getMaskScaleY(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getMaskPositionX(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getMaskPositionY(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getMaskRotate(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  setAudioTimbre(clipId: string, desc: Voice): number {
-    throw new Error('Method not implemented.');
-  }
-  getAudioTimbre(clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  setExtraClipId(clipId: string, audioClipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  getExtraClipId(clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  getClipAllKeyframeAnchorList(args: { clipId: string; type?: string; keys?: string[]; }): KeyframePointList {
-    throw new Error('Method not implemented.');
-  }
-  addClipCanvasKeyframe(args: { clipId: string; key: string | CanvasKeyframeMaterialKey; time: number; value: number; type?: KeyframeType; }) {
-    throw new Error('Method not implemented.');
-  }
-  getClipCanvasKeyframe(args: { clipId: string; key: string | CanvasKeyframeMaterialKey; time: number; type?: KeyframeType; }) {
-    throw new Error('Method not implemented.');
-  }
-  getClipKeyframePropertiesInIndex(args: { clipId: string; time: number; }): KeyframeMap<any> {
-    throw new Error('Method not implemented.');
-  }
-  removeClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey; time: number; type?: KeyframeType; }) {
-    throw new Error('Method not implemented.');
-  }
-  removeClipCanvasKeyframePropertiesInIndex(args: { clipId: string; time: number; }) {
-    throw new Error('Method not implemented.');
-  }
-  getUndoStackSize(): number {
-    throw new Error('Method not implemented.');
-  }
-  getRedoStackSize(): number {
-    throw new Error('Method not implemented.');
-  }
-  changeClipRes(clipId: string, path: string, startTimeUS: number, endTtimeUs: number): number {
-    throw new Error('Method not implemented.');
-  }
-  setClipTransparency(clipId: string, alpha: number): number {
-    throw new Error('Method not implemented.');
-  }
-  getClipTransparency(clipId: string): number {
-    throw new Error('Method not implemented.');
-  }
-  setCanvasBackgroundColor(clipId: string, color: number): number {
-    throw new Error('Method not implemented.');
-  }
-  getCanvasBackgroundColor(clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  getCanvasBackgroundImage(clipId: string): string {
-    throw new Error('Method not implemented.');
-  }
-  getCanvasBackgroundBlurType(clipId: string): number {
-    throw new Error('Method not implemented.');
+
+  async setCanvasBackground(color: string): Promise<number> {
+    const ARGB = HexToARGB(color);
+    const ret = await this.setCanvasBackgroundColor(this.selectedClipId, ARGB);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
   }
-  setClipInnerKey(clipId: string, type: string, prefix: string, key: string, value: string): number {
+
+  async transact(): Promise<number> {
     throw new Error('Method not implemented.');
   }
-  getClipInnerKey(clipId: string, type: string, prefix: string, key: string): string {
+  async commit(): Promise<number> {
     throw new Error('Method not implemented.');
   }
-  addDynamic(path: string, startTimeUS: number, duration: number, name?: string, trackId?: string): string {
+  async cancel(): Promise<number> {
     throw new Error('Method not implemented.');
   }
 
-  // addDynamic(path: string, startTimeUS: number, duration: number, name?: string, trackId?: string): string {
-  //   return this.addExtensionClip(trackId || '', path, startTimeUS, duration, name || ClipType.DYNAMIC, SourceType.kSourceTexture, 1)
-  // }
+  getErrorMessage(code: number): string {
+    return `Editor Error → RetCode: ${code}, Message: ${''}`;
+  }
+  getLastErrorCode(): number {
+    return this.coreMeEditor.getLastErrorCode();
+  }
+  getMeErrorMessage(code: number): string {
+    return `MeEditor Error → RetCode: ${code}, Message: ${this.coreMeEditor.getErrorMessage(code)}`;
+  }
+  getMeLastErrorCode(): string {
+    return `MeEditor Error → Message: ${this.coreMeEditor.getLastErrorCode()}`;
+  }
+  getErrorCode(): number {
+    return this.coreMeEditor.getLastErrorCode();
+  }
 
-  // setClipInnerKey(clipId: string, type: string, prefix: string, key: string, value: string): number {
-  //   return this.coreMeEditor.setClipStrProperty(clipId, type, C.AttachInnerKey(prefix, key), value);
-  // }
+  async getMeasure(clipId?: ClipId): Promise<ClipMeasure> {
+    if (!clipId && !this.selectedClipId) {
+      throw Error('use MarvelEditor.getMeasure should call selectClip.');
+    }
+    const canvasWidth = await this.getCanvasWidth();
+    const canvasHeight = await this.getCanvasHeight();
+    let contentWidth: number;
+    let contentHeight: number;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kContentWidth, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kContentHeight, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId || this.selectedClipId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kContentWidth:
+          contentWidth = item[(item as any).value];
+          break;
+        case C.kContentHeight:
+          contentHeight = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+    const pixelWidth = floatToPixel(contentWidth, canvasWidth);
+    const pixelHeight = floatToPixel(contentHeight, canvasHeight);
+    return {
+      width: pixelWidth,
+      height: pixelHeight,
+    };
+  }
 
-  // getClipInnerKey(clipId: string, type: string, prefix: string, key: string): string {
-  //   return this.coreMeEditor.getClipStrProperty(clipId, type,  C.AttachInnerKey(prefix, key),)
-  // }
+  async addExtensionClip(trackId: string, path: string, startTimeUs: number, durationUs: number, name: string, type: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.SourceType, flag: number): Promise<string> {
+    return this.coreMeEditor.addExtensionClip(trackId, path, startTimeUs, durationUs, name, type, flag);
+  }
 
-  // setTextColorfulConfig(clipId: string, path: string): number {
-  //   if (!path || path === '') {
-  //     return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyText, C.ResIdKey(C.kTextColorfulConfig), '');
-  //   } else {
-  //     const resId = this.createResourceIfNeeded(path, C.kResTypeExtra, clipId)
-  //     if (resId && resId !== '') {
-  //       return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyText,  C.ResIdKey(C.kTextColorfulConfig), resId)
-  //     }
-  //     return -1
-  //   }
-  // }
+  async addDynamic(path: string, startTimeUS: number, duration: number, name?: string, trackId?: string): Promise<string> {
+    return this.addExtensionClip(trackId || '', path, startTimeUS, duration, name || ClipType.DYNAMIC, pkg.SourceType.SourceTexture, 1);
+  }
 
-  // getClipTransparency(clipId: string): number {
-  //   return this.coreMeEditor.getClipDblProperty(clipId, C.kMaterialTypeCanvas, C.kMaterialKeyIntensity)
-  // }
+  async setClipInnerKey(clipId: string, type: string, prefix: string, key: string, value: string): Promise<Ret> {
+    return this.coreMeEditor.setClipStrProperty(clipId, type, C.AttachInnerKey(prefix, key), value);
+  }
 
-  // setClipTransparency(clipId: string, alpha: number): number {
-  //   return this.coreMeEditor.setClipDblProperty(clipId, C.kMaterialTypeCanvas, C.kMaterialKeyIntensity, alpha)
-  // }
+  async getClipInnerKey(clipId: string, type: string, prefix: string, key: string): Promise<string> {
+    return this.coreMeEditor.getClipStrProperty(clipId, type, C.AttachInnerKey(prefix, key));
+  }
 
+  async setTextColorfulConfig(clipId: string, path: string): Promise<number> {
+    if (!path || path === '') {
+      return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyText, C.ResIdKey(C.kTextColorfulConfig), '');
+    } else {
+      const resId = await this.createResourceIfNeeded(path, pkg.ResourceType.ResTypeExtra, clipId);
+      if (resId && resId !== '') {
+        return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyText, C.ResIdKey(C.kTextColorfulConfig), resId);
+      }
+      return -1;
+    }
+  }
 
-  // changeClipRes(clipId: string, path: string, startTimeUS: number, endTtimeUs: number): number {
-  //   return this.coreMeEditor.changeClipRes(clipId, path, startTimeUS, endTtimeUs);
-  // }
+  async getClipTransparency(clipId: string): Promise<number> {
+    return this.coreMeEditor.getClipDblProperty(clipId, C.kMaterialTypeCanvas, C.kMaterialKeyIntensity);
+  }
 
-  // getKeyframeType(clipId: string): KeyframeType {
-  //   const clipInfo = this.getCustomBaseClipInfo(clipId);
-  //   const clipType = clipInfo.type;
-  //   const ui = this.getCustomUIClipInfo(clipId, clipType)
-  //   if (ui?.name) {
-  //     return KeyframeType.EXTENSION;
-  //   } else if (clipType === TrackType.LOOKUP) {
-  //     return KeyframeType.LOOKUP;
-  //   } else {
-  //     return KeyframeType.CANVAS;
-  //   }
-  // }
+  async setClipTransparency(clipId: string, alpha: number): Promise<number> {
+    return this.coreMeEditor.setClipDblProperty(clipId, C.kMaterialTypeCanvas, C.kMaterialKeyIntensity, alpha);
+  }
 
-  // getKeyfrrameProperties(clipId: string): CanvasKeyframeMaterialKey[] | string[] {
-  //   const clipInfo = this.getCustomBaseClipInfo(clipId);
-  //   const clipType = clipInfo.type;
-  //   const ui = this.getCustomUIClipInfo(clipId, clipType)
-  //   if (ui?.name) {
-  //     return ui?.data ? ui.data.reduce((p: any, c: any) => (!c.curve ? p : [ ...p, c.name ]), []) : [];
-  //   } else if (clipType === TrackType.LOOKUP) {
-  //     return [
-  //       CanvasKeyframeMaterialKey.INTENSITY
-  //     ];
-  //   } else {
-  //     return [
-  //       CanvasKeyframeMaterialKey.X_OFFSET,
-  //       CanvasKeyframeMaterialKey.Y_OFFSET,
-  //       CanvasKeyframeMaterialKey.X_SCALE,
-  //       CanvasKeyframeMaterialKey.Y_SCALE,
-  //       CanvasKeyframeMaterialKey.ROTATE,
-  //       CanvasKeyframeMaterialKey.INTENSITY
-  //     ];
-  //   }
-  // }
+  async changeClipRes(clipId: string, path: string, startTimeUS: number, endTimeUs: number): Promise<Ret> {
+    return this.coreMeEditor.changeClipRes(clipId, path, startTimeUS, endTimeUs);
+  }
 
-  // removeClipCanvasKeyframePropertiesInIndex(args: { clipId: string; time: number; type?: KeyframeType; keys?: string[]; }) {
-  //   const { clipId, time } = args;
-  //   const keys = args?.keys || this.getKeyfrrameProperties(clipId);
-  //   const type = args?.type || this.getKeyframeType(clipId);
-  //   keys.forEach(key => {
-  //     this.removeClipCanvasKeyframe({ clipId, type, key, time });
-  //   });
-  //   return 0
-  // }
+  async getKeyframeType(clipId: string): Promise<KeyframeType | string> {
+    const clipInfo = await this.getCustomBaseClipInfo(clipId);
+    const clipType = clipInfo.type;
+    const ui = await this.getCustomUIClipInfo(clipId, MarvelTrackTypeToString[clipType]);
+    if (ui?.name) {
+      return KeyframeType.EXTENSION;
+    } else if (clipType === pkg.MarvelTrackType.TrackTypeLookup) {
+      return KeyframeType.LOOKUP;
+    } else {
+      return KeyframeType.CANVAS;
+    }
+  }
 
-  // getClipKeyframePropertiesInIndex(args: { clipId: string; time: number; type?: KeyframeType; keys?: string[]; }): Record<string, number> {
-  //   const { clipId, time } = args;
-  //   const values = [];
-  //   const keys = args?.keys || this.getKeyfrrameProperties(clipId);
-  //   const type = args?.type || this.getKeyframeType(clipId);
-  //   keys.forEach(key => {
-  //     const value = this.getClipCanvasKeyframe({ clipId, type, key, time })
-  //     values.push({ key, value });
-  //   });
-  //   const mapped = values.reduce((p, c) => ({ ...p, [c.key]: c.value }), {});
-  //   return mapped;
-  // }
+  async getKeyframeProperties(clipId: string): Promise<string[] | CanvasKeyframeMaterialKey[]> {
+    const clipInfo = await this.getCustomBaseClipInfo(clipId);
+    const clipType = clipInfo.type;
+    const ui = await this.getCustomUIClipInfo(clipId, MarvelTrackTypeToString[clipType]);
+    if (ui?.name) {
+      return ui?.data ? ui.data.reduce((p: any, c: any) => (!c.curve ? p : [...p, c.name]), []) : [];
+    } else if (clipType === pkg.MarvelTrackType.TrackTypeLookup) {
+      return [
+        CanvasKeyframeMaterialKey.INTENSITY,
+      ];
+    } else {
+      return [
+        CanvasKeyframeMaterialKey.X_OFFSET,
+        CanvasKeyframeMaterialKey.Y_OFFSET,
+        CanvasKeyframeMaterialKey.X_SCALE,
+        CanvasKeyframeMaterialKey.Y_SCALE,
+        CanvasKeyframeMaterialKey.ROTATE,
+        CanvasKeyframeMaterialKey.INTENSITY,
+      ];
+    }
+  }
 
-  // getUndoStackSize(): number {
-  //   return this.coreMeEditor.getUndoStackSize()
-  // }
-  // getRedoStackSize(): number {
-  //   return this.coreMeEditor.getRedoStackSize();
-  // }
+  private async _getKeyframePropertiesAndType(clipId: string): Promise<{ type: KeyframeType; keys: string[] | CanvasKeyframeMaterialKey[] }> {
+    const clipInfo = await this.getCustomBaseClipInfo(clipId);
+    const clipType = clipInfo.type;
+    const ui = await this.getCustomUIClipInfo(clipId, MarvelTrackTypeToString[clipType]);
+    if (ui?.name) {
+      return {
+        type: KeyframeType.EXTENSION,
+        keys: ui?.data ? ui.data.reduce((p: any, c: any) => (!c.curve ? p : [...p, c.name]), []) : [],
+      };
+    } else if (clipType === pkg.MarvelTrackType.TrackTypeLookup) {
+      return {
+        type: KeyframeType.LOOKUP,
+        keys: [CanvasKeyframeMaterialKey.INTENSITY],
+      };
+    } else {
+      return {
+        type: KeyframeType.CANVAS,
+        keys: [
+          CanvasKeyframeMaterialKey.X_OFFSET,
+          CanvasKeyframeMaterialKey.Y_OFFSET,
+          CanvasKeyframeMaterialKey.X_SCALE,
+          CanvasKeyframeMaterialKey.Y_SCALE,
+          CanvasKeyframeMaterialKey.ROTATE,
+          CanvasKeyframeMaterialKey.INTENSITY,
+        ],
+      };
+    }
+  }
 
+  async removeClipCanvasKeyframePropertiesInIndex(args: { clipId: string; time: number; type?: KeyframeType; keys?: string[] }): Promise<Ret> {
+    const { clipId, time } = args;
+    let keys: string[] | CanvasKeyframeMaterialKey[];
+    let type: KeyframeType;
+    if (args?.keys) {
+      keys = args?.keys;
+      type = args?.type;
+    } else {
+      const propertiesAndType = await this._getKeyframePropertiesAndType(clipId);
+      keys = propertiesAndType.keys;
+      type = propertiesAndType.type;
+    }
+    keys.forEach((key) => {
+      this.removeClipCanvasKeyframe({ clipId, type, key, time });
+    });
+    return 0;
+  }
 
-  // getClipAllKeyframeAnchorList(args: { clipId: string; type?: string; keys?: string[] }): KeyframePointList {
-  //   let keyframesPoint: number[] = []
-  //   const { clipId } = args;
-  //   const keys = args?.keys || this.getKeyfrrameProperties(clipId);
-  //   const type = args?.type || this.getKeyframeType(clipId);
-  //   keys.forEach((key) => {
-  //     const data = this.coreMeEditor.getClipCurvePropertyAnchorList(clipId, type, key);
-  //     if (data && data.ret === 0 && data.data) {
-  //       keyframesPoint = keyframesPoint.concat(data.data)
-  //     }
-  //   });
-  //   return Array.from(new Set(keyframesPoint)).sort()
-  // }
+  async getClipKeyframePropertiesInIndex(args: { clipId: string; time: number; type?: KeyframeType; keys?: string[] }): Promise<Record<string, number>> {
+    const { clipId, time } = args;
+    const values = [];
+    let keys: string[] | CanvasKeyframeMaterialKey[];
+    let type: KeyframeType;
+    if (args?.keys) {
+      keys = args?.keys;
+      type = args?.type;
+    } else {
+      const propertiesAndType = await this._getKeyframePropertiesAndType(clipId);
+      keys = propertiesAndType.keys;
+      type = propertiesAndType.type;
+    }
+    keys.forEach(async (key) => {
+      const value = await this.getClipCanvasKeyframe({ clipId, type, key, time });
+      values.push({ key, value });
+    });
+    const mapped = values.reduce((p, c) => ({ ...p, [c.key]: c.value }), {});
+    return mapped;
+  }
 
-  // addClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey | string; time: number; value: number; type?: KeyframeType; }) {
-  //   const { clipId, key, time } = args;
-  //   const type = args?.type || this.getKeyframeType(clipId);
-  //   let value = args.value;
-  //   const measure = this.getMeasure(clipId)
-  //   if (CanvasKeyframeMaterialKey.X_OFFSET === (key) && value !== undefined) {
-  //     const canvasWidth = this.getCanvasWidth()
-  //     const centerWidth = canvasWidth / 2
-  //     value = pixelToFloat((value + measure.width / 2  - centerWidth), canvasWidth)
-  //   }
-  //   if (CanvasKeyframeMaterialKey.Y_OFFSET === key && value !== undefined) {
-  //     const canvasHeight = this.getCanvasHeight()
-  //     const centerHeight = canvasHeight / 2
-  //     value = pixelToFloat((value + measure.height / 2  - centerHeight), canvasHeight)
-  //   }
-  //   if (CanvasKeyframeMaterialKey.ROTATE === key && value !== undefined) {
-  //     value = degreeToFloat(value);
-  //   }
-  //   return this.coreMeEditor.setClipCurvePropertyAnchorValue(clipId, type, key, time, value)
-  // }
+  async getStackSize(): Promise<proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetStackSizeCommandResult> {
+    const result = new pkg.EditorGetStackSizeCommandResult();
+    const currentSeqId = this._accs.getSeqId();
+    const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
+    const editorGetStackSizeCommand = new pkg.EditorGetStackSizeCommand();
+    const command = new pkg.Command();
+    command.editorGetStackSizeCommand = editorGetStackSizeCommand;
+    const buffer = pbMsg.generateMessage(command);
 
-  // getClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey | string; time: number; type?: KeyframeType; }): number | undefined {
-  //   const { clipId, key, time } = args;
-  //   const type = args?.type || this.getKeyframeType(clipId);
-  //   const res: { ret: number; data: number; } = this.coreMeEditor.getClipCurvePropertyValue(clipId, type, key, time)
-  //   let value: number | undefined = res.ret === 0 ? res.data : undefined;
+    try {
+      const pbResult: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
+      if (pbResult.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS && pbResult.editorGetStackSizeCommandResult) {
+        return pbResult.editorGetStackSizeCommandResult;
+      }
+    } catch (error) {
+      console.log('[Error]: getStackSize', error);
+    }
+    return result;
+  }
 
-  //   const measure = this.getMeasure(clipId)
-  //   if (CanvasKeyframeMaterialKey.X_OFFSET === key && value !== undefined) {
-  //     const canvasWidth = this.getCanvasWidth()
-  //     const centerWidth = canvasWidth / 2
-  //     value = (centerWidth + floatToPixel(value, canvasWidth) - (measure.width / 2))
-  //   }
-  //   if (CanvasKeyframeMaterialKey.Y_OFFSET === key && value !== undefined) {
-  //     const canvasHeight = this.getCanvasHeight()
-  //     const centerHeight = canvasHeight / 2
-  //     value = (centerHeight + floatToPixel(value, canvasHeight) - (measure.height / 2))
-  //   }
-  //   if (CanvasKeyframeMaterialKey.ROTATE === key && value !== undefined) {
-  //     value = floatToDegree(value);
-  //   }
-  //   return value;
-  // }
+  async getUndoStackSize(): Promise<number> {
+    const stackSize: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetStackSizeCommandResult = await this.getStackSize();
+    return stackSize?.undoStackSize || 0;
+  }
 
-  // removeClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey | string; time: number; type?: KeyframeType; }) {
-  //   const { clipId, key, time } = args;
-  //   const type = args?.type || this.getKeyframeType(clipId);
-  //   return this.coreMeEditor.removeClipCurvePropertyAnchor(clipId, type, key, time)
-  // }
+  async getRedoStackSize(): Promise<number> {
+    const stackSize: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetStackSizeCommandResult = await this.getStackSize();
+    return stackSize?.redoStackSize || 0;
+  }
 
-  // setExtraClipId(clipId: string, audioClipId: string): number {
-  //   return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId, audioClipId)
-  // }
-  // getExtraClipId(clipId: string): string {
-  //   return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId)
-  // }
-  // setAudioTimbre(clipId: string, desc: Voice): number {
-  //   return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre, desc)
-  // }
-  // getAudioTimbre(clipId: string): string {
-  //   return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre)
-  // }
-  // getMaskContentWidth(clipId: string): number {
-  //   const mw = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kContentWidth);
-  //   // return mw
-  //   const cw = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kContentWidth);
-  //   return mw*cw
-  // }
-  // getMaskContentHeight(clipId: string): number {
-  //   const mh = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kContentHeight);
-  //   // return mh
-  //   const ch = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kContentHeight);
-  //   return mh*ch
-  // }
-  // getMaskScaleX(clipId: string): number {
-  //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXScale);
-  // }
-  // getMaskScaleY(clipId: string): number {
-  //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYScale);
-  // }
-  // getMaskPositionX(clipId: string): number {
-  //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXOffset);
-  // }
-  // getMaskPositionY(clipId: string): number {
-  //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYOffset);
-  // }
-  // getMaskRotate(clipId: string): number {
-  //   return this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyRotate);
-  // }
+  async getClipAllKeyframeAnchorList(args: { clipId: string; type?: string; keys?: string[] }): Promise<KeyframePointList> {
+    let keyframesPoint: number[] = [];
+    const { clipId } = args;
+    let keys: any[];
+    let type: any;
+    if (args?.keys) {
+      keys = args?.keys;
+      type = args?.type;
+    } else {
+      const propertiesAndType = await this._getKeyframePropertiesAndType(clipId);
+      keys = propertiesAndType.keys;
+      type = propertiesAndType.type;
+    }
+    keys?.length && keys.forEach(async (key) => {
+      const data = await this.coreMeEditor.getClipCurvePropertyAnchorList(clipId, type, key);
+      if (data && data.ret === 0 && data.data) {
+        keyframesPoint = keyframesPoint.concat(data.data);
+      }
+    });
+    return Array.from(new Set(keyframesPoint)).sort();
+  }
 
-  // /* istanbul ignore next */
-  // getErrorMessage(code: number): string {
-  //   return `Editor Error → RetCode: ${code}, Message: ${''}`;
-  // }
+  async addClipCanvasKeyframe(args: { clipId: string; key: any; time: number; value: number; type?: string }): Promise<Ret> {
+    const { clipId, key, time } = args;
+    const type = args?.type || await this.getKeyframeType(clipId);
+    let { value } = args;
+    const measure = await this.getMeasure(clipId);
+    if (CanvasKeyframeMaterialKey.X_OFFSET === (key) && value !== undefined) {
+      const canvasWidth = await this.getCanvasWidth();
+      const centerWidth = canvasWidth / 2;
+      value = pixelToFloat((value + measure.width / 2 - centerWidth), canvasWidth);
+    }
+    if (CanvasKeyframeMaterialKey.Y_OFFSET === key && value !== undefined) {
+      const canvasHeight = await this.getCanvasHeight();
+      const centerHeight = canvasHeight / 2;
+      value = pixelToFloat((value + measure.height / 2 - centerHeight), canvasHeight);
+    }
+    if (CanvasKeyframeMaterialKey.ROTATE === key && value !== undefined) {
+      value = degreeToFloat(value);
+    }
+    return this.coreMeEditor.setClipCurvePropertyAnchorValue(clipId, type as string, key, time, value);
+  }
 
-  // /* istanbul ignore next */
-  // getLastErrorCode(): number {
-  //   return this.coreMeEditor.getLastErrorCode()
-  // }
+  async getClipCanvasKeyframe(args: { clipId: string; key: any; time: number; type?: any }): Promise<number> {
+    const { clipId, key, time } = args;
+    const type = args?.type || await this.getKeyframeType(clipId);
+    const res: { ret: number; data: number } = await this.coreMeEditor.getClipCurvePropertyValue(clipId, type, key, time);
+    let value: number | undefined = res.ret === 0 ? res.data : undefined;
 
-  // /* istanbul ignore next */
-  // getMeErrorMessage(code: number): string {
-  //   return `MeEditor Error → RetCode: ${code}, Message: ${this.coreMeEditor.getErrorMessage(code)}`;
-  // }
+    const measure = await this.getMeasure(clipId);
+    if (CanvasKeyframeMaterialKey.X_OFFSET === key && value !== undefined) {
+      const canvasWidth = await this.getCanvasWidth();
+      const centerWidth = canvasWidth / 2;
+      value = (centerWidth + floatToPixel(value, canvasWidth) - (measure.width / 2));
+    }
+    if (CanvasKeyframeMaterialKey.Y_OFFSET === key && value !== undefined) {
+      const canvasHeight = await this.getCanvasHeight();
+      const centerHeight = canvasHeight / 2;
+      value = (centerHeight + floatToPixel(value, canvasHeight) - (measure.height / 2));
+    }
+    if (CanvasKeyframeMaterialKey.ROTATE === key && value !== undefined) {
+      value = floatToDegree(value);
+    }
+    return value;
+  }
 
-  // /* istanbul ignore next */
-  // getMeLastErrorCode(): string {
-  //   return `MeEditor Error → Message: ${this.coreMeEditor.getLastErrorCode()}`;
-  // }
+  async removeClipCanvasKeyframe(args: { clipId: string; key: CanvasKeyframeMaterialKey | string; time: number; type?: string | KeyframeType }): Promise<Ret> {
+    const { clipId, key, time } = args;
+    const type = args?.type || await this.getKeyframeType(clipId);
+    return this.coreMeEditor.removeClipCurvePropertyAnchor(clipId, type as string, key as string, time);
+  }
 
-  // /* istanbul ignore next */
-  // getErrorCode(): number {
-  //   return this.getLastErrorCode()
-  //   // throw new Error('Method not implemented.');
-  // }
+  async setExtraClipId(clipId: string, audioClipId: string): Promise<number> {
+    return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId, audioClipId);
+  }
+  async getExtraClipId(clipId: string): Promise<string> {
+    return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kExtraClipId);
+  }
+  async setAudioTimbre(clipId: string, desc: Voice): Promise<number> {
+    return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre, desc);
+  }
+  async getAudioTimbre(clipId: string): Promise<string> {
+    return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kAudioTimbre);
+  }
 
   /**
    * 获取轨道ID列表
    * @param type TrackType
-   * @returns 
+   * @returns
    */
-  async getTrackIdList(type?: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MarvelTrackType): Promise<string[]> {
+  async getTrackIdList(type?: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MarvelTrackType): Promise<{ ret: number; data: string[] }> {
+    return this.coreMeEditor.getTrackIdList(type ?? pkg.MarvelTrackType.TrackTypeAll);
+  }
+
+  async getClipIdList(trackId: string): Promise<{ ret: number; data: string[] }> {
+    return this.coreMeEditor.getClipIdList(trackId);
+  }
+
+  async setSourceStartTimeUs(clipId: string, time: number): Promise<number> {
+    const ret = this.coreMeEditor.setClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceStartTime, time);
+    return ret;
+  }
+
+  async setSourceEndTimeUs(clipId: string, time: number): Promise<number> {
+    const ret = this.coreMeEditor.setClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceEndTime, time);
+    return ret;
+  }
+
+  async setClipSpeed(clipId: string, speed: number): Promise<number> {
+    return this.setClipSpeed(clipId, speed);
+  }
+
+  async setClipVolume(clipId: string, volume: number): Promise<number> {
+    return this.coreMeEditor.setClipVolume(clipId, volume);
+  }
+
+  async setLookup(clipId: string, intensity: number, path: Path): Promise<Ret> {
+    return this.coreMeEditor.setLookupIntensity(clipId, intensity, path);
+  }
+
+  async setLookupPath(clipId: string, path: string): Promise<Ret> {
+    return this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyLookup, C.kSourceKeyPath, path);
+  }
+
+  async setLookupIntensity(clipId: string, intensity: number): Promise<Ret> {
+    return this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyLookup, C.kMaterialKeyIntensity, intensity);
+  }
+  async removeLookup(clipId: string): Promise<Ret> {
+    return this.coreMeEditor.deleteMtl(clipId, pkg.MaterialType.MaterialTypeLookup);
+  }
+
+  async setClipCrop(clipId: string, x: number, y: number, w: number, h: number, rotate: number, normalize: boolean, rotateWithCropCenter: boolean): Promise<Ret> {
+    const actRet = await this.coreMeEditor.checkToAddMtl(clipId, pkg.MaterialType.MaterialTypeCrop);
+    if (actRet !== 0) {
+      return actRet;
+    }
+    return this.coreMeEditor.setClipCrop(clipId, x, y, w, h, rotate, normalize, rotateWithCropCenter);
+  }
+
+  async getClipParentId(clipId: string): Promise<string> {
+    return this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kClipKeyParentId);
+  }
+
+  async getClipStartTimeUs(clipId: string): Promise<number> {
+    return this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipStartTime);
+  }
+
+  async getClipEndTimeUs(clipId: string): Promise<number> {
+    return this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipEndTime);
+  }
+
+  async getClipSourceStartTimeUs(clipId: string): Promise<number> {
+    return this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceStartTime);
+  }
+
+  async getClipSourceEndTimeUs(clipId: string): Promise<number> {
+    return this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceEndTime);
+  }
+
+  async getResSize(resId: ResId): Promise<proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommandResult> {
     const currentSeqId = this._accs.getSeqId();
     const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
-    let editorGetTrackIdListCommand = new pkg.EditorGetTrackIdListCommand();
-    editorGetTrackIdListCommand.trackType = type;
-    let command = new pkg.Command();
-    command.editorGetTrackIdListCommand = editorGetTrackIdListCommand;
+    const editorGetResourceSizeCommand = new pkg.EditorGetResourceSizeCommand();
+    editorGetResourceSizeCommand.resourceId = resId;
+    const command = new pkg.Command();
+    command.editorGetResourceSizeCommand = editorGetResourceSizeCommand;
     const buffer = pbMsg.generateMessage(command);
 
     try {
-      console.log('[test]: getTrackIdList', type);
       const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
-      console.log('[result]: getTrackIdList', result);
-      if (result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS && result.editorGetTrackIdListCommandResult) {
-        return result.editorGetTrackIdListCommandResult.values || [];
+
+      if (result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS && result.editorGetResourceSizeCommandResult) {
+        return result.editorGetResourceSizeCommandResult;
       }
     } catch (error) {
-      console.log('[Error]: getTrackIdList', error);
+      console.log('[Error]: getResSize', error);
     }
-    return [];
+    return new pkg.EditorGetResourceSizeCommandResult();
   }
 
-  async getClipIdList(trackId: string): Promise<string[]> {
+  async getResWidth(resId: string): Promise<number> {
+    const size: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommandResult = await this.getResSize(resId);
+    return size.width;
+  }
+
+  async getResHeight(resId: string): Promise<number> {
+    const size: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommandResult = await this.getResSize(resId);
+    return size.height;
+  }
+
+  async getResDurationUs(resId: string): Promise<number> {
+    return this.coreMeEditor.getResDurationUs(resId);
+  }
+
+  async createResourceIfNeeded(path: string, type: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType, clipId?: ClipId): Promise<string> {
+    return this.coreMeEditor.createResIfNeeded(path, type, clipId);
+  }
+
+  async setResourceProperties(clipId: string, remote: string, name: string, version: number, resType: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType): Promise<Ret> {
+    return this.coreMeEditor.setResourceProperties(clipId, remote, name, version, resType);
+  }
+
+  async setTextExtraClipId(clipId: ClipId, audioClipId: ClipId): Promise<Ret> {
+    return this.coreMeEditor.setTextExtraClipId(clipId, audioClipId);
+  }
+
+  async getTextExtraClipId(clipId: ClipId): Promise<ClipId> {
+    return this.coreMeEditor.getTextExtraClipId(clipId);
+  }
+
+  async getClipResID(clipId?: string): Promise<string> {
+    if (!clipId) {
+      throw Error('It must clipId');
+    }
+    return this.coreMeEditor.getClipResID(clipId);
+  }
+
+  async getResPath(resId: string): Promise<string> {
+    if (!resId) {
+      throw Error('It must resId');
+    }
+    return this.coreMeEditor.getResPath(resId);
+  }
+
+  async getScale(clipId?: string): Promise<XYPosition> {
+    if (!clipId && !this.selectedClipId) {
+      throw Error('use MarvelEditor.getScale should call selectClip.');
+    }
+    let x: number;
+    let y: number;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kMaterialKeyXScale, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kMaterialKeyYScale, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId || this.selectedClipId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kMaterialKeyXScale:
+          x = item[(item as any).value];
+          break;
+        case C.kMaterialKeyYScale:
+          y = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+    return {
+      x,
+      y,
+    };
+  }
+
+
+  async getRotate(clipId?: ClipId): Promise<number> {
+    if (!clipId && !this.selectedClipId) {
+      throw Error('use MarvelEditor.getRotate should call selectClip.');
+    }
+    const rotate = await this.coreMeEditor.getRotate(clipId || this.selectedClipId);
+    const degree = floatToDegree(rotate);
+    return degree;
+  }
+
+  async getPosition(clipId?: ClipId): Promise<XYPosition> {
+    if (!clipId && !this.selectedClipId) {
+      throw Error('use MarvelEditor.getPosition should call selectClip.');
+    }
+    let floatX: number;
+    let floatY: number;
+    let contentWidth: number;
+    let contentHeight: number;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kMaterialKeyXOffset, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kMaterialKeyYOffset, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kContentWidth, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kContentHeight, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId || this.selectedClipId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kMaterialKeyXOffset:
+          floatX = item[(item as any).value];
+          break;
+        case C.kMaterialKeyYOffset:
+          floatY = item[(item as any).value];
+          break;
+        case C.kContentWidth:
+          contentWidth = item[(item as any).value];
+          break;
+        case C.kContentHeight:
+          contentHeight = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+
+    const canvasWidth = await this.getCanvasWidth();
+    const canvasHeight = await this.getCanvasHeight();
+    const pixelWidth = floatToPixel(contentWidth, canvasWidth);
+    const pixelHeight = floatToPixel(contentHeight, canvasHeight);
+    const centerWidth = canvasWidth / 2;
+    const centerHeight = canvasHeight / 2;
+
+    const x = (centerWidth + floatToPixel(floatX, canvasWidth) - (pixelWidth / 2));
+    const y = (centerHeight + floatToPixel(floatY, canvasHeight) - (pixelHeight / 2));
+
+    return {
+      x,
+      y,
+    };
+  }
+
+  async setCanvasProperties(width: number, height: number, scaleType: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ScaleType, bgColor: ColorHEX): Promise<boolean> {
     const currentSeqId = this._accs.getSeqId();
     const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
-    let editorGetClipIdListCommand = new pkg.EditorGetClipIdListCommand();
-    editorGetClipIdListCommand.trackId = trackId;
-    let command = new pkg.Command();
-    command.editorGetClipIdListCommand = editorGetClipIdListCommand;
+    const editorSetCanvasPropertiesCommand = new pkg.EditorSetCanvasPropertiesCommand();
+    editorSetCanvasPropertiesCommand.width = Number(width);
+    editorSetCanvasPropertiesCommand.height = Number(height);
+    editorSetCanvasPropertiesCommand.scaleType = scaleType;
+    editorSetCanvasPropertiesCommand.backgroundColor = HexToARGB(bgColor);
+    const command = new pkg.Command();
+    command.editorSetCanvasPropertiesCommand = editorSetCanvasPropertiesCommand;
+    const buffer = pbMsg.generateMessage(command, true);
+
+    try {
+      const pbResult: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
+
+      return pbResult.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS;
+    } catch (error) {
+      console.log('[Error]: setCanvasProperties', error);
+    }
+    return false;
+  }
+
+  async getCanvasProperties(): Promise<proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetCanvasPropertiesCommandResult> {
+    const result = new pkg.EditorGetCanvasPropertiesCommandResult();
+    const currentSeqId = this._accs.getSeqId();
+    const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
+    const editorGetCanvasPropertiesCommand = new pkg.EditorGetCanvasPropertiesCommand();
+    const command = new pkg.Command();
+    command.editorGetCanvasPropertiesCommand = editorGetCanvasPropertiesCommand;
     const buffer = pbMsg.generateMessage(command);
 
     try {
-      console.log('[test]: getTrackIdList', trackId);
-      const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
-      console.log('[result]: getTrackIdList', result);
-      if (result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS && result.editorGetClipIdListCommandResult) {
-        return result.editorGetClipIdListCommandResult.values || [];
+      const pbResult: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
+
+      if (pbResult.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS && pbResult.editorGetCanvasPropertiesCommandResult) {
+        this.canvasWidth = pbResult.editorGetCanvasPropertiesCommandResult?.width;
+        this.canvasHeight = pbResult.editorGetCanvasPropertiesCommandResult?.height;
+        return pbResult.editorGetCanvasPropertiesCommandResult;
       }
     } catch (error) {
-      console.log('[Error]: getTrackIdList', error);
+      console.log('[Error]: getCanvasProperties', error);
     }
-    return [];
+    return result;
   }
 
-  // setClipStartTimeUs(clipId: string, time: number): number {
-  //   const ret = this.coreMeEditor.setClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipStartTime, time)
-  //   return ret
-  // }
-  // setSourceStartTimeUs(clipId: string, time: number): number {
-  //   const ret = this.coreMeEditor.setClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceStartTime, time)
-  //   return ret
-  // }
-  // setSourceEndTimeUs(clipId: string, time: number): number {
-  //   const ret = this.coreMeEditor.setClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceEndTime, time)
-  //   return ret
-  // }
-  // setClipSpeed(clipId: string, speed: number): number {
-  //   const ret = this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyClipBase, C.kClipKeySpeed, speed)
-  //   return ret
-  // }
-  // setClipVolume(clipId: string, volume: number): number {
-  //   const ret = this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyClipBase, C.kClipKeyVolume, volume)
-  //   return ret
-  // }
-  // setLookupPath(clipId: string, path: string) {
-  //   const ret = this.coreMeEditor.setClipStrProperty(clipId, C.kPropertyLookup, C.kSourceKeyPath, path)
-  //   return ret
-  // }
-  // setLookupIntensity(clipId: string, instensity: number) {
-  //   const ret = this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyLookup, C.kMaterialKeyIntensity, instensity)
-  //   return ret
-  // }
-  // removeLookup(clipId: string) {
-  //   const ret = this.coreMeEditor.deleteMtl(clipId, C.kMaterialTypeLookup)
-  //   return ret
-  // }
-  // setClipCrop(clipId: string, x: number, y: number, w: number, h: number, rotate: number, normalize: boolean, rotateWithCropCenter: boolean) {
-  //   const actRet = this.coreMeEditor.checkToAddMtl(clipId, C.kMaterialTypeCrop)
-  //   if (actRet !== 0) {
-  //     return actRet
-  //   }
-  //   this.coreMeEditor.setClipDblProperty(clipId, C.kMaterialTypeCrop, C.kMaterialKeyRotate, rotate)
-  //   this.coreMeEditor.setClipDblProperty(clipId, C.kMaterialTypeCrop, C.kMaterialKeyXOffset, x)
-  //   this.coreMeEditor.setClipDblProperty(clipId, C.kMaterialTypeCrop, C.kMaterialKeyYOffset, y)
-  //   this.coreMeEditor.setClipDblProperty(clipId, C.kMaterialTypeCrop, C.kMaterialKeyWidth, w)
-  //   this.coreMeEditor.setClipDblProperty(clipId, C.kMaterialTypeCrop, C.kMaterialKeyHeight, h)
-  //   this.coreMeEditor.setClipI64Property(clipId, C.kMaterialTypeCrop, C.kMaterialKeyNormalizeFlag, normalize?1:0)
-  //   this.coreMeEditor.setClipI64Property(clipId, C.kMaterialTypeCrop, C.kMaterialKeyNormalizeFlag, rotateWithCropCenter?1:0)
-  //   return 0
-  // }
-  // getClipParentId(clipId: string): string {
-  //   const trackId = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kClipKeyParentId)
-  //   return trackId
-  // }
-  // getClipStartTimeUs(clipId: string): number {
-  //   const timeUS = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipStartTime)
-  //   return timeUS;
-  // }
-  // getClipEndTimeUs(clipId: string): number {
-  //   const timeUS = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipEndTime)
-  //   return timeUS;
-  // }
-  // getClipSourceStartTimeUs(clipId: string): number {
-  //   const timeUS = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceStartTime)
-  //   return timeUS;
-  // }
-  // getClipSourceEndTimeUs(clipId: string): number {
-  //   const timeUS = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceEndTime)
-  //   return timeUS;
-  // }
-  // getResWidth(resId: string): number {
-  //   const width = this.coreMeEditor.getResI64Property(resId, C.kResKeyMediaWidth)
-  //   return width
-  // }
-  // getResHeight(resId: string): number {
-  //   const height = this.coreMeEditor.getResI64Property(resId, C.kResKeyMediaHeight)
-  //   return height
-  // }
-  // getResDurationUs(resId: string): number {
-  //   const durationUS = this.coreMeEditor.getResI64Property(resId, C.kResKeyMediaDuration)
-  //   return durationUS
-  // }
-  // /* istanbul ignore next */
-  // transact() {
-  //   throw new Error('Method not implemented.');
-  // }
-  // /* istanbul ignore next */
-  // commit() {
-  //   throw new Error('Method not implemented.');
-  // }
-  // /* istanbul ignore next */
-  // cancel() {
-  //   throw new Error('Method not implemented.');
-  // }
-  // createResourceIfNeeded(path: string, type: string, clipId: ClipId): ResId {
-  //   const resId = this.coreMeEditor.createResIfNeeded(path, type, clipId)
-  //   return resId.toString()
-  // }
-
-  // setClipMask(clipId: string, path: string, flag: boolean): number {
-  //   const resId = this.createResourceIfNeeded(path, C.kResImage, clipId) // 获取该路径下的一个资源ID，参考 MeEditor.java::setClipMask 代码
-
-  //   if (!resId) {
-  //     return -1
-  //   }
-
-  //   const clipInfo = this.getTinyClipInfo(clipId) // 切片必须是PIP轴上的切片才能进行蒙版操作
-  //   if (clipInfo.clipInfo.type !== TrackType.PIP) {
-  //     return -1
-  //   }
-  //   if (this.coreMeEditor.checkToAddMtl(clipId, 'mask')) {
-  //     return this.coreMeEditor.getLastErrorCode();
-  //   }
-
-  //   if (this.coreMeEditor.setClipStrProperty(clipId, C.kMaterialTypeMask, C.kMaterialKeyResourceId, resId)) {
-  //     return this.coreMeEditor.getLastErrorCode()
-  //   }
-
-  //   this.setMaskRevertFlag(clipId, false)
-  //   this.setMaskScaleX(clipId, 1.0)
-  //   this.setMaskScaleY(clipId, 1.0)
-  //   this.setMaskRotate(clipId, 0.0)
-  //   this.setMaskPosition(clipId, 0.0, 0.0)
-
-  //   return this.setMaskSdfFlag(clipId, flag)
-
-  // }
-
-  // removeMask(clipId: string): number {
-  //   return this.coreMeEditor.deleteMtl(clipId, C.kPropertyMask)
-  // }
-
-  // setMaskScaleX(clipId: string, scale: number): number {
-  //   return this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXScale, scale)
-  // }
-
-  // setMaskScaleY(clipId: string, scale: number): number {
-  //   return this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYScale, scale)
-  // }
-  // setMaskRotate(clipId: string, rotate: number): number {
-  //   return this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyRotate, rotate)
-  // }
-
-  // setMaskPosition(clipId: string, x: number, y: number): number {
-  //   this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyXOffset, x)
-  //   return this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyMask, C.kMaterialKeyYOffset, y)
-  // }
-
-  // setMaskRevertFlag(clipId: string, flag: boolean): number {
-  //   return this.coreMeEditor.setClipI64Property(clipId, C.kPropertyMask, C.kMaterialKeyRevert, flag ? 1: 0)
-  // }
-  // setMaskSdfFlag(clipId: string, flag: boolean): number {
-  //   return this.coreMeEditor.setClipI64Property(clipId, C.kPropertyMask, C.kMaterialKeyUseSDF, flag ? 1: 0)
-  // }
-
-  // /* istanbul ignore next */
-
-  // /* istanbul ignore next */
-  // setTextExtraClipId(clipId: ClipId, audioClipId: ClipId): Ret {
-  //   const ret = this.coreMeEditor.setTextExtraClipId(clipId, audioClipId)
-  //   return ret
-  // }
-
-  // /* istanbul ignore next */
-  // getTextExtraClipId(clipId: ClipId) {
-  //   const ret = this.coreMeEditor.getTextExtraClipId(clipId)
-  //   return ret
-  // }
-
-  // getClipResID(clipId?: string): string {
-  //   if (!clipId) {
-  //     throw Error('It must clipId')
-  //   }
-  //   return this.coreMeEditor.getClipResID(clipId)
-  // }
-
-  // getResPath(resId: string): string {
-  //   if (!resId) {
-  //     throw Error('It must resId')
-  //   }
-  //   return this.coreMeEditor.getResPath(resId)
-  // }
-
-  // getScale(clipId?: string): XYPosition {
-  //   if (!clipId && !this.selectedClipId) {
-  //     throw Error('use MarvelEditor.getScale should call selectClip.')
-  //   }
-  //   const x = this.getScaleX (clipId || this.selectedClipId);
-  //   const y = this.getScaleY(clipId || this.selectedClipId);
-  //   return {
-  //     x,
-  //     y
-  //   }
-  // }
-
-
-  // getRotate(clipId?: ClipId): number {
-  //   if (!clipId && !this.selectedClipId) {
-  //     throw Error('use MarvelEditor.getRotate should call selectClip.')
-  //   }
-  //   const rotate = this.coreMeEditor.getRotate(clipId || this.selectedClipId)
-  //   const degree = floatToDegree(rotate)
-  //   // console.log('getRotate', this.selectedClipId, '→',  rotate, '→', degree )
-  //   return degree
-  // }
-
-  // getPosition(clipId?: ClipId): XYPosition {
-  //   if (!clipId && !this.selectedClipId) {
-  //     throw Error('use MarvelEditor.getPosition should call selectClip.')
-  //   }
-
-  //   const floatX = this.coreMeEditor.getPositionX(clipId || this.selectedClipId);
-  //   const floatY = this.coreMeEditor.getPositionY(clipId || this.selectedClipId);
-
-
-  //   const canvasWidth = this.getCanvasWidth()
-  //   const canvasHeight = this.getCanvasHeight()
-  //   const measure = this.getMeasure(clipId || this.selectedClipId)
-
-  //   const centerWidth = canvasWidth/2
-  //   const centerHeight = canvasHeight/2
-
-  //   const x = (centerWidth + floatToPixel(floatX, canvasWidth) - (measure.width / 2))
-  //   const y = (centerHeight + floatToPixel(floatY, canvasHeight) - (measure.height / 2))
-
-  //   return {
-  //     x,
-  //     y
-  //   }
-  // }
-
-  // getMaskPosition(clipId?: ClipId): XYPosition {
-  //   if (!clipId && !this.selectedClipId) {
-  //     throw Error('use MarvelEditor.getPosition should call selectClip.')
-  //   }
-  //   const parentFloatX = this.coreMeEditor.getPositionX(clipId || this.selectedClipId);
-  //   const parentFloatY = this.coreMeEditor.getPositionY(clipId || this.selectedClipId);
-  //   const maskFloatX = this.getMaskPositionX(clipId || this.selectedClipId);
-  //   const maskFloatY = this.getMaskPositionY(clipId || this.selectedClipId);
-
-  //   const floatX = parentFloatX + maskFloatX
-  //   const floatY = parentFloatY + maskFloatY
-
-  //   // const { width: canvasWidth, height: canvasHeight } = this.getMeasure(clipId)
-  //   const canvasHeight = this.getCanvasHeight()
-  //   const canvasWidth = this.getCanvasWidth()
-  //   const measure = this.getMaskMeasure(clipId || this.selectedClipId)
-
-  //   const centerWidth = canvasWidth / 2
-  //   const centerHeight = canvasHeight / 2
-
-  //   const x = (centerWidth + floatToPixel(floatX, canvasWidth) - (measure.width / 2))
-  //   const y = (centerHeight + floatToPixel(floatY, canvasHeight) - (measure.height / 2))
-
-  //   return {
-  //     x,
-  //     y
-  //   }
-  // }
-
-  // getMeasure(clipId?: ClipId): ClipMeasure {
-  //   if (!clipId && !this.selectedClipId) {
-  //     throw Error('use MarvelEditor.getMeasure should call selectClip.')
-  //   }
-
-  //   const canvasWidth = this.getCanvasWidth()
-  //   const canvasHeight = this.getCanvasHeight()
-  //   // const scale = this.getScale(clipId)
-  //   const width = this.coreMeEditor.getContentWidth(clipId || this.selectedClipId);
-  //   const height = this.coreMeEditor.getContentHeight(clipId || this.selectedClipId);
-  //   const pixelWidth = floatToPixel(width, canvasWidth)
-  //   const pixelHeight = floatToPixel(height, canvasHeight)
-  //   return {
-  //     width: pixelWidth,
-  //     height: pixelHeight
-  //   }
-  // }
-
-  // getMaskMeasure(clipId?: ClipId): Measure {
-  //   const canvasWidth = this.getCanvasWidth()
-  //   const canvasHeight = this.getCanvasHeight()
-
-  //   const width = this.getMaskContentWidth(clipId);
-  //   const height = this.getMaskContentHeight(clipId);
-  //   const pixelWidth = floatToPixel(width, canvasWidth)
-  //   const pixelHeight = floatToPixel(height, canvasHeight)
-  //   return {
-  //     width: pixelWidth,
-  //     height: pixelHeight
-  //   }
-
-  // }
-
-  // setCanvasSize(width:number, height:number): number {
-  //   this.canvasWidth = width
-  //   this.canvasHeight = height
-  //   const ret = this.coreMeEditor.setCanvasSize(width, height);
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-  //   return ret
-  // }
-
-  // getCanvasHeight(): number {
-  //   return this.coreMeEditor.getCanvasHeight() || this.canvasHeight
-  // }
-
-  // getCanvasWidth(): number {
-  //   return this.coreMeEditor.getCanvasWidth() || this.canvasWidth
-  // }
-
-  // setCanvasScaleType(scaleType: CanvasScaleType): number {
-  //   const ret = this.coreMeEditor.setCanvasScaleType(scaleType)
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // setCanvasBackground(color: ColorHEX): number {
-  //   const ARGB = HexToARGB(color)
-  //   let ret = this.setCanvasBackgroundColor(this.selectedClipId, ARGB)
-  //   // ret = this.proxyMeEditor.setClip
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // setCanvasBackgroundColor(clipId: string, color: number): number {
-  //   return this.coreMeEditor.setCanvasBackgroundColor(clipId, color)
-  // }
-
-  // getCanvasBackgroundColor(clipId: ClipId): ColorHEX {
-  //   const color: String  = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyCanvas, C.kConfigKeyBackground)
-  //   const ARGB: ColorARGB = Number(color.replace('color_', ''))
-  //   const colorHex: ColorHEX = ARGBToHex(ARGB)
-  //   return colorHex
-  // }
-
-
-  // setCanvasBackgroundImage(clipId: string, image: string): number {
-  //   const ret = this.coreMeEditor.setCanvasBackgroundRes(clipId, image)
-  //   // ret = this.proxyMeEditor.setClip
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // getCanvasBackgroundImage(clipId: ClipId): Path {
-  //   const resId: ResId = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyCanvas, C.kConfigKeyBackground)
-  //   let path: Path = ''
-  //   if (/^res_id_/.test(resId || '')) {
-  //     path  = this.getResPath(resId.replace(/^res_id_/, ''))
-  //   }
-  //   return path
-  // }
-
-  // setCanvasBackgroundBlurType(clipId: string, type: number): number {
-  //   const ret = this.coreMeEditor.setCanvasBackgroundBlurType(clipId, type)
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // getCanvasBackgroundBlurType(clipId: ClipId): number {
-  //   const blurProperty = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyCanvas, C.kConfigKeyBackground)
-  //   let type: number = 0;
-  //   if (/^blur_/.test(blurProperty || '')) {
-  //     type = Number(blurProperty.replace('blur_', ''))
-  //   }
-  //   return type
-  // }
-
-  // setClipBlendType(clipId: string, blendType: string) {
-  //   const ret = this.coreMeEditor.setClipBlendType(clipId, blendType)
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // changeClipBlendType(blendType: string, clipId?: string) {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeClipBlendType should call selectClip.')
-  //   }
-  //   const ret = this.coreMeEditor.setClipBlendType(clipId || this.selectedClipId, blendType)
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // getClipBlendType(clipId: string) {
-  //   return this.coreMeEditor.getClipBlendType(clipId);
-  // }
-
-  // setTransitionEffect(path: string, mode = 'overlay', clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.setTransitionEffect should call selectClip.')
-  //   }
-  //   const ret = this.coreMeEditor.setTransitionEffect(clipId || this.selectedClipId, path, mode )
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-
-  // }
-
-  // setTransitionDurationUs(durationUs: number, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.setTransitionEffect should call selectClip.')
-  //   }
-
-  //   const ret = this.coreMeEditor.setClipDblProperty(clipId || this.selectedClipId, C.kMaterialTypeTransition, C.kMaterialKeyDurationUs, durationUs)
-  //   // const ret = this.proxyMeEditor.setTransitionDurationUs(this.selectedClipId, durationUs)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // removeTransition(clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.setTransitionEffect should call selectClip.')
-  //   }
-  //   const ret = this.coreMeEditor.removeTransition(clipId || this.selectedClipId)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // setDefaultFont(fontPath: string): number {
-  //   const ret = this.coreMeEditor.setDefaultFontFile(fontPath);
-  //   return ret;
-  // }
-
-  // addText(fontPath: string, content: string, startTimeUS: number, duration: number, trackId: TrackId = ''): ClipId {
-  //   this.setDefaultFont(fontPath)
-  //   const clipId = this.coreMeEditor.addTextClip(trackId, content, startTimeUS, duration);
-  //   if (!clipId || clipId === '' ) {
-  //     this.triggerError(Error(''), '添加MediaToTrack ClipId为空');
-  //     return ''
-  //   }
-
-  //   this.setScaleX(clipId,  1.0)
-  //   this.setScaleY(clipId, 1.0)
-
-  //   this.selectClip(clipId)
-  //   this.unselectClip()
-
-  //   return clipId;
-  // }
-
-  // changeText(content: string, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeText should call selectClip.')
-  //   }
-
-  //   const ret = this.coreMeEditor.setClipStrProperty(clipId || this.selectedClipId, C.kPropertyText, C.kTextContent, content)
-  //   // const ret = this.proxyMeEditor.setText(this.selectedClipId, content)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // changeTextColor(color: ColorHEX, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeTextColor should call selectClip.')
-  //   }
-  //   const ARGB = HexToARGB(color)
-  //   const ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextTextColor, ARGB)
-  //   // const ret = this.proxyMeEditor.setTextColor(this.selectedClipId, ARGB)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // changeTextAlignment(v: number, h: number, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeTextAlignment should call selectClip.')
-  //   }
-  //   this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextAlignmentV, v)
-  //   // const ret = this.proxyMeEditor.setTextAlignment(this.selectedClipId, v, h)
-  //   const ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextAlignmentH, h)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   return ret
-  // }
-
-  // changeTextFont(path: string, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.addText should call selectClip.')
-  //   }
-  //   try {
-  //     // const ret = this.proxyMeEditor.setTextFont(this.selectedClipId, path)
-  //     const resId = this.coreMeEditor.createResIfNeeded(path, C.kResExtra, clipId || this.selectedClipId);
-  //     const ret = this.coreMeEditor.setClipStrProperty(clipId || this.selectedClipId, C.kPropertyText, C.ResIdKey(C.kTextFontFile), resId)
-
-  //     if (ret < 0) {
-  //       this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //     }
-  //     return ret
-  //   } catch (e) {
-  //     console.log(e)
-  //     return 0
-  //   }
-  //   // this.proxyMeEditor.setTextFont(this.selectedClipId, path)
-  // }
-  // changeTextShadowColor(color: ColorHEX, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.addText should call selectClip.')
-  //   }
-  //   const ARGB = HexToARGB(color)
-
-  //   let ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText,C.kTextShadowColor, ARGB)
-  //   // let ret = this.proxyMeEditor.setTextShadowColor(this.selectedClipId, ARGB)
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowEnable, 1)
-  //   // ret = this.proxyMeEditor.setTextShadowEnable(this.selectedClipId, true)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret
-  // }
-
-  // cleanTextShadowColor(clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.addText should call selectClip.')
-  //   }
-
-  //   const ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowEnable, 0)
-
-  //   // const ret = this.proxyMeEditor.setTextShadowEnable(this.selectedClipId, true)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret
-  // }
-
-  // transformTextShadow(position: XYPosition, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.transformTextShadow should call selectClip.')
-  //   }
-
-  //   let ret = this.coreMeEditor.setClipDblProperty(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowOffsetX, position.x)
-  //   // let ret = this.proxyMeEditor.setTextShadowOffsetX(this.selectedClipId, position.x)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   ret = this.coreMeEditor.setClipDblProperty(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowOffsetY, position.y)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret
-
-  // }
-
-  // changeTextOutlineStyle(color: ColorHEX, size: number, clipId?: string): number {
-
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.addText should call selectClip.')
-  //   }
-
-
-  //   let ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextOutlineEnable, 1)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-  //   const ARGB = HexToARGB(color)
-  //   ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextOutlineColor, ARGB)
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   ret = this.coreMeEditor.setClipDblProperty(clipId || this.selectedClipId, C.kPropertyText, C.kTextOutlineSize, size)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret;
-
-  // }
-
-  // cleanTextOutline(clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.addText should call selectClip.')
-  //   }
-  //   const ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextOutlineEnable, 0)
-  //   // const ret = this.proxyMeEditor.setTextOutlineEnable(this.selectedClipId, false)
-  //   return ret
-  // }
-
-  // changeTextStyle(style: TextStyle, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.addText should call selectClip.')
-  //   }
-
-  //   let ret = 0
-  //   if (style.bold !== undefined ) {
-  //     ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextBold, style.bold ? 1: 0)
-  //     // ret = this.proxyMeEditor.setTextBold(this.selectedClipId, style.bold)
-  //   }
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   if (style.italics !== undefined) {
-  //     ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextItalics, style.italics ? 1: 0)
-  //     // ret = this.proxyMeEditor.setTextItalics(this.selectedClipId, style.italics)
-  //   }
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   if (style.underline !== undefined) {
-  //     ret = this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextUnderline, style.underline ? 1: 0)
-  //     // ret = this.proxyMeEditor.setTextUnderline(this.selectedClipId, style.underline)
-  //   }
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret
-
-  // }
-
-  // setClipPosition(position: { x: number; y: number; }, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.setClipPosition should call selectClip.')
-  //   }
-
-  //   const {x, y} = position
-
-  //   const ret = this.coreMeEditor.setPosition(clipId || this.selectedClipId, x, y)
-
-  //   // const ret = this.proxyMeEditor.setClipDblProperty(this.selectedClipId, C.kPropertyCanvas, C.x)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret;
-  // }
-
-  // // @ts-ignore
-  // changeClipPosition(position: { x: number; y: number; }, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeClipPosition should call selectClip.')
-  //   }
-
-  //   const {x, y} = position
-  //   const canvasWidth = this.getCanvasWidth()
-  //   const canvasHeight = this.getCanvasHeight()
-  //   const centerWidth = canvasWidth/2
-  //   const centerHeight = canvasHeight/2
-
-  //   const measure = this.getMeasure()
-  //   // - Math.ceil(measure.width / 2)
-  //   const offsetX = pixelToFloat((x + measure.width/2  - centerWidth), canvasWidth)
-  //   const offsetY = pixelToFloat((y + measure.height/2 - centerHeight) , canvasHeight)
-  //   const ret = this.coreMeEditor.setPosition(clipId || this.selectedClipId, offsetX, offsetY)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret;
-  // }
-
-  //   // @ts-ignore
-  //   changeMaskPosition(position: { x: number; y: number; }, clipId?: string): number {
-  //     if (!this.selectedClipId && !clipId) {
-  //       throw Error('use MarvelEditor.changeClipPosition should call selectClip.')
-  //     }
-
-  //     const {x, y} = position
-
-  //     // const { width: canvasWidth, height: canvasHeight} = this.getMeasure(this.selectedClipId)
-  //     const canvasWidth = this.getCanvasWidth()
-  //     const canvasHeight = this.getCanvasHeight()
-  //     const centerWidth = canvasWidth/2
-  //     const centerHeight = canvasHeight/2
-
-  //     const parentFloatX = this.coreMeEditor.getPositionX(clipId || this.selectedClipId);
-  //     const parentFloatY = this.coreMeEditor.getPositionY(clipId || this.selectedClipId);
-
-
-  //     const measure = this.getMaskMeasure(clipId || this.selectedClipId)
-
-  //     const offsetX = x - centerWidth + (measure.width/2)
-  //     const offsetY = y - centerHeight + (measure.height/2)
-
-  //     // - Math.ceil(measure.width / 2)
-  //     const floatX = pixelToFloat(offsetX, canvasWidth)
-  //     const floatY = pixelToFloat(offsetY, canvasHeight)
-
-  //     const maskFloatX = floatX - parentFloatX
-  //     const maskFloatY = floatY - parentFloatY
-  //     const ret = this.setMaskPosition(clipId || this.selectedClipId, maskFloatX, maskFloatY)
-
-  //     if (ret < 0) {
-  //       this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //     }
-
-  //     return ret;
-  //   }
-
-  // // @ts-ignore
-  // changeClipRotate(degree: number, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeClipRotate should call selectClip.')
-  //   }
-
-  //   const rotate = degreeToFloat(degree)
-  //   // console.log('changeClipRotate', this.selectedClipId, '→',  degree, '→', rotate)
-  //   const ret = this.coreMeEditor.setRotate(clipId || this.selectedClipId, rotate)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret;
-  // }
-
-  // // @ts-ignore
-  // changeMaskRotate(degree: number, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeClipRotate should call selectClip.')
-  //   }
-
-  //   const rotate = degreeToFloat(degree)
-  //   // console.log('changeClipRotate', this.selectedClipId, '→',  degree, '→', rotate)
-  //   const ret = this.setMaskRotate(clipId || this.selectedClipId, rotate)
-
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //   }
-
-  //   return ret;
-  // }
-
-  // // @ts-ignore
-  // changeClipScale(scale: XYPosition, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeClipScale should call selectClip.')
-  //   }
-
-  //   let ret = 1
-  //   if (scale.x) {
-  //     ret = this.setScaleX(clipId || this.selectedClipId, scale.x)
-  //     if (ret < 0) {
-  //       this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //     }
-  //   }
-
-  //   if (scale.y) {
-  //     ret = this.setScaleY(clipId || this.selectedClipId, scale.y)
-  //     if (ret < 0) {
-  //       this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //     }
-  //   }
-
-  //   return ret;
-  // }
-
-  // // @ts-ignore
-  // changeMaskScale(scale: XYPosition, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.changeMaskScale should call selectClip.')
-  //   }
-
-  //   let ret = 1
-  //   if (scale.x) {
-  //     ret = this.setMaskScaleX(clipId || this.selectedClipId, scale.x)
-  //     if (ret < 0) {
-  //       this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //     }
-  //   }
-
-  //   if (scale.y) {
-  //     ret = this.setMaskScaleY(clipId || this.selectedClipId, scale.y)
-  //     if (ret < 0) {
-  //       this.triggerError(Error(''), this.getMeErrorMessage(ret))
-  //     }
-  //   }
-
-  //   return ret;
-  // }
-
-  // getMeProxy() {
-  //   return this.coreMeEditor
-  // }
-
-  // triggerError(error: Error, message?: string) {
-  //   const info = `${__filename}::${error.stack.split('\n')[0]} → ${message||error.message} `;
-  //   console.warn(info);
-  //   this.emit('MarvelSdkError', `${__filename}::${error.stack.split('\n')[1].match(/ at ([A-Za-z0-9\.]*) /)[1]} → ${message||error.message} `);
-  // }
-
-  // addMediaToMainTrack(path: string): string {
-  //   const resourceInfo = this.toolboxInstance.getResourceInfo(path)
-  //   const durationUs = Number(resourceInfo.maxDurationUs)
-  //   const clipId = this.coreMeEditor.addMainClip(path, 0, durationUs)
-  //   if (clipId === '') {
-  //     this.triggerError(Error(''), '添加MediaToMainTrack ClipId为空');
-  //   }
-  //   return clipId;
-  // }
-
-  // addMediaToTrack(path: string, trackId: TrackId = ''): string {
-  //   let clipId = '';
-  //   const resourceInfo = this.toolboxInstance.getResourceInfo(path)
-  //   const durationUs = Number(resourceInfo.maxDurationUs)
-  //   clipId = this.coreMeEditor.addPipClip(trackId, path, 0, 0, durationUs )
-  //   if (clipId === '') {
-  //     this.triggerError(Error(''), '添加MediaToTrack ClipId为空');
-  //   }
-  //   return clipId;
-
-  // }
-
-  // addImageToMainTrack(path: string, timeUS: number): string {
-  //   const clipId = this.coreMeEditor.addMainClip(path, 0, timeUS);
-  //   if (clipId === '') {
-  //     this.triggerError(Error(''), '添加ImageToMainTrack ClipId为空');
-  //   }
-  //   return clipId;
-  // }
-
-  // addImageToTrack(path: string, timeUS: number, trackId: string = ''): string {
-  //   let clipId = this.coreMeEditor.addPipClip(trackId, path, 0, 0, timeUS);
-  //   if (clipId === '') {
-  //     this.triggerError(Error(''), '添加ImageToTrack ClipId为空');
-  //   }
-  //   return clipId;
-  // }
-
-  // addMusic(path: string, trackId: TrackId = ''): string {
-  //   const resourceInfo = this.toolboxInstance.getResourceInfo(path)
-  //   const durationUs = Number(resourceInfo.maxDurationUs)
-  //   const clipId = this.coreMeEditor.addMusicClip(trackId, path, 0, 0, durationUs)
-  //   if (clipId === '') {
-  //     this.triggerError(Error(''), '添加Music ClipId为空');
-  //   }
-  //   return clipId;
-  // }
-
-  // addLookup(path: string, intensity: number, startTimeUS: TimeUS = 0, durationUs : TimeUS = 3000000, trackId: TrackId = ''): string {
-  //   const clipId = this.coreMeEditor.addLookupClip(trackId, path, startTimeUS, durationUs)
-
-  //   if (!clipId || clipId === '') {
-  //     this.triggerError(Error(''), '添加Lookup ClipId为空');
-  //   }
-
-  //   this.setLookupIntensity(clipId, intensity)
-
-  //   return clipId;
-  // }
-
-  // addSticker(path: string, startTimeUS: TimeUS = 0, durationUs : TimeUS = 300000, trackId: TrackId = ''): string {
-  //   const clipId = this.coreMeEditor.addStickerClip(trackId, path, startTimeUS, durationUs)
-  //   if (!clipId || clipId === '') {
-  //     this.triggerError(Error(''), '添加Sticker ClipId为空');
-  //   }
-  //   return clipId;
-  // }
-
-  // /* istanbul ignore next */
-  // /**
-  //  * @deprecated Magic 接口缺失
-  //  * @param path
-  //  * @param timeUS
-  //  */
-  // addMagic(path: string, timeUS: number): string {
-  //   console.debug(path, timeUS)
-  //   return '';
-  // }
-
-
-  // /* istanbul ignore next */
-  // /**
-  //  * @deprecated
-  //  * @param path
-  //  * @param info
-  //  */
-  // addCustomizeClip(path: string, info: {}): string {
-  //   console.debug(path, info)
-  //   return ''
-  // }
-
-  // removeTrack(trackId: string): number {
-  //   const ret = this.coreMeEditor.removeTrack(trackId);
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-  //   return ret;
-  // }
-
-  // selectClip(clipId: string): number {
-  //   this.selectedClipId = clipId;
-  //   const clipInfo = this.getClipInfo<BaseClipInfo|null>(clipId);
-  //   if (clipInfo && (clipInfo.clipInfo as BaseClipInfo).type === 'main') { //主轨道不能操作changePlayTime；
-  //     this.canChangePlayTime = true;
-  //   } else {
-  //     this.canChangePlayTime = true;
-  //   }
-  //   return 0
-  // }
-
-  // unselectClip(): number {
-  //   this.selectedClipId = null;
-  //   this.canChangePlayTime = true;
-  //   return 0
-  // }
-
-  // removeClip(clipId: string): number {
-  //   const ret = this.coreMeEditor.deleteClip(clipId);
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-  //   return ret;
-  // }
-  // splitClip(timeUS: number, clipId?: string): string[] {
-  //   if (!this.selectedClipId && !clipId) {
-  //     const error = Error('use MarvelEditor.selectClip should call splitClip.');
-  //     this.triggerError(error, error.message);
-  //     throw error;
-  //   }
-  //   const clipIds = this.coreMeEditor.splitClip(clipId || this.selectedClipId, timeUS);
-  //   if (!clipIds || !clipIds.length) {
-  //     this.triggerError(Error(''), `分割 ClipId: ${clipId || this.selectedClipId} 失败`);
-  //   }
-  //   return clipIds;
-  // }
-  // moveClip(startTimeUs: number, trackId: string = '', clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.selectClip should call moveClip.');
-  //   }
-
-  //   const tClipId = clipId || this.selectedClipId
-
-
-  //   // 针对目前move接口存在一些问题，所以在移动时，先找到该track上第一个clip片段，获取他们的一个有效时间范围的数值设置为 moveClip接口的startUS，然后再对该切片使用changePlayTime来设置 最后对位置。
-
-  //   // @update MeEditor 已经移除了 moveClip 接口了，此接口需要通过MeEditor的changePlayTime等逻辑来实现，暂时无法实现跨track的移动处理
-
-  //   // const movedTrackInfo = this.getTrackInfo(trackId)
-  //   // if (movedTrackInfo.type === TrackType.MAIN) {
-  //   //   const ret = this.changePlayTime(startTimeUs)
-  //   //   return ret
-  //   // }
-  //   const ret = this.coreMeEditor.moveClip(tClipId, startTimeUs, trackId)
-
-  //   return ret;
-  // }
-  // changeVolume(volume: number, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     const error = Error('use MarvelEditor.selectClip should call changeVolume.');
-  //     this.triggerError(error, error.message);
-  //     throw error;
-  //   }
-
-  //   const ret = this.setClipVolume(clipId || this.selectedClipId, volume);
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-  //   return ret;
-  // }
-
-  // changeSpeed(speed: number, clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     const error = Error('use MarvelEditor.selectClip should call changeVolume.');
-  //     this.triggerError(error, error.message);
-  //     throw error;
-  //   }
-
-  //   let ret = this.setClipSpeed(clipId || this.selectedClipId, speed);
-  //   if (ret !== 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-  //   return ret;
-
-  // }
-
-  // changeSourceStartTimeUs(startUs: TimeUS, clipId?: string): Ret {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.selectClip should call changeSourceTime.');
-  //   }
-  //   let ret = this.setSourceStartTimeUs(clipId || this.selectedClipId, startUs)
-
-  //   if (ret !== 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-
-  //   return ret
-  // }
-
-  // changeSourceEndTimeUs(endUs: TimeUS, clipId?: string): Ret {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.selectClip should call changeSourceTime.');
-  //   }
-  //   let ret = this.setSourceEndTimeUs(clipId || this.selectedClipId, endUs)
-  //   if (ret !== 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-
-
-  //   return ret
-  // }
-
-  // changeSourceTime(startUs?: TimeUS, stopUs?: TimeUS, clipId?: string): Ret {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.selectClip should call changeSourceTime.');
-  //   }
-
-  //   let ret = this.changeSourceStartTimeUs(startUs, clipId || this.selectedClipId)
-  //   if (stopUs) {
-  //     ret = this.changeSourceEndTimeUs(stopUs, clipId || this.selectedClipId)
-  //   }
-  //   return ret;
-  // }
-
-  // changePlayTime(startUs: TimeUS): number {
-  //   if (!this.selectedClipId) {
-  //     throw Error('use MarvelEditor.selectClip should call changePlayTime.');
-  //   }
-  //   if (!this.canChangePlayTime) {
-  //     throw Error('Clip in main track can not changePlayTime');
-  //   }
-
-  //   let ret = this.setClipStartTimeUs(this.selectedClipId, startUs);
-
-  //   if (ret !== 0) {
-  //     this.triggerError(Error(''), this.getMeErrorMessage(ret));
-  //   }
-
-  //   return ret;
-  // }
-  // /**
-  //  * @deprecated
-  //  * @param property
-  //  */
-  // /* istanbul ignore next */
-  // transformClip(property: TransformProperty): number {
-  //   if (!this.selectedClipId) {
-  //     throw Error('use MarvelEditor.selectClip should call transformClip.');
-  //   }
-  //   console.debug(property)
-  //   return 0
-  // }
-
-  // /* istanbul ignore next */
-  // undo(): number {
-  //   const ret = this.coreMeEditor.undo();
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getErrorMessage(ret));
-  //   }
-  //   return ret;
-  // }
-
-  // /* istanbul ignore next */
-  // redo(): number {
-  //   const ret = this.coreMeEditor.redo();
-  //   if (ret < 0) {
-  //     this.triggerError(Error(''), this.getErrorMessage(ret));
-  //   }
-  //   return ret;
-  // }
-  // /* istanbul ignore next */
-  // canUndo(): boolean {
-  //   const ret = this.getUndoStackSize();
-  //   return ret > 0;
-  // }
-  // /* istanbul ignore next */
-  // canRedo(): boolean {
-  //   const ret = this.getRedoStackSize();
-  //   return ret > 0;
-  // }
-  // getPanelInfo(): PanelInfo {
-  //   const trackIdList = this.coreMeEditor.getTrackIdList()
-  //   if (trackIdList.ret < 0) {
-  //     this.triggerError(Error(''), this.getMeLastErrorCode());
-  //   }
-
-  //   return {
-  //     ret: trackIdList.ret,
-  //     trackIds: trackIdList.data as TrackId[] ,
-  //     info: ''
-  //   } as PanelInfo;
-  // }
-
-  // getTrackInfo(trackId: string): TrackInfo {
-  //   const clipIdList = this.coreMeEditor.getClipIdList(trackId)
-  //   if (clipIdList.ret < 0) {
-  //     this.triggerError(Error(''), this.getMeLastErrorCode());
-  //   }
-
-  //   const type = this.coreMeEditor.getTrackStrProperty(trackId, C.kTrackKeyType)
-
-  //   return {
-  //     ret: clipIdList.ret,
-  //     clipIds: clipIdList.data as ClipId[],
-  //     type
-  //   } as TrackInfo
-  // }
-
-  // /* istanbul ignore next */
-  // /**
-  //  * @deprecated
-  //  * @param clipId
-  //  * @param type
-  //  * @param clipInfo
-  //  */
-  // setClipInfo(clipId: string, type: string, clipInfo: MarvelClipInfo): number {
-  //   console.debug(clipId, type, clipInfo)
-  //   return 0
-  // }
-
-
-  // toggleMute(clipId?: string): number {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.toggleMute should call splitClip.');
-  //   }
-  //   const clip = this.getClipInfo<BaseClipInfo>(clipId || this.selectedClipId);
-  //   const volume = clip.clipInfo.volume;
-  //   if (volume === '0.000000') {
-  //     return this.setClipVolume(clipId || this.selectedClipId, 0.99);
-  //   } else {
-  //     return this.setClipVolume(clipId || this.selectedClipId, 0);
-  //   }
-  // }
-
-  // /* istanbul ignore next */
-  // isMute(clipId?: string) {
-  //   if (!this.selectedClipId && !clipId) {
-  //     throw Error('use MarvelEditor.toggleMute should call splitClip.');
-  //   }
-  //   const clip = this.getClipInfo<BaseClipInfo>(clipId || this.selectedClipId);
-  //   const volume = clip.clipInfo.volume;
-  //   if (volume === '0.000000') {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
-  // getScaleX(clipId: string): DoubleFloat {
-  //   const x = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kMaterialKeyXScale)
-  //   return x
-  // }
-
-  // getIntensity(clipId: string): DoubleFloat {
-  //   const intensity = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyLookup, C.kMaterialKeyIntensity)
-  //   return intensity
-  // }
-
-  // getScaleY(clipId: string): DoubleFloat {
-  //   const y = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kMaterialKeyYScale)
-  //   return y
-  //   // return this.proxyMeEditor.getScaleY(clipId);
-  // }
-
-  // setScaleX(clipId: string, x: DoubleFloat): Ret {
-  //   const ret = this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyCanvas, C.kMaterialKeyXScale, x)
-  //   return ret
-  // }
-
-  // setScaleY(clipId: string, y: DoubleFloat): Ret {
-  //   const ret = this.coreMeEditor.setClipDblProperty(clipId, C.kPropertyCanvas, C.kMaterialKeyYScale, y)
-  //   return ret
-  // }
-
-  // getTinyClipInfo(clipId: string): ClipInfo<BaseClipInfo> {
-  //   const clipInfo = this.getCustomBaseClipInfo(clipId)
-  //   return {
-  //     ret: 0,
-  //     clipInfo
-  //   }
-  // }
-
-  // getClipInfo<T extends MarvelClipInfo>(clipId: string, type?: string): ClipInfo<T> {
-
-  //   if (!type) {
-  //     type = ClipType.BASE;
-  //   }
-
-  //   let clipInfo: any | T | MarvelClipInfo;
-
-  //   if (type === ClipType.BASE) {
-  //     clipInfo = this.getCustomBaseClipInfo(clipId);
-  //     const clipData = clipInfo as BaseClipInfo
-  //     // const clipType = clipData.type
-  //     let resource: any
-  //     let transition: any
-  //     let ui: DynamicUIClipInfo
-  //     let canvas: CanvasClipInfo
-  //     let mask: MaskInfo
-
-  //     const keyframePointList: KeyframePointList = this.getClipAllKeyframeAnchorList({ clipId })
-  //     clipInfo.keyframe = {
-  //       anchors: keyframePointList
-  //     } as KeyframeInfo
-
-  //     if (clipData.type === TrackType.MUSIC || clipData.type === TrackType.PIP || clipData.type === TrackType.MAIN || clipData.type === TrackType.STICKER || clipData.type === TrackType.LOOKUP) {
-  //       resource = this.getClipInfo<SourceClipInfo>(clipId, ClipType.SOURCE).clipInfo
-  //     } else if (clipData.type === TrackType.TEXT) {
-  //       const textInfo = this.getClipInfo<TextClipInfo>(clipId, ClipType.TEXT).clipInfo
-
-  //       const { text_color, text_outline_color, text_shadow_color } = textInfo
-  //       text_color && (textInfo.text_color = text_color )
-  //       text_outline_color && (textInfo.text_outline_color = text_outline_color )
-  //       text_shadow_color && (textInfo.text_shadow_color = text_shadow_color )
-  //       resource = textInfo
-  //     }
-
-  //     if (clipData.type === TrackType.PIP || clipData.type === TrackType.MAIN) {
-  //       const info = this.getClipInfo<TransitionClipInfo>(clipId,ClipType.TRANSITION).clipInfo
-  //       info.duration_us || info.mode || info.path ? (transition = info) : undefined
-  //     }
-
-  //     if (clipData.type === TrackType.PIP) {
-  //       const maskResId = this.hasMaskInfo(clipId)
-  //       maskResId && (mask = this.getCustomMaskInfo(clipId, maskResId))
-  //     }
-
-  //     if ([TrackType.MAIN, TrackType.PIP, TrackType.STICKER, TrackType.TEXT, TrackType.LOOKUP].includes(clipData.type)) {
-  //       canvas = this.getClipInfo<CanvasClipInfo>(clipId, ClipType.CANVAS).clipInfo
-  //     }
-
-  //     /**
-  //      * 无法确定此切片类型是否存在UI信息，因此将都获取一遍
-  //      */
-  //     ui = this.getCustomUIClipInfo(clipId, clipData.type)
-
-  //     if (resource) {
-  //       clipInfo.resource = resource
-  //     }
-  //     if (transition) {
-  //       clipInfo.transition = transition
-  //     }
-  //     if (canvas) {
-  //       clipInfo.canvas = canvas
-  //     }
-  //     if (mask) {
-  //       clipInfo.mask = mask
-  //     }
-
-  //     if (ui) {
-  //       clipInfo.ui = ui
-  //     }
-
-
-  //   /* istanbul ignore else */
-  //   } else if (type === ClipType.CANVAS) {
-  //     clipInfo =  this.getCustomCanvasClipInfo(clipId);
-  //   /* istanbul ignore else */
-  //   } else if (type === ClipType.LOOKUP) {
-  //     clipInfo = this.getCustomLookupClipInfo(clipId);
-  //   /* istanbul ignore else */
-  //   } else if (type === ClipType.STICKER) {
-  //     clipInfo = this.getCustomStickerClipInfo(clipId);
-  //   /* istanbul ignore else */
-  //   } else if (type === ClipType.MAGIC) {
-  //     clipInfo = this.getCustomMagicClipInfo(clipId)
-  //   /* istanbul ignore else */
-  //   } else if (type === ClipType.TRANSITION) {
-  //     clipInfo = this.getCustomTransitionClipInfo(clipId)
-  //   /* istanbul ignore else */
-  //   } else if (type === ClipType.TEXT) {
-  //     clipInfo = this.getCustomTextClipInfo(clipId)
-  //   } else if (type === ClipType.SOURCE) {
-  //     clipInfo = this.getCustomSourceClipInfo(clipId)
-  //   }
-
-  //   if (clipInfo && type === ClipType.BASE ) {
-  //   }
-
-  //   // clipInfo.id = clipId
-
-  //   return {
-  //     ret: 1,
-  //     clipInfo
-  //   } as ClipInfo<T>
-
-  // }
-
-  // private getCustomBaseClipInfo(clipId): BaseClipInfo {
-  //   const trackId = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kClipKeyParentId)
-  //   const speed = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyClipBase, C.kClipKeySpeed)
-  //   const resId = this.getClipResID(clipId)
-  //   const revert = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyRevert)
-  //   const sourceStartTimeUs = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceStartTime)
-  //   const sourceEndTimeUs = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeySourceEndTime)
-  //   const startTimeUs = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipStartTime)
-  //   const endTimeUs = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyClipBase, C.kClipKeyClipEndTime)
-  //   const volume = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyClipBase, C.kClipKeyVolume)
-  //   let clipType = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyClipBase, C.kClipKeyType)
-
-  //   // 扩展特效 type转换
-  //   if (['Shape'].includes(clipType)) {
-  //     clipType = TrackType.DYNAMIC
-  //   }
-
-  //   return {
-  //     id: clipId,
-  //     track_id: trackId,
-  //     speed,
-  //     res_id: resId,
-  //     revert,
-  //     source_start_time_us: sourceStartTimeUs,
-  //     source_stop_time_us: sourceEndTimeUs,
-  //     start_time_us: startTimeUs,
-  //     stop_time_us: endTimeUs,
-  //     volume: volume.toString(),
-  //     type: clipType as TrackType,
-  //   } as BaseClipInfo
-  // }
-
-
-  // hasMaskInfo(clipId: ClipId): ResId {
-  //   return this.coreMeEditor.getClipStrProperty(clipId, C.kMaterialTypeMask, C.kMaterialKeyResourceId)
-  // }
-
-
-  // private getCustomMaskInfo(clipId: ClipId
-  // , resId: ResId): MaskInfo {
-  //   const path = this.getResPath(resId)
-  //   const rotate = this.coreMeEditor.getClipDblProperty(clipId, C.kMaterialTypeMask, C.kMaterialKeyRotate )
-  //   const yScale = this.coreMeEditor.getClipDblProperty(clipId, C.kMaterialTypeMask, C.kMaterialKeyYScale )
-  //   const xScale = this.coreMeEditor.getClipDblProperty(clipId, C.kMaterialTypeMask, C.kMaterialKeyXScale )
-  //   const sdf = this.coreMeEditor.getClipI64Property(clipId, C.kMaterialTypeMask, C.kMaterialKeyUseSDF)
-  //   const revert = this.coreMeEditor.getClipI64Property(clipId, C.kMaterialTypeMask, C.kMaterialKeyRevert)
-
-  //   const { height, width } = this.getMaskMeasure(clipId)
-  //   const { x, y } = this.getMaskPosition(clipId)
-  //   // proxyMeEditor.getPositionY
-  //   // const width = this.getMaskWidth(clipId)
-
-  //   return {
-  //     path,
-  //     rotate,
-  //     height,
-  //     width,
-  //     xScale,
-  //     yScale,
-  //     xOffset: x,
-  //     yOffset: y,
-  //     sdf,
-  //     revert
-  //   } as MaskInfo
-
-  // }
-
-  // private getCustomCanvasClipInfo(clipId): CanvasClipInfo {
-  //   // this.selectClip(clipId)
-  //   const clipInfo = this.getCustomBaseClipInfo(clipId);
-  //   const measure = this.getMeasure(clipId)
-  //   const offset = this.getPosition(clipId)
-  //   const rotate = this.getRotate(clipId)
-  //   const scale = this.getScale(clipId)
-  //   const intensity = [TrackType.LOOKUP, TrackType.EFFECT].includes(clipInfo.type) ? this.getIntensity(clipId) : this.getClipTransparency(clipId) // 如果是特效或者滤镜则是强度，否则是从canvas中获取透明度
-  //   const bgColor = this.getCanvasBackgroundColor(clipId)
-  //   const bgImage = this.getCanvasBackgroundImage(clipId)
-  //   const bgBlur = this.getCanvasBackgroundBlurType(clipId)
-  //   // const scale =
-  //   const canvas: CanvasClipInfo = {
-  //     xOffset: offset.x,
-  //     yOffset: offset.y,
-  //     width: measure.width,
-  //     height: measure.height,
-  //     rotate,
-  //     xScale: scale.x,
-  //     yScale: scale.y,
-  //     bg_color: bgColor,
-  //     bg_image: bgImage,
-  //     blur_type: bgBlur,
-  //     intensity: intensity
-  //   }
-
-  //   return canvas
-  // }
-
-  // private getCustomLookupClipInfo(clipId): LookupClipInfo {
-  //   const intensity = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyLookup, C.kMaterialKeyIntensity)
-  //   const path = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyLookup, C.kSourceKeyPath)
-  //   return {
-  //     intensity,
-  //     path
-  //   } as LookupClipInfo
-  // }
-
-  // private getCustomSourceClipInfo(clipId): SourceClipInfo {
-  //   const resId = this.coreMeEditor.getClipResID(clipId)
-  //   const path = this.getResPath(resId)
-  //   const audioChannelCount = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyAudioChannelCount)
-  //   const audioDurationUs = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyAudioDuration)
-  //   const audioMime = this.coreMeEditor.getResStrProperty(resId, C.kSourceKeyAudioMime)
-  //   const audioSampleRate = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyAudioSampleRate)
-  //   const hasAudio = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyHasAudio)
-  //   const hasVideo = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyHasVideo)
-  //   const type = ''
-  //   const extraType = ''
-  //   const videoDurationUs = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyVideoDuration)
-  //   const videoHeight = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyVideoWidth)
-  //   const videoWidth = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyVideoWidth)
-  //   const videoMime = this.coreMeEditor.getResStrProperty(resId, C.kSourceKeyVideoMime)
-  //   const videoRotation = this.coreMeEditor.getResI64Property(resId, C.kSourceKeyVideoRotation)
-  //   const maxDurationUs = Math.max(videoDurationUs, audioDurationUs)
-  //   const minDurationUs = Math.min(videoDurationUs, audioDurationUs)
-
-
-  //   return {
-  //     audioChannelCount,
-  //     audioDurationUs,
-  //     audioMime,
-  //     audioSampleRate,
-  //     hasAudio,
-  //     hasVideo,
-  //     id: resId,
-  //     max_duration_us: maxDurationUs,
-  //     min_duration_us: minDurationUs,
-  //     path,
-  //     type,
-  //     videoDurationUs,
-  //     videoHeight,
-  //     videoMime,
-  //     videoRotation,
-  //     videoWidth,
-  //     extraType
-  //   } as SourceClipInfo
-  // }
-
-  // private getCustomMagicClipInfo(clipId): MagicClipInfo {
-
-  //   const path = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyLookup, C.kSourceKeyPath)
-
-  //   return {
-  //     clipId,
-  //     path
-  //   } as MagicClipInfo
-  // }
-
-  // private getCustomStickerClipInfo(clipId): StickerClipInfo {
-  //   const path = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertySticker, C.kSourceKeyPath)
-
-  //   return {
-  //     clipId,
-  //     path
-  //   } as StickerClipInfo
-  // }
-
-  // private getCustomTextClipInfo(clipId): TextClipInfo {
-  //   const content = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyText, C.kTextContent)
-  //   // const scale = this.proxyMeEditor.getClipDblProperty(clipId, C.kPropertyText, C.kMaterialKeyXScale)
-  //   const scale = this.getScaleX(clipId)
-  //   const textColor = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextTextColor)
-  //   const xOffset = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kMaterialKeyXOffset)
-  //   const yOffset = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kMaterialKeyYOffset)
-  //   const textAlignmentH = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextAlignmentH)
-  //   const textAlignmentV = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextAlignmentV)
-  //   const textOutlineColor = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextOutlineColor)
-  //   const textOutlineEnabled = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextOutlineEnable)
-  //   const textOutlineSize = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyText, C.kTextOutlineSize)
-  //   const textShadowColor = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextShadowColor)
-  //   const textShadowEnabled = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextShadowEnable)
-  //   const textShadowOffsetX = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyText, C.kTextShadowOffsetX)
-  //   const textShadowOffsetY = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyText, C.kTextShadowOffsetY)
-  //   const textBold = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextBold)
-  //   const textItalics = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextItalics)
-  //   const textUnderline = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextUnderline)
-  //   const textWordSpace = this.coreMeEditor.getClipI64Property(clipId, C.kPropertyText, C.kTextWorldSpace)
-
-
-  //   const fontFileResId = this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyText, C.ResIdKey(C.kTextFontFile))
-  //   const fontFile = this.coreMeEditor.getResPath(fontFileResId)
-  //   const textType = this.getClipInnerKey(clipId, C.kPropertyText, 'text', 'type') ?? 'text'
-
-  //   return {
-  //     id: clipId,
-  //     type: textType,
-  //     clipId,
-  //     content,
-  //     font_file:  fontFile,
-  //     scale,
-  //     text_color: ARGBToHex(textColor),
-  //     x_offset:   xOffset,
-  //     y_offset:   yOffset,
-  //     text_alignment_h:     textAlignmentH,
-  //     text_alignment_v:     textAlignmentV,
-  //     text_outline_color:   ARGBToHex(textOutlineColor),
-  //     text_outline_enabled: textOutlineEnabled,
-  //     text_outline_size:    textOutlineSize,
-  //     text_shadow_color:    ARGBToHex(textShadowColor),
-  //     text_shadow_enabled:  textShadowEnabled,
-  //     text_shadow_offset_x: textShadowOffsetX,
-  //     text_shadow_offset_y: textShadowOffsetY,
-  //     text_style_bold:      textBold,
-  //     text_style_italics:   textItalics,
-  //     text_style_underline: textUnderline,
-  //     text_word_space:      textWordSpace
-  //   } as TextClipInfo
-  // }
-
-  // private getCustomTransitionClipInfo(clipId): TransitionClipInfo {
-  //   const path = this.coreMeEditor.getClipStrProperty(clipId, C.kMaterialTypeTransition, C.kSourceKeyPath)
-  //   const durationUs = this.coreMeEditor.getClipDblProperty(clipId, C.kMaterialTypeTransition, C.kMaterialKeyDurationUs)
-  //   const mode = this.coreMeEditor.getClipStrProperty(clipId, C.kMaterialTypeTransition, C.kMaterialKeyMode)
-  //   return {
-  //     duration_us: durationUs,
-  //     mode,
-  //     path
-  //   } as TransitionClipInfo
-  // }
+  async getCanvasHeight(): Promise<number> {
+    return this.canvasHeight || (await this.getCanvasProperties()).height;
+  }
+
+  async getCanvasWidth(): Promise<number> {
+    return this.canvasWidth || (await this.getCanvasProperties()).width;
+  }
+
+  async setCanvasBackgroundColor(clipId: string, color: number): Promise<Ret> {
+    return this.coreMeEditor.setCanvasBackgroundColor(clipId, color);
+  }
+
+  private async getCanvasBackground(clipId: ClipId): Promise<{ bgColor: string; bgImage: string; bgBlur: number }> {
+    const result = {
+      bgColor: '',
+      bgImage: '',
+      bgBlur: 0,
+    };
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kConfigKeyBackground, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId, def);
+    if (clipProperties?.length) {
+      const item = clipProperties[0];
+      const bg = item[(item as any).value];
+      const ARGB: ColorARGB = Number(bg.replace('color_', ''));
+      const colorHex: ColorHEX = ARGBToHex(ARGB);
+      result.bgColor = colorHex;
+
+      if (/^res_id_/.test(bg || '')) {
+        result.bgImage = await this.getResPath(bg.replace(/^res_id_/, ''));
+      }
+
+      if (/^blur_/.test(bg || '')) {
+        result.bgBlur = Number(bg.replace('blur_', ''));
+      }
+    }
+    return result;
+  }
+
+  async getCanvasBackgroundColor(clipId: ClipId): Promise<ColorHEX> {
+    const color: String = await this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyCanvas, C.kConfigKeyBackground);
+    const ARGB: ColorARGB = Number(color.replace('color_', ''));
+    const colorHex: ColorHEX = ARGBToHex(ARGB);
+    return colorHex;
+  }
+
+
+  async setCanvasBackgroundImage(clipId: string, image: string): Promise<number> {
+    const ret = await this.coreMeEditor.setCanvasBackgroundRes(clipId, image);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async getCanvasBackgroundImage(clipId: ClipId): Promise<Path> {
+    const resId: ResId = await this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyCanvas, C.kConfigKeyBackground);
+    let path: Path = '';
+    if (/^res_id_/.test(resId || '')) {
+      path = await this.getResPath(resId.replace(/^res_id_/, ''));
+    }
+    return path;
+  }
+
+  async setCanvasBackgroundBlurType(clipId: string, type: number): Promise<number> {
+    const ret = await this.coreMeEditor.setCanvasBackgroundBlurType(clipId, type);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async getCanvasBackgroundBlurType(clipId: ClipId): Promise<number> {
+    const blurProperty = await this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyCanvas, C.kConfigKeyBackground);
+    let type = 0;
+    if (/^blur_/.test(blurProperty || '')) {
+      type = Number(blurProperty.replace('blur_', ''));
+    }
+    return type;
+  }
+
+  async setClipBlendType(clipId: string, blendType: string): Promise<Ret> {
+    const ret = await this.coreMeEditor.setClipBlendType(clipId, blendType);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async getClipBlendType(clipId: string): Promise<string> {
+    return this.coreMeEditor.getClipBlendType(clipId);
+  }
+
+  async changeClipBlendType(blendType: string, clipId?: string): Promise<Ret> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeClipBlendType should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.setClipBlendType(clipId || this.selectedClipId, blendType);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+
+  async setTransitionEffect(path: string, mode = pkg.TransitionMode.TransitionOverlay, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.setTransitionEffect should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.setTransitionEffect(clipId || this.selectedClipId, path, mode);
+
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async setTransitionDurationUs(durationUs: number, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.setTransitionEffect should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.setTransitionDurationUs(clipId || this.selectedClipId, durationUs);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async removeTransition(clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.setTransitionEffect should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.removeTransition(clipId || this.selectedClipId);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async setDefaultFont(fontPath: string): Promise<number> {
+    return this.coreMeEditor.setDefaultFontFile(fontPath);
+  }
+
+  async addText(fontPath: string, content: string, startTimeUS: number, duration: number, trackId: TrackId = ''): Promise<string> {
+    await this.setDefaultFont(fontPath);
+    const clipId = await this.coreMeEditor.addTextClip(trackId, content, startTimeUS, duration);
+    if (!clipId || clipId === '') {
+      this.triggerError(Error(''), '添加MediaToTrack ClipId为空');
+      return '';
+    }
+    await this.setScale(clipId, 1.0);
+    await this.selectClip(clipId);
+    this.unselectClip();
+    return clipId;
+  }
+
+  async changeText(content: string, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeText should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.setText(this.selectedClipId, content);
+
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeTextColor(color: ColorHEX, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeTextColor should call selectClip.');
+    }
+    const ARGB = HexToARGB(color);
+    const ret = await this.coreMeEditor.setTextColor(this.selectedClipId, ARGB);
+
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeTextFont(path: string, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeTextFont should call selectClip.');
+    }
+    try {
+      const ret = await this.coreMeEditor.setTextFont(this.selectedClipId, path);
+
+      if (ret < 0) {
+        this.triggerError(Error(''), this.getMeErrorMessage(ret));
+      }
+      return ret;
+    } catch (e) {
+      console.log(e);
+      return 0;
+    }
+  }
+
+  async changeTextShadow(clipId: string, enable: boolean, color: ColorHEX, offsetX: number, offsetY: number): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeTextShadow should call selectClip.');
+    }
+    const ARGB = HexToARGB(color);
+    const ret = await this.coreMeEditor.changeTextShadow(clipId || this.selectedClipId, enable, ARGB, offsetX, offsetY);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeTextShadowColor(color: ColorHEX, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeTextShadowColor should call selectClip.');
+    }
+    const ARGB = HexToARGB(color);
+    let ret = await this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowColor, ARGB);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    ret = await this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowEnable, 1);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async cleanTextShadowColor(clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.cleanTextShadowColor should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowEnable, 0);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async transformTextShadow(position: XYPosition, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.transformTextShadow should call selectClip.');
+    }
+    let ret = await this.coreMeEditor.setClipDblProperty(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowOffsetX, position.x);
+
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    ret = await this.coreMeEditor.setClipDblProperty(clipId || this.selectedClipId, C.kPropertyText, C.kTextShadowOffsetY, position.y);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeTextAlignment(clipId: string, v: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.AlignmentVerticalType, h: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.AlignmentHorizontalType): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeTextAlignment should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.setTextAlignment(this.selectedClipId || clipId, v, h);
+
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeTextOutlineStyle(color: ColorHEX, size: number, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeTextOutlineStyle should call selectClip.');
+    }
+    const ARGB = HexToARGB(color);
+    const ret = await this.coreMeEditor.setTextOutline(clipId || this.selectedClipId, true, ARGB, size);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async cleanTextOutline(clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.cleanTextOutline should call selectClip.');
+    }
+    const ret = await this.coreMeEditor.setClipI64Property(clipId || this.selectedClipId, C.kPropertyText, C.kTextOutlineEnable, 0);
+    // const ret = this.coreMeEditor.setTextOutline(clipId || this.selectedClipId, false, 0, 0);
+    return ret;
+  }
+
+  async changeTextStyle(style: TextStyle, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeTextStyle should call selectClip.');
+    }
+    let ret = 0;
+    if (style.bold !== undefined) {
+      ret = await this.coreMeEditor.setTextBold(clipId || this.selectedClipId, style.bold);
+    }
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    if (style.italics !== undefined) {
+      ret = await this.coreMeEditor.setTextItalics(clipId || this.selectedClipId, style.italics);
+    }
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    if (style.underline !== undefined) {
+      ret = await this.coreMeEditor.setTextUnderline(clipId || this.selectedClipId, style.underline);
+    }
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async setClipPosition(position: { x: number; y: number }, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.setClipPosition should call selectClip.');
+    }
+    const { x, y } = position;
+    const ret = await this.coreMeEditor.setPosition(clipId || this.selectedClipId, x, y);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async setClipAnchor(position: { x: number; y: number }, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.setClipAnchor should call selectClip.');
+    }
+    const { x, y } = position;
+    const ret = await this.coreMeEditor.setAnchor(clipId || this.selectedClipId, x, y);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeClipPosition(position: { x: number; y: number }, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeClipPosition should call selectClip.');
+    }
+    const { x, y } = position;
+    const canvasWidth = await this.getCanvasWidth();
+    const canvasHeight = await this.getCanvasHeight();
+    const centerWidth = canvasWidth / 2;
+    const centerHeight = canvasHeight / 2;
+    const measure = await this.getMeasure();
+    const offsetX = pixelToFloat((x + measure.width / 2 - centerWidth), canvasWidth);
+    const offsetY = pixelToFloat((y + measure.height / 2 - centerHeight), canvasHeight);
+    const ret = await this.coreMeEditor.setPosition(clipId || this.selectedClipId, offsetX, offsetY);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeClipRotate(degree: number, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeClipRotate should call selectClip.');
+    }
+    const rotate = degreeToFloat(degree);
+    const ret = await this.coreMeEditor.setRotate(clipId || this.selectedClipId, rotate);
+
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeClipScale(scale: XYPosition, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeClipScale should call selectClip.');
+    }
+    const ret = this.setScale(clipId, scale.x);
+
+    return ret;
+  }
+
+  triggerError(error: Error, message?: string) {
+    const info = `${__filename}::${error.stack.split('\n')[0]} → ${message || error.message} `;
+    console.warn(info);
+    this.emit('MarvelSdkError', `${__filename}::${error.stack.split('\n')[1].match(/ at ([A-Za-z0-9.]*) /)[1]} → ${message || error.message}`);
+  }
+
+  async addMediaToMainTrack(path: string): Promise<string> {
+    const resourceInfo = this.toolboxInstance.getResourceInfo(path);
+    const durationUs = Number(resourceInfo.maxDurationUs);
+    const clipId = await this.coreMeEditor.addMainClip(path, 0, durationUs);
+    if (clipId === '') {
+      this.triggerError(Error(''), '添加MediaToMainTrack ClipId为空');
+    }
+    return clipId;
+  }
+
+  async addImageToMainTrack(path: string, timeUS: number): Promise<string> {
+    const clipId = await this.coreMeEditor.addMainClip(path, 0, timeUS);
+    if (clipId === '') {
+      this.triggerError(Error(''), '添加ImageToMainTrack ClipId为空');
+    }
+    return clipId;
+  }
+
+  async addMediaToTrack(path: string, trackId: TrackId = ''): Promise<string> {
+    let clipId = '';
+    const resourceInfo = this.toolboxInstance.getResourceInfo(path);
+    const durationUs = Number(resourceInfo.maxDurationUs);
+    clipId = await this.coreMeEditor.addPipClip(trackId, path, 0, 0, durationUs);
+    if (clipId === '') {
+      this.triggerError(Error(''), '添加MediaToTrack ClipId为空');
+    }
+    return clipId;
+  }
+
+  async addImageToTrack(path: string, timeUS: number, trackId = ''): Promise<string> {
+    const clipId = await this.coreMeEditor.addPipClip(trackId, path, 0, 0, timeUS);
+    if (clipId === '') {
+      this.triggerError(Error(''), '添加ImageToTrack ClipId为空');
+    }
+    return clipId;
+  }
+
+  async addMusic(path: string, trackId: TrackId = ''): Promise<string> {
+    const resourceInfo = this.toolboxInstance.getResourceInfo(path);
+    const durationUs = Number(resourceInfo.maxDurationUs);
+    const clipId = await this.coreMeEditor.addMusicClip(trackId, path, 0, 0, durationUs);
+    if (clipId === '') {
+      this.triggerError(Error(''), '添加Music ClipId为空');
+    }
+    return clipId;
+  }
+
+  async addLookup(path: string, intensity: number, startTimeUS: TimeUS = 0, durationUs: TimeUS = 3000000, trackId: TrackId = ''): Promise<string> {
+    const clipId = await this.coreMeEditor.addLookupClip(trackId, path, startTimeUS, durationUs);
+
+    if (!clipId || clipId === '') {
+      this.triggerError(Error(''), '添加Lookup ClipId为空');
+    }
+
+    await this.setLookupIntensity(clipId, intensity);
+    return clipId;
+  }
+
+  async addSticker(path: string, startTimeUS: TimeUS = 0, durationUs: TimeUS = 300000, trackId: TrackId = ''): Promise<string> {
+    const clipId = await this.coreMeEditor.addStickerClip(trackId, path, startTimeUS, durationUs);
+    if (!clipId || clipId === '') {
+      this.triggerError(Error(''), '添加Sticker ClipId为空');
+    }
+    return clipId;
+  }
+
+  /**
+   * @deprecated Magic 接口缺失
+   * @param path
+   * @param timeUS
+   */
+  addMagic(path: string, timeUS: number): string {
+    console.debug(path, timeUS);
+    return '';
+  }
+
+  /**
+   * @deprecated
+   * @param path
+   * @param info
+   */
+  addCustomizeClip(path: string, info: {}): string {
+    console.debug(path, info);
+    return '';
+  }
+
+  async removeTrack(trackId: string): Promise<Ret> {
+    const ret = await this.coreMeEditor.removeTrack(trackId);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async selectClip(clipId: string): Promise<number> {
+    this.selectedClipId = clipId;
+    const clipInfo = await this.getClipInfo<BaseClipInfo | null>(clipId);
+    if (clipInfo && (clipInfo.clipInfo as BaseClipInfo).type === pkg.MarvelTrackType.TrackTypeMain) { // 主轨道不能操作changePlayTime；
+      this.canChangePlayTime = true;
+    } else {
+      this.canChangePlayTime = true;
+    }
+    return 0;
+  }
+
+  unselectClip(): number {
+    this.selectedClipId = null;
+    this.canChangePlayTime = true;
+    return 0;
+  }
+
+  async removeClip(clipId: string): Promise<number> {
+    const ret = await this.coreMeEditor.deleteClip(clipId);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+  async splitClip(timeUS: number, clipId?: string): Promise<string> {
+    if (!this.selectedClipId && !clipId) {
+      const error = Error('use MarvelEditor.selectClip should call splitClip.');
+      this.triggerError(error, error.message);
+      throw error;
+    }
+    const clipIds = await this.coreMeEditor.splitClip(clipId || this.selectedClipId, timeUS);
+    if (!clipIds || !clipIds.length) {
+      this.triggerError(Error(''), `分割 ClipId: ${clipId || this.selectedClipId} 失败`);
+    }
+    return clipIds;
+  }
+
+  async moveClip(startTimeUs: number, trackId = '', clipId?: string): Promise<Ret> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.selectClip should call moveClip.');
+    }
+    const tClipId = clipId || this.selectedClipId;
+    return this.coreMeEditor.moveClip(tClipId, startTimeUs, trackId);
+  }
+
+  async changeVolume(volume: number, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      const error = Error('use MarvelEditor.changeVolume should call clipId.');
+      this.triggerError(error, error.message);
+      throw error;
+    }
+
+    const ret = await this.setClipVolume(clipId || this.selectedClipId, volume);
+    if (ret < 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeSpeed(speed: number, clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      const error = Error('use MarvelEditor.changeSpeed should call clipId.');
+      this.triggerError(error, error.message);
+      throw error;
+    }
+
+    const ret = await this.setClipSpeed(clipId || this.selectedClipId, speed);
+    if (ret !== 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeSourceStartTimeUs(startUs: TimeUS, clipId?: string): Promise<Ret> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeSourceStartTimeUs should call changeSourceTime.');
+    }
+    const ret = await this.setSourceStartTimeUs(clipId || this.selectedClipId, startUs);
+    if (ret !== 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeSourceEndTimeUs(endUs: TimeUS, clipId?: string): Promise<Ret> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeSourceEndTimeUs should call changeSourceTime.');
+    }
+    const ret = await this.setSourceEndTimeUs(clipId || this.selectedClipId, endUs);
+    if (ret !== 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async changeSourceTime(startUs?: TimeUS, stopUs?: TimeUS, clipId?: string): Promise<Ret> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.changeSourceTime should call changeSourceTime.');
+    }
+    const ret = await this.coreMeEditor.setSourceTimeRange(clipId || this.selectedClipId, startUs, stopUs);
+    if (ret !== 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  async setClipStartTimeUs(clipId: string, time: number): Promise<number> {
+    const ret = await this.coreMeEditor.setClipStartTimeUs(clipId, time);
+    return ret;
+  }
+
+  async changePlayTime(startUs: TimeUS): Promise<number> {
+    if (!this.selectedClipId) {
+      throw Error('use MarvelEditor.changePlayTime should call selectedClipId.');
+    }
+    if (!this.canChangePlayTime) {
+      throw Error('Clip in main track can not changePlayTime');
+    }
+    const ret = await this.setClipStartTimeUs(this.selectedClipId, startUs);
+    if (ret !== 0) {
+      this.triggerError(Error(''), this.getMeErrorMessage(ret));
+    }
+    return ret;
+  }
+
+  /**
+   * @deprecated
+   * @param property
+   */
+  transformClip(property: TransformProperty): number {
+    if (!this.selectedClipId) {
+      throw Error('use MarvelEditor.selectClip should call transformClip.');
+    }
+    console.debug(property);
+    return 0;
+  }
+
+  async undo(): Promise<Ret> {
+    const currentSeqId = this._accs.getSeqId();
+    const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
+    const editorUndoCommand = new pkg.EditorUndoCommand();
+    const command = new pkg.Command();
+    command.editorUndoCommand = editorUndoCommand;
+    const buffer = pbMsg.generateMessage(command, true);
+
+    try {
+      const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
+      if (result.errCode !== pkg.Result.ERROR_CODE.ERROR_SUCCESS) {
+        this.triggerError(Error(''), this.getErrorMessage(-1));
+      }
+      return result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS ? 0 : -1;
+    } catch (error) {
+      console.log('[Error]: editorUndoCommand', error);
+    }
+    this.triggerError(Error(''), this.getErrorMessage(-1));
+    return -1;
+  }
+
+  async redo(): Promise<Ret> {
+    const currentSeqId = this._accs.getSeqId();
+    const pbMsg = new ProtoMessage(this._userId, currentSeqId, this._sessionId);
+    const editorRedoCommand = new pkg.EditorRedoCommand();
+    const command = new pkg.Command();
+    command.editorRedoCommand = editorRedoCommand;
+    const buffer = pbMsg.generateMessage(command, true);
+
+    try {
+      const result: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResult = await this._accs.sendMessage(buffer, currentSeqId);
+      if (result.errCode !== pkg.Result.ERROR_CODE.ERROR_SUCCESS) {
+        this.triggerError(Error(''), this.getErrorMessage(-1));
+      }
+      return result.errCode === pkg.Result.ERROR_CODE.ERROR_SUCCESS ? 0 : -1;
+    } catch (error) {
+      console.log('[Error]: editorRedoCommand', error);
+    }
+    this.triggerError(Error(''), this.getErrorMessage(-1));
+    return -1;
+  }
+
+  async canUndo(): Promise<boolean> {
+    const ret = await this.getUndoStackSize();
+    return ret > 0;
+  }
+
+  async canRedo(): Promise<boolean> {
+    const ret = await this.getRedoStackSize();
+    return ret > 0;
+  }
+
+  async getPanelInfo(): Promise<PanelInfo> {
+    const trackIdList = await this.getTrackIdList();
+    if (trackIdList.ret < 0) {
+      this.triggerError(Error(''), this.getMeLastErrorCode());
+    }
+
+    return {
+      ret: trackIdList.ret,
+      trackIds: trackIdList.data as TrackId[],
+      info: '',
+    };
+  }
+
+  async getTrackInfo(trackId: string): Promise<TrackInfo> {
+    const trackInfo = await this.coreMeEditor.getTrackInfo(trackId);
+
+    return {
+      ret: trackInfo?.trackType ? 0 : -1,
+      clipIds: trackInfo.clipIds,
+      type: MarvelTrackTypeToString[trackInfo.trackType],
+    };
+  }
+
+  /**
+   * @deprecated
+   * @param clipId
+   * @param type
+   * @param clipInfo
+   */
+  setClipInfo(clipId: string, type: string, clipInfo: MarvelClipInfo): number {
+    console.debug(clipId, type, clipInfo);
+    return 0;
+  }
+
+  async toggleMute(clipId?: string): Promise<number> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.toggleMute should call splitClip.');
+    }
+    const clip = await this.getClipInfo<BaseClipInfo>(clipId || this.selectedClipId);
+    const { volume } = clip.clipInfo;
+    if (volume === '0.000000') {
+      return this.setClipVolume(clipId || this.selectedClipId, 0.99);
+    } else {
+      return this.setClipVolume(clipId || this.selectedClipId, 0);
+    }
+  }
+
+  async isMute(clipId?: string): Promise<boolean> {
+    if (!this.selectedClipId && !clipId) {
+      throw Error('use MarvelEditor.toggleMute should call splitClip.');
+    }
+    const clip = await this.getClipInfo<BaseClipInfo>(clipId || this.selectedClipId);
+    const { volume } = clip.clipInfo;
+    if (volume === '0.000000') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async getScaleX(clipId: string): Promise<DoubleFloat> {
+    const x = await this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kMaterialKeyXScale);
+    return x;
+  }
+
+  async getScaleY(clipId: string): Promise<DoubleFloat> {
+    const y = this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyCanvas, C.kMaterialKeyYScale);
+    return y;
+  }
+
+  async getIntensity(clipId: string): Promise<number> {
+    const intensity = await this.coreMeEditor.getClipDblProperty(clipId, C.kPropertyLookup, C.kMaterialKeyIntensity);
+    return intensity;
+  }
+
+  /**
+   * @deprecated
+   * @param clipId
+   * @param x
+   * @returns
+   */
+  async setScaleX(clipId: string, x: DoubleFloat): Promise<Ret> {
+    const ret = await this.coreMeEditor.setScaleX(clipId, x);
+    return ret;
+  }
+
+  /**
+   * @deprecated
+   * @param clipId
+   * @param y
+   * @returns
+   */
+  async setScaleY(clipId: string, y: DoubleFloat): Promise<Ret> {
+    const ret = await this.coreMeEditor.setScaleY(clipId, y);
+    return ret;
+  }
+
+  async setScale(clipId: string, scale: DoubleFloat): Promise<number> {
+    return this.coreMeEditor.setScale(clipId, scale);
+  }
+
+  async getTinyClipInfo(clipId: string): Promise<ClipInfo<BaseClipInfo>> {
+    const clipInfo = await this.getCustomBaseClipInfo(clipId);
+    return {
+      ret: 0,
+      clipInfo,
+    };
+  }
+
+  async getClipInfo<T extends MarvelClipInfo>(clipId: string, type?: string): Promise<ClipInfo<T>> {
+    if (!type) {
+      type = ClipType.BASE;
+    }
+
+    let clipInfo: any | T | MarvelClipInfo;
+
+    if (type === ClipType.BASE) {
+      clipInfo = await this.getCustomBaseClipInfo(clipId);
+      const clipData = clipInfo as BaseClipInfo;
+      let resource: any;
+      let transition: any;
+      let canvas: CanvasClipInfo;
+      let mask: MaskInfo;
+
+      const keyframePointList: KeyframePointList = await this.getClipAllKeyframeAnchorList({ clipId });
+      clipInfo.keyframe = {
+        anchors: keyframePointList,
+      };
+
+      if (clipData.type === pkg.MarvelTrackType.TrackTypeBgMusic
+        || clipData.type === pkg.MarvelTrackType.TrackTypePip
+        || clipData.type === pkg.MarvelTrackType.TrackTypeMain
+        || clipData.type === pkg.MarvelTrackType.TrackTypeSticker
+        || clipData.type === pkg.MarvelTrackType.TrackTypeLookup) {
+        const info = await this.getClipInfo<SourceClipInfo>(clipId, ClipType.SOURCE);
+        resource = info.clipInfo;
+      } else if (clipData.type === pkg.MarvelTrackType.TrackTypeText) {
+        const info = await this.getClipInfo<TextClipInfo>(clipId, ClipType.TEXT);
+        const textInfo = info.clipInfo;
+
+        const { text_color, text_outline_color, text_shadow_color } = textInfo;
+        text_color && (textInfo.text_color = text_color);
+        text_outline_color && (textInfo.text_outline_color = text_outline_color);
+        text_shadow_color && (textInfo.text_shadow_color = text_shadow_color);
+        resource = textInfo;
+      }
+
+      if (clipData.type === pkg.MarvelTrackType.TrackTypePip || clipData.type === pkg.MarvelTrackType.TrackTypeMain) {
+        const clipInfo1 = await this.getClipInfo<SourceClipInfo>(clipId, ClipType.TRANSITION);
+        const info = clipInfo1.clipInfo;
+        if (info.duration_us || info.mode || info.path) {
+          transition = info;
+        }
+      }
+
+      // if (clipData.type === pkg.MarvelTrackType.TrackTypePip) {
+      //   const maskResId = this.hasMaskInfo(clipId);
+      //   if (maskResId) {
+      //     mask = await this.getCustomMaskInfo(clipId, maskResId);
+      //   }
+      // }
+
+      if (
+        [
+          pkg.MarvelTrackType.TrackTypeMain,
+          pkg.MarvelTrackType.TrackTypePip,
+          pkg.MarvelTrackType.TrackTypeSticker,
+          pkg.MarvelTrackType.TrackTypeText,
+          pkg.MarvelTrackType.TrackTypeLookup,
+        ].includes(clipData.type)) {
+        const clipInfo1 = await this.getClipInfo<CanvasClipInfo>(clipId, ClipType.CANVAS);
+        canvas = clipInfo1.clipInfo;
+      }
+
+      /**
+       * 无法确定此切片类型是否存在UI信息，因此将都获取一遍
+       */
+      const ui: DynamicUIClipInfo = await this.getCustomUIClipInfo(clipId, MarvelTrackTypeToString[clipData.type]);
+
+      if (resource) {
+        clipInfo.resource = resource;
+      }
+      if (transition) {
+        clipInfo.transition = transition;
+      }
+      if (canvas) {
+        clipInfo.canvas = canvas;
+      }
+      if (mask) {
+        clipInfo.mask = mask;
+      }
+
+      if (ui) {
+        clipInfo.ui = ui;
+      }
+    } else if (type === ClipType.CANVAS) {
+      clipInfo = await this.getCustomCanvasClipInfo(clipId);
+    } else if (type === ClipType.LOOKUP) {
+      clipInfo = await this.getCustomLookupClipInfo(clipId);
+    } else if (type === ClipType.STICKER) {
+      clipInfo = await this.getCustomStickerClipInfo(clipId);
+    } else if (type === ClipType.MAGIC) {
+      clipInfo = await this.getCustomMagicClipInfo(clipId);
+    } else if (type === ClipType.TRANSITION) {
+      clipInfo = await this.getCustomTransitionClipInfo(clipId);
+    } else if (type === ClipType.TEXT) {
+      clipInfo = await this.getCustomTextClipInfo(clipId);
+    } else if (type === ClipType.SOURCE) {
+      clipInfo = await this.getCustomSourceClipInfo(clipId);
+    }
+
+    return {
+      ret: 1,
+      clipInfo,
+    };
+  }
+
+  private async getCustomBaseClipInfo(clipId: string): Promise<BaseClipInfo> {
+    const resId = await this.getClipResID(clipId);
+    let trackId: string;
+    let speed: number;
+    let revert: number;
+    let sourceStartTimeUs: number;
+    let sourceEndTimeUs: number;
+    let startTimeUs: number;
+    let endTimeUs: number;
+    let volume: number;
+    let clipType: string;
+
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kClipKeyParentId, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+      { propKey: C.kClipKeySpeed, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kClipKeyRevert, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kClipKeySourceStartTime, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kClipKeySourceEndTime, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kClipKeyClipStartTime, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kClipKeyClipEndTime, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kClipKeyVolume, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kClipKeyType, propType: C.kPropertyClipBase, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kClipKeyParentId:
+          trackId = item[(item as any).value];
+          break;
+        case C.kClipKeySpeed:
+          speed = item[(item as any).value];
+          break;
+        case C.kClipKeyRevert:
+          revert = item[(item as any).value];
+          break;
+        case C.kClipKeySourceStartTime:
+          sourceStartTimeUs = item[(item as any).value];
+          break;
+        case C.kClipKeySourceEndTime:
+          sourceEndTimeUs = item[(item as any).value];
+          break;
+        case C.kClipKeyClipStartTime:
+          startTimeUs = item[(item as any).value];
+          break;
+        case C.kClipKeyClipEndTime:
+          endTimeUs = item[(item as any).value];
+          break;
+        case C.kClipKeyVolume:
+          volume = item[(item as any).value];
+          break;
+        case C.kClipKeyType:
+          clipType = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+
+    // 扩展特效 type转换
+    if (['Shape'].includes(clipType)) {
+      clipType = MarvelTrackTypeToString[pkg.MarvelTrackType.TrackTypeDynamic];
+    }
+
+    return {
+      id: clipId,
+      track_id: trackId,
+      speed,
+      res_id: resId,
+      revert,
+      source_start_time_us: sourceStartTimeUs,
+      source_stop_time_us: sourceEndTimeUs,
+      start_time_us: startTimeUs,
+      stop_time_us: endTimeUs,
+      volume: volume.toString(),
+      type: StringToMarvelTrackType[clipType],
+    };
+  }
+
+  private async getCustomCanvasClipInfo(clipId): Promise<CanvasClipInfo> {
+    let rotate: number;
+    let scale: XYPosition;
+    let measure: ClipMeasure;
+    let offset: XYPosition;
+    let bg: { bgColor: string; bgImage: string; bgBlur: number };
+    let intensity: number;
+    const clipInfo = await this.getCustomBaseClipInfo(clipId);
+
+    if ([pkg.MarvelTrackType.TrackTypeLookup, pkg.MarvelTrackType.TrackTypeEffect].includes(clipInfo.type)) {
+      [rotate, scale, measure, offset, bg, intensity] = await Promise.all([
+        this.getRotate(clipId),
+        this.getScale(clipId),
+        this.getMeasure(clipId),
+        this.getPosition(clipId),
+        this.getCanvasBackground(clipId),
+        this.getIntensity(clipId),
+      ]);
+    } else {
+      [rotate, scale, measure, offset, bg, intensity] = await Promise.all([
+        this.getRotate(clipId),
+        this.getScale(clipId),
+        this.getMeasure(clipId),
+        this.getPosition(clipId),
+        this.getCanvasBackground(clipId),
+        this.getClipTransparency(clipId), // 如果是特效或者滤镜则是强度，否则是从canvas中获取透明度
+      ]);
+    }
+
+    const { bgColor, bgImage, bgBlur } = bg;
+
+    const canvas: CanvasClipInfo = {
+      xOffset: offset.x,
+      yOffset: offset.y,
+      width: measure.width,
+      height: measure.height,
+      rotate,
+      xScale: scale.x,
+      yScale: scale.y,
+      bg_color: bgColor,
+      bg_image: bgImage,
+      blur_type: bgBlur,
+      intensity,
+    };
+
+    return canvas;
+  }
+
+  private async getCustomLookupClipInfo(clipId): Promise<LookupClipInfo> {
+    let intensity: number;
+    let path: string;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kMaterialKeyIntensity, propType: C.kPropertyLookup, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kSourceKeyPath, propType: C.kPropertyLookup, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kMaterialKeyIntensity:
+          intensity = item[(item as any).value];
+          break;
+        case C.kSourceKeyPath:
+          path = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+    return {
+      intensity,
+      path,
+    };
+  }
+
+  private async getCustomSourceClipInfo(clipId: string): Promise<SourceClipInfo> {
+    const type = '';
+    const extraType = '';
+    const { resourceId, resourceUrl } = await this.coreMeEditor.getResInfo(clipId);
+    let audioChannelCount: number;
+    let audioDurationUs: number;
+    let audioMime: string;
+    let audioSampleRate: number;
+    let hasAudio: number;
+    let hasVideo: number;
+    let videoDurationUs: number;
+    let videoHeight: number;
+    let videoWidth: number;
+    let videoMime: string;
+    let videoRotation: number;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kSourceKeyAudioChannelCount, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyAudioDuration, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyAudioMime, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+      { propKey: C.kSourceKeyAudioSampleRate, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyHasAudio, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyHasVideo, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyVideoDuration, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyVideoWidth, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyVideoHeight, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kSourceKeyVideoMime, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+      { propKey: C.kSourceKeyVideoRotation, propType: '', propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+    ];
+    const clipProperties = await this.coreMeEditor.getResProperties('', resourceId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kSourceKeyAudioChannelCount:
+          audioChannelCount = item[(item as any).value];
+          break;
+        case C.kSourceKeyAudioDuration:
+          audioDurationUs = item[(item as any).value];
+          break;
+        case C.kSourceKeyAudioMime:
+          audioMime = item[(item as any).value];
+          break;
+        case C.kSourceKeyAudioSampleRate:
+          audioSampleRate = item[(item as any).value];
+          break;
+        case C.kSourceKeyHasAudio:
+          hasAudio = item[(item as any).value];
+          break;
+        case C.kSourceKeyHasVideo:
+          hasVideo = item[(item as any).value];
+          break;
+        case C.kSourceKeyVideoDuration:
+          videoDurationUs = item[(item as any).value];
+          break;
+        case C.kSourceKeyVideoWidth:
+          videoWidth = item[(item as any).value];
+          break;
+        case C.kSourceKeyVideoHeight:
+          videoHeight = item[(item as any).value];
+          break;
+        case C.kSourceKeyVideoMime:
+          videoMime = item[(item as any).value];
+          break;
+        case C.kSourceKeyVideoRotation:
+          videoRotation = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+    const maxDurationUs = Math.max(videoDurationUs, audioDurationUs);
+    const minDurationUs = Math.min(videoDurationUs, audioDurationUs);
+
+    return {
+      audioChannelCount,
+      audioDurationUs,
+      audioMime,
+      audioSampleRate,
+      hasAudio,
+      hasVideo,
+      id: resourceId,
+      max_duration_us: maxDurationUs,
+      min_duration_us: minDurationUs,
+      path: resourceUrl,
+      type,
+      videoDurationUs,
+      videoHeight,
+      videoMime,
+      videoRotation,
+      videoWidth,
+      extraType,
+    };
+  }
+
+  private async getCustomMagicClipInfo(clipId: string): Promise<MagicClipInfo> {
+    const path = await this.coreMeEditor.getClipStrProperty(clipId, C.kPropertyLookup, C.kSourceKeyPath);
+
+    return {
+      clipId,
+      path,
+    };
+  }
+
+  private async getCustomStickerClipInfo(clipId: string): Promise<StickerClipInfo> {
+    const path = await this.coreMeEditor.getClipStrProperty(clipId, C.kPropertySticker, C.kSourceKeyPath);
+
+    return {
+      clipId,
+      path,
+    };
+  }
+
+  private async getCustomTextClipInfo(clipId: string): Promise<TextClipInfo> {
+    let scale: number;
+    let content: string;
+    let textColor: number;
+    let xOffset: number;
+    let yOffset: number;
+    let textAlignmentH: number;
+    let textAlignmentV: number;
+    let textOutlineColor: number;
+    let textOutlineEnabled: number;
+    let textOutlineSize: number;
+    let textShadowColor: number;
+    let textShadowEnabled: number;
+    let textShadowOffsetX: number;
+    let textShadowOffsetY: number;
+    let textBold: number;
+    let textItalics: number;
+    let textUnderline: number;
+    let textWordSpace: number;
+    let fontFileResId: string;
+    let ty: string;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kMaterialKeyXScale, propType: C.kPropertyCanvas, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kTextContent, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+      { propKey: C.kTextTextColor, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kMaterialKeyXOffset, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kMaterialKeyYOffset, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextAlignmentH, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextAlignmentV, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextOutlineColor, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextOutlineEnable, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextOutlineSize, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kTextShadowColor, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextShadowEnable, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextShadowOffsetX, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kTextShadowOffsetY, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kTextBold, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextItalics, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextUnderline, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.kTextWorldSpace, propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_INT64 },
+      { propKey: C.ResIdKey(C.kTextFontFile), propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+      { propKey: C.AttachInnerKey('text', 'type'), propType: C.kPropertyText, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kMaterialKeyXScale:
+          scale = item[(item as any).value];
+          break;
+        case C.kTextContent:
+          content = item[(item as any).value];
+          break;
+        case C.kTextTextColor:
+          textColor = item[(item as any).value];
+          break;
+        case C.kMaterialKeyXOffset:
+          xOffset = item[(item as any).value];
+          break;
+        case C.kMaterialKeyYOffset:
+          yOffset = item[(item as any).value];
+          break;
+        case C.kTextAlignmentH:
+          textAlignmentH = item[(item as any).value];
+          break;
+        case C.kTextAlignmentV:
+          textAlignmentV = item[(item as any).value];
+          break;
+        case C.kTextOutlineColor:
+          textOutlineColor = item[(item as any).value];
+          break;
+        case C.kTextOutlineEnable:
+          textOutlineEnabled = item[(item as any).value];
+          break;
+        case C.kTextOutlineSize:
+          textOutlineSize = item[(item as any).value];
+          break;
+        case C.kTextShadowColor:
+          textShadowColor = item[(item as any).value];
+          break;
+        case C.kTextShadowEnable:
+          textShadowEnabled = item[(item as any).value];
+          break;
+        case C.kTextShadowOffsetX:
+          textShadowOffsetX = item[(item as any).value];
+          break;
+        case C.kTextShadowOffsetY:
+          textShadowOffsetY = item[(item as any).value];
+          break;
+        case C.kTextBold:
+          textBold = item[(item as any).value];
+          break;
+        case C.kTextItalics:
+          textItalics = item[(item as any).value];
+          break;
+        case C.kTextUnderline:
+          textUnderline = item[(item as any).value];
+          break;
+        case C.kTextWorldSpace:
+          textWordSpace = item[(item as any).value];
+          break;
+        case C.ResIdKey(C.kTextFontFile):
+          fontFileResId = item[(item as any).value];
+          break;
+        case C.AttachInnerKey('text', 'type'):
+          ty = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+
+    const fontFile = await this.getResPath(fontFileResId);
+    const textType = ty ?? 'text';
+
+    return {
+      id: clipId,
+      type: textType,
+      clipId,
+      content,
+      font_file: fontFile,
+      scale,
+      text_color: ARGBToHex(textColor),
+      x_offset: xOffset,
+      y_offset: yOffset,
+      text_alignment_h: textAlignmentH,
+      text_alignment_v: textAlignmentV,
+      text_outline_color: ARGBToHex(textOutlineColor),
+      text_outline_enabled: textOutlineEnabled,
+      text_outline_size: textOutlineSize,
+      text_shadow_color: ARGBToHex(textShadowColor),
+      text_shadow_enabled: textShadowEnabled,
+      text_shadow_offset_x: textShadowOffsetX,
+      text_shadow_offset_y: textShadowOffsetY,
+      text_style_bold: textBold,
+      text_style_italics: textItalics,
+      text_style_underline: textUnderline,
+      text_word_space: textWordSpace,
+    };
+  }
+
+  private async getCustomTransitionClipInfo(clipId: string): Promise<TransitionClipInfo> {
+    let path: string;
+    let durationUs: number;
+    let mode: string;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kSourceKeyPath, propType: C.kMaterialTypeTransition, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+      { propKey: C.kMaterialKeyDurationUs, propType: C.kMaterialTypeTransition, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_DOUBLE },
+      { propKey: C.kMaterialKeyMode, propType: C.kMaterialTypeTransition, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+    ];
+    const clipProperties = await this.coreMeEditor.getClipPropList(clipId, def);
+    clipProperties.forEach((item: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp) => {
+      switch (item.propKey) {
+        case C.kSourceKeyPath:
+          path = item[(item as any).value];
+          break;
+        case C.kMaterialKeyDurationUs:
+          durationUs = item[(item as any).value];
+          break;
+        case C.kMaterialKeyMode:
+          mode = item[(item as any).value];
+          break;
+        default:
+          break;
+      }
+    });
+    return {
+      duration_us: durationUs,
+      mode,
+      path,
+    };
+  }
 
   // setUIItemValue(clipId: ClipId, propertyKey: string, propertyType: string, value: any, dynamicType: string = ClipType.DYNAMIC) {
   //   switch(propertyType) {
@@ -2350,64 +2026,68 @@ export class MarvelEditor implements Editor, MeEditor {
   //   return value
   // }
 
-  // getUIItemValue(clipId: ClipId, propertyKey, propertyType, dynamicType: string = ClipType.DYNAMIC) {
-  //   let value: any
-  //   switch(propertyType) {
-  //     case DynamicUIType.INTEGER: {
-  //       value = this.coreMeEditor.getClipI64Property(clipId, dynamicType, propertyKey)
-  //       break
-  //     }
-  //     case DynamicUIType.DECIMAL: {
-  //       value = this.coreMeEditor.getClipDblProperty(clipId, dynamicType, propertyKey)
-  //       break
-  //     }
-  //     case DynamicUIType.STRING: {
-  //       value = this.coreMeEditor.getClipStrProperty(clipId, dynamicType, propertyKey)
-  //       break
-  //     }
-  //     case DynamicUIType.RESOURCE: {
-  //       const resId = this.coreMeEditor.getClipStrProperty(clipId, dynamicType, propertyKey)
-  //       if (resId) {
-  //         value = this.coreMeEditor.getResPath(resId)
-  //       }
-  //       break
-  //     }
-  //   }
+  async getUIItemValue(clipId: ClipId, propertyKey, propertyType, dynamicType: string = ClipType.DYNAMIC) {
+    let value: any;
+    switch (propertyType) {
+      case DynamicUIType.INTEGER: {
+        value = await this.coreMeEditor.getClipI64Property(clipId, dynamicType, propertyKey);
+        break;
+      }
+      case DynamicUIType.DECIMAL: {
+        value = await this.coreMeEditor.getClipDblProperty(clipId, dynamicType, propertyKey);
+        break;
+      }
+      case DynamicUIType.STRING: {
+        value = await this.coreMeEditor.getClipStrProperty(clipId, dynamicType, propertyKey);
+        break;
+      }
+      case DynamicUIType.RESOURCE: {
+        const resId = await this.coreMeEditor.getClipStrProperty(clipId, dynamicType, propertyKey);
+        if (resId) {
+          value = await this.getResPath(resId);
+        }
+        break;
+      }
+    }
 
-  //   return value
-  // }
+    return value;
+  }
 
-  // private getCustomUIClipInfo(clipId, type): DynamicUIClipInfo | null {
-  //   const dynamicUIDesc = this.coreMeEditor.getClipStrProperty(clipId, type, C.kClipPropertyDesc)
-  //   if (dynamicUIDesc) {
-  //     try {
-  //       const dynamicUI = JSON.parse(dynamicUIDesc) as DynamicUIClipInfo
-  //       const { data } = dynamicUI
-  //       if (data) {
-  //         const uiValueData = data.map(item => {
-  //           const { name, type, dataType/*, prefix*/ } = item
-  //           let value: any
-  //           // if (type === DynamicUIType.RESOURCE && prefix) {
-  //           //   item.prefix = prefix.split('|')
-  //           // }
-  //           if (type === DynamicUIType.COMBO) {
-  //             value = this.getUIItemValue(clipId, `${name}`, dataType)
-  //           } else {
-  //             value = this.getUIItemValue(clipId, `${name}`, type)
-  //           }
-  //           return value ? {
-  //             ...item,
-  //             value
-  //           } : item
-  //         })
-  //         dynamicUI.data = uiValueData
-  //       }
-  //       return dynamicUI
-  //     } catch {
-  //       return null
-  //     }
-  //   }
-  //   return null
-  // }
-
+  private async getCustomUIClipInfo(clipId: string, type: string): Promise<DynamicUIClipInfo> {
+    let dynamicUIDesc: string;
+    const def: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] = [
+      { propKey: C.kClipPropertyDesc, propType: type, propValType: pkg.EditorPropDef.PropValueType.PROP_VALUE_TYPE_STRING },
+    ];
+    const clipProps: proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp[] = await this.coreMeEditor.getClipPropList(clipId, def);
+    if (clipProps && clipProps.length) {
+      const item = clipProps[0];
+      dynamicUIDesc = item[(item as any).value];
+    }
+    if (dynamicUIDesc) {
+      try {
+        const dynamicUI = JSON.parse(dynamicUIDesc) as DynamicUIClipInfo;
+        const { data } = dynamicUI;
+        if (data) {
+          data.forEach(async (item) => {
+            const { name, dataType/* , prefix */ } = item;
+            let value: any;
+            if (item.type === DynamicUIType.COMBO) {
+              value = await this.getUIItemValue(clipId, `${name}`, dataType);
+            } else {
+              value = await this.getUIItemValue(clipId, `${name}`, item.type);
+            }
+            const newItem = value ? {
+              ...item,
+              value,
+            } : item;
+            dynamicUI.data.push(newItem);
+          });
+        }
+        return dynamicUI;
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  }
 }

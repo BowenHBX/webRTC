@@ -669,6 +669,12 @@ export namespace com {
                                     /** Command sessionInvalidCurrentCommand */
                                     sessionInvalidCurrentCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionInvalidCurrentCommand | null);
 
+                                    /** resource related, 1000~1199, just for internal call between server * */
+                                    resourcePrepareCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand | null);
+
+                                    /** resource related, 1200~1999 * */
+                                    resourceListUserMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand | null);
+
                                     /** project related, 2000~ 2999 * */
                                     projectLoadCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IProjectLoadCommand | null);
 
@@ -741,6 +747,15 @@ export namespace com {
                                     /** Command editorRemoveTransitionCommand */
                                     editorRemoveTransitionCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveTransitionCommand | null);
 
+                                    /** Command editorCreateResourceIfNeedCommand */
+                                    editorCreateResourceIfNeedCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand | null);
+
+                                    /** Command editorDeleteMaterialCommand */
+                                    editorDeleteMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand | null);
+
+                                    /** Command editorCheckToAddMaterialCommand */
+                                    editorCheckToAddMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand | null);
+
                                     /** Command editorSetClipCropCommand */
                                     editorSetClipCropCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCropCommand | null);
 
@@ -753,23 +768,23 @@ export namespace com {
                                     /** Command editorSetClipCanvasBackgroundBlurTypeCommand */
                                     editorSetClipCanvasBackgroundBlurTypeCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCanvasBackgroundBlurTypeCommand | null);
 
-                                    /** Command editorDeleteMaterialCommand */
-                                    editorDeleteMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand | null);
-
-                                    /** Command editorCheckToAddMaterialCommand */
-                                    editorCheckToAddMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand | null);
-
                                     /** Command editorSetTransitionEffectCommand */
                                     editorSetTransitionEffectCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTransitionEffectCommand | null);
 
                                     /** Command editorSetResourcePropertiesCommand */
                                     editorSetResourcePropertiesCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetResourcePropertiesCommand | null);
 
+                                    /** Command editorGetResourcePropertiesCommand */
+                                    editorGetResourcePropertiesCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand | null);
+
                                     /** Command editorGetResourceDurationUsCommand */
                                     editorGetResourceDurationUsCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommand | null);
 
                                     /** Command editorGetResourceSizeCommand */
                                     editorGetResourceSizeCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommand | null);
+
+                                    /** Command editorGetResourceUriCommand */
+                                    editorGetResourceUriCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand | null);
 
                                     /** Command editorGetClipResourceInfoCommand */
                                     editorGetClipResourceInfoCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipResourceInfoCommand | null);
@@ -810,6 +825,12 @@ export namespace com {
                                     /** Command editorSetTextWordSpaceCommand */
                                     editorSetTextWordSpaceCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextWordSpaceCommand | null);
 
+                                    /** Command editorSetTextExtraClipCommand */
+                                    editorSetTextExtraClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand | null);
+
+                                    /** Command editorGetTextExtraClipCommand */
+                                    editorGetTextExtraClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand | null);
+
                                     /** Command editorSetScaleCommand */
                                     editorSetScaleCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetScaleCommand | null);
 
@@ -845,6 +866,33 @@ export namespace com {
 
                                     /** Command editorGetClipIdListCommand */
                                     editorGetClipIdListCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipIdListCommand | null);
+
+                                    /** Command editorGetTrackInfoCommand */
+                                    editorGetTrackInfoCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand | null);
+
+                                    /** Command editorSetClipCurvePropertyAnchorValueCommand */
+                                    editorSetClipCurvePropertyAnchorValueCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand | null);
+
+                                    /** Command editorRemoveClipCurvePropertyAnchorCommand */
+                                    editorRemoveClipCurvePropertyAnchorCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand | null);
+
+                                    /** Command editorGetClipCurvePropertyAnchorListCommand */
+                                    editorGetClipCurvePropertyAnchorListCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand | null);
+
+                                    /** Command editorGetClipCurvePropertyValueCommand */
+                                    editorGetClipCurvePropertyValueCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand | null);
+
+                                    /** Command editorAddExtensionEffectForClipCommand */
+                                    editorAddExtensionEffectForClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand | null);
+
+                                    /** Command editorRemoveExtensionEffectFromClipCommand */
+                                    editorRemoveExtensionEffectFromClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand | null);
+
+                                    /** Command editorGetExtensionEffectNamesFromClipCommand */
+                                    editorGetExtensionEffectNamesFromClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand | null);
+
+                                    /** Command editorSetExtensionEffectPriorityCommand */
+                                    editorSetExtensionEffectPriorityCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand | null);
 
                                     /** viewer related, 4000~ 4999 * */
                                     viewerSetPropertiesCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerSetPropertiesCommand | null);
@@ -912,6 +960,12 @@ export namespace com {
 
                                     /** Command sessionInvalidCurrentCommand. */
                                     public sessionInvalidCurrentCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionInvalidCurrentCommand | null);
+
+                                    /** resource related, 1000~1199, just for internal call between server * */
+                                    public resourcePrepareCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand | null);
+
+                                    /** resource related, 1200~1999 * */
+                                    public resourceListUserMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand | null);
 
                                     /** project related, 2000~ 2999 * */
                                     public projectLoadCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IProjectLoadCommand | null);
@@ -985,6 +1039,15 @@ export namespace com {
                                     /** Command editorRemoveTransitionCommand. */
                                     public editorRemoveTransitionCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveTransitionCommand | null);
 
+                                    /** Command editorCreateResourceIfNeedCommand. */
+                                    public editorCreateResourceIfNeedCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand | null);
+
+                                    /** Command editorDeleteMaterialCommand. */
+                                    public editorDeleteMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand | null);
+
+                                    /** Command editorCheckToAddMaterialCommand. */
+                                    public editorCheckToAddMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand | null);
+
                                     /** Command editorSetClipCropCommand. */
                                     public editorSetClipCropCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCropCommand | null);
 
@@ -997,23 +1060,23 @@ export namespace com {
                                     /** Command editorSetClipCanvasBackgroundBlurTypeCommand. */
                                     public editorSetClipCanvasBackgroundBlurTypeCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCanvasBackgroundBlurTypeCommand | null);
 
-                                    /** Command editorDeleteMaterialCommand. */
-                                    public editorDeleteMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorDeleteMaterialCommand | null);
-
-                                    /** Command editorCheckToAddMaterialCommand. */
-                                    public editorCheckToAddMaterialCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCheckToAddMaterialCommand | null);
-
                                     /** Command editorSetTransitionEffectCommand. */
                                     public editorSetTransitionEffectCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTransitionEffectCommand | null);
 
                                     /** Command editorSetResourcePropertiesCommand. */
                                     public editorSetResourcePropertiesCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetResourcePropertiesCommand | null);
 
+                                    /** Command editorGetResourcePropertiesCommand. */
+                                    public editorGetResourcePropertiesCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand | null);
+
                                     /** Command editorGetResourceDurationUsCommand. */
                                     public editorGetResourceDurationUsCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommand | null);
 
                                     /** Command editorGetResourceSizeCommand. */
                                     public editorGetResourceSizeCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommand | null);
+
+                                    /** Command editorGetResourceUriCommand. */
+                                    public editorGetResourceUriCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand | null);
 
                                     /** Command editorGetClipResourceInfoCommand. */
                                     public editorGetClipResourceInfoCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipResourceInfoCommand | null);
@@ -1054,6 +1117,12 @@ export namespace com {
                                     /** Command editorSetTextWordSpaceCommand. */
                                     public editorSetTextWordSpaceCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextWordSpaceCommand | null);
 
+                                    /** Command editorSetTextExtraClipCommand. */
+                                    public editorSetTextExtraClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand | null);
+
+                                    /** Command editorGetTextExtraClipCommand. */
+                                    public editorGetTextExtraClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand | null);
+
                                     /** Command editorSetScaleCommand. */
                                     public editorSetScaleCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetScaleCommand | null);
 
@@ -1090,6 +1159,33 @@ export namespace com {
                                     /** Command editorGetClipIdListCommand. */
                                     public editorGetClipIdListCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipIdListCommand | null);
 
+                                    /** Command editorGetTrackInfoCommand. */
+                                    public editorGetTrackInfoCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand | null);
+
+                                    /** Command editorSetClipCurvePropertyAnchorValueCommand. */
+                                    public editorSetClipCurvePropertyAnchorValueCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand | null);
+
+                                    /** Command editorRemoveClipCurvePropertyAnchorCommand. */
+                                    public editorRemoveClipCurvePropertyAnchorCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand | null);
+
+                                    /** Command editorGetClipCurvePropertyAnchorListCommand. */
+                                    public editorGetClipCurvePropertyAnchorListCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand | null);
+
+                                    /** Command editorGetClipCurvePropertyValueCommand. */
+                                    public editorGetClipCurvePropertyValueCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand | null);
+
+                                    /** Command editorAddExtensionEffectForClipCommand. */
+                                    public editorAddExtensionEffectForClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand | null);
+
+                                    /** Command editorRemoveExtensionEffectFromClipCommand. */
+                                    public editorRemoveExtensionEffectFromClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand | null);
+
+                                    /** Command editorGetExtensionEffectNamesFromClipCommand. */
+                                    public editorGetExtensionEffectNamesFromClipCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand | null);
+
+                                    /** Command editorSetExtensionEffectPriorityCommand. */
+                                    public editorSetExtensionEffectPriorityCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand | null);
+
                                     /** viewer related, 4000~ 4999 * */
                                     public viewerSetPropertiesCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerSetPropertiesCommand | null);
 
@@ -1121,7 +1217,7 @@ export namespace com {
                                     public exporterCancelCommand?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IExporterCancelCommand | null);
 
                                     /** Command data. */
-                                    public data?: ("SystemRequireResendCommand" | "sessionCreateNewCommand" | "sessionPrepareRTCCommand" | "sessionBeginCommand" | "sessionKeepaliveCommand" | "sessionEndCurrentCommand" | "sessionInvalidCurrentCommand" | "projectLoadCommand" | "projectSaveCommand" | "projectNewCommand" | "projectCloseCommand" | "editorUndoCommand" | "editorRedoCommand" | "editorGetStackSizeCommand" | "editorSetCanvasPropertiesCommand" | "editorGetCanvasPropertiesCommand" | "editorAddMainClipCommand" | "editorAddLookupClipCommand" | "editorAddPipClipCommand" | "editorAddMusicClipCommand" | "editorAddTextClipCommand" | "editorAddStickerClipCommand" | "editorAddExtensionClipCommand" | "editorChangeClipResourceCommand" | "editorSplitClipCommand" | "editorDeleteClipCommand" | "editorMoveClipCommand" | "editorRemoveTrackCommand" | "editorSetClipLookupCommand" | "editorSetTransitionDurationUsCommand" | "editorRemoveTransitionCommand" | "editorSetClipCropCommand" | "editorSetClipCanvasBackgroundCommand" | "editorSetClipCanvasBackgroundResCommand" | "editorSetClipCanvasBackgroundBlurTypeCommand" | "editorDeleteMaterialCommand" | "editorCheckToAddMaterialCommand" | "editorSetTransitionEffectCommand" | "editorSetResourcePropertiesCommand" | "editorGetResourceDurationUsCommand" | "editorGetResourceSizeCommand" | "editorGetClipResourceInfoCommand" | "editorSetResourceFullKeyFrameWithResIdCommand" | "editorSetTextCommand" | "editorSetTextColorCommand" | "editorSetTextFontCommand" | "editorSetDefaultFontFileCommand" | "editorSetTextShadowCommand" | "editorSetTextAlignmentCommand" | "editorSetTextOutlineCommand" | "editorSetTextUnderlineCommand" | "editorSetTextBoldCommand" | "editorSetTextItalicsCommand" | "editorSetTextWordSpaceCommand" | "editorSetScaleCommand" | "editorSetPositionCommand" | "editorSetAnchorCommand" | "editorSetRotationCommand" | "editorSetClipStartTimeUsCommand" | "editorSetSourceTimeRangeCommand" | "editorSetClipSpeedCommand" | "editorSetClipVolumeCommand" | "editorGetClipPropListCommand" | "editorSetClipPropListCommand" | "editorGetTrackIdListCommand" | "editorGetClipIdListCommand" | "viewerSetPropertiesCommand" | "viewerPrepareCommand" | "viewerStartCommand" | "viewerPauseCommand" | "viewerStopCommand" | "viewerSeekToCommand" | "viewerGetStateCommand" | "viewerGetDurationUsCommand" | "exporterRunCommand" | "exporterCancelCommand");
+                                    public data?: ("SystemRequireResendCommand" | "sessionCreateNewCommand" | "sessionPrepareRTCCommand" | "sessionBeginCommand" | "sessionKeepaliveCommand" | "sessionEndCurrentCommand" | "sessionInvalidCurrentCommand" | "resourcePrepareCommand" | "resourceListUserMaterialCommand" | "projectLoadCommand" | "projectSaveCommand" | "projectNewCommand" | "projectCloseCommand" | "editorUndoCommand" | "editorRedoCommand" | "editorGetStackSizeCommand" | "editorSetCanvasPropertiesCommand" | "editorGetCanvasPropertiesCommand" | "editorAddMainClipCommand" | "editorAddLookupClipCommand" | "editorAddPipClipCommand" | "editorAddMusicClipCommand" | "editorAddTextClipCommand" | "editorAddStickerClipCommand" | "editorAddExtensionClipCommand" | "editorChangeClipResourceCommand" | "editorSplitClipCommand" | "editorDeleteClipCommand" | "editorMoveClipCommand" | "editorRemoveTrackCommand" | "editorSetClipLookupCommand" | "editorSetTransitionDurationUsCommand" | "editorRemoveTransitionCommand" | "editorCreateResourceIfNeedCommand" | "editorDeleteMaterialCommand" | "editorCheckToAddMaterialCommand" | "editorSetClipCropCommand" | "editorSetClipCanvasBackgroundCommand" | "editorSetClipCanvasBackgroundResCommand" | "editorSetClipCanvasBackgroundBlurTypeCommand" | "editorSetTransitionEffectCommand" | "editorSetResourcePropertiesCommand" | "editorGetResourcePropertiesCommand" | "editorGetResourceDurationUsCommand" | "editorGetResourceSizeCommand" | "editorGetResourceUriCommand" | "editorGetClipResourceInfoCommand" | "editorSetResourceFullKeyFrameWithResIdCommand" | "editorSetTextCommand" | "editorSetTextColorCommand" | "editorSetTextFontCommand" | "editorSetDefaultFontFileCommand" | "editorSetTextShadowCommand" | "editorSetTextAlignmentCommand" | "editorSetTextOutlineCommand" | "editorSetTextUnderlineCommand" | "editorSetTextBoldCommand" | "editorSetTextItalicsCommand" | "editorSetTextWordSpaceCommand" | "editorSetTextExtraClipCommand" | "editorGetTextExtraClipCommand" | "editorSetScaleCommand" | "editorSetPositionCommand" | "editorSetAnchorCommand" | "editorSetRotationCommand" | "editorSetClipStartTimeUsCommand" | "editorSetSourceTimeRangeCommand" | "editorSetClipSpeedCommand" | "editorSetClipVolumeCommand" | "editorGetClipPropListCommand" | "editorSetClipPropListCommand" | "editorGetTrackIdListCommand" | "editorGetClipIdListCommand" | "editorGetTrackInfoCommand" | "editorSetClipCurvePropertyAnchorValueCommand" | "editorRemoveClipCurvePropertyAnchorCommand" | "editorGetClipCurvePropertyAnchorListCommand" | "editorGetClipCurvePropertyValueCommand" | "editorAddExtensionEffectForClipCommand" | "editorRemoveExtensionEffectFromClipCommand" | "editorGetExtensionEffectNamesFromClipCommand" | "editorSetExtensionEffectPriorityCommand" | "viewerSetPropertiesCommand" | "viewerPrepareCommand" | "viewerStartCommand" | "viewerPauseCommand" | "viewerStopCommand" | "viewerSeekToCommand" | "viewerGetStateCommand" | "viewerGetDurationUsCommand" | "exporterRunCommand" | "exporterCancelCommand");
 
                                     /**
                                      * Creates a new Command instance using the specified properties.
@@ -1215,6 +1311,9 @@ export namespace com {
                                     /** Result sessionPrepareRTCommandResult */
                                     sessionPrepareRTCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionPrepareRTCommandResult | null);
 
+                                    /** Result resourceListUserMaterialCommandResult */
+                                    resourceListUserMaterialCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult | null);
+
                                     /** Result editorGetStackSizeCommandResult */
                                     editorGetStackSizeCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetStackSizeCommandResult | null);
 
@@ -1245,14 +1344,26 @@ export namespace com {
                                     /** Result editorSplitClipCommandResult */
                                     editorSplitClipCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSplitClipCommandResult | null);
 
+                                    /** Result editorGetResourcePropertiesCommandResult */
+                                    editorGetResourcePropertiesCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult | null);
+
                                     /** Result editorGetResourceDurationUsCommandResult */
                                     editorGetResourceDurationUsCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommandResult | null);
 
                                     /** Result editorGetResourceSizeCommandResult */
                                     editorGetResourceSizeCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommandResult | null);
 
+                                    /** Result editorGetResourceUriCommandResult */
+                                    editorGetResourceUriCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult | null);
+
                                     /** Result editorGetClipResourceInfoCommandResult */
                                     editorGetClipResourceInfoCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipResourceInfoCommandResult | null);
+
+                                    /** Result editorCreateResourceIfNeedCommandResult */
+                                    editorCreateResourceIfNeedCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult | null);
+
+                                    /** Result editorGetTextExtraClipCommandResult */
+                                    editorGetTextExtraClipCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult | null);
 
                                     /** Result editorGetClipPropListResult */
                                     editorGetClipPropListResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipPropListResult | null);
@@ -1263,11 +1374,26 @@ export namespace com {
                                     /** Result editorGetClipIdListCommandResult */
                                     editorGetClipIdListCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipIdListCommandResult | null);
 
+                                    /** Result editorGetTrackInfoCommandResult */
+                                    editorGetTrackInfoCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult | null);
+
+                                    /** Result editorGetClipCurvePropertyAnchorListCommandResult */
+                                    editorGetClipCurvePropertyAnchorListCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult | null);
+
+                                    /** Result editorGetClipCurvePropertyValueCommandResult */
+                                    editorGetClipCurvePropertyValueCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult | null);
+
+                                    /** Result editorGetExtensionEffectNamesFromClipCommandResult */
+                                    editorGetExtensionEffectNamesFromClipCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult | null);
+
                                     /** Result viewerGetStateCommandResult */
                                     viewerGetStateCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerGetStateCommandResult | null);
 
                                     /** Result viewerGetDurationUsCommandResult */
                                     viewerGetDurationUsCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerGetDurationUsCommandResult | null);
+
+                                    /** Result exporterRunCommandResult */
+                                    exporterRunCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IExporterRunCommandResult | null);
                                 }
 
                                 /** Represents a Result. */
@@ -1296,6 +1422,9 @@ export namespace com {
 
                                     /** Result sessionPrepareRTCommandResult. */
                                     public sessionPrepareRTCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ISessionPrepareRTCommandResult | null);
+
+                                    /** Result resourceListUserMaterialCommandResult. */
+                                    public resourceListUserMaterialCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult | null);
 
                                     /** Result editorGetStackSizeCommandResult. */
                                     public editorGetStackSizeCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetStackSizeCommandResult | null);
@@ -1327,14 +1456,26 @@ export namespace com {
                                     /** Result editorSplitClipCommandResult. */
                                     public editorSplitClipCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSplitClipCommandResult | null);
 
+                                    /** Result editorGetResourcePropertiesCommandResult. */
+                                    public editorGetResourcePropertiesCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult | null);
+
                                     /** Result editorGetResourceDurationUsCommandResult. */
                                     public editorGetResourceDurationUsCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceDurationUsCommandResult | null);
 
                                     /** Result editorGetResourceSizeCommandResult. */
                                     public editorGetResourceSizeCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceSizeCommandResult | null);
 
+                                    /** Result editorGetResourceUriCommandResult. */
+                                    public editorGetResourceUriCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult | null);
+
                                     /** Result editorGetClipResourceInfoCommandResult. */
                                     public editorGetClipResourceInfoCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipResourceInfoCommandResult | null);
+
+                                    /** Result editorCreateResourceIfNeedCommandResult. */
+                                    public editorCreateResourceIfNeedCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult | null);
+
+                                    /** Result editorGetTextExtraClipCommandResult. */
+                                    public editorGetTextExtraClipCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult | null);
 
                                     /** Result editorGetClipPropListResult. */
                                     public editorGetClipPropListResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipPropListResult | null);
@@ -1345,14 +1486,29 @@ export namespace com {
                                     /** Result editorGetClipIdListCommandResult. */
                                     public editorGetClipIdListCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipIdListCommandResult | null);
 
+                                    /** Result editorGetTrackInfoCommandResult. */
+                                    public editorGetTrackInfoCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult | null);
+
+                                    /** Result editorGetClipCurvePropertyAnchorListCommandResult. */
+                                    public editorGetClipCurvePropertyAnchorListCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult | null);
+
+                                    /** Result editorGetClipCurvePropertyValueCommandResult. */
+                                    public editorGetClipCurvePropertyValueCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult | null);
+
+                                    /** Result editorGetExtensionEffectNamesFromClipCommandResult. */
+                                    public editorGetExtensionEffectNamesFromClipCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult | null);
+
                                     /** Result viewerGetStateCommandResult. */
                                     public viewerGetStateCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerGetStateCommandResult | null);
 
                                     /** Result viewerGetDurationUsCommandResult. */
                                     public viewerGetDurationUsCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IViewerGetDurationUsCommandResult | null);
 
+                                    /** Result exporterRunCommandResult. */
+                                    public exporterRunCommandResult?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IExporterRunCommandResult | null);
+
                                     /** Result data. */
-                                    public data?: ("voidResult" | "sessionCreateNewCommandResult" | "sessionPrepareRTCommandResult" | "editorGetStackSizeCommandResult" | "editorGetCanvasPropertiesCommandResult" | "editorAddMainClipCommandResult" | "editorAddLookupClipCommandResult" | "editorAddPipClipCommandResult" | "editorAddMusicClipCommandResult" | "editorAddTextClipCommandResult" | "editorAddStickerClipCommandResult" | "editorAddExtensionClipCommandResult" | "editorSplitClipCommandResult" | "editorGetResourceDurationUsCommandResult" | "editorGetResourceSizeCommandResult" | "editorGetClipResourceInfoCommandResult" | "editorGetClipPropListResult" | "editorGetTrackIdListCommandResult" | "editorGetClipIdListCommandResult" | "viewerGetStateCommandResult" | "viewerGetDurationUsCommandResult");
+                                    public data?: ("voidResult" | "sessionCreateNewCommandResult" | "sessionPrepareRTCommandResult" | "resourceListUserMaterialCommandResult" | "editorGetStackSizeCommandResult" | "editorGetCanvasPropertiesCommandResult" | "editorAddMainClipCommandResult" | "editorAddLookupClipCommandResult" | "editorAddPipClipCommandResult" | "editorAddMusicClipCommandResult" | "editorAddTextClipCommandResult" | "editorAddStickerClipCommandResult" | "editorAddExtensionClipCommandResult" | "editorSplitClipCommandResult" | "editorGetResourcePropertiesCommandResult" | "editorGetResourceDurationUsCommandResult" | "editorGetResourceSizeCommandResult" | "editorGetResourceUriCommandResult" | "editorGetClipResourceInfoCommandResult" | "editorCreateResourceIfNeedCommandResult" | "editorGetTextExtraClipCommandResult" | "editorGetClipPropListResult" | "editorGetTrackIdListCommandResult" | "editorGetClipIdListCommandResult" | "editorGetTrackInfoCommandResult" | "editorGetClipCurvePropertyAnchorListCommandResult" | "editorGetClipCurvePropertyValueCommandResult" | "editorGetExtensionEffectNamesFromClipCommandResult" | "viewerGetStateCommandResult" | "viewerGetDurationUsCommandResult" | "exporterRunCommandResult");
 
                                     /**
                                      * Creates a new Result instance using the specified properties.
@@ -2317,6 +2473,393 @@ export namespace com {
                                      * @returns JSON object
                                      */
                                     public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of a ResourcePrepareCommand. */
+                                interface IResourcePrepareCommand {
+
+                                    /** ResourcePrepareCommand resourceUri */
+                                    resourceUri?: (string | null);
+
+                                    /** ResourcePrepareCommand resourceUrl */
+                                    resourceUrl?: (string | null);
+                                }
+
+                                /** Represents a ResourcePrepareCommand. */
+                                class ResourcePrepareCommand implements IResourcePrepareCommand {
+
+                                    /**
+                                     * Constructs a new ResourcePrepareCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand);
+
+                                    /** ResourcePrepareCommand resourceUri. */
+                                    public resourceUri: string;
+
+                                    /** ResourcePrepareCommand resourceUrl. */
+                                    public resourceUrl: string;
+
+                                    /**
+                                     * Creates a new ResourcePrepareCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns ResourcePrepareCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand;
+
+                                    /**
+                                     * Encodes the specified ResourcePrepareCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.verify|verify} messages.
+                                     * @param message ResourcePrepareCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified ResourcePrepareCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand.verify|verify} messages.
+                                     * @param message ResourcePrepareCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourcePrepareCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes a ResourcePrepareCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns ResourcePrepareCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand;
+
+                                    /**
+                                     * Decodes a ResourcePrepareCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns ResourcePrepareCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand;
+
+                                    /**
+                                     * Verifies a ResourcePrepareCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates a ResourcePrepareCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns ResourcePrepareCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand;
+
+                                    /**
+                                     * Creates a plain object from a ResourcePrepareCommand message. Also converts values to other types if specified.
+                                     * @param message ResourcePrepareCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourcePrepareCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this ResourcePrepareCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of a ResourceListUserMaterialCommand. */
+                                interface IResourceListUserMaterialCommand {
+
+                                    /** ResourceListUserMaterialCommand currentPage */
+                                    currentPage?: (number | null);
+
+                                    /** ResourceListUserMaterialCommand pageSize */
+                                    pageSize?: (number | null);
+                                }
+
+                                /** Represents a ResourceListUserMaterialCommand. */
+                                class ResourceListUserMaterialCommand implements IResourceListUserMaterialCommand {
+
+                                    /**
+                                     * Constructs a new ResourceListUserMaterialCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand);
+
+                                    /** ResourceListUserMaterialCommand currentPage. */
+                                    public currentPage: number;
+
+                                    /** ResourceListUserMaterialCommand pageSize. */
+                                    public pageSize: number;
+
+                                    /**
+                                     * Creates a new ResourceListUserMaterialCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns ResourceListUserMaterialCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand;
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.verify|verify} messages.
+                                     * @param message ResourceListUserMaterialCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand.verify|verify} messages.
+                                     * @param message ResourceListUserMaterialCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns ResourceListUserMaterialCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand;
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns ResourceListUserMaterialCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand;
+
+                                    /**
+                                     * Verifies a ResourceListUserMaterialCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates a ResourceListUserMaterialCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns ResourceListUserMaterialCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand;
+
+                                    /**
+                                     * Creates a plain object from a ResourceListUserMaterialCommand message. Also converts values to other types if specified.
+                                     * @param message ResourceListUserMaterialCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this ResourceListUserMaterialCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of a ResourceListUserMaterialCommandResult. */
+                                interface IResourceListUserMaterialCommandResult {
+
+                                    /** ResourceListUserMaterialCommandResult materialList */
+                                    materialList?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo[] | null);
+                                }
+
+                                /** Represents a ResourceListUserMaterialCommandResult. */
+                                class ResourceListUserMaterialCommandResult implements IResourceListUserMaterialCommandResult {
+
+                                    /**
+                                     * Constructs a new ResourceListUserMaterialCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult);
+
+                                    /** ResourceListUserMaterialCommandResult materialList. */
+                                    public materialList: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo[];
+
+                                    /**
+                                     * Creates a new ResourceListUserMaterialCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns ResourceListUserMaterialCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult;
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.verify|verify} messages.
+                                     * @param message ResourceListUserMaterialCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified ResourceListUserMaterialCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.verify|verify} messages.
+                                     * @param message ResourceListUserMaterialCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IResourceListUserMaterialCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns ResourceListUserMaterialCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult;
+
+                                    /**
+                                     * Decodes a ResourceListUserMaterialCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns ResourceListUserMaterialCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult;
+
+                                    /**
+                                     * Verifies a ResourceListUserMaterialCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates a ResourceListUserMaterialCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns ResourceListUserMaterialCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult;
+
+                                    /**
+                                     * Creates a plain object from a ResourceListUserMaterialCommandResult message. Also converts values to other types if specified.
+                                     * @param message ResourceListUserMaterialCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this ResourceListUserMaterialCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                namespace ResourceListUserMaterialCommandResult {
+
+                                    /** Properties of a UserMaterialInfo. */
+                                    interface IUserMaterialInfo {
+
+                                        /** UserMaterialInfo resourceUri */
+                                        resourceUri?: (string | null);
+
+                                        /** UserMaterialInfo fileSize */
+                                        fileSize?: (number | Long | null);
+
+                                        /** UserMaterialInfo lastModified */
+                                        lastModified?: (number | Long | null);
+                                    }
+
+                                    /** Represents a UserMaterialInfo. */
+                                    class UserMaterialInfo implements IUserMaterialInfo {
+
+                                        /**
+                                         * Constructs a new UserMaterialInfo.
+                                         * @param [properties] Properties to set
+                                         */
+                                        constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo);
+
+                                        /** UserMaterialInfo resourceUri. */
+                                        public resourceUri: string;
+
+                                        /** UserMaterialInfo fileSize. */
+                                        public fileSize: (number | Long);
+
+                                        /** UserMaterialInfo lastModified. */
+                                        public lastModified: (number | Long);
+
+                                        /**
+                                         * Creates a new UserMaterialInfo instance using the specified properties.
+                                         * @param [properties] Properties to set
+                                         * @returns UserMaterialInfo instance
+                                         */
+                                        public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo;
+
+                                        /**
+                                         * Encodes the specified UserMaterialInfo message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.verify|verify} messages.
+                                         * @param message UserMaterialInfo message or plain object to encode
+                                         * @param [writer] Writer to encode to
+                                         * @returns Writer
+                                         */
+                                        public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                        /**
+                                         * Encodes the specified UserMaterialInfo message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo.verify|verify} messages.
+                                         * @param message UserMaterialInfo message or plain object to encode
+                                         * @param [writer] Writer to encode to
+                                         * @returns Writer
+                                         */
+                                        public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.IUserMaterialInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                        /**
+                                         * Decodes a UserMaterialInfo message from the specified reader or buffer.
+                                         * @param reader Reader or buffer to decode from
+                                         * @param [length] Message length if known beforehand
+                                         * @returns UserMaterialInfo
+                                         * @throws {Error} If the payload is not a reader or valid buffer
+                                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                         */
+                                        public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo;
+
+                                        /**
+                                         * Decodes a UserMaterialInfo message from the specified reader or buffer, length delimited.
+                                         * @param reader Reader or buffer to decode from
+                                         * @returns UserMaterialInfo
+                                         * @throws {Error} If the payload is not a reader or valid buffer
+                                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                         */
+                                        public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo;
+
+                                        /**
+                                         * Verifies a UserMaterialInfo message.
+                                         * @param message Plain object to verify
+                                         * @returns `null` if valid, otherwise the reason why it is not
+                                         */
+                                        public static verify(message: { [k: string]: any }): (string | null);
+
+                                        /**
+                                         * Creates a UserMaterialInfo message from a plain object. Also converts values to their respective internal types.
+                                         * @param object Plain object
+                                         * @returns UserMaterialInfo
+                                         */
+                                        public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo;
+
+                                        /**
+                                         * Creates a plain object from a UserMaterialInfo message. Also converts values to other types if specified.
+                                         * @param message UserMaterialInfo
+                                         * @param [options] Conversion options
+                                         * @returns Plain object
+                                         */
+                                        public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceListUserMaterialCommandResult.UserMaterialInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                        /**
+                                         * Converts this UserMaterialInfo to JSON.
+                                         * @returns JSON object
+                                         */
+                                        public toJSON(): { [k: string]: any };
+                                    }
                                 }
 
                                 /** Properties of a ProjectInfo. */
@@ -6842,14 +7385,213 @@ export namespace com {
                                     ResTypeExtra = 7
                                 }
 
+                                /** MaterialType enum. */
+                                enum MaterialType {
+                                    MaterialTypeUnknown = 0,
+                                    MaterialTypeCanvas = 1,
+                                    MaterialTypeSticker = 2,
+                                    MaterialTypeLookup = 3,
+                                    MaterialTypeTransition = 4,
+                                    MaterialTypeText = 5,
+                                    MaterialTypeCrop = 6,
+                                    MaterialTypeMask = 7,
+                                    MaterialTypeExtension = 8
+                                }
+
+                                /** Properties of an EditorCreateResourceIfNeedCommand. */
+                                interface IEditorCreateResourceIfNeedCommand {
+
+                                    /** EditorCreateResourceIfNeedCommand resourceUri */
+                                    resourceUri?: (string | null);
+
+                                    /** EditorCreateResourceIfNeedCommand resType */
+                                    resType?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType | null);
+                                }
+
+                                /** Represents an EditorCreateResourceIfNeedCommand. */
+                                class EditorCreateResourceIfNeedCommand implements IEditorCreateResourceIfNeedCommand {
+
+                                    /**
+                                     * Constructs a new EditorCreateResourceIfNeedCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand);
+
+                                    /** EditorCreateResourceIfNeedCommand resourceUri. */
+                                    public resourceUri: string;
+
+                                    /** EditorCreateResourceIfNeedCommand resType. */
+                                    public resType: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType;
+
+                                    /**
+                                     * Creates a new EditorCreateResourceIfNeedCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorCreateResourceIfNeedCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand;
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.verify|verify} messages.
+                                     * @param message EditorCreateResourceIfNeedCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand.verify|verify} messages.
+                                     * @param message EditorCreateResourceIfNeedCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorCreateResourceIfNeedCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand;
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorCreateResourceIfNeedCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand;
+
+                                    /**
+                                     * Verifies an EditorCreateResourceIfNeedCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorCreateResourceIfNeedCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorCreateResourceIfNeedCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorCreateResourceIfNeedCommand message. Also converts values to other types if specified.
+                                     * @param message EditorCreateResourceIfNeedCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorCreateResourceIfNeedCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorCreateResourceIfNeedCommandResult. */
+                                interface IEditorCreateResourceIfNeedCommandResult {
+
+                                    /** EditorCreateResourceIfNeedCommandResult resourceId */
+                                    resourceId?: (string | null);
+                                }
+
+                                /** Represents an EditorCreateResourceIfNeedCommandResult. */
+                                class EditorCreateResourceIfNeedCommandResult implements IEditorCreateResourceIfNeedCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorCreateResourceIfNeedCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult);
+
+                                    /** EditorCreateResourceIfNeedCommandResult resourceId. */
+                                    public resourceId: string;
+
+                                    /**
+                                     * Creates a new EditorCreateResourceIfNeedCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorCreateResourceIfNeedCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.verify|verify} messages.
+                                     * @param message EditorCreateResourceIfNeedCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorCreateResourceIfNeedCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult.verify|verify} messages.
+                                     * @param message EditorCreateResourceIfNeedCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorCreateResourceIfNeedCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorCreateResourceIfNeedCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult;
+
+                                    /**
+                                     * Decodes an EditorCreateResourceIfNeedCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorCreateResourceIfNeedCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult;
+
+                                    /**
+                                     * Verifies an EditorCreateResourceIfNeedCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorCreateResourceIfNeedCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorCreateResourceIfNeedCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorCreateResourceIfNeedCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorCreateResourceIfNeedCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorCreateResourceIfNeedCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorCreateResourceIfNeedCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
                                 /** Properties of an EditorDeleteMaterialCommand. */
                                 interface IEditorDeleteMaterialCommand {
 
                                     /** EditorDeleteMaterialCommand clipId */
                                     clipId?: (string | null);
 
-                                    /** EditorDeleteMaterialCommand resType */
-                                    resType?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType | null);
+                                    /** EditorDeleteMaterialCommand materialType */
+                                    materialType?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType | null);
                                 }
 
                                 /** Represents an EditorDeleteMaterialCommand. */
@@ -6864,8 +7606,8 @@ export namespace com {
                                     /** EditorDeleteMaterialCommand clipId. */
                                     public clipId: string;
 
-                                    /** EditorDeleteMaterialCommand resType. */
-                                    public resType: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType;
+                                    /** EditorDeleteMaterialCommand materialType. */
+                                    public materialType: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType;
 
                                     /**
                                      * Creates a new EditorDeleteMaterialCommand instance using the specified properties.
@@ -6944,8 +7686,8 @@ export namespace com {
                                     /** EditorCheckToAddMaterialCommand clipId */
                                     clipId?: (string | null);
 
-                                    /** EditorCheckToAddMaterialCommand resType */
-                                    resType?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType | null);
+                                    /** EditorCheckToAddMaterialCommand materialType */
+                                    materialType?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType | null);
                                 }
 
                                 /** Represents an EditorCheckToAddMaterialCommand. */
@@ -6960,8 +7702,8 @@ export namespace com {
                                     /** EditorCheckToAddMaterialCommand clipId. */
                                     public clipId: string;
 
-                                    /** EditorCheckToAddMaterialCommand resType. */
-                                    public resType: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.ResourceType;
+                                    /** EditorCheckToAddMaterialCommand materialType. */
+                                    public materialType: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.MaterialType;
 
                                     /**
                                      * Creates a new EditorCheckToAddMaterialCommand instance using the specified properties.
@@ -7252,6 +7994,201 @@ export namespace com {
 
                                     /**
                                      * Converts this EditorSetResourcePropertiesCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetResourcePropertiesCommand. */
+                                interface IEditorGetResourcePropertiesCommand {
+
+                                    /** EditorGetResourcePropertiesCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorGetResourcePropertiesCommand resourceId */
+                                    resourceId?: (string | null);
+
+                                    /** EditorGetResourcePropertiesCommand propDefList */
+                                    propDefList?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[] | null);
+                                }
+
+                                /** Represents an EditorGetResourcePropertiesCommand. */
+                                class EditorGetResourcePropertiesCommand implements IEditorGetResourcePropertiesCommand {
+
+                                    /**
+                                     * Constructs a new EditorGetResourcePropertiesCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand);
+
+                                    /** EditorGetResourcePropertiesCommand clipId. */
+                                    public clipId?: (string | null);
+
+                                    /** EditorGetResourcePropertiesCommand resourceId. */
+                                    public resourceId?: (string | null);
+
+                                    /** EditorGetResourcePropertiesCommand propDefList. */
+                                    public propDefList: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorPropDef[];
+
+                                    /** EditorGetResourcePropertiesCommand resource. */
+                                    public resource?: ("clipId" | "resourceId");
+
+                                    /**
+                                     * Creates a new EditorGetResourcePropertiesCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetResourcePropertiesCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.verify|verify} messages.
+                                     * @param message EditorGetResourcePropertiesCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand.verify|verify} messages.
+                                     * @param message EditorGetResourcePropertiesCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetResourcePropertiesCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand;
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetResourcePropertiesCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand;
+
+                                    /**
+                                     * Verifies an EditorGetResourcePropertiesCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetResourcePropertiesCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetResourcePropertiesCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourcePropertiesCommand message. Also converts values to other types if specified.
+                                     * @param message EditorGetResourcePropertiesCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetResourcePropertiesCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetResourcePropertiesCommandResult. */
+                                interface IEditorGetResourcePropertiesCommandResult {
+
+                                    /** EditorGetResourcePropertiesCommandResult propList */
+                                    propList?: (com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp[] | null);
+                                }
+
+                                /** Represents an EditorGetResourcePropertiesCommandResult. */
+                                class EditorGetResourcePropertiesCommandResult implements IEditorGetResourcePropertiesCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorGetResourcePropertiesCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult);
+
+                                    /** EditorGetResourcePropertiesCommandResult propList. */
+                                    public propList: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorProp[];
+
+                                    /**
+                                     * Creates a new EditorGetResourcePropertiesCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetResourcePropertiesCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.verify|verify} messages.
+                                     * @param message EditorGetResourcePropertiesCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourcePropertiesCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult.verify|verify} messages.
+                                     * @param message EditorGetResourcePropertiesCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourcePropertiesCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetResourcePropertiesCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult;
+
+                                    /**
+                                     * Decodes an EditorGetResourcePropertiesCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetResourcePropertiesCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult;
+
+                                    /**
+                                     * Verifies an EditorGetResourcePropertiesCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetResourcePropertiesCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetResourcePropertiesCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourcePropertiesCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorGetResourcePropertiesCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourcePropertiesCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetResourcePropertiesCommandResult to JSON.
                                      * @returns JSON object
                                      */
                                     public toJSON(): { [k: string]: any };
@@ -7618,6 +8555,186 @@ export namespace com {
 
                                     /**
                                      * Converts this EditorGetResourceSizeCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetResourceUriCommand. */
+                                interface IEditorGetResourceUriCommand {
+
+                                    /** EditorGetResourceUriCommand resourceId */
+                                    resourceId?: (string | null);
+                                }
+
+                                /** Represents an EditorGetResourceUriCommand. */
+                                class EditorGetResourceUriCommand implements IEditorGetResourceUriCommand {
+
+                                    /**
+                                     * Constructs a new EditorGetResourceUriCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand);
+
+                                    /** EditorGetResourceUriCommand resourceId. */
+                                    public resourceId: string;
+
+                                    /**
+                                     * Creates a new EditorGetResourceUriCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetResourceUriCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.verify|verify} messages.
+                                     * @param message EditorGetResourceUriCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand.verify|verify} messages.
+                                     * @param message EditorGetResourceUriCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetResourceUriCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand;
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetResourceUriCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand;
+
+                                    /**
+                                     * Verifies an EditorGetResourceUriCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetResourceUriCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetResourceUriCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourceUriCommand message. Also converts values to other types if specified.
+                                     * @param message EditorGetResourceUriCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetResourceUriCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetResourceUriCommandResult. */
+                                interface IEditorGetResourceUriCommandResult {
+
+                                    /** EditorGetResourceUriCommandResult resourceUri */
+                                    resourceUri?: (string | null);
+                                }
+
+                                /** Represents an EditorGetResourceUriCommandResult. */
+                                class EditorGetResourceUriCommandResult implements IEditorGetResourceUriCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorGetResourceUriCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult);
+
+                                    /** EditorGetResourceUriCommandResult resourceUri. */
+                                    public resourceUri: string;
+
+                                    /**
+                                     * Creates a new EditorGetResourceUriCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetResourceUriCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.verify|verify} messages.
+                                     * @param message EditorGetResourceUriCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetResourceUriCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult.verify|verify} messages.
+                                     * @param message EditorGetResourceUriCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetResourceUriCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetResourceUriCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult;
+
+                                    /**
+                                     * Decodes an EditorGetResourceUriCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetResourceUriCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult;
+
+                                    /**
+                                     * Verifies an EditorGetResourceUriCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetResourceUriCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetResourceUriCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetResourceUriCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorGetResourceUriCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetResourceUriCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetResourceUriCommandResult to JSON.
                                      * @returns JSON object
                                      */
                                     public toJSON(): { [k: string]: any };
@@ -9007,6 +10124,282 @@ export namespace com {
                                     public toJSON(): { [k: string]: any };
                                 }
 
+                                /** Properties of an EditorSetTextExtraClipCommand. */
+                                interface IEditorSetTextExtraClipCommand {
+
+                                    /** EditorSetTextExtraClipCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorSetTextExtraClipCommand extraClipId */
+                                    extraClipId?: (string | null);
+                                }
+
+                                /** Represents an EditorSetTextExtraClipCommand. */
+                                class EditorSetTextExtraClipCommand implements IEditorSetTextExtraClipCommand {
+
+                                    /**
+                                     * Constructs a new EditorSetTextExtraClipCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand);
+
+                                    /** EditorSetTextExtraClipCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorSetTextExtraClipCommand extraClipId. */
+                                    public extraClipId: string;
+
+                                    /**
+                                     * Creates a new EditorSetTextExtraClipCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorSetTextExtraClipCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand;
+
+                                    /**
+                                     * Encodes the specified EditorSetTextExtraClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.verify|verify} messages.
+                                     * @param message EditorSetTextExtraClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorSetTextExtraClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand.verify|verify} messages.
+                                     * @param message EditorSetTextExtraClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetTextExtraClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorSetTextExtraClipCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorSetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand;
+
+                                    /**
+                                     * Decodes an EditorSetTextExtraClipCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorSetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand;
+
+                                    /**
+                                     * Verifies an EditorSetTextExtraClipCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorSetTextExtraClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorSetTextExtraClipCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorSetTextExtraClipCommand message. Also converts values to other types if specified.
+                                     * @param message EditorSetTextExtraClipCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetTextExtraClipCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorSetTextExtraClipCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetTextExtraClipCommand. */
+                                interface IEditorGetTextExtraClipCommand {
+
+                                    /** EditorGetTextExtraClipCommand clipId */
+                                    clipId?: (string | null);
+                                }
+
+                                /** Represents an EditorGetTextExtraClipCommand. */
+                                class EditorGetTextExtraClipCommand implements IEditorGetTextExtraClipCommand {
+
+                                    /**
+                                     * Constructs a new EditorGetTextExtraClipCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand);
+
+                                    /** EditorGetTextExtraClipCommand clipId. */
+                                    public clipId: string;
+
+                                    /**
+                                     * Creates a new EditorGetTextExtraClipCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetTextExtraClipCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand;
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.verify|verify} messages.
+                                     * @param message EditorGetTextExtraClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand.verify|verify} messages.
+                                     * @param message EditorGetTextExtraClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand;
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetTextExtraClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand;
+
+                                    /**
+                                     * Verifies an EditorGetTextExtraClipCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetTextExtraClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetTextExtraClipCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTextExtraClipCommand message. Also converts values to other types if specified.
+                                     * @param message EditorGetTextExtraClipCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetTextExtraClipCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetTextExtraClipCommandResult. */
+                                interface IEditorGetTextExtraClipCommandResult {
+
+                                    /** EditorGetTextExtraClipCommandResult extraClipId */
+                                    extraClipId?: (string | null);
+                                }
+
+                                /** Represents an EditorGetTextExtraClipCommandResult. */
+                                class EditorGetTextExtraClipCommandResult implements IEditorGetTextExtraClipCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorGetTextExtraClipCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult);
+
+                                    /** EditorGetTextExtraClipCommandResult extraClipId. */
+                                    public extraClipId: string;
+
+                                    /**
+                                     * Creates a new EditorGetTextExtraClipCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetTextExtraClipCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.verify|verify} messages.
+                                     * @param message EditorGetTextExtraClipCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetTextExtraClipCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult.verify|verify} messages.
+                                     * @param message EditorGetTextExtraClipCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTextExtraClipCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetTextExtraClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult;
+
+                                    /**
+                                     * Decodes an EditorGetTextExtraClipCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetTextExtraClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult;
+
+                                    /**
+                                     * Verifies an EditorGetTextExtraClipCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetTextExtraClipCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetTextExtraClipCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTextExtraClipCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorGetTextExtraClipCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTextExtraClipCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetTextExtraClipCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
                                 /** Properties of an EditorSetScaleCommand. */
                                 interface IEditorSetScaleCommand {
 
@@ -9806,7 +11199,10 @@ export namespace com {
                                     TrackTypeCustomize = 8,
                                     TrackTypeText = 9,
                                     TrackTypeGroup = 10,
-                                    TrackTypeAll = 11
+                                    TrackTypeMask = 11,
+                                    TrackTypeMagic = 12,
+                                    TrackTypeDynamic = 13,
+                                    TrackTypeAll = 14
                                 }
 
                                 /** Properties of an EditorGetTrackIdListCommand. */
@@ -10164,6 +11560,1290 @@ export namespace com {
 
                                     /**
                                      * Converts this EditorGetClipIdListCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetTrackInfoCommand. */
+                                interface IEditorGetTrackInfoCommand {
+
+                                    /** EditorGetTrackInfoCommand trackId */
+                                    trackId?: (string | null);
+                                }
+
+                                /** Represents an EditorGetTrackInfoCommand. */
+                                class EditorGetTrackInfoCommand implements IEditorGetTrackInfoCommand {
+
+                                    /**
+                                     * Constructs a new EditorGetTrackInfoCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand);
+
+                                    /** EditorGetTrackInfoCommand trackId. */
+                                    public trackId: string;
+
+                                    /**
+                                     * Creates a new EditorGetTrackInfoCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetTrackInfoCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand;
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.verify|verify} messages.
+                                     * @param message EditorGetTrackInfoCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand.verify|verify} messages.
+                                     * @param message EditorGetTrackInfoCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetTrackInfoCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand;
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetTrackInfoCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand;
+
+                                    /**
+                                     * Verifies an EditorGetTrackInfoCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetTrackInfoCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetTrackInfoCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTrackInfoCommand message. Also converts values to other types if specified.
+                                     * @param message EditorGetTrackInfoCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetTrackInfoCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetTrackInfoCommandResult. */
+                                interface IEditorGetTrackInfoCommandResult {
+
+                                    /** EditorGetTrackInfoCommandResult trackType */
+                                    trackType?: (string | null);
+
+                                    /** EditorGetTrackInfoCommandResult clipIds */
+                                    clipIds?: (string[] | null);
+                                }
+
+                                /** Represents an EditorGetTrackInfoCommandResult. */
+                                class EditorGetTrackInfoCommandResult implements IEditorGetTrackInfoCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorGetTrackInfoCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult);
+
+                                    /** EditorGetTrackInfoCommandResult trackType. */
+                                    public trackType: string;
+
+                                    /** EditorGetTrackInfoCommandResult clipIds. */
+                                    public clipIds: string[];
+
+                                    /**
+                                     * Creates a new EditorGetTrackInfoCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetTrackInfoCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.verify|verify} messages.
+                                     * @param message EditorGetTrackInfoCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetTrackInfoCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult.verify|verify} messages.
+                                     * @param message EditorGetTrackInfoCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetTrackInfoCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetTrackInfoCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult;
+
+                                    /**
+                                     * Decodes an EditorGetTrackInfoCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetTrackInfoCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult;
+
+                                    /**
+                                     * Verifies an EditorGetTrackInfoCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetTrackInfoCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetTrackInfoCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetTrackInfoCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorGetTrackInfoCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetTrackInfoCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetTrackInfoCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorSetClipCurvePropertyAnchorValueCommand. */
+                                interface IEditorSetClipCurvePropertyAnchorValueCommand {
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand type */
+                                    type?: (string | null);
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand key */
+                                    key?: (string | null);
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand index */
+                                    index?: (number | Long | null);
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand value */
+                                    value?: (number | null);
+                                }
+
+                                /** Represents an EditorSetClipCurvePropertyAnchorValueCommand. */
+                                class EditorSetClipCurvePropertyAnchorValueCommand implements IEditorSetClipCurvePropertyAnchorValueCommand {
+
+                                    /**
+                                     * Constructs a new EditorSetClipCurvePropertyAnchorValueCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand);
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand type. */
+                                    public type: string;
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand key. */
+                                    public key: string;
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand index. */
+                                    public index: (number | Long);
+
+                                    /** EditorSetClipCurvePropertyAnchorValueCommand value. */
+                                    public value: number;
+
+                                    /**
+                                     * Creates a new EditorSetClipCurvePropertyAnchorValueCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorSetClipCurvePropertyAnchorValueCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand;
+
+                                    /**
+                                     * Encodes the specified EditorSetClipCurvePropertyAnchorValueCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.verify|verify} messages.
+                                     * @param message EditorSetClipCurvePropertyAnchorValueCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorSetClipCurvePropertyAnchorValueCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand.verify|verify} messages.
+                                     * @param message EditorSetClipCurvePropertyAnchorValueCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetClipCurvePropertyAnchorValueCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorSetClipCurvePropertyAnchorValueCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand;
+
+                                    /**
+                                     * Decodes an EditorSetClipCurvePropertyAnchorValueCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand;
+
+                                    /**
+                                     * Verifies an EditorSetClipCurvePropertyAnchorValueCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorSetClipCurvePropertyAnchorValueCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorSetClipCurvePropertyAnchorValueCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorSetClipCurvePropertyAnchorValueCommand message. Also converts values to other types if specified.
+                                     * @param message EditorSetClipCurvePropertyAnchorValueCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetClipCurvePropertyAnchorValueCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorSetClipCurvePropertyAnchorValueCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorRemoveClipCurvePropertyAnchorCommand. */
+                                interface IEditorRemoveClipCurvePropertyAnchorCommand {
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand type */
+                                    type?: (string | null);
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand key */
+                                    key?: (string | null);
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand index */
+                                    index?: (number | Long | null);
+                                }
+
+                                /** Represents an EditorRemoveClipCurvePropertyAnchorCommand. */
+                                class EditorRemoveClipCurvePropertyAnchorCommand implements IEditorRemoveClipCurvePropertyAnchorCommand {
+
+                                    /**
+                                     * Constructs a new EditorRemoveClipCurvePropertyAnchorCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand);
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand type. */
+                                    public type: string;
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand key. */
+                                    public key: string;
+
+                                    /** EditorRemoveClipCurvePropertyAnchorCommand index. */
+                                    public index: (number | Long);
+
+                                    /**
+                                     * Creates a new EditorRemoveClipCurvePropertyAnchorCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorRemoveClipCurvePropertyAnchorCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand;
+
+                                    /**
+                                     * Encodes the specified EditorRemoveClipCurvePropertyAnchorCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.verify|verify} messages.
+                                     * @param message EditorRemoveClipCurvePropertyAnchorCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorRemoveClipCurvePropertyAnchorCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand.verify|verify} messages.
+                                     * @param message EditorRemoveClipCurvePropertyAnchorCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveClipCurvePropertyAnchorCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorRemoveClipCurvePropertyAnchorCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand;
+
+                                    /**
+                                     * Decodes an EditorRemoveClipCurvePropertyAnchorCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand;
+
+                                    /**
+                                     * Verifies an EditorRemoveClipCurvePropertyAnchorCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorRemoveClipCurvePropertyAnchorCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorRemoveClipCurvePropertyAnchorCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorRemoveClipCurvePropertyAnchorCommand message. Also converts values to other types if specified.
+                                     * @param message EditorRemoveClipCurvePropertyAnchorCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveClipCurvePropertyAnchorCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorRemoveClipCurvePropertyAnchorCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetClipCurvePropertyAnchorListCommand. */
+                                interface IEditorGetClipCurvePropertyAnchorListCommand {
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommand type */
+                                    type?: (string | null);
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommand key */
+                                    key?: (string | null);
+                                }
+
+                                /** Represents an EditorGetClipCurvePropertyAnchorListCommand. */
+                                class EditorGetClipCurvePropertyAnchorListCommand implements IEditorGetClipCurvePropertyAnchorListCommand {
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyAnchorListCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand);
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommand type. */
+                                    public type: string;
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommand key. */
+                                    public key: string;
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyAnchorListCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyAnchorListCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyAnchorListCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand;
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyAnchorListCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyAnchorListCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyAnchorListCommand message. Also converts values to other types if specified.
+                                     * @param message EditorGetClipCurvePropertyAnchorListCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyAnchorListCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetClipCurvePropertyAnchorListCommandResult. */
+                                interface IEditorGetClipCurvePropertyAnchorListCommandResult {
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommandResult anchors */
+                                    anchors?: ((number | Long)[] | null);
+                                }
+
+                                /** Represents an EditorGetClipCurvePropertyAnchorListCommandResult. */
+                                class EditorGetClipCurvePropertyAnchorListCommandResult implements IEditorGetClipCurvePropertyAnchorListCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyAnchorListCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult);
+
+                                    /** EditorGetClipCurvePropertyAnchorListCommandResult anchors. */
+                                    public anchors: (number | Long)[];
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyAnchorListCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyAnchorListCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyAnchorListCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyAnchorListCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyAnchorListCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyAnchorListCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult;
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyAnchorListCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyAnchorListCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetClipCurvePropertyAnchorListCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyAnchorListCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorGetClipCurvePropertyAnchorListCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyAnchorListCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyAnchorListCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetClipCurvePropertyValueCommand. */
+                                interface IEditorGetClipCurvePropertyValueCommand {
+
+                                    /** EditorGetClipCurvePropertyValueCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorGetClipCurvePropertyValueCommand type */
+                                    type?: (string | null);
+
+                                    /** EditorGetClipCurvePropertyValueCommand key */
+                                    key?: (string | null);
+
+                                    /** EditorGetClipCurvePropertyValueCommand index */
+                                    index?: (number | Long | null);
+                                }
+
+                                /** Represents an EditorGetClipCurvePropertyValueCommand. */
+                                class EditorGetClipCurvePropertyValueCommand implements IEditorGetClipCurvePropertyValueCommand {
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyValueCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand);
+
+                                    /** EditorGetClipCurvePropertyValueCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorGetClipCurvePropertyValueCommand type. */
+                                    public type: string;
+
+                                    /** EditorGetClipCurvePropertyValueCommand key. */
+                                    public key: string;
+
+                                    /** EditorGetClipCurvePropertyValueCommand index. */
+                                    public index: (number | Long);
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyValueCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetClipCurvePropertyValueCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyValueCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyValueCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetClipCurvePropertyValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetClipCurvePropertyValueCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand;
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyValueCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyValueCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetClipCurvePropertyValueCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyValueCommand message. Also converts values to other types if specified.
+                                     * @param message EditorGetClipCurvePropertyValueCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyValueCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetClipCurvePropertyValueCommandResult. */
+                                interface IEditorGetClipCurvePropertyValueCommandResult {
+
+                                    /** EditorGetClipCurvePropertyValueCommandResult value */
+                                    value?: (number | null);
+                                }
+
+                                /** Represents an EditorGetClipCurvePropertyValueCommandResult. */
+                                class EditorGetClipCurvePropertyValueCommandResult implements IEditorGetClipCurvePropertyValueCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorGetClipCurvePropertyValueCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult);
+
+                                    /** EditorGetClipCurvePropertyValueCommandResult value. */
+                                    public value: number;
+
+                                    /**
+                                     * Creates a new EditorGetClipCurvePropertyValueCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetClipCurvePropertyValueCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyValueCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetClipCurvePropertyValueCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult.verify|verify} messages.
+                                     * @param message EditorGetClipCurvePropertyValueCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetClipCurvePropertyValueCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetClipCurvePropertyValueCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult;
+
+                                    /**
+                                     * Decodes an EditorGetClipCurvePropertyValueCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetClipCurvePropertyValueCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult;
+
+                                    /**
+                                     * Verifies an EditorGetClipCurvePropertyValueCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetClipCurvePropertyValueCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetClipCurvePropertyValueCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetClipCurvePropertyValueCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorGetClipCurvePropertyValueCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetClipCurvePropertyValueCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetClipCurvePropertyValueCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorAddExtensionEffectForClipCommand. */
+                                interface IEditorAddExtensionEffectForClipCommand {
+
+                                    /** EditorAddExtensionEffectForClipCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorAddExtensionEffectForClipCommand resourceUri */
+                                    resourceUri?: (string | null);
+
+                                    /** EditorAddExtensionEffectForClipCommand name */
+                                    name?: (string | null);
+
+                                    /** EditorAddExtensionEffectForClipCommand flag */
+                                    flag?: (number | Long | null);
+                                }
+
+                                /** Represents an EditorAddExtensionEffectForClipCommand. */
+                                class EditorAddExtensionEffectForClipCommand implements IEditorAddExtensionEffectForClipCommand {
+
+                                    /**
+                                     * Constructs a new EditorAddExtensionEffectForClipCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand);
+
+                                    /** EditorAddExtensionEffectForClipCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorAddExtensionEffectForClipCommand resourceUri. */
+                                    public resourceUri: string;
+
+                                    /** EditorAddExtensionEffectForClipCommand name. */
+                                    public name: string;
+
+                                    /** EditorAddExtensionEffectForClipCommand flag. */
+                                    public flag: (number | Long);
+
+                                    /**
+                                     * Creates a new EditorAddExtensionEffectForClipCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorAddExtensionEffectForClipCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand;
+
+                                    /**
+                                     * Encodes the specified EditorAddExtensionEffectForClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.verify|verify} messages.
+                                     * @param message EditorAddExtensionEffectForClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorAddExtensionEffectForClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand.verify|verify} messages.
+                                     * @param message EditorAddExtensionEffectForClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorAddExtensionEffectForClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorAddExtensionEffectForClipCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorAddExtensionEffectForClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand;
+
+                                    /**
+                                     * Decodes an EditorAddExtensionEffectForClipCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorAddExtensionEffectForClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand;
+
+                                    /**
+                                     * Verifies an EditorAddExtensionEffectForClipCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorAddExtensionEffectForClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorAddExtensionEffectForClipCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorAddExtensionEffectForClipCommand message. Also converts values to other types if specified.
+                                     * @param message EditorAddExtensionEffectForClipCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorAddExtensionEffectForClipCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorAddExtensionEffectForClipCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorRemoveExtensionEffectFromClipCommand. */
+                                interface IEditorRemoveExtensionEffectFromClipCommand {
+
+                                    /** EditorRemoveExtensionEffectFromClipCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorRemoveExtensionEffectFromClipCommand name */
+                                    name?: (string | null);
+                                }
+
+                                /** Represents an EditorRemoveExtensionEffectFromClipCommand. */
+                                class EditorRemoveExtensionEffectFromClipCommand implements IEditorRemoveExtensionEffectFromClipCommand {
+
+                                    /**
+                                     * Constructs a new EditorRemoveExtensionEffectFromClipCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand);
+
+                                    /** EditorRemoveExtensionEffectFromClipCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorRemoveExtensionEffectFromClipCommand name. */
+                                    public name: string;
+
+                                    /**
+                                     * Creates a new EditorRemoveExtensionEffectFromClipCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorRemoveExtensionEffectFromClipCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand;
+
+                                    /**
+                                     * Encodes the specified EditorRemoveExtensionEffectFromClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.verify|verify} messages.
+                                     * @param message EditorRemoveExtensionEffectFromClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorRemoveExtensionEffectFromClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand.verify|verify} messages.
+                                     * @param message EditorRemoveExtensionEffectFromClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorRemoveExtensionEffectFromClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorRemoveExtensionEffectFromClipCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorRemoveExtensionEffectFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand;
+
+                                    /**
+                                     * Decodes an EditorRemoveExtensionEffectFromClipCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorRemoveExtensionEffectFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand;
+
+                                    /**
+                                     * Verifies an EditorRemoveExtensionEffectFromClipCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorRemoveExtensionEffectFromClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorRemoveExtensionEffectFromClipCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorRemoveExtensionEffectFromClipCommand message. Also converts values to other types if specified.
+                                     * @param message EditorRemoveExtensionEffectFromClipCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorRemoveExtensionEffectFromClipCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorRemoveExtensionEffectFromClipCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetExtensionEffectNamesFromClipCommand. */
+                                interface IEditorGetExtensionEffectNamesFromClipCommand {
+
+                                    /** EditorGetExtensionEffectNamesFromClipCommand clipId */
+                                    clipId?: (string | null);
+                                }
+
+                                /** Represents an EditorGetExtensionEffectNamesFromClipCommand. */
+                                class EditorGetExtensionEffectNamesFromClipCommand implements IEditorGetExtensionEffectNamesFromClipCommand {
+
+                                    /**
+                                     * Constructs a new EditorGetExtensionEffectNamesFromClipCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand);
+
+                                    /** EditorGetExtensionEffectNamesFromClipCommand clipId. */
+                                    public clipId: string;
+
+                                    /**
+                                     * Creates a new EditorGetExtensionEffectNamesFromClipCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand;
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.verify|verify} messages.
+                                     * @param message EditorGetExtensionEffectNamesFromClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand.verify|verify} messages.
+                                     * @param message EditorGetExtensionEffectNamesFromClipCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand;
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand;
+
+                                    /**
+                                     * Verifies an EditorGetExtensionEffectNamesFromClipCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetExtensionEffectNamesFromClipCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetExtensionEffectNamesFromClipCommand message. Also converts values to other types if specified.
+                                     * @param message EditorGetExtensionEffectNamesFromClipCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetExtensionEffectNamesFromClipCommand to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorGetExtensionEffectNamesFromClipCommandResult. */
+                                interface IEditorGetExtensionEffectNamesFromClipCommandResult {
+
+                                    /** EditorGetExtensionEffectNamesFromClipCommandResult names */
+                                    names?: (string[] | null);
+                                }
+
+                                /** Represents an EditorGetExtensionEffectNamesFromClipCommandResult. */
+                                class EditorGetExtensionEffectNamesFromClipCommandResult implements IEditorGetExtensionEffectNamesFromClipCommandResult {
+
+                                    /**
+                                     * Constructs a new EditorGetExtensionEffectNamesFromClipCommandResult.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult);
+
+                                    /** EditorGetExtensionEffectNamesFromClipCommandResult names. */
+                                    public names: string[];
+
+                                    /**
+                                     * Creates a new EditorGetExtensionEffectNamesFromClipCommandResult instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommandResult instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult;
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommandResult message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.verify|verify} messages.
+                                     * @param message EditorGetExtensionEffectNamesFromClipCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorGetExtensionEffectNamesFromClipCommandResult message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult.verify|verify} messages.
+                                     * @param message EditorGetExtensionEffectNamesFromClipCommandResult message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorGetExtensionEffectNamesFromClipCommandResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommandResult message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult;
+
+                                    /**
+                                     * Decodes an EditorGetExtensionEffectNamesFromClipCommandResult message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult;
+
+                                    /**
+                                     * Verifies an EditorGetExtensionEffectNamesFromClipCommandResult message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorGetExtensionEffectNamesFromClipCommandResult message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorGetExtensionEffectNamesFromClipCommandResult
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult;
+
+                                    /**
+                                     * Creates a plain object from an EditorGetExtensionEffectNamesFromClipCommandResult message. Also converts values to other types if specified.
+                                     * @param message EditorGetExtensionEffectNamesFromClipCommandResult
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorGetExtensionEffectNamesFromClipCommandResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorGetExtensionEffectNamesFromClipCommandResult to JSON.
+                                     * @returns JSON object
+                                     */
+                                    public toJSON(): { [k: string]: any };
+                                }
+
+                                /** Properties of an EditorSetExtensionEffectPriorityCommand. */
+                                interface IEditorSetExtensionEffectPriorityCommand {
+
+                                    /** EditorSetExtensionEffectPriorityCommand clipId */
+                                    clipId?: (string | null);
+
+                                    /** EditorSetExtensionEffectPriorityCommand name */
+                                    name?: (string | null);
+
+                                    /** EditorSetExtensionEffectPriorityCommand priority */
+                                    priority?: (number | Long | null);
+                                }
+
+                                /** Represents an EditorSetExtensionEffectPriorityCommand. */
+                                class EditorSetExtensionEffectPriorityCommand implements IEditorSetExtensionEffectPriorityCommand {
+
+                                    /**
+                                     * Constructs a new EditorSetExtensionEffectPriorityCommand.
+                                     * @param [properties] Properties to set
+                                     */
+                                    constructor(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand);
+
+                                    /** EditorSetExtensionEffectPriorityCommand clipId. */
+                                    public clipId: string;
+
+                                    /** EditorSetExtensionEffectPriorityCommand name. */
+                                    public name: string;
+
+                                    /** EditorSetExtensionEffectPriorityCommand priority. */
+                                    public priority: (number | Long);
+
+                                    /**
+                                     * Creates a new EditorSetExtensionEffectPriorityCommand instance using the specified properties.
+                                     * @param [properties] Properties to set
+                                     * @returns EditorSetExtensionEffectPriorityCommand instance
+                                     */
+                                    public static create(properties?: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand;
+
+                                    /**
+                                     * Encodes the specified EditorSetExtensionEffectPriorityCommand message. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.verify|verify} messages.
+                                     * @param message EditorSetExtensionEffectPriorityCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encode(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Encodes the specified EditorSetExtensionEffectPriorityCommand message, length delimited. Does not implicitly {@link com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand.verify|verify} messages.
+                                     * @param message EditorSetExtensionEffectPriorityCommand message or plain object to encode
+                                     * @param [writer] Writer to encode to
+                                     * @returns Writer
+                                     */
+                                    public static encodeDelimited(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.IEditorSetExtensionEffectPriorityCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                    /**
+                                     * Decodes an EditorSetExtensionEffectPriorityCommand message from the specified reader or buffer.
+                                     * @param reader Reader or buffer to decode from
+                                     * @param [length] Message length if known beforehand
+                                     * @returns EditorSetExtensionEffectPriorityCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decode(reader: ($protobuf.Reader | Uint8Array), length?: number): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand;
+
+                                    /**
+                                     * Decodes an EditorSetExtensionEffectPriorityCommand message from the specified reader or buffer, length delimited.
+                                     * @param reader Reader or buffer to decode from
+                                     * @returns EditorSetExtensionEffectPriorityCommand
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    public static decodeDelimited(reader: ($protobuf.Reader | Uint8Array)): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand;
+
+                                    /**
+                                     * Verifies an EditorSetExtensionEffectPriorityCommand message.
+                                     * @param message Plain object to verify
+                                     * @returns `null` if valid, otherwise the reason why it is not
+                                     */
+                                    public static verify(message: { [k: string]: any }): (string | null);
+
+                                    /**
+                                     * Creates an EditorSetExtensionEffectPriorityCommand message from a plain object. Also converts values to their respective internal types.
+                                     * @param object Plain object
+                                     * @returns EditorSetExtensionEffectPriorityCommand
+                                     */
+                                    public static fromObject(object: { [k: string]: any }): com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand;
+
+                                    /**
+                                     * Creates a plain object from an EditorSetExtensionEffectPriorityCommand message. Also converts values to other types if specified.
+                                     * @param message EditorSetExtensionEffectPriorityCommand
+                                     * @param [options] Conversion options
+                                     * @returns Plain object
+                                     */
+                                    public static toObject(message: com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto.EditorSetExtensionEffectPriorityCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                    /**
+                                     * Converts this EditorSetExtensionEffectPriorityCommand to JSON.
                                      * @returns JSON object
                                      */
                                     public toJSON(): { [k: string]: any };

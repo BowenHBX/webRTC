@@ -3,7 +3,7 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import { Button } from '@alifd/meet';
-import * as proto from '@/protobuf/model';
+import * as proto from '../../marvel-cloud/protobuf/model';
 
 const pkg = proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
 

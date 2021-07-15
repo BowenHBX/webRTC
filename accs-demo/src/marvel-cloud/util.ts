@@ -1,4 +1,4 @@
-import { ColorARGB, ColorHEX, PI } from "./@types";
+import { ColorARGB, ColorHEX, PI } from './@types';
 
 /**
  * C的浮点角度转换成JS角度
@@ -42,7 +42,7 @@ export const pixelToFloat = (value: number, absolutePixel: number) => {
  */
 export const ARGBToHex = (value: ColorARGB): ColorHEX => {
   const hex = (value & 0x00ffffff).toString(16);
-  return "#" + hex.padStart(6, "0"); // 补位到 6位
+  return `#${ hex.padStart(6, '0')}`; // 补位到 6位
 };
 
 /**
@@ -52,7 +52,7 @@ export const ARGBToHex = (value: ColorARGB): ColorHEX => {
 export const ARGBToAlpha = (value: ColorARGB): ColorHEX => {
   // >>> 0 为了把值转换成无符号整形
   return (
-    parseInt((value >>> 0).toString(16).padStart(8, "0").slice(0, 2), 16) / 255
+    parseInt((value >>> 0).toString(16).padStart(8, '0').slice(0, 2), 16) / 255
   ).toFixed(1);
 };
 
@@ -61,9 +61,9 @@ export const ARGBToAlpha = (value: ColorARGB): ColorHEX => {
  * @param value
  */
 export const HexToARGB = (value: ColorHEX | ColorARGB): ColorARGB => {
-  if (value.toString().startsWith("#")) {
-    value = value.toString().replace("#", "").toLowerCase();
-    return parseInt("ff" + value, 16);
+  if (value.toString().startsWith('#')) {
+    value = value.toString().replace('#', '').toLowerCase();
+    return parseInt(`ff${ value}`, 16);
   }
-  return value as ColorARGB
+  return value as ColorARGB;
 };
