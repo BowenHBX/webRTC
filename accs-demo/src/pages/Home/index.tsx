@@ -12,6 +12,7 @@ const pkg = proto.com.taobao.multimedia.biz.cloudediting.interfaces.dto.proto;
 
 // let conn;
 let mc: MarvelCloud;
+const userId = '731956302'; // 263662065
 const Home = () => {
   const [marvelProject, setMarvelProject] = useState<{
     sessionId: string;
@@ -20,10 +21,11 @@ const Home = () => {
   }>({ sessionId: '', streamUrl: '', msgUrl: '' });
 
   const createMarvelCloud = async () => {
-    mc = await MarvelCloud.create('263662065', 'test', 'bowen', {
+    mc = await MarvelCloud.create(userId, 'test', 'bowen', {
       aserverProxy: 'msgacs.waptest.taobao.com',
       appkey: 'H5_3Cl6Mt52kce4N1',
-      reconnectInterval: 2000,
+      reconnectInterval: 2000, 
+      timeout: 3000,
     });
     console.log('mc----1', mc);
     await mc.load('demo', true);
